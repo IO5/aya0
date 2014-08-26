@@ -1,0 +1,277 @@
+header
+{
+    #include <cstdlib>
+    #include <cstring>
+    #include <cmath>
+
+    #include <string>
+    #include <sstream>
+    #include <queue>
+
+    #define stoi(a,b) strtol((char*)(a),0,b)
+
+    typedef std::basic_string<QUEX_TYPE_CHARACTER> qstring;
+
+    #include "types.h"
+    #include "error.h"
+
+    using namespace AYA;
+}
+
+body
+{
+    char string_delimiter;
+}
+
+token_type
+{
+    distinct
+    {
+        text   : std::string;
+    }
+    union
+    {
+        integer: INT_T;
+        real   : REAL_T;
+    }
+    take_text
+    {
+        //if(Begin != LexemeNull)
+        {
+            self.text = std::string(Begin, End);
+        }
+
+        return false;
+    }
+}
+
+define
+{
+   ualpha   [:alpha:]|_
+   ualnum   [:alnum:]|_
+}
+
+start = MAIN;
+
+mode MAIN :
+<skip:  \r|[:blank:]>
+<skip_range:  "#" "\n">
+<skip_range:  "//" "\n">
+<skip_nested_range:  "/*" "*/">
+{
+    on_failure
+    {
+        std::ostringstream ss;
+        ss << "Syntax error: Unexpected symbol: \"" <<
+                std::string(LexemeBegin, LexemeEnd) <<
+                "\" at line " <<
+                self.line_number() <<
+                " column " <<
+                self.column_number();
+        throw ParseError(ss.str());
+    }
+    on_skip_range_open
+    {
+        self_write_token_p()->text = "Warning: Unterminated comment";
+        self_send(TK_WARNING);
+    }
+
+    "\n"            => TK_NL;
+    ";"             => TK_SCOLON;
+    <<EOF>>         => TK_EOS;
+
+    //"/*"            => GOTO(COMMENT);
+
+    "\""            { self.string_delimiter='\"'; self << STRING; }
+    '               { self.string_delimiter='\''; self << STRING; }
+
+    ///----- Keywords -----
+    \C{def}         => TK_DEF;
+    \C{do}          => TK_DO;
+    \C{end}         => TK_END;
+    //* Control
+    \C{if}          => TK_IF;
+    \C{then}        => TK_THEN;
+    \C{else}        => TK_ELSE;
+    \C{elseif}      => TK_ELSEIF;
+    \C{while}       => TK_WHILE;
+    \C{for}         => TK_FOR;
+    \C{in}          => TK_IN;
+    \C{repeat}      => TK_REPEAT;
+    \C{until}       => TK_UNTIL;
+    //* Jump Statements
+    \C{return}      => TK_RETURN;
+    \C{break}       => TK_BREAK;
+    \C{next}        => TK_NEXT;
+    //* Scope Labels
+    \C{local}       => TK_LOCAL;
+    \C{global}      => TK_GLOBAL;
+    //* Constants
+    \C{nil}         => TK_NIL;
+    \C{true}        => TK_TRUE;
+    \C{false}       => TK_FALSE;
+
+    ///----- Operators -----
+    \C{or}          => TK_OR;
+    \C{and}         => TK_AND;
+    \C{not}         => TK_NOT;
+    <               => TK_L;
+    >               => TK_G;
+    <=              => TK_LEQ;
+    >=              => TK_GEQ;
+    !=              => TK_NEQ;
+    <>              => TK_NEQ;
+    ==              => TK_EQ;
+
+    ".."            => TK_RANGEOP;
+    "+"             => TK_PLUS;
+    "-"             => TK_MINUS;
+    "*"             => TK_MUL;
+    "/"             => TK_DIV;
+    "%"             => TK_MOD;
+    "|"             => TK_PIPE;
+    "^"             => TK_EXP;
+    "="             => TK_ASSIG;
+
+    ///----- Other Symbols -----
+    ":"             => ':';
+    ","             => TK_COMMA;
+    "."             => TK_DOT;
+    //* Brackets
+    "["             => '[';
+    "]"             => ']';
+    "{"             => '{';
+    "}"             => '}';
+    "("             => TK_PL;
+    ")"             => TK_PR;
+
+    ///----- Numbers -----
+    //* Integers
+    0[0-7]*           => TK_INT(integer=stoi(Lexeme,8));
+    [1-9][0-9]*       => TK_INT(integer=stoi(Lexeme,10));
+    0x[:xdigit:]+     => TK_INT(integer=stoi(Lexeme,16));
+    //* Floating Point
+    [0-9]*\.?[0-9]+([eE][\-+]?[0-9]+)?   => TK_REAL(real=atof((char*)(Lexeme)));
+    \C{nan}           => TK_REAL(real = NAN);
+    \C{inf}
+    {
+//        if(*LexemeBegin == '-')
+//            self_write_token_p()->content.real = -INFINITY;
+//        else
+            self_write_token_p()->content.real = INFINITY;
+        self_send(TK_REAL);
+    }
+
+    {ualpha}{ualnum}*       => TK_IDENT(Lexeme);
+}
+
+mode STRING
+{
+    /*on_entry
+    {
+        self_accumulator_clear();
+    }*/
+
+    <<EOF>>
+    {
+        throw ParseError("Syntax error: Unterminated string");
+    }
+
+    \"[:space:]*\" //glue adjacent strings
+    {
+        if(self.string_delimiter != '\"')
+            self_accumulator_add(LexemeBegin, LexemeEnd);
+    }
+
+    '[:space:]*' //glue adjacent strings
+    {
+        if(self.string_delimiter != '\'')
+            self_accumulator_add(LexemeBegin, LexemeEnd);
+    }
+
+    \"
+    {
+        if(self.string_delimiter == '\"')
+        {
+            self_accumulator_flush(TK_STRING);
+            self << MAIN;
+        }
+        else
+        {
+            self_accumulator_add_character('\"');
+        }
+    }
+    '
+    {
+        if(self.string_delimiter == '\'')
+        {
+            self_accumulator_flush(TK_STRING);
+            self << MAIN;
+        }
+        else
+        {
+            self_accumulator_add_character('\'');
+        }
+    }
+
+
+    [^\\\"']+           { self_accumulator_add(LexemeBegin, LexemeEnd); }
+
+    //escape sequences
+    \\n                 { self_accumulator_add_character('\n'); }
+    \\t                 { self_accumulator_add_character('\t'); }
+    \\a 	            { self_accumulator_add_character('\a'); }
+    \\b 	            { self_accumulator_add_character('\b'); }
+    \\f 	            { self_accumulator_add_character('\f'); }
+    \\r 	            { self_accumulator_add_character('\r'); }
+    \\v 	            { self_accumulator_add_character('\v'); }
+    \\\\    	        { self_accumulator_add_character('\\'); }
+
+    \\[0-7]{1,3}        { self_accumulator_add_character((QUEX_TYPE_CHARACTER)stoi(Lexeme+1,8)); }
+    \\x[:xdigit:]{1,2}  { self_accumulator_add_character((QUEX_TYPE_CHARACTER)stoi(Lexeme+2,16)); }
+    \\u[:xdigit:]{1,6}
+    {
+        static_assert (sizeof(QUEX_TYPE_CHARACTER) == 1, "QUEX_TYPE_CHARACTER incompatible with utf-8" );
+
+        long code = stoi(Lexeme+2,16); // code point
+
+        //utf-8 encode:
+        if(code < 0x0080) // code as ASCII
+            self_accumulator_add_character((QUEX_TYPE_CHARACTER)code);
+        else
+        {
+            //byte 1        byte 2   ... byte n
+            //1...10x...x   10xxxxxx ... 10xxxxxx
+            // n    8-n-1
+
+            QUEX_TYPE_CHARACTER _char[4]; // character representation
+            int len = 1; // char representation length-1
+            if(code > 0x0800) ++len;
+            if(code > 0x10000) ++len;
+            if(code > 0x10FFFF) {
+                    std::ostringstream ss;
+                    ss << "Syntax error: Invalid code point: " <<
+                            std::hex << code <<
+                            " in string at line " <<
+                            self.line_number() <<
+                            " column " <<
+                            self.column_number();
+                    throw ParseError(ss.str());
+            }
+
+            for(int i=len; i>0; --i)
+            {
+                _char[i] = (code & 0b111111) | (1<<7);
+                code >>= 6;
+            }
+            int mask = (0b111111 >> len);
+            _char[0] = (code & mask) | (~(0b01000000>>len)^mask);
+
+            self_accumulator_add(_char, _char+len+1);
+        }
+    }
+
+    \\'                 { self_accumulator_add_character('\''); }
+    \\\"                { self_accumulator_add_character('\"'); }
+    //{ error("invalid escape '%s' in string\n", yytext); }
+}
