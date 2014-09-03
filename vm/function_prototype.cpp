@@ -4,13 +4,6 @@
 
 namespace AYA
 {
-    FunctionBuilder::FunctionBuilder(VM& _target)
-    :
-        target(_target)
-    {
-        proto = new FunctionPrototype();
-    }
-
     size_t FunctionBuilder::addConst(const STRING_T& str)
     {
         auto& constTable = proto->constTable;

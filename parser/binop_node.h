@@ -1,6 +1,7 @@
 #ifndef BINOP_NODE_H_INCLUDED
 #define BINOP_NODE_H_INCLUDED
 
+#include "../vm/function_prototype.h"
 #include "node.h"
 
 namespace AYA
@@ -12,10 +13,10 @@ namespace AYA
         Node* right;
     public:
         BinOpNode(Node* _left, Node* _right)
+        :
+            left(_left),
+            right(_right)
         {
-            left = _left;
-            right = _right;
-
             assert(left && right);
         }
 

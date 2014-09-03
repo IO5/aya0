@@ -16,7 +16,7 @@ namespace AYA
         REAL_T  real;
         Object* ref;
         Bind    cfunc;
-        FunctionPrototype* proto;
+        const FunctionPrototype* proto;
     };
 
     struct Variant
@@ -69,7 +69,7 @@ namespace AYA
             tag = BType::CFUNC;
             value.cfunc = b;
         }
-        Variant(FunctionPrototype* p)
+        Variant(const FunctionPrototype* p)
         {
             tag = BType::PROTO;
             value.proto = p;

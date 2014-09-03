@@ -5,6 +5,7 @@
 #include "lexer"
 
 #include "parser/lit_node.h"
+#include "parser/ident_node.h"
 
 #include <cstdlib>
 
@@ -43,6 +44,7 @@ namespace AYA
                 semInfo = new StringLitNode(tkn->get_text());
                 break;
             case TK_IDENT: //TODO
+                semInfo = new IdentNode(tkn->get_text());
                 break;
             default:
                 semInfo = NULL;

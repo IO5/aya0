@@ -49,11 +49,30 @@ namespace AYA
         FunctionPrototype* proto;
         VM& target;
     public:
-        FunctionBuilder(VM& _target);
+        FunctionBuilder(VM& _target)
+        :
+            target(_target)
+        {
+            proto = new FunctionPrototype();
+        }
+
         FunctionBuilder(const FunctionBuilder&) = delete;
+
+        FunctionBuilder(FunctionBuilder&& org)
+        :
+            proto(org.proto),
+            target(org.target)
+        {
+            org.proto = new FunctionPrototype();
+        }
 
         ~FunctionBuilder()
         { delete proto; }
+
+        FunctionBuilder getChild()
+        {
+            return std::move(FunctionBuilder(target));
+        }
 
         void clear()
         {

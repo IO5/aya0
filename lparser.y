@@ -18,6 +18,7 @@
 %right NOT.
 %right EXP.
 
+
 %include
 {
     #include "types.h"
@@ -28,11 +29,20 @@
 	#include "lparser.h"
 
     #include "lexer"
+
     #include "parser/lit_node.h"
     #include "parser/binop_node.h"
     #include "parser/unop_node.h"
     #include "parser/logicalop_node.h"
-
+    #include "parser/assign_node.h"
+    #include "parser/var_node.h"
+    #include "parser/stat_node.h"
+    #include "parser/block_node.h"
+    #include "parser/loop_node.h"
+    #include "parser/if_node.h"
+    #include "parser/return_node.h"
+    #include "parser/func_node.h"
+    #include "parser/call_node.h"
 
     #ifdef DEBUG
         #include <iostream>
@@ -46,63 +56,88 @@
     throw AYA::ParseError("syntax error");
 }
 
-chunk       ::= TERMINATION UNINITIALIZED WARNING.
+chunk       ::= TERMINATION UNINITIALIZED WARNING DOT.
 
 //start
-chunk       ::= block EOS.
+chunk(C)    ::= block(B) EOS. { C = B; }
 
-block       ::= stat_list.
+%type stat_list { NodeList<>* }
+%type block { BlockNode* }
+block(B)    ::= stat_list(L). { B = new BlockNode(L);  }
 
-stat_list   ::= stat.
-stat_list   ::= stat_list NL stat.
-stat_list   ::= stat_list SCOLON stat.
+stat_list(SL) ::= stat(S). { SL = new NodeList<>(); if(S){ SL->push_back(S); }  }
+stat_list(SL) ::= stat_list(L) NL stat(S). { SL = L;  if(S){ SL->push_back(S); }  }
+stat_list(SL) ::= stat_list(L) SCOLON stat(S). { SL = L;  if(S){ SL->push_back(S); }  }
 
 
 //stat
-stat(S)     ::= .    { S=NULL; }
-stat(S)     ::= exp(E). { S=E; }
-stat(S)     ::= DO block END. { S; }
+stat(S)     ::= .    { S = NULL; }
+stat(S)     ::= exp(E). { S = new StatNode(E); }
+stat(S)     ::= DO block(B) END. { S = B; B->createScope(); }
 
-stat        ::= var_list ASSIG exp_list.
+//stat        ::= var_list ASSIG exp_list.
+stat(S)     ::= var(V) ASSIG exp(E). { S = new AssignNode(V, E); }
 
 stat        ::= LOCAL ident_list var_init.
 stat        ::= GLOBAL ident_list var_init.
-
+//
 var_init    ::= .
 var_init    ::= ASSIG exp_list.
 
-stat        ::= functioncall.
+//stat        ::= functioncall.
 
-stat        ::= WHILE exp DO block END.
+stat(S)     ::= WHILE exp(C) DO block(B) END. { S = new WhileNode(C, B); }
 
-stat        ::= REPEAT block UNTIL exp.
+stat(S)     ::= REPEAT block(B) UNTIL exp(C). { S = new RepeatNode(C, B); }
 
 stat        ::= FOR ident_list IN exp_list DO block END.
 
-//TODO REDO
-stat        ::= IF exp THEN block elseif else END.
-elseif      ::= .
-elseif      ::= ELSEIF exp THEN block.
-else        ::= .
-else        ::= ELSE block.
+stat(S)     ::= IF exp(C) THEN block(B) else(E) END. { S = new IfNode(C, B, E); }
+else(S)     ::= . { S = NULL; }
+else(S)     ::= ELSE block(B). { S = B; }
+else(S)     ::= ELSEIF exp(C) THEN block(B) else(E). { S = new IfNode(C, B, E); }
 
-stat        ::= RETURN exp_list.
+////stat(S)     ::= RETURN exp_list.
+stat(S)     ::= RETURN exp(E). { S = new ReturnNode(E); }
 
 stat        ::= NEXT.
 stat        ::= BREAK.
 
-
 // func definition
-stat        ::= DEF func_ident func_body.
+%type ident_list { NodeList<IdentNode>* }
+ident_list(IL) ::= IDENT(I).
+{
+    IL = new NodeList<IdentNode>();
+
+    assert(dynamic_cast<IdentNode*>(I));
+    IL->push_back(static_cast<IdentNode*>(I));
+
+}
+ident_list(IL) ::= ident_list(L) COMMA IDENT(I).
+{
+    IL = L;
+
+    assert(dynamic_cast<IdentNode*>(I));
+    IL->push_back(static_cast<IdentNode*>(I));
+}
+
+//stat(S)     ::= DEF func_ident func_body. { S; }
+stat(S)     ::= DEF IDENT(I) func_body(B). { S = new AssignNode(I, B); }
 stat        ::= LOCAL DEF IDENT func_body.
-func_ident  ::= IDENT member_list. //[':' IDENT]
+//func_ident  ::= IDENT member_list. //[':' IDENT]
 
-function    ::= DEF func_body.
-func_body   ::= PL PR block END.
-func_body   ::= PL ident_list PR block END.
+function        ::= DEF func_body.
+func_body(F)    ::= PL PR block(B) END. { F = new FuncNode(NULL, B); }
+func_body(F)    ::= PL ident_list(ARGS) PR block(B) END. { F = new FuncNode(ARGS, B); }
 
+functioncall(C) ::= prefixexp(E) PL PR. { C = new CallNode(E, NULL); } // TODO
+functioncall(C) ::= prefixexp(E) PL exp_list(EL) PR. { C = new CallNode(E, EL); } // TODO
 
-exp(E)      ::= PL exp(A) PR. { E = A; }
+prefixexp(E) ::= var(V). { E = V; }
+prefixexp(E) ::= functioncall(C). { E = C; }
+prefixexp(E) ::= PL exp(A) PR. { E = A; }
+
+exp         ::= prefixexp.
 exp(E)      ::= function(A). { E = A; }
 
 //literals
@@ -132,33 +167,28 @@ exp         ::= exp RANGEOP exp.
 exp(E)      ::= exp(A) PLUS exp(B).     { E = new BinOpNode<'+'>(A, B); }
 exp(E)      ::= exp(A) MINUS exp(B).    { E = new BinOpNode<'-'>(A, B); }
 
-exp(E)      ::= exp(A) MUL exp(B) . { E = new BinOpNode<'*'>(A, B); }
-exp(E)      ::= exp(A) DIV exp(B) . { E = new BinOpNode<'/'>(A, B); }
-exp(E)      ::= exp(A) MOD exp(B) . { E = new BinOpNode<'%'>(A, B); }
+exp(E)      ::= exp(A) MUL exp(B). { E = new BinOpNode<'*'>(A, B); }
+exp(E)      ::= exp(A) DIV exp(B). { E = new BinOpNode<'/'>(A, B); }
+exp(E)      ::= exp(A) MOD exp(B). { E = new BinOpNode<'%'>(A, B); }
 
-exp(E)      ::= exp(A) EXP exp(B) . { E = new BinOpNode<'^'>(A, B); }
+exp(E)      ::= exp(A) EXP exp(B). { E = new BinOpNode<'^'>(A, B); }
 
 exp(E)     ::= NOT exp(A). { E = new UnOpNode<'!'>(A); }
 exp(E)     ::= MINUS exp(A). [NOT] { E = new UnOpNode<'-'>(A); }
 
-exp     ::= var.
-//
 
-member_list ::= .
-member_list ::= member_list member.
-member      ::= DOT IDENT.
+//member_list ::= .
+//member_list ::= member_list member.
+//member      ::= DOT IDENT.
 
 //
 
-var_list ::= var.
-var_list ::= var_list COMMA var.
+//var_list ::= var.
+//var_list ::= var_list COMMA var.
 
-var ::= IDENT.
+var(V) ::= IDENT(I). { V=I; }
 
-exp_list ::= exp.
-exp_list ::= exp_list COMMA exp.
+%type exp_list { NodeList<>* }
+exp_list(EL) ::= exp(E). { EL = new NodeList<>(); EL->push_back(E); }
+exp_list(EL) ::= exp_list(L) COMMA exp(E). { EL = L; EL->push_back(E); }
 
-ident_list ::= IDENT.
-ident_list ::= ident_list COMMA IDENT.
-
-functioncall ::= IDENT PL PR. // TODO

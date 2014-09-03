@@ -1,6 +1,7 @@
 #ifndef LIT_NODE_H_INCLUDED
 #define LIT_NODE_H_INCLUDED
 
+#include "../vm/function_prototype.h"
 #include "node.h"
 
 namespace AYA
