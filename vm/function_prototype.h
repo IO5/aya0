@@ -39,6 +39,12 @@ namespace AYA
             }
         }
 
+        #ifdef DEBUG
+        const InstCode& getCode() const
+        {
+            return code;
+        }
+        #endif
     };
 
     class VM;

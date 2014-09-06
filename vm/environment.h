@@ -53,7 +53,10 @@ namespace AYA
 
                 //Found
                 if(p)
+                {
                     *p = val;
+                    return;
+                }
             }
 
             //Not found
@@ -76,6 +79,13 @@ namespace AYA
         Variant* insertLocal(const IDENT_T& key, const Variant& val)
         {
             return insert(key, val);
+        }
+
+        void declareLocal(const IDENT_T& key)
+        {
+            Variant* v = find(key);
+            if(!v)
+                insert(key, NIL());
         }
 
         /// Set variable to NIL

@@ -8,23 +8,25 @@ namespace AYA
 {
     class ReturnNode : public Node
     {
-	Node* expr;
+        Node* expr;
     public:
         ReturnNode(Node* _expr)
-	{
-	    expr = _expr;
-	}
+        :
+            expr(_expr)
+        {
+            assert(expr);
+        }
 
-	~ReturnNode()
-	{
-	    delete expr;
-	}
+        ~ReturnNode()
+        {
+            delete expr;
+        }
 
         void gen(FunctionBuilder& target)
         {
-	    expr->gen(target);
+            expr->gen(target);
 
-	    target.addInst(Inst::RET);
+            target.addInst(Inst::RET);
         }
     };
 }

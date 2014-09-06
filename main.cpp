@@ -101,7 +101,12 @@ int main(int argc, char** argv)
     //     2nd arg: input character encoding name, 0x0 --> no codec conversion
     quex::lexer    qlex(argc == 1 ? "test2.sbx" : argv[1], ENCODING_NAME);
 
-    Parser par;
+    VM vm;
+
+    vm.globalEnv->set("print", BIND(vm.io.print));
+    vm.globalEnv->set("puts", BIND(vm.io.puts));
+
+    Parser par(vm);
 
     try
     {
@@ -113,6 +118,13 @@ int main(int argc, char** argv)
             //cerr<<token_p->type_id_name()<<'\n';
             par.parse(token_p);
         }while( token_p->type_id() != TK_EOS );
+
+        const FunctionPrototype* proto = par.generateCode();
+        for(auto& inst : proto->getCode())
+            cerr << Inst::name[inst.opcode()] << ' ' << inst.operand() << '\n';
+
+        vm.load(proto);
+        vm.run();
     }
     catch(ParseError err)
     {

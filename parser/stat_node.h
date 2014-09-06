@@ -13,18 +13,20 @@ namespace AYA
 	Node* expr;
     public:
         StatNode(Node* _expr)
-	{
-	    expr = _expr;
-	}
+        :
+            expr(_expr)
+        {
+            assert(expr);
+        }
 
-	~StatNode()
-	{
+        ~StatNode()
+        {
             delete expr;
-	}
+        }
 
         void gen(FunctionBuilder& target)
         {
-	    expr->gen(target);
+            expr->gen(target);
             target.addInst(Inst::POP);
         }
     };

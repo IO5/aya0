@@ -22,7 +22,11 @@ namespace AYA
         friend class Parser;
     public:
         VM()
-        : gc(this), objectFactory(this), activeFunction(NULL)
+        :
+            gc(this),
+            objectFactory(this),
+            globalEnv(new Environment(NULL)),
+            activeFunction(NULL)
         {
             objectFactory.createDefaultDef();
         }
@@ -35,7 +39,7 @@ namespace AYA
             if(activeFunction == NULL)
             {
                 //TODO TODO TODO
-                activeFunction = new FunctionCall(objectFactory.makeClosure(proto, NULL), NULL);
+                activeFunction = new FunctionCall(objectFactory.makeClosure(proto, globalEnv), NULL);
                 activeFunction->enter(evalStack, 0, 0);
             }
             else
@@ -52,8 +56,8 @@ namespace AYA
 
     //protected:
         ObjectFactory objectFactory;
+        pEnvironment globalEnv;
     protected:
-
         EvalStack evalStack;
         FunctionCall* activeFunction;
 

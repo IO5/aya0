@@ -108,7 +108,7 @@ namespace AYA
         { return !impl || impl->empty(); }
 
         Variant* find(const IDENT_T& key)
-        { return impl->find(key); }
+        { return impl ? impl->find(key) : NULL; }
 
         Variant* insert(const IDENT_T& key, const Variant& val)
         {

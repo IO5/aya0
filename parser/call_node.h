@@ -26,17 +26,25 @@ namespace AYA
 
             if(args)
             {
+                for(auto arg : *args)
+                    delete arg;
+
                 delete args;
-                for(auto node : *args)
-                    delete node;
             }
         }
 
         void gen(FunctionBuilder& target)
         {
+            if(args)
+            {
+                for(auto arg : *args)
+                    arg->gen(target);
+            }
+
             expr->gen(target);
+
             // args size or 0 if args is NULL
-            target.addInst(Inst::CALL, args && args->size());
+            target.addInst(Inst::CALL, args ? args->size() : 0);
         }
     };
 }

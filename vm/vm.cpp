@@ -71,13 +71,13 @@ namespace AYA
                     break;
 
                 case Inst::JMPT:
-                    if(test(evalStack.peek()))
+                    if(test(evalStack.pop()))
                         PC += inst.operand();
 
                     break;
 
                 case Inst::JMPF:
-                    if(!test(evalStack.peek()))
+                    if(!test(evalStack.pop()))
                         PC += inst.operand();
 
                     break;
@@ -122,6 +122,21 @@ namespace AYA
                     assert(v.isPROTO());
                     Closure* c = objectFactory.makeClosure(v.value.proto, env);
                     evalStack.push(REF(c));
+                    break;
+                }
+
+                case Inst::SENTER:
+                    activeFunction->enterScope();
+                    break;
+
+                case Inst::SLEAVE:
+                    activeFunction->leaveScope();
+                    break;
+
+                case Inst::DECL:
+                {
+                    auto& str = getStr(constTable[inst.operand()]);
+                    env->declareLocal(str);
                     break;
                 }
 

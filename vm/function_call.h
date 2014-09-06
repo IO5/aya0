@@ -19,7 +19,7 @@ namespace AYA
 
         void enter(EvalStack& evalStack, size_t argCount, bool selfCall)
         {
-            newScope();
+            enterScope();
             // load arguments
             size_t i = 0;
 
@@ -80,7 +80,7 @@ namespace AYA
         }
 
          // Enter new scope
-        pEnvironment newScope()
+        pEnvironment enterScope()
         {
             pEnvironment newEnv(new Environment(env));
             env = newEnv;

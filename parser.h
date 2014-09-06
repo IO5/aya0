@@ -7,26 +7,43 @@
 #include "parser/lit_node.h"
 #include "parser/ident_node.h"
 
+#include "vm/function_prototype.h"
+
 #include <cstdlib>
 
 void* LemonAlloc(void* (*allocProc)(size_t));
-void  Lemon(void*, int, AYA::Node*);
+void  Lemon(void*, int, AYA::Node*, AYA::Node**);
 void  LemonFree(void*, void(*freeProc)(void*));
 
 namespace AYA
 {
+    class VM;
+
     class Parser
     {
         void* pParser;
+        Node* AST;
+        VM& target;
 
     public:
-        Parser()
-        { pParser = LemonAlloc(malloc); }
+        Parser(VM& _target)
+        :
+            AST(NULL),
+            target(_target)
+        {
+            pParser = LemonAlloc(malloc);
+        }
+
         ~Parser()
-        { LemonFree(pParser, free); }
+        {
+            LemonFree(pParser, free);
+            delete AST;
+        }
 
         void parse(TOKEN_T* tkn)
         {
+            assert(tkn);
+
             Node* semInfo;
 
             switch (tkn->type_id())
@@ -50,7 +67,23 @@ namespace AYA
                 semInfo = NULL;
             }
 
-            Lemon(pParser, tkn->type_id(), semInfo);
+            Lemon(pParser, tkn->type_id(), semInfo, NULL);
+        }
+
+        const FunctionPrototype* generateCode()
+        {
+            Lemon(pParser, 0, NULL, &AST);
+
+            assert(AST);
+
+            FunctionBuilder builder(target);
+
+            AST->gen(builder);
+
+            builder.addInst(Inst::LNIL); // TODO see func_node.h
+            builder.addInst(Inst::RET);
+
+            return builder.getResult();
         }
     };
 

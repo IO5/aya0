@@ -2,7 +2,7 @@
 #define VAR_NODE_H_INCLUDED
 
 #include "../vm/function_prototype.h"
-#include "node.h"
+#include "ident_node.h"
 
 namespace AYA
 {
@@ -12,10 +12,13 @@ namespace AYA
 
         STRING_T ident;
     public:
-        VarNode(const STRING_T& _ident)
-        :
-            ident(_ident)
-        {}
+        VarNode(Node* _ident)
+        {
+            assert(dynamic_cast<IdentNode*>(_ident));
+            ident = (static_cast<IdentNode*>(_ident))->ident;
+
+            delete _ident;
+        }
 
         void gen(FunctionBuilder& target)
         {

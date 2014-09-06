@@ -62,12 +62,12 @@ public:
         opr = _opr;
     }
 
-    inline uint8_t opcode()
+    inline uint8_t opcode() const
     {
         return code;
     }
 
-    inline int16_t operand()
+    inline int16_t operand() const
     {
         return opr;
     }

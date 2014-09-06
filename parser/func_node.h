@@ -24,9 +24,9 @@ namespace AYA
         {
             if(args)
             {
+                for(auto arg : *args)
+                    delete arg;
                 delete args;
-                for(auto node : *args)
-                    delete node;
             }
 
             delete block;

@@ -6,7 +6,7 @@ namespace AYA
 {
     ObjectFactory::ObjectFactory(VM* _target)
     {
-        assert(_target && _target->gc);
+        assert(_target);
 
         target = &(_target->gc);
     }

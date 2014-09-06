@@ -1,6 +1,6 @@
 %token_type {AYA::Node*}
 
-//%extra_argument { MyStruct *target }
+%extra_argument { AYA::Node** currentNode }
 
 %token_prefix TK_
 
@@ -43,6 +43,7 @@
     #include "parser/return_node.h"
     #include "parser/func_node.h"
     #include "parser/call_node.h"
+    #include "parser/decl_node.h"
 
     #ifdef DEBUG
         #include <iostream>
@@ -59,7 +60,7 @@
 chunk       ::= TERMINATION UNINITIALIZED WARNING DOT.
 
 //start
-chunk(C)    ::= block(B) EOS. { C = B; }
+chunk(C)    ::= block(B) EOS. { *currentNode = C = B; }
 
 %type stat_list { NodeList<>* }
 %type block { BlockNode* }
@@ -76,15 +77,19 @@ stat(S)     ::= exp(E). { S = new StatNode(E); }
 stat(S)     ::= DO block(B) END. { S = B; B->createScope(); }
 
 //stat        ::= var_list ASSIG exp_list.
-stat(S)     ::= var(V) ASSIG exp(E). { S = new AssignNode(V, E); }
+stat(S)     ::= IDENT(I) ASSIG exp(E). { S = new AssignNode(I, E); }
+stat(S)     ::= GLOBAL IDENT(I) ASSIG exp(E). { S = new AssignNode(I, E); }
+stat(S)     ::= GLOBAL IDENT. { S = NULL; }
 
-stat        ::= LOCAL ident_list var_init.
-stat        ::= GLOBAL ident_list var_init.
+stat(S)     ::= LOCAL IDENT(I). { S = new DeclNode(I, NULL); }
+stat(S)     ::= LOCAL IDENT(I) ASSIG exp(E). { S = new DeclNode(I, E); }
+
+
+//stat        ::= LOCAL ident_list var_init.
+//stat        ::= GLOBAL ident_list var_init.
 //
-var_init    ::= .
-var_init    ::= ASSIG exp_list.
-
-//stat        ::= functioncall.
+//var_init    ::= .
+//var_init    ::= ASSIG exp_list.
 
 stat(S)     ::= WHILE exp(C) DO block(B) END. { S = new WhileNode(C, B); }
 
@@ -97,7 +102,7 @@ else(S)     ::= . { S = NULL; }
 else(S)     ::= ELSE block(B). { S = B; }
 else(S)     ::= ELSEIF exp(C) THEN block(B) else(E). { S = new IfNode(C, B, E); }
 
-////stat(S)     ::= RETURN exp_list.
+//stat(S)     ::= RETURN exp_list.
 stat(S)     ::= RETURN exp(E). { S = new ReturnNode(E); }
 
 stat        ::= NEXT.
@@ -126,7 +131,7 @@ stat(S)     ::= DEF IDENT(I) func_body(B). { S = new AssignNode(I, B); }
 stat        ::= LOCAL DEF IDENT func_body.
 //func_ident  ::= IDENT member_list. //[':' IDENT]
 
-function        ::= DEF func_body.
+function(F)     ::= DEF func_body(B). { F = B; }
 func_body(F)    ::= PL PR block(B) END. { F = new FuncNode(NULL, B); }
 func_body(F)    ::= PL ident_list(ARGS) PR block(B) END. { F = new FuncNode(ARGS, B); }
 
@@ -137,8 +142,8 @@ prefixexp(E) ::= var(V). { E = V; }
 prefixexp(E) ::= functioncall(C). { E = C; }
 prefixexp(E) ::= PL exp(A) PR. { E = A; }
 
-exp         ::= prefixexp.
-exp(E)      ::= function(A). { E = A; }
+exp(E)      ::= prefixexp(P). { E = P; }
+exp(E)      ::= function(F). { E = F; }
 
 //literals
 exp(E)      ::= NIL. { E = new NilLitNode(); }
@@ -148,7 +153,6 @@ exp(E)      ::= TRUE. { E = new BoolLitNode(true); }
 exp(E)      ::= INT(A). { E = A; }
 exp(E)      ::= REAL(A). { E = A; }
 exp(E)      ::= STRING(A). { E = A; }
-
 
 exp(E)      ::= PIPE exp(A) PIPE. { E = new UnOpNode<'|'>(A); }
 
@@ -186,7 +190,7 @@ exp(E)     ::= MINUS exp(A). [NOT] { E = new UnOpNode<'-'>(A); }
 //var_list ::= var.
 //var_list ::= var_list COMMA var.
 
-var(V) ::= IDENT(I). { V=I; }
+var(V) ::= IDENT(I). { V = new VarNode(I); }
 
 %type exp_list { NodeList<>* }
 exp_list(EL) ::= exp(E). { EL = new NodeList<>(); EL->push_back(E); }
