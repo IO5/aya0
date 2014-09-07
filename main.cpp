@@ -99,7 +99,7 @@ int main(int argc, char** argv)
     // (*) create the lexical analyser
     //     1st arg: input file, default = 'example.txt'
     //     2nd arg: input character encoding name, 0x0 --> no codec conversion
-    quex::lexer    qlex(argc == 1 ? "test2.sbx" : argv[1], ENCODING_NAME);
+    quex::lexer    qlex(argc == 1 ? "test.aya" : argv[1], ENCODING_NAME);
 
     VM vm;
 
@@ -118,15 +118,23 @@ int main(int argc, char** argv)
             //cerr<<token_p->type_id_name()<<'\n';
             par.parse(token_p);
         }while( token_p->type_id() != TK_EOS );
-
-        const FunctionPrototype* proto = par.generateCode();
-        for(auto& inst : proto->getCode())
-            cerr << Inst::name[inst.opcode()] << ' ' << inst.operand() << '\n';
-
-        vm.load(proto);
-        vm.run();
     }
     catch(ParseError err)
+    {
+        cerr << err.what() << endl;
+    }
+
+    const FunctionPrototype* proto = par.generateCode();
+    /*for(auto& inst : proto->getCode())
+        cerr << Inst::name[inst.opcode()] << ' ' << inst.operand() << '\n';*/
+
+    vm.load(proto);
+
+    try
+    {
+        vm.run();
+    }
+    catch(RuntimeError err)
     {
         cerr << err.what() << endl;
     }

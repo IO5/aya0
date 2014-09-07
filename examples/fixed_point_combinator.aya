@@ -1,0 +1,29 @@
+def fix(f,x)
+	return f((def(a) return fix(f,a) end), x)
+end
+
+factorial = def(f,x)
+	if x == 0 then 
+		return 1
+	else
+		return x * f(x-1) 
+	end
+end
+
+puts(fix(factorial,5))
+
+fibonacci = def(f,x)
+	if x == 0 then 
+		return 1
+	elseif x == 1 then
+		return 1
+	else
+		return f(x-1) + f(x-2)
+	end
+end
+
+i = 0
+while i < 10 do
+	print(fix(fibonacci,i), "")
+	i = i + 1
+end

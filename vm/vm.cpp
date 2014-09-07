@@ -307,28 +307,28 @@ namespace AYA
                 break;
 
             case '=':
-                binOpTemplate<Eq>(evalStack);
+                Eq(evalStack);
                 break;
 
             case '!':
-                binOpTemplate<NEq>(evalStack);
+                NEq(evalStack);
                 break;
 
             case '<':
-                binOpTemplate<Less>(evalStack);
+                compareTemplate<Less>(evalStack);
                 break;
 
             // lol (for the record: '<'|'+' would be more readable but unfortunately results in '=')
             case '<'+'=':
-                binOpTemplate<LessEq>(evalStack);
+                compareTemplate<LessEq>(evalStack);
                 break;
 
             case '>':
-                binOpTemplate<Great>(evalStack);
+                compareTemplate<Great>(evalStack);
                 break;
 
             case '>'+'=':
-                binOpTemplate<GreatEq>(evalStack);
+                compareTemplate<GreatEq>(evalStack);
                 break;
 
             default:

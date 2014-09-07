@@ -45,6 +45,43 @@ namespace AYA
         throw RuntimeError("Type mismatch");
     }
 
+    template<typename T>
+    inline void compareTemplate(EvalStack& evalStack)
+    {
+        Variant a = evalStack.pop();
+        Variant& b = evalStack.peek();
+
+        if(b.isINT())
+        {
+            if(a.isINT())
+            {
+                b.value.integer = T::op(b.value.integer, a.value.integer);
+                return;
+            }
+            else if(a.isREAL())
+            {
+                b.value.integer = T::op((REAL_T)b.value.integer, a.value.real);
+                return;
+            }
+        }
+        else if(b.isREAL())
+        {
+            b.tag = BType::INT;
+            if(a.isINT())
+            {
+                b.value.integer = T::op(b.value.real, (REAL_T)a.value.integer);
+                return;
+            }
+            else if(a.isREAL())
+            {
+                b.value.integer = T::op(b.value.real, a.value.real);
+                return;
+            }
+        }
+
+        throw RuntimeError("Type mismatch");
+    }
+
     #define make_binOP(NAME, CODE) \
         struct NAME \
         { \
@@ -65,7 +102,7 @@ namespace AYA
     make_binOP(Less,    return a<b);
     make_binOP(LessEq,  return a<=b);
     make_binOP(Great,   return a>b);
-    make_binOP(GreatEq, return a<=b);
+    make_binOP(GreatEq, return a>=b);
 
     inline void Div(EvalStack& evalStack)
     {
@@ -157,6 +194,56 @@ namespace AYA
         }
 
         throw RuntimeError("Type mismatch");
+    }
+
+    inline void Eq(EvalStack& evalStack)
+    {
+        Variant a = evalStack.pop();
+        Variant& b = evalStack.peek();
+
+        if(b.isNIL() || a.isNIL())
+        {
+            b.value.integer = (b.isNIL() && a.isNIL());
+            b.tag = BType::INT;
+            return;
+        }
+        else if(b.isINT())
+        {
+            if(a.isINT())
+            {
+                b.value.integer = (b.value.integer == a.value.integer);
+                return;
+            }
+            else if(a.isREAL())
+            {
+                b.value.integer = ((REAL_T)b.value.integer == a.value.real);
+                return;
+            }
+        }
+        else if(b.isREAL())
+        {
+            b.tag = BType::INT;
+            if(a.isINT())
+            {
+                b.value.integer = (b.value.real == (REAL_T)a.value.integer);
+                return;
+            }
+            else if(a.isREAL())
+            {
+                b.value.integer = (b.value.real == a.value.real);
+                return;
+            }
+        }
+
+        b.tag = BType::INT;
+        b.value.integer = false;
+    }
+
+    inline void NEq(EvalStack& evalStack)
+    {
+        Eq(evalStack);
+        Variant& v = evalStack.peek();
+        v.value.integer = !v.value.integer;
     }
 
     // --------------- Object Methods ---------------

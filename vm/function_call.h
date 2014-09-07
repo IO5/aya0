@@ -25,14 +25,14 @@ namespace AYA
 
             if(selfCall)
             {
-                env->set("self", evalStack.peek(argCount));
+                env->insertLocal("self", evalStack.peek(argCount));
                 ++i;
             }
 
             auto& args = closure->proto->arguments;
             while ( (i < argCount) && (i < args.size()) )
             {
-                env->set(args[i], evalStack.peek(argCount-i));
+                env->insertLocal(args[i], evalStack.peek(argCount-i));
 
                 ++i;
             }
