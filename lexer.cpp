@@ -10048,7 +10048,7 @@ TERMINAL_1566:
     __quex_debug("* terminal 1566:   [^\\\\\\\"']+\n");
     __QUEX_COUNT_VOID(&self, LexemeBegin, LexemeEnd);
     {
-#   line 218 "lexer.qx"
+#   line 217 "lexer.qx"
         self_accumulator_add(LexemeBegin, LexemeEnd);
     
 #   line 10055 "lexer.cpp"
@@ -10061,7 +10061,7 @@ TERMINAL_1567:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 221 "lexer.qx"
+#   line 220 "lexer.qx"
         self_accumulator_add_character('\n');
     
 #   line 10068 "lexer.cpp"
@@ -10074,7 +10074,7 @@ TERMINAL_1568:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 222 "lexer.qx"
+#   line 221 "lexer.qx"
         self_accumulator_add_character('\t');
     
 #   line 10081 "lexer.cpp"
@@ -10087,7 +10087,7 @@ TERMINAL_1569:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 223 "lexer.qx"
+#   line 222 "lexer.qx"
         self_accumulator_add_character('\a');
     
 #   line 10094 "lexer.cpp"
@@ -10100,7 +10100,7 @@ TERMINAL_1570:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 224 "lexer.qx"
+#   line 223 "lexer.qx"
         self_accumulator_add_character('\b');
     
 #   line 10107 "lexer.cpp"
@@ -10113,7 +10113,7 @@ TERMINAL_1571:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 225 "lexer.qx"
+#   line 224 "lexer.qx"
         self_accumulator_add_character('\f');
     
 #   line 10120 "lexer.cpp"
@@ -10126,7 +10126,7 @@ TERMINAL_1572:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 226 "lexer.qx"
+#   line 225 "lexer.qx"
         self_accumulator_add_character('\r');
     
 #   line 10133 "lexer.cpp"
@@ -10139,7 +10139,7 @@ TERMINAL_1573:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 227 "lexer.qx"
+#   line 226 "lexer.qx"
         self_accumulator_add_character('\v');
     
 #   line 10146 "lexer.cpp"
@@ -10152,7 +10152,7 @@ TERMINAL_1574:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 228 "lexer.qx"
+#   line 227 "lexer.qx"
         self_accumulator_add_character('\\');
     
 #   line 10159 "lexer.cpp"
@@ -10166,7 +10166,7 @@ TERMINAL_1575:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 230 "lexer.qx"
+#   line 229 "lexer.qx"
         self_accumulator_add_character((QUEX_TYPE_CHARACTER)stoi(Lexeme+1,8));
     
 #   line 10173 "lexer.cpp"
@@ -10180,7 +10180,7 @@ TERMINAL_1576:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 231 "lexer.qx"
+#   line 230 "lexer.qx"
         self_accumulator_add_character((QUEX_TYPE_CHARACTER)stoi(Lexeme+2,16));
     
 #   line 10187 "lexer.cpp"
@@ -10194,7 +10194,7 @@ TERMINAL_1577:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 233 "lexer.qx"
+#   line 232 "lexer.qx"
     
         static_assert (sizeof(QUEX_TYPE_CHARACTER) == 1, "QUEX_TYPE_CHARACTER incompatible with utf-8" );
     
@@ -10246,7 +10246,7 @@ TERMINAL_1578:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 274 "lexer.qx"
+#   line 273 "lexer.qx"
         self_accumulator_add_character('\'');
     
 #   line 10253 "lexer.cpp"
@@ -10259,7 +10259,7 @@ TERMINAL_1579:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 275 "lexer.qx"
+#   line 274 "lexer.qx"
         self_accumulator_add_character('\"');
     
 #   line 10266 "lexer.cpp"

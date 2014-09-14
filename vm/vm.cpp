@@ -155,6 +155,13 @@ namespace AYA
         }
     }
 
+    void VM::mark()
+    {
+        //globalEnv->mark();
+        if(activeFunction)
+            activeFunction->mark();
+    }
+
     /// Test for true
     int VM::test(const Variant& v)
     {

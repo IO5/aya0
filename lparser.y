@@ -18,7 +18,6 @@
 %right NOT.
 %right EXP.
 
-
 %include
 {
     #include "types.h"
@@ -185,7 +184,6 @@ exp(E)     ::= MINUS exp(A). [NOT] { E = new UnOpNode<'-'>(A); }
 //member_list ::= member_list member.
 //member      ::= DOT IDENT.
 
-//
 
 //var_list ::= var.
 //var_list ::= var_list COMMA var.
@@ -195,4 +193,3 @@ var(V) ::= IDENT(I). { V = new VarNode(I); }
 %type exp_list { NodeList<>* }
 exp_list(EL) ::= exp(E). { EL = new NodeList<>(); EL->push_back(E); }
 exp_list(EL) ::= exp_list(L) COMMA exp(E). { EL = L; EL->push_back(E); }
-

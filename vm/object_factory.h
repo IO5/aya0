@@ -13,9 +13,9 @@ namespace AYA
     class ObjectFactory
     {
     public:
-        ObjectFactory(VM* _target);
+        ObjectFactory(VM& _target);
+        ~ObjectFactory();
 
-        void createDefaultDef();
 
         Object*         makeObject  (TypeObject* def = NULL);
         TypeObject*     makeType    (const STRING_T& name, TypeObject* parent = NULL, TypeObject* def = NULL);
@@ -27,7 +27,9 @@ namespace AYA
         int             getBuildInType(const Object*);
 
     protected:
-        GarbageCollector* target;
+        void createDefaultDef();
+	
+        GarbageCollector& target;
 
         TypeObject* OBJECT_DEF;
         TypeObject* TYPE_OBJECT_DEF;

@@ -128,7 +128,8 @@ namespace AYA
         void mark() const
         {
             SymbolTable::mark();
-            _parent->mark();
+            if(_parent)
+                _parent->mark();
         }
     };
 

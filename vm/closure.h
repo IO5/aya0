@@ -38,9 +38,9 @@ namespace AYA
     public:
         void mark() const
         {
-            Object::mark();
             if(!marker)
             {
+                Object::mark();
                 proto->mark();
                 env->mark();
             }

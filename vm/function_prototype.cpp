@@ -29,12 +29,13 @@ namespace AYA
             return it - constTable.begin();
     }
 
-    // TODO
-    // bind prototype to gc
     const FunctionPrototype* FunctionBuilder::getResult()
     {
         auto res = proto;
         proto = NULL;
+
+        target.gc.registerObj(res, sizeof(proto));
+
         return res;
     }
 }

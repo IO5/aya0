@@ -4,15 +4,21 @@
 
 namespace AYA
 {
-    ObjectFactory::ObjectFactory(VM* _target)
+    ObjectFactory::ObjectFactory(VM& _target)
+    :
+	target(_target.gc)
     {
-        assert(_target);
-
-        target = &(_target->gc);
+        createDefaultDef();
     }
 
-    // TODO
-    // bind to gc (everywhere)
+    ObjectFactory::~ObjectFactory()
+    {
+        delete OBJECT_DEF;
+	delete TYPE_OBJECT_DEF;
+	delete FUNCTION_OBJECT_DEF;
+	delete STRING_OBJECT_DEF;
+    }
+
     void ObjectFactory::createDefaultDef()
     {
         TYPE_OBJECT_DEF = new TypeObject(NULL, "Type", NULL);
@@ -33,9 +39,7 @@ namespace AYA
         if(def == NULL)
             def = OBJECT_DEF;
 
-        // TODO
-        // bind to gc
-        return new Object(def);
+        return new(target) Object(def);
     }
 
     TypeObject* ObjectFactory::makeType(const STRING_T& name, TypeObject* parent, TypeObject* def)
@@ -43,7 +47,7 @@ namespace AYA
         if(def == NULL)
             def = TYPE_OBJECT_DEF;
 
-        return new TypeObject(def, name, parent);
+        return new(target) TypeObject(def, name, parent);
     }
 
     Closure* ObjectFactory::makeClosure(const FunctionPrototype* proto, const pEnvironment& env, TypeObject* def)
@@ -51,7 +55,7 @@ namespace AYA
         if(def == NULL)
             def = FUNCTION_OBJECT_DEF;
 
-        return new Closure(def, proto, env);
+        return new(target) Closure(def, proto, env);
     }
 
     StringObject* ObjectFactory::makeString(const STRING_T& init, TypeObject* def)
@@ -59,7 +63,7 @@ namespace AYA
         if(def == NULL)
             def = STRING_OBJECT_DEF;
 
-        return new StringObject(def, init);
+        return new(target) StringObject(def, init);
     }
 
     Object* ObjectFactory::copy(const Object* original)

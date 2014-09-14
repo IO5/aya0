@@ -98,9 +98,11 @@ namespace AYA
     public:
         void mark() const
         {
-            Object::mark();
             if(!marker)
+            {
+                Object::mark();
                 shareVar.mark();
+            }
         }
 
         /// Load shared

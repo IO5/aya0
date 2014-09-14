@@ -4,7 +4,7 @@
 /* First off, code is included that follows the "include" declaration
 ** in the input grammar file. */
 #include <stdio.h>
-#line 23 "lparser.y"
+#line 22 "lparser.y"
 
     #include "types.h"
     #include "error.h"
@@ -953,91 +953,91 @@ static void yy_reduce(
   **     break;
   */
       case 1: /* chunk ::= block EOS */
-#line 63 "lparser.y"
+#line 62 "lparser.y"
 { *currentNode = yygotominor.yy0 = yymsp[-1].minor.yy76; }
 #line 959 "lparser.c"
         break;
       case 2: /* block ::= stat_list */
-#line 67 "lparser.y"
+#line 66 "lparser.y"
 { yygotominor.yy76 = new BlockNode(yymsp[0].minor.yy77);  }
 #line 964 "lparser.c"
         break;
       case 3: /* stat_list ::= stat */
-#line 69 "lparser.y"
+#line 68 "lparser.y"
 { yygotominor.yy77 = new NodeList<>(); if(yymsp[0].minor.yy0){ yygotominor.yy77->push_back(yymsp[0].minor.yy0); }  }
 #line 969 "lparser.c"
         break;
       case 4: /* stat_list ::= stat_list NL stat */
       case 5: /* stat_list ::= stat_list SCOLON stat */ yytestcase(yyruleno==5);
-#line 70 "lparser.y"
+#line 69 "lparser.y"
 { yygotominor.yy77 = yymsp[-2].minor.yy77;  if(yymsp[0].minor.yy0){ yygotominor.yy77->push_back(yymsp[0].minor.yy0); }  }
 #line 975 "lparser.c"
         break;
       case 6: /* stat ::= */
       case 11: /* stat ::= GLOBAL IDENT */ yytestcase(yyruleno==11);
       case 18: /* else ::= */ yytestcase(yyruleno==18);
-#line 75 "lparser.y"
+#line 74 "lparser.y"
 { yygotominor.yy0 = NULL; }
 #line 982 "lparser.c"
         break;
       case 7: /* stat ::= exp */
-#line 76 "lparser.y"
+#line 75 "lparser.y"
 { yygotominor.yy0 = new StatNode(yymsp[0].minor.yy0); }
 #line 987 "lparser.c"
         break;
       case 8: /* stat ::= DO block END */
-#line 77 "lparser.y"
+#line 76 "lparser.y"
 { yygotominor.yy0 = yymsp[-1].minor.yy76; yymsp[-1].minor.yy76->createScope(); }
 #line 992 "lparser.c"
         break;
       case 9: /* stat ::= IDENT ASSIG exp */
       case 10: /* stat ::= GLOBAL IDENT ASSIG exp */ yytestcase(yyruleno==10);
-#line 80 "lparser.y"
+#line 79 "lparser.y"
 { yygotominor.yy0 = new AssignNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 998 "lparser.c"
         break;
       case 12: /* stat ::= LOCAL IDENT */
-#line 84 "lparser.y"
+#line 83 "lparser.y"
 { yygotominor.yy0 = new DeclNode(yymsp[0].minor.yy0, NULL); }
 #line 1003 "lparser.c"
         break;
       case 13: /* stat ::= LOCAL IDENT ASSIG exp */
-#line 85 "lparser.y"
+#line 84 "lparser.y"
 { yygotominor.yy0 = new DeclNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1008 "lparser.c"
         break;
       case 14: /* stat ::= WHILE exp DO block END */
-#line 94 "lparser.y"
+#line 93 "lparser.y"
 { yygotominor.yy0 = new WhileNode(yymsp[-3].minor.yy0, yymsp[-1].minor.yy76); }
 #line 1013 "lparser.c"
         break;
       case 15: /* stat ::= REPEAT block UNTIL exp */
-#line 96 "lparser.y"
+#line 95 "lparser.y"
 { yygotominor.yy0 = new RepeatNode(yymsp[0].minor.yy0, yymsp[-2].minor.yy76); }
 #line 1018 "lparser.c"
         break;
       case 17: /* stat ::= IF exp THEN block else END */
-#line 100 "lparser.y"
+#line 99 "lparser.y"
 { yygotominor.yy0 = new IfNode(yymsp[-4].minor.yy0, yymsp[-2].minor.yy76, yymsp[-1].minor.yy0); }
 #line 1023 "lparser.c"
         break;
       case 19: /* else ::= ELSE block */
-#line 102 "lparser.y"
+#line 101 "lparser.y"
 { yygotominor.yy0 = yymsp[0].minor.yy76; }
 #line 1028 "lparser.c"
         break;
       case 20: /* else ::= ELSEIF exp THEN block else */
-#line 103 "lparser.y"
+#line 102 "lparser.y"
 { yygotominor.yy0 = new IfNode(yymsp[-3].minor.yy0, yymsp[-1].minor.yy76, yymsp[0].minor.yy0); }
 #line 1033 "lparser.c"
         break;
       case 21: /* stat ::= RETURN exp */
-#line 106 "lparser.y"
+#line 105 "lparser.y"
 { yygotominor.yy0 = new ReturnNode(yymsp[0].minor.yy0); }
 #line 1038 "lparser.c"
         break;
       case 24: /* ident_list ::= IDENT */
-#line 114 "lparser.y"
+#line 113 "lparser.y"
 {
     yygotominor.yy63 = new NodeList<IdentNode>();
 
@@ -1048,7 +1048,7 @@ static void yy_reduce(
 #line 1049 "lparser.c"
         break;
       case 25: /* ident_list ::= ident_list COMMA IDENT */
-#line 122 "lparser.y"
+#line 121 "lparser.y"
 {
     yygotominor.yy63 = yymsp[-2].minor.yy63;
 
@@ -1058,7 +1058,7 @@ static void yy_reduce(
 #line 1059 "lparser.c"
         break;
       case 26: /* stat ::= DEF IDENT func_body */
-#line 130 "lparser.y"
+#line 129 "lparser.y"
 { yygotominor.yy0 = new AssignNode(yymsp[-1].minor.yy0, yymsp[0].minor.yy0); }
 #line 1064 "lparser.c"
         break;
@@ -1070,147 +1070,147 @@ static void yy_reduce(
       case 41: /* exp ::= INT */ yytestcase(yyruleno==41);
       case 42: /* exp ::= REAL */ yytestcase(yyruleno==42);
       case 43: /* exp ::= STRING */ yytestcase(yyruleno==43);
-#line 134 "lparser.y"
+#line 133 "lparser.y"
 { yygotominor.yy0 = yymsp[0].minor.yy0; }
 #line 1076 "lparser.c"
         break;
       case 29: /* func_body ::= PL PR block END */
-#line 135 "lparser.y"
+#line 134 "lparser.y"
 { yygotominor.yy0 = new FuncNode(NULL, yymsp[-1].minor.yy76); }
 #line 1081 "lparser.c"
         break;
       case 30: /* func_body ::= PL ident_list PR block END */
-#line 136 "lparser.y"
+#line 135 "lparser.y"
 { yygotominor.yy0 = new FuncNode(yymsp[-3].minor.yy63, yymsp[-1].minor.yy76); }
 #line 1086 "lparser.c"
         break;
       case 31: /* functioncall ::= prefixexp PL PR */
-#line 138 "lparser.y"
+#line 137 "lparser.y"
 { yygotominor.yy0 = new CallNode(yymsp[-2].minor.yy0, NULL); }
 #line 1091 "lparser.c"
         break;
       case 32: /* functioncall ::= prefixexp PL exp_list PR */
-#line 139 "lparser.y"
+#line 138 "lparser.y"
 { yygotominor.yy0 = new CallNode(yymsp[-3].minor.yy0, yymsp[-1].minor.yy77); }
 #line 1096 "lparser.c"
         break;
       case 35: /* prefixexp ::= PL exp PR */
-#line 143 "lparser.y"
+#line 142 "lparser.y"
 { yygotominor.yy0 = yymsp[-1].minor.yy0; }
 #line 1101 "lparser.c"
         break;
       case 38: /* exp ::= NIL */
-#line 149 "lparser.y"
+#line 148 "lparser.y"
 { yygotominor.yy0 = new NilLitNode(); }
 #line 1106 "lparser.c"
         break;
       case 39: /* exp ::= FALSE */
-#line 150 "lparser.y"
+#line 149 "lparser.y"
 { yygotominor.yy0 = new BoolLitNode(false); }
 #line 1111 "lparser.c"
         break;
       case 40: /* exp ::= TRUE */
-#line 151 "lparser.y"
+#line 150 "lparser.y"
 { yygotominor.yy0 = new BoolLitNode(true); }
 #line 1116 "lparser.c"
         break;
       case 44: /* exp ::= PIPE exp PIPE */
-#line 157 "lparser.y"
+#line 156 "lparser.y"
 { yygotominor.yy0 = new UnOpNode<'|'>(yymsp[-1].minor.yy0); }
 #line 1121 "lparser.c"
         break;
       case 45: /* exp ::= exp OR exp */
-#line 159 "lparser.y"
+#line 158 "lparser.y"
 { yygotominor.yy0 = new OrNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1126 "lparser.c"
         break;
       case 46: /* exp ::= exp AND exp */
-#line 160 "lparser.y"
+#line 159 "lparser.y"
 { yygotominor.yy0 = new AndNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1131 "lparser.c"
         break;
       case 47: /* exp ::= exp L exp */
-#line 162 "lparser.y"
+#line 161 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'<'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1136 "lparser.c"
         break;
       case 48: /* exp ::= exp G exp */
-#line 163 "lparser.y"
+#line 162 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'>'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1141 "lparser.c"
         break;
       case 49: /* exp ::= exp LEQ exp */
-#line 164 "lparser.y"
+#line 163 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'<'+'='>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1146 "lparser.c"
         break;
       case 50: /* exp ::= exp GEQ exp */
-#line 165 "lparser.y"
+#line 164 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'>'+'='>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1151 "lparser.c"
         break;
       case 51: /* exp ::= exp NEQ exp */
-#line 166 "lparser.y"
+#line 165 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'!'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1156 "lparser.c"
         break;
       case 52: /* exp ::= exp EQ exp */
-#line 167 "lparser.y"
+#line 166 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'='>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1161 "lparser.c"
         break;
       case 54: /* exp ::= exp PLUS exp */
-#line 171 "lparser.y"
+#line 170 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'+'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1166 "lparser.c"
         break;
       case 55: /* exp ::= exp MINUS exp */
-#line 172 "lparser.y"
+#line 171 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'-'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1171 "lparser.c"
         break;
       case 56: /* exp ::= exp MUL exp */
-#line 174 "lparser.y"
+#line 173 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'*'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1176 "lparser.c"
         break;
       case 57: /* exp ::= exp DIV exp */
-#line 175 "lparser.y"
+#line 174 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'/'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1181 "lparser.c"
         break;
       case 58: /* exp ::= exp MOD exp */
-#line 176 "lparser.y"
+#line 175 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'%'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1186 "lparser.c"
         break;
       case 59: /* exp ::= exp EXP exp */
-#line 178 "lparser.y"
+#line 177 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'^'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
 #line 1191 "lparser.c"
         break;
       case 60: /* exp ::= NOT exp */
-#line 180 "lparser.y"
+#line 179 "lparser.y"
 { yygotominor.yy0 = new UnOpNode<'!'>(yymsp[0].minor.yy0); }
 #line 1196 "lparser.c"
         break;
       case 61: /* exp ::= MINUS exp */
-#line 181 "lparser.y"
+#line 180 "lparser.y"
 { yygotominor.yy0 = new UnOpNode<'-'>(yymsp[0].minor.yy0); }
 #line 1201 "lparser.c"
         break;
       case 62: /* var ::= IDENT */
-#line 193 "lparser.y"
+#line 191 "lparser.y"
 { yygotominor.yy0 = new VarNode(yymsp[0].minor.yy0); }
 #line 1206 "lparser.c"
         break;
       case 63: /* exp_list ::= exp */
-#line 196 "lparser.y"
+#line 194 "lparser.y"
 { yygotominor.yy77 = new NodeList<>(); yygotominor.yy77->push_back(yymsp[0].minor.yy0); }
 #line 1211 "lparser.c"
         break;
       case 64: /* exp_list ::= exp_list COMMA exp */
-#line 197 "lparser.y"
+#line 195 "lparser.y"
 { yygotominor.yy77 = yymsp[-2].minor.yy77; yygotominor.yy77->push_back(yymsp[0].minor.yy0); }
 #line 1216 "lparser.c"
         break;
@@ -1280,7 +1280,7 @@ static void yy_syntax_error(
 ){
   LemonARG_FETCH;
 #define TOKEN (yyminor.yy0)
-#line 56 "lparser.y"
+#line 55 "lparser.y"
 
     throw AYA::ParseError("syntax error");
 #line 1287 "lparser.c"

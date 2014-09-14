@@ -24,11 +24,10 @@ namespace AYA
         VM()
         :
             gc(this),
-            objectFactory(this),
+            objectFactory(*this),
             globalEnv(new Environment(NULL)),
             activeFunction(NULL)
         {
-            objectFactory.createDefaultDef();
         }
 
         void run();
@@ -45,6 +44,8 @@ namespace AYA
             else
                 throw RuntimeError("Unable to load function. Call stack is not empty.");
         }
+
+        void mark();
 
         EvalStack::CCallFrame& callFrame()
         {

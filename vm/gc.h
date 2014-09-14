@@ -4,16 +4,20 @@
 #include <set>
 #include <memory>
 
+#include "../error.h"
+
 namespace AYA
 {
+    class GarbageCollector;
+
     /// Managed memory
     class ManagedMemory
     {
         friend class GarbageCollector;
+        friend class ObjectFactory;
     private:
-//        void* operator new     (size_t s)
-//        { return (::operator new(s)); }
-//
+
+
 //        void* operator new[]   (size_t);
 //        void  operator delete[](void*);
     protected:
@@ -27,7 +31,9 @@ namespace AYA
                 return false;
             }
             else
+            {
                 return true;
+            }
         }
 
         ManagedMemory()
@@ -44,6 +50,10 @@ namespace AYA
             marker = true;
         }
 
+        static void* operator new     (size_t s)
+        { return (::operator new(s)); }
+
+        static void* operator new     (size_t s, GarbageCollector& gc);
 //        void* operator new     (size_t s, bool)
 //        {
 //            return (::operator new(s));
@@ -63,26 +73,47 @@ namespace AYA
         std::set<upManagedMemory> objects;
         VM& owner;
 
+	static const long NO_LIMIT = -1;
+	long memoryLimit = NO_LIMIT;
+
     public:
         GarbageCollector(VM* _owner)
         : owner(*_owner) {}
 
-        void _register(ManagedMemory* p)
+        /// DO NOT CALL collect() WHILE PARSING
+        /// objects created during code generation are not reachable until they've been loaded into VM
+        /// segfaults, satan, etc
+        void collect();
+
+    	void request(size_t size)
         {
+            if(memoryLimit != NO_LIMIT && memoryLimit - size < 0)
+                throw RuntimeError("Memory limit reached.");
+        }
+
+        void registerObj(ManagedMemory* p, size_t size)
+        {
+            if(memoryLimit != NO_LIMIT)
+            {
+                if(memoryLimit == 0)
+                    throw RuntimeError("Memory limit reached.");
+                else
+                    memoryLimit -= size;
+            }
+
             objects.insert(std::move(upManagedMemory(p)));
         }
 
-        void collect()
+        void unregisterObj(ManagedMemory* p)
         {
-            //mark()
-//            for(auto& p : objects)
-//                if(p && p->sweep())
-//                {
-//                    delete p;
-//                    p = NULL;
-//                }
-            //remove nulls
+//            upManagedMemory wrap(p);
+//            std::set<upManagedMemory>::iterator  it = objects.find(wrap);
+//            std::move(*it).release();
+//            wrap.release();
+//
+//            objects.erase(it);
         }
+
     };
 
 }

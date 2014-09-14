@@ -214,7 +214,6 @@ mode STRING
         }
     }
 
-
     [^\\\"']+           { self_accumulator_add(LexemeBegin, LexemeEnd); }
 
     //escape sequences
