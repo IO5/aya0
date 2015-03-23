@@ -107,6 +107,8 @@ int main(int argc, char** argv)
     vm.globalEnv->set("puts", BIND(vm.io.puts));
 
     Parser par(vm);
+    vm.gc.setMemoryLimit(400);
+
 
     try
     {

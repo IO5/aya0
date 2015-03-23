@@ -1,7 +1,8 @@
 #ifndef GC_H_INCLUDED
 #define GC_H_INCLUDED
 
-#include <set>
+//#include <set>
+#include <map>
 #include <memory>
 
 #include "../error.h"
@@ -70,25 +71,23 @@ namespace AYA
     class GarbageCollector
     {
         typedef std::unique_ptr<ManagedMemory> upManagedMemory;
-        std::set<upManagedMemory> objects;
+        std::map<upManagedMemory, size_t> entries;
+//        std::set<upManagedMemory> objects;
         VM& owner;
-
-	static const long NO_LIMIT = -1;
-	long memoryLimit = NO_LIMIT;
-
     public:
         GarbageCollector(VM* _owner)
         : owner(*_owner) {}
+
+        static const long NO_LIMIT = -1;
 
         /// DO NOT CALL collect() WHILE PARSING
         /// objects created during code generation are not reachable until they've been loaded into VM
         /// segfaults, satan, etc
         void collect();
 
-    	void request(size_t size)
+    	bool request(size_t size)
         {
-            if(memoryLimit != NO_LIMIT && memoryLimit - size < 0)
-                throw RuntimeError("Memory limit reached.");
+            return (memoryLimit == NO_LIMIT || memoryLimit - (long)size >= 0);
         }
 
         void registerObj(ManagedMemory* p, size_t size)
@@ -101,19 +100,18 @@ namespace AYA
                     memoryLimit -= size;
             }
 
-            objects.insert(std::move(upManagedMemory(p)));
+            //objects.insert(std::move(upManagedMemory(p)));
+            entries.insert(
+                       std::make_pair(upManagedMemory(p), size)
+                       );
         }
 
-        void unregisterObj(ManagedMemory* p)
+        void setMemoryLimit(long limit)
         {
-//            upManagedMemory wrap(p);
-//            std::set<upManagedMemory>::iterator  it = objects.find(wrap);
-//            std::move(*it).release();
-//            wrap.release();
-//
-//            objects.erase(it);
+            memoryLimit = limit;
         }
-
+    private:
+        long memoryLimit = NO_LIMIT;
     };
 
 }
