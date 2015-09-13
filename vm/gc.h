@@ -71,7 +71,7 @@ namespace AYA
     class GarbageCollector
     {
         typedef std::unique_ptr<ManagedMemory> upManagedMemory;
-        std::map<upManagedMemory, size_t> entries;
+        std::map<ManagedMemory*, size_t> entries;
 //        std::set<upManagedMemory> objects;
         VM& owner;
     public:
@@ -102,8 +102,21 @@ namespace AYA
 
             //objects.insert(std::move(upManagedMemory(p)));
             entries.insert(
-                       std::make_pair(upManagedMemory(p), size)
+                       std::make_pair(p, size)
                        );
+        }
+
+        void updateObj(ManagedMemory* p, size_t sizeChange)
+        {
+            if(memoryLimit != NO_LIMIT)
+            {
+                if(memoryLimit == 0)
+                    throw RuntimeError("Memory limit reached.");
+                else
+                    memoryLimit -= sizeChange;
+            }
+
+            entries[p] += sizeChange;
         }
 
         void setMemoryLimit(long limit)

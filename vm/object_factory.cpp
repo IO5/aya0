@@ -14,9 +14,9 @@ namespace AYA
     ObjectFactory::~ObjectFactory()
     {
         delete OBJECT_DEF;
-	delete TYPE_OBJECT_DEF;
-	delete FUNCTION_OBJECT_DEF;
-	delete STRING_OBJECT_DEF;
+        delete TYPE_OBJECT_DEF;
+        delete FUNCTION_OBJECT_DEF;
+        delete STRING_OBJECT_DEF;
     }
 
     void ObjectFactory::createDefaultDef()

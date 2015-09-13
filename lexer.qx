@@ -85,7 +85,7 @@ mode MAIN :
     "\""            { self.string_delimiter='\"'; self << STRING; }
     '               { self.string_delimiter='\''; self << STRING; }
 
-    ///----- Keywords -----
+    ///----- Keywords ----- TODO: case sensitive
     \C{def}         => TK_DEF;
     \C{do}          => TK_DO;
     \C{end}         => TK_END;
@@ -93,7 +93,7 @@ mode MAIN :
     \C{if}          => TK_IF;
     \C{then}        => TK_THEN;
     \C{else}        => TK_ELSE;
-    \C{elseif}      => TK_ELSEIF;
+    \C{elif}        => TK_ELSEIF;
     \C{while}       => TK_WHILE;
     \C{for}         => TK_FOR;
     \C{in}          => TK_IN;
@@ -149,7 +149,7 @@ mode MAIN :
     //* Integers
     0[0-7]*           => TK_INT(integer=stoi(Lexeme,8));
     [1-9][0-9]*       => TK_INT(integer=stoi(Lexeme,10));
-    0x[:xdigit:]+     => TK_INT(integer=stoi(Lexeme,16));
+    0[xX][:xdigit:]+     => TK_INT(integer=stoi(Lexeme,16));
     //* Floating Point
     [0-9]*\.?[0-9]+([eE][\-+]?[0-9]+)?   => TK_REAL(real=atof((char*)(Lexeme)));
     \C{nan}           => TK_REAL(real = NAN);

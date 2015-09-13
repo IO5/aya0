@@ -203,25 +203,25 @@ QUEX_NAME(MAIN_analyzer_function)(QUEX_TYPE_ANALYZER* me)
 #       undef self
 #   endif
 #   define self (*((QUEX_TYPE_ANALYZER*)me))
-    const QUEX_TYPE_CHARACTER      Skipper1588_Closer[2]          = { 0x2A, 0x2F,  };
-    const QUEX_TYPE_CHARACTER      Skipper1588_Opener[2]          = { 0x2F, 0x2A,  };
-    const QUEX_TYPE_CHARACTER*     Skipper1588_Opener_it          = 0x0;
+    const QUEX_TYPE_CHARACTER      Skipper1565_Closer[2]          = { 0x2A, 0x2F,  };
+    const QUEX_TYPE_CHARACTER      Skipper1565_Opener[2]          = { 0x2F, 0x2A,  };
     void*                          position                       = (void*)0x0;
-    QUEX_TYPE_GOTO_LABEL           target_state_index             = QUEX_GOTO_LABEL_VOID;
-    const size_t                   Skipper1585L                   = 1;
-    size_t                         counter                        = 0;
-    QUEX_TYPE_CHARACTER_POSITION   reference_p                    = (QUEX_TYPE_CHARACTER_POSITION)0x0;
-    const QUEX_TYPE_CHARACTER*     Skipper1588_Closer_it          = 0x0;
-    const QUEX_TYPE_CHARACTER*     Skipper1588_CloserEnd          = Skipper1588_Closer + (ptrdiff_t)2;
-    const QUEX_TYPE_CHARACTER      Skipper1591[1]                 = { 0xA,  };
-    const size_t                   PositionRegisterN              = (size_t)0;
-    const size_t                   Skipper1591L                   = 1;
-    const QUEX_TYPE_CHARACTER      Skipper1585[1]                 = { 0xA,  };
-    QUEX_TYPE_CHARACTER*           text_end                       = (QUEX_TYPE_CHARACTER*)0x0;
-    const QUEX_TYPE_CHARACTER*     Skipper1588_OpenerEnd          = Skipper1588_Opener + (ptrdiff_t)2;
-    QUEX_TYPE_CHARACTER            input                          = (QUEX_TYPE_CHARACTER)(0x00);
     QUEX_TYPE_ACCEPTANCE_ID        last_acceptance               /* un-initilized */;
+    size_t                         counter                        = 0;
+    const QUEX_TYPE_CHARACTER*     Skipper1565_Opener_it          = 0x0;
+    QUEX_TYPE_CHARACTER_POSITION   reference_p                    = (QUEX_TYPE_CHARACTER_POSITION)0x0;
+    const size_t                   Skipper1568L                   = 1;
+    const size_t                   Skipper1562L                   = 1;
+    const QUEX_TYPE_CHARACTER      Skipper1568[1]                 = { 0xA,  };
+    const QUEX_TYPE_CHARACTER*     Skipper1565_Closer_it          = 0x0;
     QUEX_TYPE_GOTO_LABEL           target_state_else_index        = QUEX_GOTO_LABEL_VOID;
+    const size_t                   PositionRegisterN              = (size_t)0;
+    QUEX_TYPE_CHARACTER*           text_end                       = (QUEX_TYPE_CHARACTER*)0x0;
+    QUEX_TYPE_CHARACTER            input                          = (QUEX_TYPE_CHARACTER)(0x00);
+    const QUEX_TYPE_CHARACTER      Skipper1562[1]                 = { 0xA,  };
+    const QUEX_TYPE_CHARACTER*     Skipper1565_CloserEnd          = Skipper1565_Closer + (ptrdiff_t)2;
+    QUEX_TYPE_GOTO_LABEL           target_state_index             = QUEX_GOTO_LABEL_VOID;
+    const QUEX_TYPE_CHARACTER*     Skipper1565_OpenerEnd          = Skipper1565_Opener + (ptrdiff_t)2;
 #   ifdef QUEX_OPTION_COLUMN_NUMBER_COUNTING
 #   endif /* QUEX_OPTION_COLUMN_NUMBER_COUNTING */
 #   ifndef QUEX_OPTION_COMPUTED_GOTOS
@@ -248,30 +248,30 @@ QUEX_NAME(MAIN_analyzer_function)(QUEX_TYPE_ANALYZER* me)
 __REENTRY:
     me->buffer._lexeme_start_p = me->buffer._input_p;
     QUEX_LEXEME_TERMINATING_ZERO_UNDO(&me->buffer);
-_2225: /* INIT_STATE_TRANSITION_BLOCK */
+_2196: /* INIT_STATE_TRANSITION_BLOCK */
     input = *(me->buffer._input_p);
     __quex_debug("Init State\n");
-    __quex_debug_state(2089);
+    __quex_debug_state(2062);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2089, 1584);
-        case 0x9: goto _2133;
-        case 0xA: goto _2125;
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2062, 1561);
+        case 0x9: goto _2065;
+        case 0xA: goto _2101;
         case 0xD: 
-        case 0x20: goto _2131;
-        case 0x21: goto _2105;
-        case 0x22: goto _2112;
-        case 0x23: goto _2091;
-        case 0x25: goto _2102;
-        case 0x27: goto _2114;
-        case 0x28: goto _2116;
-        case 0x29: goto _2118;
-        case 0x2A: goto _2098;
-        case 0x2B: goto _2107;
-        case 0x2C: goto _2122;
-        case 0x2D: goto _2094;
-        case 0x2E: goto _2093;
-        case 0x2F: goto _2110;
-        case 0x30: goto _2226;
+        case 0x20: goto _2106;
+        case 0x21: goto _2089;
+        case 0x22: goto _2087;
+        case 0x23: goto _2067;
+        case 0x25: goto _2072;
+        case 0x27: goto _2090;
+        case 0x28: goto _2091;
+        case 0x29: goto _2095;
+        case 0x2A: goto _2083;
+        case 0x2B: goto _2079;
+        case 0x2C: goto _2070;
+        case 0x2D: goto _2080;
+        case 0x2E: goto _2069;
+        case 0x2F: goto _2081;
+        case 0x30: goto _2197;
         case 0x31: 
         case 0x32: 
         case 0x33: 
@@ -280,92 +280,92 @@ _2225: /* INIT_STATE_TRANSITION_BLOCK */
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: goto _2227;
-        case 0x3A: goto _2092;
-        case 0x3B: goto _2109;
-        case 0x3C: goto _2095;
-        case 0x3D: goto _2096;
-        case 0x3E: goto _2127;
-        case 0x41: goto _2108;
-        case 0x42: goto _2123;
-        case 0x43: goto _2117;
-        case 0x44: goto _2106;
-        case 0x45: goto _2101;
-        case 0x46: goto _2097;
-        case 0x47: goto _2100;
-        case 0x48: goto _2117;
-        case 0x49: goto _2119;
+        case 0x39: goto _2198;
+        case 0x3A: goto _2068;
+        case 0x3B: goto _2104;
+        case 0x3C: goto _2102;
+        case 0x3D: goto _2064;
+        case 0x3E: goto _2073;
+        case 0x41: goto _2093;
+        case 0x42: goto _2074;
+        case 0x43: goto _2092;
+        case 0x44: goto _2084;
+        case 0x45: goto _2086;
+        case 0x46: goto _2078;
+        case 0x47: goto _2071;
+        case 0x48: goto _2092;
+        case 0x49: goto _2094;
         case 0x4A: 
-        case 0x4B: goto _2117;
-        case 0x4C: goto _2111;
-        case 0x4D: goto _2117;
-        case 0x4E: goto _2103;
-        case 0x4F: goto _2129;
+        case 0x4B: goto _2092;
+        case 0x4C: goto _2099;
+        case 0x4D: goto _2092;
+        case 0x4E: goto _2066;
+        case 0x4F: goto _2082;
         case 0x50: 
-        case 0x51: goto _2117;
-        case 0x52: goto _2099;
-        case 0x53: goto _2117;
-        case 0x54: goto _2121;
-        case 0x55: goto _2104;
-        case 0x56: goto _2117;
-        case 0x57: goto _2113;
+        case 0x51: goto _2092;
+        case 0x52: goto _2096;
+        case 0x53: goto _2092;
+        case 0x54: goto _2077;
+        case 0x55: goto _2097;
+        case 0x56: goto _2092;
+        case 0x57: goto _2088;
         case 0x58: 
         case 0x59: 
-        case 0x5A: goto _2117;
-        case 0x5B: goto _2126;
-        case 0x5D: goto _2130;
-        case 0x5E: goto _2090;
-        case 0x5F: goto _2117;
-        case 0x61: goto _2108;
-        case 0x62: goto _2123;
-        case 0x63: goto _2117;
-        case 0x64: goto _2106;
-        case 0x65: goto _2101;
-        case 0x66: goto _2097;
-        case 0x67: goto _2100;
-        case 0x68: goto _2117;
-        case 0x69: goto _2119;
+        case 0x5A: goto _2092;
+        case 0x5B: goto _2100;
+        case 0x5D: goto _2103;
+        case 0x5E: goto _2076;
+        case 0x5F: goto _2092;
+        case 0x61: goto _2093;
+        case 0x62: goto _2074;
+        case 0x63: goto _2092;
+        case 0x64: goto _2084;
+        case 0x65: goto _2086;
+        case 0x66: goto _2078;
+        case 0x67: goto _2071;
+        case 0x68: goto _2092;
+        case 0x69: goto _2094;
         case 0x6A: 
-        case 0x6B: goto _2117;
-        case 0x6C: goto _2111;
-        case 0x6D: goto _2117;
-        case 0x6E: goto _2103;
-        case 0x6F: goto _2129;
+        case 0x6B: goto _2092;
+        case 0x6C: goto _2099;
+        case 0x6D: goto _2092;
+        case 0x6E: goto _2066;
+        case 0x6F: goto _2082;
         case 0x70: 
-        case 0x71: goto _2117;
-        case 0x72: goto _2099;
-        case 0x73: goto _2117;
-        case 0x74: goto _2121;
-        case 0x75: goto _2104;
-        case 0x76: goto _2117;
-        case 0x77: goto _2113;
+        case 0x71: goto _2092;
+        case 0x72: goto _2096;
+        case 0x73: goto _2092;
+        case 0x74: goto _2077;
+        case 0x75: goto _2097;
+        case 0x76: goto _2092;
+        case 0x77: goto _2088;
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
-        case 0x7B: goto _2128;
-        case 0x7C: goto _2132;
-        case 0x7D: goto _2115;
+        case 0x7A: goto _2092;
+        case 0x7B: goto _2105;
+        case 0x7C: goto _2075;
+        case 0x7D: goto _2063;
 
     }
-    __quex_debug_drop_out(2089);
+    __quex_debug_drop_out(2062);
 
-goto _2229; /* TERMINAL_FAILURE */
+goto _2200; /* TERMINAL_FAILURE */
 
-_2089:
+_2062:
 
 
     ++(me->buffer._input_p);
-    goto _2225;
+    goto _2196;
 
 
     __quex_assert_no_passage();
-_2117: /* (2117 from 2117) (2117 from 2113) (2117 from 2111) (2117 from 2123) (2117 from 2121) (2117 from 2119) (2117 from 2134) (2117 from 2129) (2117 from 2141) (2117 from 2142) (2117 from 2149) (2117 from 2150) (2117 from 2147) (2117 from 2148) (2117 from 2146) (2117 from 2143) (2117 from 2144) (2117 from 2157) (2117 from 2158) (2117 from 2156) (2117 from 2151) (2117 from 2165) (2117 from 2166) (2117 from 2163) (2117 from 2164) (2117 from 2161) (2117 from 2162) (2117 from 2159) (2117 from 2160) (2117 from 2173) (2117 from 2171) (2117 from 2172) (2117 from 2169) (2117 from 2170) (2117 from 2181) (2117 from 2182) (2117 from 2179) (2117 from 2180) (2117 from 2177) (2117 from 2178) (2117 from 2175) (2117 from 2176) (2117 from 2189) (2117 from 2190) (2117 from 2187) (2117 from 2188) (2117 from 2185) (2117 from 2186) (2117 from 2183) (2117 from 2184) (2117 from 2195) (2117 from 2193) (2117 from 2194) (2117 from 2192) (2117 from 2205) (2117 from 2206) (2117 from 2203) (2117 from 2204) (2117 from 2201) (2117 from 2202) (2117 from 2199) (2117 from 2200) (2117 from 2213) (2117 from 2214) (2117 from 2211) (2117 from 2212) (2117 from 2209) (2117 from 2210) (2117 from 2207) (2117 from 2208) (2117 from 2219) (2117 from 2220) (2117 from 2089) (2117 from 2215) (2117 from 2216) (2117 from 2101) (2117 from 2099) (2117 from 2100) (2117 from 2097) (2117 from 2108) (2117 from 2106) (2117 from 2103) (2117 from 2104) */
+_2092: /* (2092 from 2092) (2092 from 2094) (2092 from 2093) (2092 from 2088) (2092 from 2190) (2092 from 2084) (2092 from 2086) (2092 from 2082) (2092 from 2175) (2092 from 2110) (2092 from 2109) (2092 from 2099) (2092 from 2096) (2092 from 2097) (2092 from 2188) (2092 from 2187) (2092 from 2062) (2092 from 2189) (2092 from 2184) (2092 from 2183) (2092 from 2186) (2092 from 2180) (2092 from 2182) (2092 from 2181) (2092 from 2176) (2092 from 2135) (2092 from 2177) (2092 from 2078) (2092 from 2077) (2092 from 2071) (2092 from 2074) (2092 from 2192) (2092 from 2191) (2092 from 2194) (2092 from 2193) (2092 from 2156) (2092 from 2155) (2092 from 2157) (2092 from 2151) (2092 from 2154) (2092 from 2153) (2092 from 2148) (2092 from 2147) (2092 from 2150) (2092 from 2144) (2092 from 2143) (2092 from 2146) (2092 from 2145) (2092 from 2172) (2092 from 2171) (2092 from 2174) (2092 from 2173) (2092 from 2168) (2092 from 2167) (2092 from 2170) (2092 from 2169) (2092 from 2164) (2092 from 2163) (2092 from 2160) (2092 from 2162) (2092 from 2161) (2092 from 2124) (2092 from 2123) (2092 from 2126) (2092 from 2125) (2092 from 2122) (2092 from 2112) (2092 from 2111) (2092 from 2139) (2092 from 2142) (2092 from 2141) (2092 from 2136) (2092 from 2066) (2092 from 2138) (2092 from 2137) (2092 from 2132) (2092 from 2131) (2092 from 2134) (2092 from 2133) (2092 from 2128) (2092 from 2127) (2092 from 2130) (2092 from 2129) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2117);
+    __quex_debug_state(2092);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2117, 2230);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2092, 2201);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -428,23 +428,23 @@ _2117: /* (2117 from 2117) (2117 from 2113) (2117 from 2111) (2117 from 2123) (2
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2230:
-    __quex_debug_drop_out(2117);
-goto TERMINAL_1561;
+_2201:
+    __quex_debug_drop_out(2092);
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2136: /* (2136 from 2120) (2136 from 2152) (2136 from 2138) (2136 from 2124) (2136 from 2154) */
+_2115: /* (2115 from 2118) (2115 from 2085) (2115 from 2114) (2115 from 2117) (2115 from 2098) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2136);
+    __quex_debug_state(2115);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2136, 2231);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2115, 2202);
         case 0x2B: 
-        case 0x2D: goto _2139;
+        case 0x2D: goto _2120;
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -454,26 +454,26 @@ _2136: /* (2136 from 2120) (2136 from 2152) (2136 from 2138) (2136 from 2124) (2
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: goto _2140;
+        case 0x39: goto _2119;
 
     }
-_2231:
-    __quex_debug_drop_out(2136);
+_2202:
+    __quex_debug_drop_out(2115);
 switch( last_acceptance ) {
-    case 1555: me->buffer._input_p -= 1;  goto TERMINAL_1555;
-    case 1556: me->buffer._input_p -= 1;  goto TERMINAL_1556;
-    case 1558: me->buffer._input_p -= 1;  goto TERMINAL_1558;
+    case 1532: me->buffer._input_p -= 1;  goto TERMINAL_1532;
+    case 1533: me->buffer._input_p -= 1;  goto TERMINAL_1533;
+    case 1535: me->buffer._input_p -= 1;  goto TERMINAL_1535;
 
 }
 
     __quex_assert_no_passage();
-_2155: /* (2155 from 2155) (2155 from 2153) */
+_2121: /* (2121 from 2113) (2121 from 2121) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2155);
+    __quex_debug_state(2121);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2155, 2232);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2121, 2203);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -495,15 +495,1686 @@ _2155: /* (2155 from 2155) (2155 from 2153) */
         case 0x63: 
         case 0x64: 
         case 0x65: 
-        case 0x66: goto _2155;
+        case 0x66: goto _2121;
+
+    }
+_2203:
+    __quex_debug_drop_out(2121);
+goto TERMINAL_1534;
+
+    __quex_assert_no_passage();
+_2116: /* (2116 from 2117) (2116 from 2085) (2116 from 2114) (2116 from 2098) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2116);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2116, 2204);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2205;
+
+    }
+_2204:
+    __quex_debug_drop_out(2116);
+switch( last_acceptance ) {
+    case 1532: me->buffer._input_p -= 1;  goto TERMINAL_1532;
+    case 1533: me->buffer._input_p -= 1;  goto TERMINAL_1533;
+    case 1535: me->buffer._input_p -= 1;  goto TERMINAL_1535;
+
+}
+
+    __quex_assert_no_passage();
+_2206: /* (2114 from 2098) (2114 from 2114) (2114 from 2117) */
+    { last_acceptance = 1535; __quex_debug("last_acceptance = 1535\n"); }
+
+_2114:
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2114);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2114, 2207);
+        case 0x2E: goto _2116;
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2206;
+        case 0x45: 
+        case 0x65: goto _2115;
+
+    }
+_2207:
+    __quex_debug_drop_out(2114);
+goto TERMINAL_1535;
+
+    __quex_assert_no_passage();
+_2205: /* (2118 from 2118) (2118 from 2069) (2118 from 2116) */
+    { last_acceptance = 1535; __quex_debug("last_acceptance = 1535\n"); }
+
+_2118:
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2118);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2118, 2208);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2205;
+        case 0x45: 
+        case 0x65: goto _2115;
+
+    }
+_2208:
+    __quex_debug_drop_out(2118);
+goto TERMINAL_1535;
+
+    __quex_assert_no_passage();
+_2119: /* (2119 from 2119) (2119 from 2120) (2119 from 2115) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2119);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2119, 2209);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2119;
+
+    }
+_2209:
+    __quex_debug_drop_out(2119);
+goto TERMINAL_1535;
+
+    __quex_assert_no_passage();
+_2109: /* (2109 from 2099) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2109);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2109, 2210);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: goto _2092;
+        case 0x43: goto _2110;
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: goto _2092;
+        case 0x63: goto _2110;
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2210:
+    __quex_debug_drop_out(2109);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2110: /* (2110 from 2109) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2110);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2110, 2211);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2092;
+        case 0x41: goto _2111;
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: goto _2092;
+        case 0x61: goto _2111;
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2211:
+    __quex_debug_drop_out(2110);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2111: /* (2111 from 2110) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2111);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2111, 2212);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: goto _2092;
+        case 0x4C: goto _2112;
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: goto _2092;
+        case 0x6C: goto _2112;
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2212:
+    __quex_debug_drop_out(2111);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2112: /* (2112 from 2111) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2112);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2112, 2213);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2213:
+    __quex_debug_drop_out(2112);
+goto TERMINAL_1499;
+
+    __quex_assert_no_passage();
+_2113: /* (2113 from 2098) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2113);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2113, 2214);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: goto _2121;
+
+    }
+_2214:
+    __quex_debug_drop_out(2113);
+me->buffer._input_p -= 1; 
+goto TERMINAL_1532;
+
+    __quex_assert_no_passage();
+_2215: /* (2117 from 2117) (2117 from 2098) */
+    { last_acceptance = 1532; __quex_debug("last_acceptance = 1532\n"); }
+
+_2117:
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2117);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2117, 2216);
+        case 0x2E: goto _2116;
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: goto _2215;
+        case 0x38: 
+        case 0x39: goto _2206;
+        case 0x45: 
+        case 0x65: goto _2115;
+
+    }
+_2216:
+    __quex_debug_drop_out(2117);
+goto TERMINAL_1532;
+
+    __quex_assert_no_passage();
+_2120: /* (2120 from 2115) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2120);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2120, 2217);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2119;
+
+    }
+_2217:
+    __quex_debug_drop_out(2120);
+switch( last_acceptance ) {
+    case 1532: me->buffer._input_p -= 2;  goto TERMINAL_1532;
+    case 1533: me->buffer._input_p -= 2;  goto TERMINAL_1533;
+    case 1535: me->buffer._input_p -= 2;  goto TERMINAL_1535;
+
+}
+
+    __quex_assert_no_passage();
+_2122: /* (2122 from 2097) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2122);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2122, 2218);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: goto _2092;
+        case 0x54: goto _2123;
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: goto _2092;
+        case 0x74: goto _2123;
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2218:
+    __quex_debug_drop_out(2122);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2123: /* (2123 from 2122) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2123);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2123, 2219);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: goto _2092;
+        case 0x49: goto _2124;
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: goto _2092;
+        case 0x69: goto _2124;
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2219:
+    __quex_debug_drop_out(2123);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2124: /* (2124 from 2123) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2124);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2124, 2220);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: goto _2092;
+        case 0x4C: goto _2125;
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: goto _2092;
+        case 0x6C: goto _2125;
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2220:
+    __quex_debug_drop_out(2124);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2125: /* (2125 from 2124) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2125);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2125, 2221);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2221:
+    __quex_debug_drop_out(2125);
+goto TERMINAL_1495;
+
+    __quex_assert_no_passage();
+_2126: /* (2126 from 2096) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2126);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2126, 2222);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: goto _2092;
+        case 0x50: goto _2128;
+        case 0x51: 
+        case 0x52: 
+        case 0x53: goto _2092;
+        case 0x54: goto _2127;
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: goto _2092;
+        case 0x70: goto _2128;
+        case 0x71: 
+        case 0x72: 
+        case 0x73: goto _2092;
+        case 0x74: goto _2127;
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2222:
+    __quex_debug_drop_out(2126);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2127: /* (2127 from 2126) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2127);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2127, 2223);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: goto _2092;
+        case 0x55: goto _2132;
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: goto _2092;
+        case 0x75: goto _2132;
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2223:
+    __quex_debug_drop_out(2127);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2128: /* (2128 from 2126) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2128);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2128, 2224);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: goto _2092;
+        case 0x45: goto _2129;
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: goto _2092;
+        case 0x65: goto _2129;
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2224:
+    __quex_debug_drop_out(2128);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2129: /* (2129 from 2128) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2129);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2129, 2225);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2092;
+        case 0x41: goto _2130;
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: goto _2092;
+        case 0x61: goto _2130;
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2225:
+    __quex_debug_drop_out(2129);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2130: /* (2130 from 2129) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2130);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2130, 2226);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: goto _2092;
+        case 0x54: goto _2131;
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: goto _2092;
+        case 0x74: goto _2131;
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2226:
+    __quex_debug_drop_out(2130);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2131: /* (2131 from 2130) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2131);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2131, 2227);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2227:
+    __quex_debug_drop_out(2131);
+goto TERMINAL_1494;
+
+    __quex_assert_no_passage();
+_2132: /* (2132 from 2127) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2132);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2132, 2228);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: goto _2092;
+        case 0x52: goto _2133;
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: goto _2092;
+        case 0x72: goto _2133;
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2228:
+    __quex_debug_drop_out(2132);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2133: /* (2133 from 2132) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2133);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2133, 2229);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: goto _2092;
+        case 0x4E: goto _2134;
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: goto _2092;
+        case 0x6E: goto _2134;
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2229:
+    __quex_debug_drop_out(2133);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2134: /* (2134 from 2133) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2134);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2134, 2230);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2230:
+    __quex_debug_drop_out(2134);
+goto TERMINAL_1496;
+
+    __quex_assert_no_passage();
+_2135: /* (2135 from 2094) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2135);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2135, 2231);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: goto _2092;
+        case 0x46: goto _2137;
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: goto _2092;
+        case 0x66: goto _2137;
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2231:
+    __quex_debug_drop_out(2135);
+goto TERMINAL_1493;
+
+    __quex_assert_no_passage();
+_2136: /* (2136 from 2094) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2136);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2136, 2232);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
 
     }
 _2232:
-    __quex_debug_drop_out(2155);
-goto TERMINAL_1557;
+    __quex_debug_drop_out(2136);
+goto TERMINAL_1487;
 
     __quex_assert_no_passage();
-_2137: /* (2137 from 2124) (2137 from 2152) (2137 from 2120) (2137 from 2154) */
+_2137: /* (2137 from 2135) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
@@ -519,29 +2190,74 @@ _2137: /* (2137 from 2124) (2137 from 2152) (2137 from 2120) (2137 from 2154) */
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: goto _2234;
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
 
     }
 _2233:
     __quex_debug_drop_out(2137);
-switch( last_acceptance ) {
-    case 1555: me->buffer._input_p -= 1;  goto TERMINAL_1555;
-    case 1556: me->buffer._input_p -= 1;  goto TERMINAL_1556;
-    case 1558: me->buffer._input_p -= 1;  goto TERMINAL_1558;
-
-}
+goto TERMINAL_1537;
 
     __quex_assert_no_passage();
-_2234: /* (2138 from 2138) (2138 from 2137) (2138 from 2093) */
-    { last_acceptance = 1558; __quex_debug("last_acceptance = 1558\n"); }
-
-_2138:
+_2138: /* (2138 from 2093) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2138);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2138, 2235);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2138, 2234);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -551,77 +2267,74 @@ _2138:
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: goto _2234;
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: goto _2092;
+        case 0x44: goto _2139;
         case 0x45: 
-        case 0x65: goto _2136;
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: goto _2092;
+        case 0x64: goto _2139;
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
 
     }
-_2235:
+_2234:
     __quex_debug_drop_out(2138);
-goto TERMINAL_1558;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2140: /* (2140 from 2140) (2140 from 2139) (2140 from 2136) */
+_2139: /* (2139 from 2138) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2140);
+    __quex_debug_state(2139);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2140, 2236);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: goto _2140;
-
-    }
-_2236:
-    __quex_debug_drop_out(2140);
-goto TERMINAL_1558;
-
-    __quex_assert_no_passage();
-_2237: /* (2154 from 2154) (2154 from 2120) (2154 from 2152) */
-    { last_acceptance = 1558; __quex_debug("last_acceptance = 1558\n"); }
-
-_2154:
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2154);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2154, 2238);
-        case 0x2E: goto _2137;
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: goto _2237;
-        case 0x45: 
-        case 0x65: goto _2136;
-
-    }
-_2238:
-    __quex_debug_drop_out(2154);
-goto TERMINAL_1558;
-
-    __quex_assert_no_passage();
-_2134: /* (2134 from 2129) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2134);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2134, 2239);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2139, 2235);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -684,50 +2397,21 @@ _2134: /* (2134 from 2129) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2239:
-    __quex_debug_drop_out(2134);
-goto TERMINAL_1527;
-
-    __quex_assert_no_passage();
-_2139: /* (2139 from 2136) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2139);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2139, 2240);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: goto _2140;
-
-    }
-_2240:
+_2235:
     __quex_debug_drop_out(2139);
-switch( last_acceptance ) {
-    case 1555: me->buffer._input_p -= 2;  goto TERMINAL_1555;
-    case 1556: me->buffer._input_p -= 2;  goto TERMINAL_1556;
-    case 1558: me->buffer._input_p -= 2;  goto TERMINAL_1558;
-
-}
+goto TERMINAL_1505;
 
     __quex_assert_no_passage();
-_2141: /* (2141 from 2123) */
+_2141: /* (2141 from 2088) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2141);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2141, 2241);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2141, 2236);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -741,12 +2425,12 @@ _2141: /* (2141 from 2123) */
         case 0x41: 
         case 0x42: 
         case 0x43: 
-        case 0x44: goto _2117;
-        case 0x45: goto _2142;
+        case 0x44: 
+        case 0x45: 
         case 0x46: 
         case 0x47: 
-        case 0x48: 
-        case 0x49: 
+        case 0x48: goto _2092;
+        case 0x49: goto _2142;
         case 0x4A: 
         case 0x4B: 
         case 0x4C: 
@@ -768,12 +2452,12 @@ _2141: /* (2141 from 2123) */
         case 0x61: 
         case 0x62: 
         case 0x63: 
-        case 0x64: goto _2117;
-        case 0x65: goto _2142;
+        case 0x64: 
+        case 0x65: 
         case 0x66: 
         case 0x67: 
-        case 0x68: 
-        case 0x69: 
+        case 0x68: goto _2092;
+        case 0x69: goto _2142;
         case 0x6A: 
         case 0x6B: 
         case 0x6C: 
@@ -790,12 +2474,12 @@ _2141: /* (2141 from 2123) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2241:
+_2236:
     __quex_debug_drop_out(2141);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2142: /* (2142 from 2141) */
@@ -804,7 +2488,7 @@ _2142: /* (2142 from 2141) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2142);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2142, 2242);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2142, 2237);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -814,8 +2498,8 @@ _2142: /* (2142 from 2141) */
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: goto _2117;
-        case 0x41: goto _2143;
+        case 0x39: 
+        case 0x41: 
         case 0x42: 
         case 0x43: 
         case 0x44: 
@@ -825,8 +2509,8 @@ _2142: /* (2142 from 2141) */
         case 0x48: 
         case 0x49: 
         case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
+        case 0x4B: goto _2092;
+        case 0x4C: goto _2143;
         case 0x4D: 
         case 0x4E: 
         case 0x4F: 
@@ -841,8 +2525,8 @@ _2142: /* (2142 from 2141) */
         case 0x58: 
         case 0x59: 
         case 0x5A: 
-        case 0x5F: goto _2117;
-        case 0x61: goto _2143;
+        case 0x5F: 
+        case 0x61: 
         case 0x62: 
         case 0x63: 
         case 0x64: 
@@ -852,8 +2536,8 @@ _2142: /* (2142 from 2141) */
         case 0x68: 
         case 0x69: 
         case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
+        case 0x6B: goto _2092;
+        case 0x6C: goto _2143;
         case 0x6D: 
         case 0x6E: 
         case 0x6F: 
@@ -867,12 +2551,12 @@ _2142: /* (2142 from 2141) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2242:
+_2237:
     __quex_debug_drop_out(2142);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2143: /* (2143 from 2142) */
@@ -881,7 +2565,7 @@ _2143: /* (2143 from 2142) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2143);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2143, 2243);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2143, 2238);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -895,14 +2579,14 @@ _2143: /* (2143 from 2142) */
         case 0x41: 
         case 0x42: 
         case 0x43: 
-        case 0x44: 
-        case 0x45: 
+        case 0x44: goto _2092;
+        case 0x45: goto _2144;
         case 0x46: 
         case 0x47: 
         case 0x48: 
         case 0x49: 
-        case 0x4A: goto _2117;
-        case 0x4B: goto _2144;
+        case 0x4A: 
+        case 0x4B: 
         case 0x4C: 
         case 0x4D: 
         case 0x4E: 
@@ -922,14 +2606,14 @@ _2143: /* (2143 from 2142) */
         case 0x61: 
         case 0x62: 
         case 0x63: 
-        case 0x64: 
-        case 0x65: 
+        case 0x64: goto _2092;
+        case 0x65: goto _2144;
         case 0x66: 
         case 0x67: 
         case 0x68: 
         case 0x69: 
-        case 0x6A: goto _2117;
-        case 0x6B: goto _2144;
+        case 0x6A: 
+        case 0x6B: 
         case 0x6C: 
         case 0x6D: 
         case 0x6E: 
@@ -944,12 +2628,12 @@ _2143: /* (2143 from 2142) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2243:
+_2238:
     __quex_debug_drop_out(2143);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2144: /* (2144 from 2143) */
@@ -958,7 +2642,7 @@ _2144: /* (2144 from 2143) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2144);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2144, 2244);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2144, 2239);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1021,21 +2705,98 @@ _2144: /* (2144 from 2143) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2244:
+_2239:
     __quex_debug_drop_out(2144);
-goto TERMINAL_1520;
+goto TERMINAL_1491;
 
     __quex_assert_no_passage();
-_2146: /* (2146 from 2121) */
+_2145: /* (2145 from 2086) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2145);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2145, 2240);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: goto _2092;
+        case 0x49: goto _2148;
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: goto _2092;
+        case 0x53: goto _2150;
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: goto _2092;
+        case 0x69: goto _2148;
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: goto _2092;
+        case 0x73: goto _2150;
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2240:
+    __quex_debug_drop_out(2145);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2146: /* (2146 from 2086) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2146);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2146, 2245);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2146, 2241);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1048,8 +2809,8 @@ _2146: /* (2146 from 2121) */
         case 0x39: 
         case 0x41: 
         case 0x42: 
-        case 0x43: 
-        case 0x44: 
+        case 0x43: goto _2092;
+        case 0x44: goto _2147;
         case 0x45: 
         case 0x46: 
         case 0x47: 
@@ -1065,8 +2826,8 @@ _2146: /* (2146 from 2121) */
         case 0x51: 
         case 0x52: 
         case 0x53: 
-        case 0x54: goto _2117;
-        case 0x55: goto _2150;
+        case 0x54: 
+        case 0x55: 
         case 0x56: 
         case 0x57: 
         case 0x58: 
@@ -1075,8 +2836,8 @@ _2146: /* (2146 from 2121) */
         case 0x5F: 
         case 0x61: 
         case 0x62: 
-        case 0x63: 
-        case 0x64: 
+        case 0x63: goto _2092;
+        case 0x64: goto _2147;
         case 0x65: 
         case 0x66: 
         case 0x67: 
@@ -1092,27 +2853,27 @@ _2146: /* (2146 from 2121) */
         case 0x71: 
         case 0x72: 
         case 0x73: 
-        case 0x74: goto _2117;
-        case 0x75: goto _2150;
+        case 0x74: 
+        case 0x75: 
         case 0x76: 
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2245:
+_2241:
     __quex_debug_drop_out(2146);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2147: /* (2147 from 2121) */
+_2147: /* (2147 from 2146) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2147);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2147, 2246);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2147, 2242);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1126,8 +2887,8 @@ _2147: /* (2147 from 2121) */
         case 0x41: 
         case 0x42: 
         case 0x43: 
-        case 0x44: goto _2117;
-        case 0x45: goto _2148;
+        case 0x44: 
+        case 0x45: 
         case 0x46: 
         case 0x47: 
         case 0x48: 
@@ -1153,8 +2914,8 @@ _2147: /* (2147 from 2121) */
         case 0x61: 
         case 0x62: 
         case 0x63: 
-        case 0x64: goto _2117;
-        case 0x65: goto _2148;
+        case 0x64: 
+        case 0x65: 
         case 0x66: 
         case 0x67: 
         case 0x68: 
@@ -1175,21 +2936,21 @@ _2147: /* (2147 from 2121) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2246:
+_2242:
     __quex_debug_drop_out(2147);
-goto TERMINAL_1561;
+goto TERMINAL_1486;
 
     __quex_assert_no_passage();
-_2148: /* (2148 from 2147) */
+_2148: /* (2148 from 2145) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2148);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2148, 2247);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2148, 2243);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1204,85 +2965,8 @@ _2148: /* (2148 from 2147) */
         case 0x42: 
         case 0x43: 
         case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: goto _2117;
-        case 0x4E: goto _2149;
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: goto _2117;
-        case 0x6E: goto _2149;
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2247:
-    __quex_debug_drop_out(2148);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2149: /* (2149 from 2148) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2149);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2149, 2248);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
+        case 0x45: goto _2092;
+        case 0x46: goto _2153;
         case 0x47: 
         case 0x48: 
         case 0x49: 
@@ -1308,8 +2992,8 @@ _2149: /* (2149 from 2148) */
         case 0x62: 
         case 0x63: 
         case 0x64: 
-        case 0x65: 
-        case 0x66: 
+        case 0x65: goto _2092;
+        case 0x66: goto _2153;
         case 0x67: 
         case 0x68: 
         case 0x69: 
@@ -1329,21 +3013,21 @@ _2149: /* (2149 from 2148) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2248:
-    __quex_debug_drop_out(2149);
-goto TERMINAL_1511;
+_2243:
+    __quex_debug_drop_out(2148);
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2150: /* (2150 from 2146) */
+_2150: /* (2150 from 2145) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2150);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2150, 2249);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2150, 2244);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1357,7 +3041,7 @@ _2150: /* (2150 from 2146) */
         case 0x41: 
         case 0x42: 
         case 0x43: 
-        case 0x44: goto _2117;
+        case 0x44: goto _2092;
         case 0x45: goto _2151;
         case 0x46: 
         case 0x47: 
@@ -1384,7 +3068,7 @@ _2150: /* (2150 from 2146) */
         case 0x61: 
         case 0x62: 
         case 0x63: 
-        case 0x64: goto _2117;
+        case 0x64: goto _2092;
         case 0x65: goto _2151;
         case 0x66: 
         case 0x67: 
@@ -1406,12 +3090,12 @@ _2150: /* (2150 from 2146) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2249:
+_2244:
     __quex_debug_drop_out(2150);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2151: /* (2151 from 2150) */
@@ -1420,7 +3104,7 @@ _2151: /* (2151 from 2150) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2151);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2151, 2250);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2151, 2245);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1483,25 +3167,29 @@ _2151: /* (2151 from 2150) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2250:
+_2245:
     __quex_debug_drop_out(2151);
-goto TERMINAL_1525;
+goto TERMINAL_1489;
 
     __quex_assert_no_passage();
-_2251: /* (2152 from 2120) (2152 from 2152) */
-    { last_acceptance = 1555; __quex_debug("last_acceptance = 1555\n"); }
+_2152: /* (2152 from 2149) */
 
-_2152:
+    ++(me->buffer._input_p);
+    __quex_debug_state(2152);
+    __quex_debug_drop_out(2152);
+goto TERMINAL_1489;
+
+    __quex_assert_no_passage();
+_2153: /* (2153 from 2148) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2152);
+    __quex_debug_state(2153);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2152, 2252);
-        case 0x2E: goto _2137;
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2153, 2247);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1509,25 +3197,230 @@ _2152:
         case 0x34: 
         case 0x35: 
         case 0x36: 
-        case 0x37: goto _2251;
+        case 0x37: 
         case 0x38: 
-        case 0x39: goto _2237;
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
         case 0x45: 
-        case 0x65: goto _2136;
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
 
     }
-_2252:
-    __quex_debug_drop_out(2152);
-goto TERMINAL_1555;
+_2247:
+    __quex_debug_drop_out(2153);
+goto TERMINAL_1490;
 
     __quex_assert_no_passage();
-_2156: /* (2156 from 2119) */
+_2154: /* (2154 from 2084) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2154);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2154, 2248);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: goto _2092;
+        case 0x46: goto _2156;
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: goto _2092;
+        case 0x66: goto _2156;
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2248:
+    __quex_debug_drop_out(2154);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2155: /* (2155 from 2084) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2155);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2155, 2249);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2249:
+    __quex_debug_drop_out(2155);
+goto TERMINAL_1485;
+
+    __quex_assert_no_passage();
+_2156: /* (2156 from 2154) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2156);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2156, 2253);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2156, 2250);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1590,21 +3483,21 @@ _2156: /* (2156 from 2119) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2253:
+_2250:
     __quex_debug_drop_out(2156);
-goto TERMINAL_1510;
+goto TERMINAL_1484;
 
     __quex_assert_no_passage();
-_2157: /* (2157 from 2119) */
+_2157: /* (2157 from 2082) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2157);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2157, 2254);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2157, 2251);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1619,8 +3512,8 @@ _2157: /* (2157 from 2119) */
         case 0x42: 
         case 0x43: 
         case 0x44: 
-        case 0x45: goto _2117;
-        case 0x46: goto _2158;
+        case 0x45: 
+        case 0x46: 
         case 0x47: 
         case 0x48: 
         case 0x49: 
@@ -1646,8 +3539,8 @@ _2157: /* (2157 from 2119) */
         case 0x62: 
         case 0x63: 
         case 0x64: 
-        case 0x65: goto _2117;
-        case 0x66: goto _2158;
+        case 0x65: 
+        case 0x66: 
         case 0x67: 
         case 0x68: 
         case 0x69: 
@@ -1667,175 +3560,21 @@ _2157: /* (2157 from 2119) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2254:
+_2251:
     __quex_debug_drop_out(2157);
-goto TERMINAL_1516;
+goto TERMINAL_1504;
 
     __quex_assert_no_passage();
-_2158: /* (2158 from 2157) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2158);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2158, 2255);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2255:
-    __quex_debug_drop_out(2158);
-goto TERMINAL_1560;
-
-    __quex_assert_no_passage();
-_2159: /* (2159 from 2113) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2159);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2159, 2256);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: goto _2117;
-        case 0x49: goto _2160;
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: goto _2117;
-        case 0x69: goto _2160;
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2256:
-    __quex_debug_drop_out(2159);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2160: /* (2160 from 2159) */
+_2160: /* (2160 from 2078) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2160);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2160, 2257);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2160, 2252);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1856,8 +3595,8 @@ _2160: /* (2160 from 2159) */
         case 0x48: 
         case 0x49: 
         case 0x4A: 
-        case 0x4B: goto _2117;
-        case 0x4C: goto _2161;
+        case 0x4B: goto _2092;
+        case 0x4C: goto _2163;
         case 0x4D: 
         case 0x4E: 
         case 0x4F: 
@@ -1883,8 +3622,8 @@ _2160: /* (2160 from 2159) */
         case 0x68: 
         case 0x69: 
         case 0x6A: 
-        case 0x6B: goto _2117;
-        case 0x6C: goto _2161;
+        case 0x6B: goto _2092;
+        case 0x6C: goto _2163;
         case 0x6D: 
         case 0x6E: 
         case 0x6F: 
@@ -1898,21 +3637,21 @@ _2160: /* (2160 from 2159) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2257:
+_2252:
     __quex_debug_drop_out(2160);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2161: /* (2161 from 2160) */
+_2161: /* (2161 from 2078) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2161);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2161, 2258);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2161, 2253);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -1926,8 +3665,8 @@ _2161: /* (2161 from 2160) */
         case 0x41: 
         case 0x42: 
         case 0x43: 
-        case 0x44: goto _2117;
-        case 0x45: goto _2162;
+        case 0x44: 
+        case 0x45: 
         case 0x46: 
         case 0x47: 
         case 0x48: 
@@ -1939,8 +3678,8 @@ _2161: /* (2161 from 2160) */
         case 0x4E: 
         case 0x4F: 
         case 0x50: 
-        case 0x51: 
-        case 0x52: 
+        case 0x51: goto _2092;
+        case 0x52: goto _2162;
         case 0x53: 
         case 0x54: 
         case 0x55: 
@@ -1953,8 +3692,8 @@ _2161: /* (2161 from 2160) */
         case 0x61: 
         case 0x62: 
         case 0x63: 
-        case 0x64: goto _2117;
-        case 0x65: goto _2162;
+        case 0x64: 
+        case 0x65: 
         case 0x66: 
         case 0x67: 
         case 0x68: 
@@ -1966,8 +3705,8 @@ _2161: /* (2161 from 2160) */
         case 0x6E: 
         case 0x6F: 
         case 0x70: 
-        case 0x71: 
-        case 0x72: 
+        case 0x71: goto _2092;
+        case 0x72: goto _2162;
         case 0x73: 
         case 0x74: 
         case 0x75: 
@@ -1975,12 +3714,12 @@ _2161: /* (2161 from 2160) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2258:
+_2253:
     __quex_debug_drop_out(2161);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2162: /* (2162 from 2161) */
@@ -1989,7 +3728,7 @@ _2162: /* (2162 from 2161) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2162);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2162, 2259);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2162, 2254);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2052,21 +3791,21 @@ _2162: /* (2162 from 2161) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2259:
+_2254:
     __quex_debug_drop_out(2162);
-goto TERMINAL_1514;
+goto TERMINAL_1492;
 
     __quex_assert_no_passage();
-_2163: /* (2163 from 2111) */
+_2163: /* (2163 from 2160) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2163);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2163, 2260);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2163, 2255);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2078,8 +3817,8 @@ _2163: /* (2163 from 2111) */
         case 0x38: 
         case 0x39: 
         case 0x41: 
-        case 0x42: goto _2117;
-        case 0x43: goto _2164;
+        case 0x42: 
+        case 0x43: 
         case 0x44: 
         case 0x45: 
         case 0x46: 
@@ -2094,8 +3833,8 @@ _2163: /* (2163 from 2111) */
         case 0x4F: 
         case 0x50: 
         case 0x51: 
-        case 0x52: 
-        case 0x53: 
+        case 0x52: goto _2092;
+        case 0x53: goto _2164;
         case 0x54: 
         case 0x55: 
         case 0x56: 
@@ -2105,8 +3844,8 @@ _2163: /* (2163 from 2111) */
         case 0x5A: 
         case 0x5F: 
         case 0x61: 
-        case 0x62: goto _2117;
-        case 0x63: goto _2164;
+        case 0x62: 
+        case 0x63: 
         case 0x64: 
         case 0x65: 
         case 0x66: 
@@ -2121,20 +3860,20 @@ _2163: /* (2163 from 2111) */
         case 0x6F: 
         case 0x70: 
         case 0x71: 
-        case 0x72: 
-        case 0x73: 
+        case 0x72: goto _2092;
+        case 0x73: goto _2164;
         case 0x74: 
         case 0x75: 
         case 0x76: 
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2260:
+_2255:
     __quex_debug_drop_out(2163);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2164: /* (2164 from 2163) */
@@ -2143,7 +3882,7 @@ _2164: /* (2164 from 2163) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2164);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2164, 2261);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2164, 2256);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2153,12 +3892,12 @@ _2164: /* (2164 from 2163) */
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: goto _2117;
-        case 0x41: goto _2165;
+        case 0x39: 
+        case 0x41: 
         case 0x42: 
         case 0x43: 
-        case 0x44: 
-        case 0x45: 
+        case 0x44: goto _2092;
+        case 0x45: goto _2167;
         case 0x46: 
         case 0x47: 
         case 0x48: 
@@ -2180,12 +3919,12 @@ _2164: /* (2164 from 2163) */
         case 0x58: 
         case 0x59: 
         case 0x5A: 
-        case 0x5F: goto _2117;
-        case 0x61: goto _2165;
+        case 0x5F: 
+        case 0x61: 
         case 0x62: 
         case 0x63: 
-        case 0x64: 
-        case 0x65: 
+        case 0x64: goto _2092;
+        case 0x65: goto _2167;
         case 0x66: 
         case 0x67: 
         case 0x68: 
@@ -2206,98 +3945,29 @@ _2164: /* (2164 from 2163) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2261:
+_2256:
     __quex_debug_drop_out(2164);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2165: /* (2165 from 2164) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2165);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2165, 2262);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: goto _2117;
-        case 0x4C: goto _2166;
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: goto _2117;
-        case 0x6C: goto _2166;
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2262:
-    __quex_debug_drop_out(2165);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2166: /* (2166 from 2165) */
 
     ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
     __quex_debug_state(2166);
+    __quex_debug_drop_out(2166);
+goto TERMINAL_1503;
+
+    __quex_assert_no_passage();
+_2167: /* (2167 from 2164) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2167);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2166, 2263);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2167, 2258);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2360,21 +4030,21 @@ _2166: /* (2166 from 2165) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2263:
-    __quex_debug_drop_out(2166);
-goto TERMINAL_1522;
+_2258:
+    __quex_debug_drop_out(2167);
+goto TERMINAL_1503;
 
     __quex_assert_no_passage();
-_2169: /* (2169 from 2108) */
+_2168: /* (2168 from 2077) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2169);
+    __quex_debug_state(2168);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2169, 2264);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2168, 2259);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2387,9 +4057,86 @@ _2169: /* (2169 from 2108) */
         case 0x39: 
         case 0x41: 
         case 0x42: 
-        case 0x43: goto _2117;
-        case 0x44: goto _2170;
+        case 0x43: 
+        case 0x44: 
         case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: goto _2092;
+        case 0x55: goto _2172;
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: goto _2092;
+        case 0x75: goto _2172;
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2259:
+    __quex_debug_drop_out(2168);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2169: /* (2169 from 2077) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2169);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2169, 2260);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: goto _2092;
+        case 0x45: goto _2170;
         case 0x46: 
         case 0x47: 
         case 0x48: 
@@ -2414,9 +4161,9 @@ _2169: /* (2169 from 2108) */
         case 0x5F: 
         case 0x61: 
         case 0x62: 
-        case 0x63: goto _2117;
-        case 0x64: goto _2170;
-        case 0x65: 
+        case 0x63: 
+        case 0x64: goto _2092;
+        case 0x65: goto _2170;
         case 0x66: 
         case 0x67: 
         case 0x68: 
@@ -2437,12 +4184,12 @@ _2169: /* (2169 from 2108) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2264:
+_2260:
     __quex_debug_drop_out(2169);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2170: /* (2170 from 2169) */
@@ -2451,7 +4198,7 @@ _2170: /* (2170 from 2169) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2170);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2170, 2265);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2170, 2261);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2474,8 +4221,8 @@ _2170: /* (2170 from 2169) */
         case 0x4A: 
         case 0x4B: 
         case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
+        case 0x4D: goto _2092;
+        case 0x4E: goto _2171;
         case 0x4F: 
         case 0x50: 
         case 0x51: 
@@ -2501,8 +4248,8 @@ _2170: /* (2170 from 2169) */
         case 0x6A: 
         case 0x6B: 
         case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
+        case 0x6D: goto _2092;
+        case 0x6E: goto _2171;
         case 0x6F: 
         case 0x70: 
         case 0x71: 
@@ -2514,21 +4261,21 @@ _2170: /* (2170 from 2169) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2265:
+_2261:
     __quex_debug_drop_out(2170);
-goto TERMINAL_1528;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2171: /* (2171 from 2106) */
+_2171: /* (2171 from 2170) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2171);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2171, 2266);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2171, 2262);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2591,21 +4338,21 @@ _2171: /* (2171 from 2106) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2266:
+_2262:
     __quex_debug_drop_out(2171);
-goto TERMINAL_1508;
+goto TERMINAL_1488;
 
     __quex_assert_no_passage();
-_2172: /* (2172 from 2106) */
+_2172: /* (2172 from 2168) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2172);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2172, 2267);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2172, 2263);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2619,9 +4366,9 @@ _2172: /* (2172 from 2106) */
         case 0x41: 
         case 0x42: 
         case 0x43: 
-        case 0x44: 
-        case 0x45: goto _2117;
-        case 0x46: goto _2173;
+        case 0x44: goto _2092;
+        case 0x45: goto _2173;
+        case 0x46: 
         case 0x47: 
         case 0x48: 
         case 0x49: 
@@ -2646,9 +4393,9 @@ _2172: /* (2172 from 2106) */
         case 0x61: 
         case 0x62: 
         case 0x63: 
-        case 0x64: 
-        case 0x65: goto _2117;
-        case 0x66: goto _2173;
+        case 0x64: goto _2092;
+        case 0x65: goto _2173;
+        case 0x66: 
         case 0x67: 
         case 0x68: 
         case 0x69: 
@@ -2668,12 +4415,12 @@ _2172: /* (2172 from 2106) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2267:
+_2263:
     __quex_debug_drop_out(2172);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2173: /* (2173 from 2172) */
@@ -2682,7 +4429,7 @@ _2173: /* (2173 from 2172) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2173);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2173, 2268);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2173, 2264);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2745,21 +4492,21 @@ _2173: /* (2173 from 2172) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2268:
+_2264:
     __quex_debug_drop_out(2173);
-goto TERMINAL_1507;
+goto TERMINAL_1502;
 
     __quex_assert_no_passage();
-_2175: /* (2175 from 2104) */
+_2174: /* (2174 from 2074) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2175);
+    __quex_debug_state(2174);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2175, 2269);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2174, 2265);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2771,6 +4518,83 @@ _2175: /* (2175 from 2104) */
         case 0x38: 
         case 0x39: 
         case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: goto _2092;
+        case 0x45: goto _2175;
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: goto _2092;
+        case 0x65: goto _2175;
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2265:
+    __quex_debug_drop_out(2174);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2175: /* (2175 from 2174) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2175);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2175, 2266);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2092;
+        case 0x41: goto _2176;
         case 0x42: 
         case 0x43: 
         case 0x44: 
@@ -2788,16 +4612,16 @@ _2175: /* (2175 from 2104) */
         case 0x50: 
         case 0x51: 
         case 0x52: 
-        case 0x53: goto _2117;
-        case 0x54: goto _2176;
+        case 0x53: 
+        case 0x54: 
         case 0x55: 
         case 0x56: 
         case 0x57: 
         case 0x58: 
         case 0x59: 
         case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
+        case 0x5F: goto _2092;
+        case 0x61: goto _2176;
         case 0x62: 
         case 0x63: 
         case 0x64: 
@@ -2815,19 +4639,19 @@ _2175: /* (2175 from 2104) */
         case 0x70: 
         case 0x71: 
         case 0x72: 
-        case 0x73: goto _2117;
-        case 0x74: goto _2176;
+        case 0x73: 
+        case 0x74: 
         case 0x75: 
         case 0x76: 
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2269:
+_2266:
     __quex_debug_drop_out(2175);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2176: /* (2176 from 2175) */
@@ -2836,7 +4660,7 @@ _2176: /* (2176 from 2175) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2176);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2176, 2270);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2176, 2267);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2854,10 +4678,10 @@ _2176: /* (2176 from 2175) */
         case 0x45: 
         case 0x46: 
         case 0x47: 
-        case 0x48: goto _2117;
-        case 0x49: goto _2177;
-        case 0x4A: 
-        case 0x4B: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: goto _2092;
+        case 0x4B: goto _2177;
         case 0x4C: 
         case 0x4D: 
         case 0x4E: 
@@ -2881,10 +4705,10 @@ _2176: /* (2176 from 2175) */
         case 0x65: 
         case 0x66: 
         case 0x67: 
-        case 0x68: goto _2117;
-        case 0x69: goto _2177;
-        case 0x6A: 
-        case 0x6B: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: goto _2092;
+        case 0x6B: goto _2177;
         case 0x6C: 
         case 0x6D: 
         case 0x6E: 
@@ -2899,12 +4723,12 @@ _2176: /* (2176 from 2175) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2270:
+_2267:
     __quex_debug_drop_out(2176);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2177: /* (2177 from 2176) */
@@ -2913,7 +4737,7 @@ _2177: /* (2177 from 2176) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2177);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2177, 2271);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2177, 2268);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -2934,8 +4758,8 @@ _2177: /* (2177 from 2176) */
         case 0x48: 
         case 0x49: 
         case 0x4A: 
-        case 0x4B: goto _2117;
-        case 0x4C: goto _2178;
+        case 0x4B: 
+        case 0x4C: 
         case 0x4D: 
         case 0x4E: 
         case 0x4F: 
@@ -2961,8 +4785,8 @@ _2177: /* (2177 from 2176) */
         case 0x68: 
         case 0x69: 
         case 0x6A: 
-        case 0x6B: goto _2117;
-        case 0x6C: goto _2178;
+        case 0x6B: 
+        case 0x6C: 
         case 0x6D: 
         case 0x6E: 
         case 0x6F: 
@@ -2976,175 +4800,21 @@ _2177: /* (2177 from 2176) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2271:
+_2268:
     __quex_debug_drop_out(2177);
-goto TERMINAL_1561;
+goto TERMINAL_1497;
 
     __quex_assert_no_passage();
-_2178: /* (2178 from 2177) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2178);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2178, 2272);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2272:
-    __quex_debug_drop_out(2178);
-goto TERMINAL_1518;
-
-    __quex_assert_no_passage();
-_2179: /* (2179 from 2103) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2179);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2179, 2273);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: goto _2117;
-        case 0x58: goto _2186;
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: goto _2117;
-        case 0x78: goto _2186;
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2273:
-    __quex_debug_drop_out(2179);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2180: /* (2180 from 2103) */
+_2180: /* (2180 from 2071) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2180);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2180, 2274);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2180, 2269);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3165,11 +4835,11 @@ _2180: /* (2180 from 2103) */
         case 0x48: 
         case 0x49: 
         case 0x4A: 
-        case 0x4B: goto _2117;
-        case 0x4C: goto _2185;
+        case 0x4B: 
+        case 0x4C: 
         case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
+        case 0x4E: goto _2092;
+        case 0x4F: goto _2181;
         case 0x50: 
         case 0x51: 
         case 0x52: 
@@ -3192,11 +4862,11 @@ _2180: /* (2180 from 2103) */
         case 0x68: 
         case 0x69: 
         case 0x6A: 
-        case 0x6B: goto _2117;
-        case 0x6C: goto _2185;
+        case 0x6B: 
+        case 0x6C: 
         case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
+        case 0x6E: goto _2092;
+        case 0x6F: goto _2181;
         case 0x70: 
         case 0x71: 
         case 0x72: 
@@ -3207,21 +4877,21 @@ _2180: /* (2180 from 2103) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2274:
+_2269:
     __quex_debug_drop_out(2180);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2181: /* (2181 from 2103) */
+_2181: /* (2181 from 2180) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2181);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2181, 2275);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2181, 2270);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3232,8 +4902,8 @@ _2181: /* (2181 from 2103) */
         case 0x37: 
         case 0x38: 
         case 0x39: 
-        case 0x41: 
-        case 0x42: 
+        case 0x41: goto _2092;
+        case 0x42: goto _2182;
         case 0x43: 
         case 0x44: 
         case 0x45: 
@@ -3244,8 +4914,8 @@ _2181: /* (2181 from 2103) */
         case 0x4A: 
         case 0x4B: 
         case 0x4C: 
-        case 0x4D: goto _2117;
-        case 0x4E: goto _2184;
+        case 0x4D: 
+        case 0x4E: 
         case 0x4F: 
         case 0x50: 
         case 0x51: 
@@ -3259,8 +4929,8 @@ _2181: /* (2181 from 2103) */
         case 0x59: 
         case 0x5A: 
         case 0x5F: 
-        case 0x61: 
-        case 0x62: 
+        case 0x61: goto _2092;
+        case 0x62: goto _2182;
         case 0x63: 
         case 0x64: 
         case 0x65: 
@@ -3271,8 +4941,8 @@ _2181: /* (2181 from 2103) */
         case 0x6A: 
         case 0x6B: 
         case 0x6C: 
-        case 0x6D: goto _2117;
-        case 0x6E: goto _2184;
+        case 0x6D: 
+        case 0x6E: 
         case 0x6F: 
         case 0x70: 
         case 0x71: 
@@ -3284,21 +4954,21 @@ _2181: /* (2181 from 2103) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2275:
+_2270:
     __quex_debug_drop_out(2181);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2182: /* (2182 from 2103) */
+_2182: /* (2182 from 2181) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2182);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2182, 2276);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2182, 2271);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3308,8 +4978,8 @@ _2182: /* (2182 from 2103) */
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: 
-        case 0x41: 
+        case 0x39: goto _2092;
+        case 0x41: goto _2183;
         case 0x42: 
         case 0x43: 
         case 0x44: 
@@ -3327,16 +4997,16 @@ _2182: /* (2182 from 2103) */
         case 0x50: 
         case 0x51: 
         case 0x52: 
-        case 0x53: goto _2117;
-        case 0x54: goto _2183;
+        case 0x53: 
+        case 0x54: 
         case 0x55: 
         case 0x56: 
         case 0x57: 
         case 0x58: 
         case 0x59: 
         case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
+        case 0x5F: goto _2092;
+        case 0x61: goto _2183;
         case 0x62: 
         case 0x63: 
         case 0x64: 
@@ -3354,19 +5024,19 @@ _2182: /* (2182 from 2103) */
         case 0x70: 
         case 0x71: 
         case 0x72: 
-        case 0x73: goto _2117;
-        case 0x74: goto _2183;
+        case 0x73: 
+        case 0x74: 
         case 0x75: 
         case 0x76: 
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2276:
+_2271:
     __quex_debug_drop_out(2182);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2183: /* (2183 from 2182) */
@@ -3375,7 +5045,7 @@ _2183: /* (2183 from 2182) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2183);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2183, 2277);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2183, 2272);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3396,8 +5066,8 @@ _2183: /* (2183 from 2182) */
         case 0x48: 
         case 0x49: 
         case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
+        case 0x4B: goto _2092;
+        case 0x4C: goto _2184;
         case 0x4D: 
         case 0x4E: 
         case 0x4F: 
@@ -3423,8 +5093,8 @@ _2183: /* (2183 from 2182) */
         case 0x68: 
         case 0x69: 
         case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
+        case 0x6B: goto _2092;
+        case 0x6C: goto _2184;
         case 0x6D: 
         case 0x6E: 
         case 0x6F: 
@@ -3438,21 +5108,21 @@ _2183: /* (2183 from 2182) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2277:
+_2272:
     __quex_debug_drop_out(2183);
-goto TERMINAL_1529;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2184: /* (2184 from 2181) */
+_2184: /* (2184 from 2183) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2184);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2184, 2278);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2184, 2273);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3515,98 +5185,21 @@ _2184: /* (2184 from 2181) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2278:
+_2273:
     __quex_debug_drop_out(2184);
-goto TERMINAL_1559;
+goto TERMINAL_1500;
 
     __quex_assert_no_passage();
-_2185: /* (2185 from 2180) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2185);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2185, 2279);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2279:
-    __quex_debug_drop_out(2185);
-goto TERMINAL_1524;
-
-    __quex_assert_no_passage();
-_2186: /* (2186 from 2179) */
+_2186: /* (2186 from 2066) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2186);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2186, 2280);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2186, 2274);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3629,14 +5222,14 @@ _2186: /* (2186 from 2179) */
         case 0x4A: 
         case 0x4B: 
         case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
+        case 0x4D: goto _2092;
+        case 0x4E: goto _2194;
         case 0x4F: 
         case 0x50: 
         case 0x51: 
         case 0x52: 
-        case 0x53: goto _2117;
-        case 0x54: goto _2187;
+        case 0x53: 
+        case 0x54: 
         case 0x55: 
         case 0x56: 
         case 0x57: 
@@ -3656,34 +5249,34 @@ _2186: /* (2186 from 2179) */
         case 0x6A: 
         case 0x6B: 
         case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
+        case 0x6D: goto _2092;
+        case 0x6E: goto _2194;
         case 0x6F: 
         case 0x70: 
         case 0x71: 
         case 0x72: 
-        case 0x73: goto _2117;
-        case 0x74: goto _2187;
+        case 0x73: 
+        case 0x74: 
         case 0x75: 
         case 0x76: 
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2280:
+_2274:
     __quex_debug_drop_out(2186);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2187: /* (2187 from 2186) */
+_2187: /* (2187 from 2066) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2187);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2187, 2281);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2187, 2275);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3704,8 +5297,8 @@ _2187: /* (2187 from 2186) */
         case 0x48: 
         case 0x49: 
         case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
+        case 0x4B: goto _2092;
+        case 0x4C: goto _2193;
         case 0x4D: 
         case 0x4E: 
         case 0x4F: 
@@ -3731,8 +5324,8 @@ _2187: /* (2187 from 2186) */
         case 0x68: 
         case 0x69: 
         case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
+        case 0x6B: goto _2092;
+        case 0x6C: goto _2193;
         case 0x6D: 
         case 0x6E: 
         case 0x6F: 
@@ -3746,21 +5339,21 @@ _2187: /* (2187 from 2186) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2281:
+_2275:
     __quex_debug_drop_out(2187);
-goto TERMINAL_1521;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2188: /* (2188 from 2101) */
+_2188: /* (2188 from 2066) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2188);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2188, 2282);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2188, 2276);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3788,9 +5381,9 @@ _2188: /* (2188 from 2101) */
         case 0x4F: 
         case 0x50: 
         case 0x51: 
-        case 0x52: goto _2117;
-        case 0x53: goto _2192;
-        case 0x54: 
+        case 0x52: 
+        case 0x53: goto _2092;
+        case 0x54: goto _2192;
         case 0x55: 
         case 0x56: 
         case 0x57: 
@@ -3815,29 +5408,29 @@ _2188: /* (2188 from 2101) */
         case 0x6F: 
         case 0x70: 
         case 0x71: 
-        case 0x72: goto _2117;
-        case 0x73: goto _2192;
-        case 0x74: 
+        case 0x72: 
+        case 0x73: goto _2092;
+        case 0x74: goto _2192;
         case 0x75: 
         case 0x76: 
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2282:
+_2276:
     __quex_debug_drop_out(2188);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2189: /* (2189 from 2101) */
+_2189: /* (2189 from 2066) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2189);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2189, 2283);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2189, 2277);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3850,8 +5443,8 @@ _2189: /* (2189 from 2101) */
         case 0x39: 
         case 0x41: 
         case 0x42: 
-        case 0x43: goto _2117;
-        case 0x44: goto _2190;
+        case 0x43: 
+        case 0x44: 
         case 0x45: 
         case 0x46: 
         case 0x47: 
@@ -3870,15 +5463,15 @@ _2189: /* (2189 from 2101) */
         case 0x54: 
         case 0x55: 
         case 0x56: 
-        case 0x57: 
-        case 0x58: 
+        case 0x57: goto _2092;
+        case 0x58: goto _2190;
         case 0x59: 
         case 0x5A: 
         case 0x5F: 
         case 0x61: 
         case 0x62: 
-        case 0x63: goto _2117;
-        case 0x64: goto _2190;
+        case 0x63: 
+        case 0x64: 
         case 0x65: 
         case 0x66: 
         case 0x67: 
@@ -3897,15 +5490,15 @@ _2189: /* (2189 from 2101) */
         case 0x74: 
         case 0x75: 
         case 0x76: 
-        case 0x77: 
-        case 0x78: 
+        case 0x77: goto _2092;
+        case 0x78: goto _2190;
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2283:
+_2277:
     __quex_debug_drop_out(2189);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
 _2190: /* (2190 from 2189) */
@@ -3914,7 +5507,84 @@ _2190: /* (2190 from 2189) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2190);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2190, 2284);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2190, 2278);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: goto _2092;
+        case 0x54: goto _2191;
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: goto _2092;
+        case 0x74: goto _2191;
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2278:
+    __quex_debug_drop_out(2190);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2191: /* (2191 from 2190) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2191);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2191, 2279);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -3977,12 +5647,12 @@ _2190: /* (2190 from 2189) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2284:
-    __quex_debug_drop_out(2190);
-goto TERMINAL_1509;
+_2279:
+    __quex_debug_drop_out(2191);
+goto TERMINAL_1498;
 
     __quex_assert_no_passage();
 _2192: /* (2192 from 2188) */
@@ -3991,7 +5661,7 @@ _2192: /* (2192 from 2188) */
     input = *(me->buffer._input_p);
     __quex_debug_state(2192);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2192, 2285);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2192, 2280);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -4005,8 +5675,8 @@ _2192: /* (2192 from 2188) */
         case 0x41: 
         case 0x42: 
         case 0x43: 
-        case 0x44: goto _2117;
-        case 0x45: goto _2193;
+        case 0x44: 
+        case 0x45: 
         case 0x46: 
         case 0x47: 
         case 0x48: 
@@ -4032,8 +5702,8 @@ _2192: /* (2192 from 2188) */
         case 0x61: 
         case 0x62: 
         case 0x63: 
-        case 0x64: goto _2117;
-        case 0x65: goto _2193;
+        case 0x64: 
+        case 0x65: 
         case 0x66: 
         case 0x67: 
         case 0x68: 
@@ -4054,21 +5724,21 @@ _2192: /* (2192 from 2188) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2285:
+_2280:
     __quex_debug_drop_out(2192);
-goto TERMINAL_1561;
+goto TERMINAL_1506;
 
     __quex_assert_no_passage();
-_2193: /* (2193 from 2192) */
+_2193: /* (2193 from 2187) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2193);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2193, 2286);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2193, 2281);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -4086,8 +5756,8 @@ _2193: /* (2193 from 2192) */
         case 0x45: 
         case 0x46: 
         case 0x47: 
-        case 0x48: goto _2117;
-        case 0x49: goto _2194;
+        case 0x48: 
+        case 0x49: 
         case 0x4A: 
         case 0x4B: 
         case 0x4C: 
@@ -4113,8 +5783,8 @@ _2193: /* (2193 from 2192) */
         case 0x65: 
         case 0x66: 
         case 0x67: 
-        case 0x68: goto _2117;
-        case 0x69: goto _2194;
+        case 0x68: 
+        case 0x69: 
         case 0x6A: 
         case 0x6B: 
         case 0x6C: 
@@ -4131,98 +5801,21 @@ _2193: /* (2193 from 2192) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2286:
+_2281:
     __quex_debug_drop_out(2193);
-goto TERMINAL_1512;
+goto TERMINAL_1501;
 
     __quex_assert_no_passage();
-_2194: /* (2194 from 2193) */
+_2194: /* (2194 from 2186) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2194);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2194, 2287);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: goto _2117;
-        case 0x46: goto _2195;
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: goto _2117;
-        case 0x66: goto _2195;
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2287:
-    __quex_debug_drop_out(2194);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2195: /* (2195 from 2194) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2195);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2195, 2288);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2194, 2282);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -4285,447 +5878,188 @@ _2195: /* (2195 from 2194) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2288:
+_2282:
+    __quex_debug_drop_out(2194);
+goto TERMINAL_1536;
+
+    __quex_assert_no_passage();
+_2198: /* (2085 from 2085) (2085 from 2062) */
+    { last_acceptance = 1533; __quex_debug("last_acceptance = 1533\n"); }
+
+_2085:
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2085);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2085, 2283);
+        case 0x2E: goto _2116;
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2198;
+        case 0x45: 
+        case 0x65: goto _2115;
+
+    }
+_2283:
+    __quex_debug_drop_out(2085);
+goto TERMINAL_1533;
+
+    __quex_assert_no_passage();
+_2107: /* (2107 from 2102) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2107);
+    __quex_debug_drop_out(2107);
+goto TERMINAL_1509;
+
+    __quex_assert_no_passage();
+_2108: /* (2108 from 2102) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2108);
+    __quex_debug_drop_out(2108);
+goto TERMINAL_1512;
+
+    __quex_assert_no_passage();
+_2140: /* (2140 from 2089) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2140);
+    __quex_debug_drop_out(2140);
+goto TERMINAL_1511;
+
+    __quex_assert_no_passage();
+_2149: /* (2149 from 2145) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2149);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2149, 2287);
+        case 0x45: 
+        case 0x65: goto _2152;
+
+    }
+_2287:
+    __quex_debug_drop_out(2149);
+me->buffer._input_p -= 1; 
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2158: /* (2158 from 2081) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2158);
+    __quex_debug_drop_out(2158);
+goto TERMINAL_1478;
+
+    __quex_assert_no_passage();
+_2159: /* (2159 from 2081) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2159);
+    __quex_debug_drop_out(2159);
+goto TERMINAL_1479;
+
+    __quex_assert_no_passage();
+_2165: /* (2165 from 2163) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2165);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2165, 2290);
+        case 0x45: 
+        case 0x65: goto _2166;
+
+    }
+_2290:
+    __quex_debug_drop_out(2165);
+me->buffer._input_p -= 1; 
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2178: /* (2178 from 2176) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2178);
+    __quex_debug_drop_out(2178);
+goto TERMINAL_1497;
+
+    __quex_assert_no_passage();
+_2179: /* (2179 from 2073) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2179);
+    __quex_debug_drop_out(2179);
+goto TERMINAL_1510;
+
+    __quex_assert_no_passage();
+_2185: /* (2185 from 2069) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2185);
+    __quex_debug_drop_out(2185);
+goto TERMINAL_1514;
+
+    __quex_assert_no_passage();
+_2195: /* (2195 from 2064) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2195);
     __quex_debug_drop_out(2195);
 goto TERMINAL_1513;
 
     __quex_assert_no_passage();
-_2196: /* (2196 from 2191) */
+_2063: /* (2063 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2063);
+    __quex_debug_drop_out(2063);
+goto TERMINAL_1529;
+
+    __quex_assert_no_passage();
+_2064: /* (2064 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2196);
+    __quex_debug_state(2064);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2196, 2289);
-        case 0x49: 
-        case 0x69: goto _2197;
-
-    }
-_2289:
-    __quex_debug_drop_out(2196);
-goto TERMINAL_1512;
-
-    __quex_assert_no_passage();
-_2197: /* (2197 from 2196) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2197);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2197, 2290);
-        case 0x46: 
-        case 0x66: goto _2198;
-
-    }
-_2290:
-    __quex_debug_drop_out(2197);
-me->buffer._input_p -= 1; 
-goto TERMINAL_1512;
-
-    __quex_assert_no_passage();
-_2198: /* (2198 from 2197) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2198);
-    __quex_debug_drop_out(2198);
-goto TERMINAL_1513;
-
-    __quex_assert_no_passage();
-_2199: /* (2199 from 2100) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2199);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2199, 2292);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: goto _2117;
-        case 0x4F: goto _2200;
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: goto _2117;
-        case 0x6F: goto _2200;
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2292:
-    __quex_debug_drop_out(2199);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2200: /* (2200 from 2199) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2200);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2200, 2293);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: goto _2117;
-        case 0x42: goto _2201;
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: goto _2117;
-        case 0x62: goto _2201;
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2293:
-    __quex_debug_drop_out(2200);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2201: /* (2201 from 2200) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2201);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2201, 2294);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: goto _2117;
-        case 0x41: goto _2202;
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: goto _2117;
-        case 0x61: goto _2202;
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2294:
-    __quex_debug_drop_out(2201);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2202: /* (2202 from 2201) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2202);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2202, 2295);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: goto _2117;
-        case 0x4C: goto _2203;
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: goto _2117;
-        case 0x6C: goto _2203;
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2295:
-    __quex_debug_drop_out(2202);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2203: /* (2203 from 2202) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2203);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2203, 2296);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2064, 2296);
+        case 0x3D: goto _2195;
 
     }
 _2296:
-    __quex_debug_drop_out(2203);
-goto TERMINAL_1523;
+    __quex_debug_drop_out(2064);
+goto TERMINAL_1522;
 
     __quex_assert_no_passage();
-_2204: /* (2204 from 2099) */
+_2065: /* (2065 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2065);
+    __quex_debug_drop_out(2065);
+goto TERMINAL_1476;
+
+    __quex_assert_no_passage();
+_2066: /* (2066 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2204);
+    __quex_debug_state(2066);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2204, 2297);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2066, 2298);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -4735,99 +6069,22 @@ _2204: /* (2204 from 2099) */
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: 
-        case 0x41: 
+        case 0x39: goto _2092;
+        case 0x41: goto _2186;
         case 0x42: 
         case 0x43: 
-        case 0x44: 
-        case 0x45: 
+        case 0x44: goto _2092;
+        case 0x45: goto _2189;
         case 0x46: 
         case 0x47: 
-        case 0x48: 
-        case 0x49: 
+        case 0x48: goto _2092;
+        case 0x49: goto _2187;
         case 0x4A: 
         case 0x4B: 
         case 0x4C: 
         case 0x4D: 
-        case 0x4E: 
-        case 0x4F: goto _2117;
-        case 0x50: goto _2205;
-        case 0x51: 
-        case 0x52: 
-        case 0x53: goto _2117;
-        case 0x54: goto _2206;
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: goto _2117;
-        case 0x70: goto _2205;
-        case 0x71: 
-        case 0x72: 
-        case 0x73: goto _2117;
-        case 0x74: goto _2206;
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2297:
-    __quex_debug_drop_out(2204);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2205: /* (2205 from 2204) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2205);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2205, 2298);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: goto _2117;
-        case 0x45: goto _2210;
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
+        case 0x4E: goto _2092;
+        case 0x4F: goto _2188;
         case 0x50: 
         case 0x51: 
         case 0x52: 
@@ -4839,22 +6096,22 @@ _2205: /* (2205 from 2204) */
         case 0x58: 
         case 0x59: 
         case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
+        case 0x5F: goto _2092;
+        case 0x61: goto _2186;
         case 0x62: 
         case 0x63: 
-        case 0x64: goto _2117;
-        case 0x65: goto _2210;
+        case 0x64: goto _2092;
+        case 0x65: goto _2189;
         case 0x66: 
         case 0x67: 
-        case 0x68: 
-        case 0x69: 
+        case 0x68: goto _2092;
+        case 0x69: goto _2187;
         case 0x6A: 
         case 0x6B: 
         case 0x6C: 
         case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
+        case 0x6E: goto _2092;
+        case 0x6F: goto _2188;
         case 0x70: 
         case 0x71: 
         case 0x72: 
@@ -4865,21 +6122,38 @@ _2205: /* (2205 from 2204) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
 _2298:
-    __quex_debug_drop_out(2205);
-goto TERMINAL_1561;
+    __quex_debug_drop_out(2066);
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2206: /* (2206 from 2204) */
+_2067: /* (2067 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2067);
+    __quex_debug_drop_out(2067);
+goto TERMINAL_1477;
+
+    __quex_assert_no_passage();
+_2068: /* (2068 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2068);
+    __quex_debug_drop_out(2068);
+goto TERMINAL_1523;
+
+    __quex_assert_no_passage();
+_2069: /* (2069 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2206);
+    __quex_debug_state(2069);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2206, 2299);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2069, 2301);
+        case 0x2E: goto _2185;
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -4889,228 +6163,29 @@ _2206: /* (2206 from 2204) */
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: goto _2117;
-        case 0x55: goto _2207;
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: goto _2117;
-        case 0x75: goto _2207;
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2299:
-    __quex_debug_drop_out(2206);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2207: /* (2207 from 2206) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2207);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2207, 2300);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: goto _2117;
-        case 0x52: goto _2208;
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: goto _2117;
-        case 0x72: goto _2208;
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2300:
-    __quex_debug_drop_out(2207);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2208: /* (2208 from 2207) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2208);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2208, 2301);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: goto _2117;
-        case 0x4E: goto _2209;
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: goto _2117;
-        case 0x6E: goto _2209;
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x39: goto _2205;
 
     }
 _2301:
-    __quex_debug_drop_out(2208);
-goto TERMINAL_1561;
+    __quex_debug_drop_out(2069);
+goto TERMINAL_1525;
 
     __quex_assert_no_passage();
-_2209: /* (2209 from 2208) */
+_2070: /* (2070 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2070);
+    __quex_debug_drop_out(2070);
+goto TERMINAL_1524;
+
+    __quex_assert_no_passage();
+_2071: /* (2071 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2209);
+    __quex_debug_state(2071);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2209, 2302);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2071, 2303);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -5131,8 +6206,8 @@ _2209: /* (2209 from 2208) */
         case 0x48: 
         case 0x49: 
         case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
+        case 0x4B: goto _2092;
+        case 0x4C: goto _2180;
         case 0x4D: 
         case 0x4E: 
         case 0x4F: 
@@ -5158,8 +6233,8 @@ _2209: /* (2209 from 2208) */
         case 0x68: 
         case 0x69: 
         case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
+        case 0x6B: goto _2092;
+        case 0x6C: goto _2180;
         case 0x6D: 
         case 0x6E: 
         case 0x6F: 
@@ -5173,252 +6248,44 @@ _2209: /* (2209 from 2208) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2302:
-    __quex_debug_drop_out(2209);
-goto TERMINAL_1519;
-
-    __quex_assert_no_passage();
-_2210: /* (2210 from 2205) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2210);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2210, 2303);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: goto _2117;
-        case 0x41: goto _2211;
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: goto _2117;
-        case 0x61: goto _2211;
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
 _2303:
-    __quex_debug_drop_out(2210);
-goto TERMINAL_1561;
+    __quex_debug_drop_out(2071);
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2211: /* (2211 from 2210) */
+_2072: /* (2072 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2072);
+    __quex_debug_drop_out(2072);
+goto TERMINAL_1519;
+
+    __quex_assert_no_passage();
+_2073: /* (2073 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2211);
+    __quex_debug_state(2073);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2211, 2304);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: goto _2117;
-        case 0x54: goto _2212;
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: goto _2117;
-        case 0x74: goto _2212;
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2304:
-    __quex_debug_drop_out(2211);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2212: /* (2212 from 2211) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2212);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2212, 2305);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2073, 2305);
+        case 0x3D: goto _2179;
 
     }
 _2305:
-    __quex_debug_drop_out(2212);
-goto TERMINAL_1517;
+    __quex_debug_drop_out(2073);
+goto TERMINAL_1508;
 
     __quex_assert_no_passage();
-_2213: /* (2213 from 2097) */
+_2074: /* (2074 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2213);
+    __quex_debug_state(2074);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2213, 2306);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2074, 2306);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -5445,8 +6312,8 @@ _2213: /* (2213 from 2097) */
         case 0x4E: 
         case 0x4F: 
         case 0x50: 
-        case 0x51: goto _2117;
-        case 0x52: goto _2220;
+        case 0x51: goto _2092;
+        case 0x52: goto _2174;
         case 0x53: 
         case 0x54: 
         case 0x55: 
@@ -5472,8 +6339,8 @@ _2213: /* (2213 from 2097) */
         case 0x6E: 
         case 0x6F: 
         case 0x70: 
-        case 0x71: goto _2117;
-        case 0x72: goto _2220;
+        case 0x71: goto _2092;
+        case 0x72: goto _2174;
         case 0x73: 
         case 0x74: 
         case 0x75: 
@@ -5481,460 +6348,37 @@ _2213: /* (2213 from 2097) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
 _2306:
-    __quex_debug_drop_out(2213);
-goto TERMINAL_1561;
+    __quex_debug_drop_out(2074);
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2214: /* (2214 from 2097) */
+_2075: /* (2075 from 2062) */
 
     ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2214);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2214, 2307);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: goto _2117;
-        case 0x4C: goto _2215;
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: goto _2117;
-        case 0x6C: goto _2215;
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2307:
-    __quex_debug_drop_out(2214);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2215: /* (2215 from 2214) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2215);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2215, 2308);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: goto _2117;
-        case 0x53: goto _2216;
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: goto _2117;
-        case 0x73: goto _2216;
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2308:
-    __quex_debug_drop_out(2215);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2216: /* (2216 from 2215) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2216);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2216, 2309);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: goto _2117;
-        case 0x45: goto _2219;
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: goto _2117;
-        case 0x65: goto _2219;
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2309:
-    __quex_debug_drop_out(2216);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2218: /* (2218 from 2217) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2218);
-    __quex_debug_drop_out(2218);
-goto TERMINAL_1526;
-
-    __quex_assert_no_passage();
-_2219: /* (2219 from 2216) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2219);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2219, 2311);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2311:
-    __quex_debug_drop_out(2219);
-goto TERMINAL_1526;
-
-    __quex_assert_no_passage();
-_2220: /* (2220 from 2213) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2220);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2220, 2312);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2312:
-    __quex_debug_drop_out(2220);
-goto TERMINAL_1515;
-
-    __quex_assert_no_passage();
-_2227: /* (2124 from 2124) (2124 from 2089) */
-    { last_acceptance = 1556; __quex_debug("last_acceptance = 1556\n"); }
-
-_2124:
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2124);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2124, 2313);
-        case 0x2E: goto _2137;
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: goto _2227;
-        case 0x45: 
-        case 0x65: goto _2136;
-
-    }
-_2313:
-    __quex_debug_drop_out(2124);
-goto TERMINAL_1556;
-
-    __quex_assert_no_passage();
-_2135: /* (2135 from 2127) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2135);
-    __quex_debug_drop_out(2135);
-goto TERMINAL_1533;
-
-    __quex_assert_no_passage();
-_2145: /* (2145 from 2143) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2145);
-    __quex_debug_drop_out(2145);
+    __quex_debug_state(2075);
+    __quex_debug_drop_out(2075);
 goto TERMINAL_1520;
 
     __quex_assert_no_passage();
-_2153: /* (2153 from 2120) */
+_2076: /* (2076 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2076);
+    __quex_debug_drop_out(2076);
+goto TERMINAL_1521;
+
+    __quex_assert_no_passage();
+_2077: /* (2077 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2153);
+    __quex_debug_state(2077);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2153, 2316);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2077, 2309);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -5951,142 +6395,532 @@ _2153: /* (2153 from 2120) */
         case 0x44: 
         case 0x45: 
         case 0x46: 
+        case 0x47: goto _2092;
+        case 0x48: goto _2169;
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: goto _2092;
+        case 0x52: goto _2168;
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
         case 0x61: 
         case 0x62: 
         case 0x63: 
         case 0x64: 
         case 0x65: 
-        case 0x66: goto _2155;
+        case 0x66: 
+        case 0x67: goto _2092;
+        case 0x68: goto _2169;
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: goto _2092;
+        case 0x72: goto _2168;
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2309:
+    __quex_debug_drop_out(2077);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2078: /* (2078 from 2062) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2078);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2078, 2310);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: goto _2092;
+        case 0x41: goto _2160;
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: goto _2092;
+        case 0x4F: goto _2161;
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: goto _2092;
+        case 0x61: goto _2160;
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: goto _2092;
+        case 0x6F: goto _2161;
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2310:
+    __quex_debug_drop_out(2078);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2079: /* (2079 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2079);
+    __quex_debug_drop_out(2079);
+goto TERMINAL_1515;
+
+    __quex_assert_no_passage();
+_2080: /* (2080 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2080);
+    __quex_debug_drop_out(2080);
+goto TERMINAL_1516;
+
+    __quex_assert_no_passage();
+_2081: /* (2081 from 2062) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2081);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2081, 2313);
+        case 0x2A: goto _2158;
+        case 0x2F: goto _2159;
+
+    }
+_2313:
+    __quex_debug_drop_out(2081);
+goto TERMINAL_1518;
+
+    __quex_assert_no_passage();
+_2082: /* (2082 from 2062) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2082);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2082, 2314);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: goto _2092;
+        case 0x52: goto _2157;
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: goto _2092;
+        case 0x72: goto _2157;
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2314:
+    __quex_debug_drop_out(2082);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2083: /* (2083 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2083);
+    __quex_debug_drop_out(2083);
+goto TERMINAL_1517;
+
+    __quex_assert_no_passage();
+_2084: /* (2084 from 2062) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2084);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2084, 2316);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: goto _2092;
+        case 0x45: goto _2154;
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: goto _2092;
+        case 0x4F: goto _2155;
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: goto _2092;
+        case 0x65: goto _2154;
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: goto _2092;
+        case 0x6F: goto _2155;
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
 
     }
 _2316:
-    __quex_debug_drop_out(2153);
-me->buffer._input_p -= 1; 
-goto TERMINAL_1555;
+    __quex_debug_drop_out(2084);
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2167: /* (2167 from 2110) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2167);
-    __quex_debug_drop_out(2167);
-goto TERMINAL_1501;
-
-    __quex_assert_no_passage();
-_2168: /* (2168 from 2110) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2168);
-    __quex_debug_drop_out(2168);
-goto TERMINAL_1502;
-
-    __quex_assert_no_passage();
-_2174: /* (2174 from 2105) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2174);
-    __quex_debug_drop_out(2174);
-goto TERMINAL_1534;
-
-    __quex_assert_no_passage();
-_2191: /* (2191 from 2188) */
+_2086: /* (2086 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2191);
+    __quex_debug_state(2086);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2191, 2320);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2086, 2317);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
         case 0x45: 
-        case 0x65: goto _2196;
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: goto _2092;
+        case 0x4C: goto _2145;
+        case 0x4D: goto _2092;
+        case 0x4E: goto _2146;
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: goto _2092;
+        case 0x6C: goto _2145;
+        case 0x6D: goto _2092;
+        case 0x6E: goto _2146;
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2317:
+    __quex_debug_drop_out(2086);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2087: /* (2087 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2087);
+    __quex_debug_drop_out(2087);
+goto TERMINAL_1482;
+
+    __quex_assert_no_passage();
+_2088: /* (2088 from 2062) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2088);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2088, 2319);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: goto _2092;
+        case 0x48: goto _2141;
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: goto _2092;
+        case 0x68: goto _2141;
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
+
+    }
+_2319:
+    __quex_debug_drop_out(2088);
+goto TERMINAL_1538;
+
+    __quex_assert_no_passage();
+_2089: /* (2089 from 2062) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2089);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2089, 2320);
+        case 0x3D: goto _2140;
 
     }
 _2320:
-    __quex_debug_drop_out(2191);
-me->buffer._input_p -= 1; 
-goto TERMINAL_1561;
+    __quex_debug_drop_out(2089);
+
+goto _2200; /* TERMINAL_FAILURE */
 
     __quex_assert_no_passage();
-_2217: /* (2217 from 2215) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2217);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2217, 2321);
-        case 0x45: 
-        case 0x65: goto _2218;
-
-    }
-_2321:
-    __quex_debug_drop_out(2217);
-me->buffer._input_p -= 1; 
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2221: /* (2221 from 2096) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2221);
-    __quex_debug_drop_out(2221);
-goto TERMINAL_1536;
-
-    __quex_assert_no_passage();
-_2222: /* (2222 from 2095) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2222);
-    __quex_debug_drop_out(2222);
-goto TERMINAL_1532;
-
-    __quex_assert_no_passage();
-_2223: /* (2223 from 2095) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2223);
-    __quex_debug_drop_out(2223);
-goto TERMINAL_1535;
-
-    __quex_assert_no_passage();
-_2224: /* (2224 from 2093) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2224);
-    __quex_debug_drop_out(2224);
-goto TERMINAL_1537;
-
-    __quex_assert_no_passage();
-_2090: /* (2090 from 2089) */
+_2090: /* (2090 from 2062) */
 
     ++(me->buffer._input_p);
     __quex_debug_state(2090);
     __quex_debug_drop_out(2090);
-goto TERMINAL_1544;
+goto TERMINAL_1483;
 
     __quex_assert_no_passage();
-_2091: /* (2091 from 2089) */
+_2091: /* (2091 from 2062) */
 
     ++(me->buffer._input_p);
     __quex_debug_state(2091);
     __quex_debug_drop_out(2091);
-goto TERMINAL_1500;
+goto TERMINAL_1530;
 
     __quex_assert_no_passage();
-_2092: /* (2092 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2092);
-    __quex_debug_drop_out(2092);
-goto TERMINAL_1546;
-
-    __quex_assert_no_passage();
-_2093: /* (2093 from 2089) */
+_2093: /* (2093 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2093);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2093, 2329);
-        case 0x2E: goto _2224;
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2093, 2323);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -6096,60 +6930,236 @@ _2093: /* (2093 from 2089) */
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: goto _2234;
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: goto _2092;
+        case 0x4E: goto _2138;
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: goto _2092;
+        case 0x6E: goto _2138;
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
 
     }
-_2329:
+_2323:
     __quex_debug_drop_out(2093);
-goto TERMINAL_1548;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2094: /* (2094 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2094);
-    __quex_debug_drop_out(2094);
-goto TERMINAL_1539;
-
-    __quex_assert_no_passage();
-_2095: /* (2095 from 2089) */
+_2094: /* (2094 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2095);
+    __quex_debug_state(2094);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2095, 2331);
-        case 0x3D: goto _2222;
-        case 0x3E: goto _2223;
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2094, 2324);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: goto _2092;
+        case 0x46: goto _2136;
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: goto _2092;
+        case 0x4E: goto _2135;
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: goto _2092;
+        case 0x66: goto _2136;
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: goto _2092;
+        case 0x6E: goto _2135;
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
 
     }
-_2331:
-    __quex_debug_drop_out(2095);
-goto TERMINAL_1530;
+_2324:
+    __quex_debug_drop_out(2094);
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2096: /* (2096 from 2089) */
+_2095: /* (2095 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2095);
+    __quex_debug_drop_out(2095);
+goto TERMINAL_1531;
+
+    __quex_assert_no_passage();
+_2096: /* (2096 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2096);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2096, 2332);
-        case 0x3D: goto _2221;
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2096, 2326);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: goto _2092;
+        case 0x45: goto _2126;
+        case 0x46: 
+        case 0x47: 
+        case 0x48: 
+        case 0x49: 
+        case 0x4A: 
+        case 0x4B: 
+        case 0x4C: 
+        case 0x4D: 
+        case 0x4E: 
+        case 0x4F: 
+        case 0x50: 
+        case 0x51: 
+        case 0x52: 
+        case 0x53: 
+        case 0x54: 
+        case 0x55: 
+        case 0x56: 
+        case 0x57: 
+        case 0x58: 
+        case 0x59: 
+        case 0x5A: 
+        case 0x5F: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: goto _2092;
+        case 0x65: goto _2126;
+        case 0x66: 
+        case 0x67: 
+        case 0x68: 
+        case 0x69: 
+        case 0x6A: 
+        case 0x6B: 
+        case 0x6C: 
+        case 0x6D: 
+        case 0x6E: 
+        case 0x6F: 
+        case 0x70: 
+        case 0x71: 
+        case 0x72: 
+        case 0x73: 
+        case 0x74: 
+        case 0x75: 
+        case 0x76: 
+        case 0x77: 
+        case 0x78: 
+        case 0x79: 
+        case 0x7A: goto _2092;
 
     }
-_2332:
+_2326:
     __quex_debug_drop_out(2096);
-goto TERMINAL_1545;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2097: /* (2097 from 2089) */
+_2097: /* (2097 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2097);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2097, 2333);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2097, 2327);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -6159,8 +7169,8 @@ _2097: /* (2097 from 2089) */
         case 0x36: 
         case 0x37: 
         case 0x38: 
-        case 0x39: goto _2117;
-        case 0x41: goto _2214;
+        case 0x39: 
+        case 0x41: 
         case 0x42: 
         case 0x43: 
         case 0x44: 
@@ -6172,9 +7182,9 @@ _2097: /* (2097 from 2089) */
         case 0x4A: 
         case 0x4B: 
         case 0x4C: 
-        case 0x4D: 
-        case 0x4E: goto _2117;
-        case 0x4F: goto _2213;
+        case 0x4D: goto _2092;
+        case 0x4E: goto _2122;
+        case 0x4F: 
         case 0x50: 
         case 0x51: 
         case 0x52: 
@@ -6186,8 +7196,8 @@ _2097: /* (2097 from 2089) */
         case 0x58: 
         case 0x59: 
         case 0x5A: 
-        case 0x5F: goto _2117;
-        case 0x61: goto _2214;
+        case 0x5F: 
+        case 0x61: 
         case 0x62: 
         case 0x63: 
         case 0x64: 
@@ -6199,9 +7209,9 @@ _2097: /* (2097 from 2089) */
         case 0x6A: 
         case 0x6B: 
         case 0x6C: 
-        case 0x6D: 
-        case 0x6E: goto _2117;
-        case 0x6F: goto _2213;
+        case 0x6D: goto _2092;
+        case 0x6E: goto _2122;
+        case 0x6F: 
         case 0x70: 
         case 0x71: 
         case 0x72: 
@@ -6212,29 +7222,53 @@ _2097: /* (2097 from 2089) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2333:
+_2327:
     __quex_debug_drop_out(2097);
-goto TERMINAL_1561;
+goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2098: /* (2098 from 2089) */
+_2197: /* (2098 from 2062) */
+    { last_acceptance = 1532; __quex_debug("last_acceptance = 1532\n"); }
+
+_2098:
 
     ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
     __quex_debug_state(2098);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2098, 2328);
+        case 0x2E: goto _2116;
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: goto _2215;
+        case 0x38: 
+        case 0x39: goto _2206;
+        case 0x45: goto _2115;
+        case 0x58: goto _2113;
+        case 0x65: goto _2115;
+        case 0x78: goto _2113;
+
+    }
+_2328:
     __quex_debug_drop_out(2098);
-goto TERMINAL_1540;
+goto TERMINAL_1532;
 
     __quex_assert_no_passage();
-_2099: /* (2099 from 2089) */
+_2099: /* (2099 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
     __quex_debug_state(2099);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2099, 2335);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2099, 2329);
         case 0x30: 
         case 0x31: 
         case 0x32: 
@@ -6248,8 +7282,8 @@ _2099: /* (2099 from 2089) */
         case 0x41: 
         case 0x42: 
         case 0x43: 
-        case 0x44: goto _2117;
-        case 0x45: goto _2204;
+        case 0x44: 
+        case 0x45: 
         case 0x46: 
         case 0x47: 
         case 0x48: 
@@ -6258,8 +7292,8 @@ _2099: /* (2099 from 2089) */
         case 0x4B: 
         case 0x4C: 
         case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
+        case 0x4E: goto _2092;
+        case 0x4F: goto _2109;
         case 0x50: 
         case 0x51: 
         case 0x52: 
@@ -6275,8 +7309,8 @@ _2099: /* (2099 from 2089) */
         case 0x61: 
         case 0x62: 
         case 0x63: 
-        case 0x64: goto _2117;
-        case 0x65: goto _2204;
+        case 0x64: 
+        case 0x65: 
         case 0x66: 
         case 0x67: 
         case 0x68: 
@@ -6285,8 +7319,8 @@ _2099: /* (2099 from 2089) */
         case 0x6B: 
         case 0x6C: 
         case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
+        case 0x6E: goto _2092;
+        case 0x6F: goto _2109;
         case 0x70: 
         case 0x71: 
         case 0x72: 
@@ -6297,1142 +7331,76 @@ _2099: /* (2099 from 2089) */
         case 0x77: 
         case 0x78: 
         case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x7A: goto _2092;
 
     }
-_2335:
+_2329:
     __quex_debug_drop_out(2099);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2100: /* (2100 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2100);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2100, 2336);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: goto _2117;
-        case 0x4C: goto _2199;
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: goto _2117;
-        case 0x6C: goto _2199;
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2336:
-    __quex_debug_drop_out(2100);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2101: /* (2101 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2101);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2101, 2337);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: goto _2117;
-        case 0x4C: goto _2188;
-        case 0x4D: goto _2117;
-        case 0x4E: goto _2189;
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: goto _2117;
-        case 0x6C: goto _2188;
-        case 0x6D: goto _2117;
-        case 0x6E: goto _2189;
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2337:
-    __quex_debug_drop_out(2101);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2102: /* (2102 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2102);
-    __quex_debug_drop_out(2102);
-goto TERMINAL_1542;
-
-    __quex_assert_no_passage();
-_2103: /* (2103 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2103);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2103, 2339);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: goto _2117;
-        case 0x41: goto _2181;
-        case 0x42: 
-        case 0x43: 
-        case 0x44: goto _2117;
-        case 0x45: goto _2179;
-        case 0x46: 
-        case 0x47: 
-        case 0x48: goto _2117;
-        case 0x49: goto _2180;
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: goto _2117;
-        case 0x4F: goto _2182;
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: goto _2117;
-        case 0x61: goto _2181;
-        case 0x62: 
-        case 0x63: 
-        case 0x64: goto _2117;
-        case 0x65: goto _2179;
-        case 0x66: 
-        case 0x67: 
-        case 0x68: goto _2117;
-        case 0x69: goto _2180;
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: goto _2117;
-        case 0x6F: goto _2182;
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2339:
-    __quex_debug_drop_out(2103);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2104: /* (2104 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2104);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2104, 2340);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: goto _2117;
-        case 0x4E: goto _2175;
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: goto _2117;
-        case 0x6E: goto _2175;
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2340:
-    __quex_debug_drop_out(2104);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2105: /* (2105 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2105);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2105, 2341);
-        case 0x3D: goto _2174;
-
-    }
-_2341:
-    __quex_debug_drop_out(2105);
-
-goto _2229; /* TERMINAL_FAILURE */
-
-    __quex_assert_no_passage();
-_2106: /* (2106 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2106);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2106, 2342);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: goto _2117;
-        case 0x45: goto _2172;
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: goto _2117;
-        case 0x4F: goto _2171;
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: goto _2117;
-        case 0x65: goto _2172;
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: goto _2117;
-        case 0x6F: goto _2171;
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2342:
-    __quex_debug_drop_out(2106);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2107: /* (2107 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2107);
-    __quex_debug_drop_out(2107);
 goto TERMINAL_1538;
 
     __quex_assert_no_passage();
-_2108: /* (2108 from 2089) */
+_2100: /* (2100 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2100);
+    __quex_debug_drop_out(2100);
+goto TERMINAL_1526;
+
+    __quex_assert_no_passage();
+_2101: /* (2101 from 2062) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2101);
+    __quex_debug_drop_out(2101);
+goto TERMINAL_1480;
+
+    __quex_assert_no_passage();
+_2102: /* (2102 from 2062) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2108);
+    __quex_debug_state(2102);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2108, 2344);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: goto _2117;
-        case 0x4E: goto _2169;
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: goto _2117;
-        case 0x6E: goto _2169;
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2102, 2332);
+        case 0x3D: goto _2107;
+        case 0x3E: goto _2108;
 
     }
-_2344:
-    __quex_debug_drop_out(2108);
-goto TERMINAL_1561;
+_2332:
+    __quex_debug_drop_out(2102);
+goto TERMINAL_1507;
 
     __quex_assert_no_passage();
-_2109: /* (2109 from 2089) */
+_2103: /* (2103 from 2062) */
 
     ++(me->buffer._input_p);
-    __quex_debug_state(2109);
-    __quex_debug_drop_out(2109);
-goto TERMINAL_1504;
+    __quex_debug_state(2103);
+    __quex_debug_drop_out(2103);
+goto TERMINAL_1527;
 
     __quex_assert_no_passage();
-_2110: /* (2110 from 2089) */
+_2104: /* (2104 from 2062) */
 
     ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2110);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2110, 2346);
-        case 0x2A: goto _2167;
-        case 0x2F: goto _2168;
-
-    }
-_2346:
-    __quex_debug_drop_out(2110);
-goto TERMINAL_1541;
+    __quex_debug_state(2104);
+    __quex_debug_drop_out(2104);
+goto TERMINAL_1481;
 
     __quex_assert_no_passage();
-_2111: /* (2111 from 2089) */
+_2105: /* (2105 from 2062) */
 
     ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2111);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2111, 2347);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: goto _2117;
-        case 0x4F: goto _2163;
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: goto _2117;
-        case 0x6F: goto _2163;
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2347:
-    __quex_debug_drop_out(2111);
-goto TERMINAL_1561;
+    __quex_debug_state(2105);
+    __quex_debug_drop_out(2105);
+goto TERMINAL_1528;
 
     __quex_assert_no_passage();
-_2112: /* (2112 from 2089) */
+_2106: /* (2106 from 2062) */
 
     ++(me->buffer._input_p);
-    __quex_debug_state(2112);
-    __quex_debug_drop_out(2112);
-goto TERMINAL_1505;
-
-    __quex_assert_no_passage();
-_2113: /* (2113 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2113);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2113, 2349);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: goto _2117;
-        case 0x48: goto _2159;
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: goto _2117;
-        case 0x68: goto _2159;
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2349:
-    __quex_debug_drop_out(2113);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2114: /* (2114 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2114);
-    __quex_debug_drop_out(2114);
-goto TERMINAL_1506;
-
-    __quex_assert_no_passage();
-_2115: /* (2115 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2115);
-    __quex_debug_drop_out(2115);
-goto TERMINAL_1552;
-
-    __quex_assert_no_passage();
-_2116: /* (2116 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2116);
-    __quex_debug_drop_out(2116);
-goto TERMINAL_1553;
-
-    __quex_assert_no_passage();
-_2118: /* (2118 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2118);
-    __quex_debug_drop_out(2118);
-goto TERMINAL_1554;
-
-    __quex_assert_no_passage();
-_2119: /* (2119 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2119);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2119, 2354);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: goto _2117;
-        case 0x46: goto _2156;
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: goto _2117;
-        case 0x4E: goto _2157;
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: 
-        case 0x52: 
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: goto _2117;
-        case 0x66: goto _2156;
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: goto _2117;
-        case 0x6E: goto _2157;
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: 
-        case 0x72: 
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2354:
-    __quex_debug_drop_out(2119);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2226: /* (2120 from 2089) */
-    { last_acceptance = 1555; __quex_debug("last_acceptance = 1555\n"); }
-
-_2120:
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2120);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2120, 2355);
-        case 0x2E: goto _2137;
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: goto _2251;
-        case 0x38: 
-        case 0x39: goto _2237;
-        case 0x45: 
-        case 0x65: goto _2136;
-        case 0x78: goto _2153;
-
-    }
-_2355:
-    __quex_debug_drop_out(2120);
-goto TERMINAL_1555;
-
-    __quex_assert_no_passage();
-_2121: /* (2121 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2121);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2121, 2356);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: goto _2117;
-        case 0x48: goto _2147;
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: goto _2117;
-        case 0x52: goto _2146;
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: goto _2117;
-        case 0x68: goto _2147;
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: goto _2117;
-        case 0x72: goto _2146;
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2356:
-    __quex_debug_drop_out(2121);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2122: /* (2122 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2122);
-    __quex_debug_drop_out(2122);
-goto TERMINAL_1547;
-
-    __quex_assert_no_passage();
-_2123: /* (2123 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2123);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2123, 2358);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: goto _2117;
-        case 0x52: goto _2141;
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: goto _2117;
-        case 0x72: goto _2141;
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2358:
-    __quex_debug_drop_out(2123);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2125: /* (2125 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2125);
-    __quex_debug_drop_out(2125);
-goto TERMINAL_1503;
-
-    __quex_assert_no_passage();
-_2126: /* (2126 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2126);
-    __quex_debug_drop_out(2126);
-goto TERMINAL_1549;
-
-    __quex_assert_no_passage();
-_2127: /* (2127 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2127);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2127, 2361);
-        case 0x3D: goto _2135;
-
-    }
-_2361:
-    __quex_debug_drop_out(2127);
-goto TERMINAL_1531;
-
-    __quex_assert_no_passage();
-_2128: /* (2128 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2128);
-    __quex_debug_drop_out(2128);
-goto TERMINAL_1551;
-
-    __quex_assert_no_passage();
-_2129: /* (2129 from 2089) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2129);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2129, 2363);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x47: 
-        case 0x48: 
-        case 0x49: 
-        case 0x4A: 
-        case 0x4B: 
-        case 0x4C: 
-        case 0x4D: 
-        case 0x4E: 
-        case 0x4F: 
-        case 0x50: 
-        case 0x51: goto _2117;
-        case 0x52: goto _2134;
-        case 0x53: 
-        case 0x54: 
-        case 0x55: 
-        case 0x56: 
-        case 0x57: 
-        case 0x58: 
-        case 0x59: 
-        case 0x5A: 
-        case 0x5F: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: 
-        case 0x67: 
-        case 0x68: 
-        case 0x69: 
-        case 0x6A: 
-        case 0x6B: 
-        case 0x6C: 
-        case 0x6D: 
-        case 0x6E: 
-        case 0x6F: 
-        case 0x70: 
-        case 0x71: goto _2117;
-        case 0x72: goto _2134;
-        case 0x73: 
-        case 0x74: 
-        case 0x75: 
-        case 0x76: 
-        case 0x77: 
-        case 0x78: 
-        case 0x79: 
-        case 0x7A: goto _2117;
-
-    }
-_2363:
-    __quex_debug_drop_out(2129);
-goto TERMINAL_1561;
-
-    __quex_assert_no_passage();
-_2130: /* (2130 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2130);
-    __quex_debug_drop_out(2130);
-goto TERMINAL_1550;
-
-    __quex_assert_no_passage();
-_2131: /* (2131 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2131);
-    __quex_debug_drop_out(2131);
-goto TERMINAL_1498;
-
-    __quex_assert_no_passage();
-_2132: /* (2132 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2132);
-    __quex_debug_drop_out(2132);
-goto TERMINAL_1543;
-
-    __quex_assert_no_passage();
-_2133: /* (2133 from 2089) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2133);
-    __quex_debug_drop_out(2133);
-goto TERMINAL_1499;
+    __quex_debug_state(2106);
+    __quex_debug_drop_out(2106);
+goto TERMINAL_1475;
     /* (*) Terminal states _______________________________________________________
      *
      * States that implement actions of the 'winner patterns.                     */
@@ -7456,21 +7424,21 @@ goto TERMINAL_1499;
 
 #define LexemeNull      (&QUEX_LEXEME_NULL)
 
-TERMINAL_1498:
-    __quex_debug("* terminal 1498:   <skip: ... (check also base modes)>\n");
+TERMINAL_1475:
+    __quex_debug("* terminal 1475:   <skip: ... (check also base modes)>\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
 #   line 56 "lexer.qx"
     goto __SKIP;
     
-#   line 7468 "lexer.cpp"
+#   line 7436 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1499:
-    __quex_debug("* terminal 1499:   <skip>\n");
+TERMINAL_1476:
+    __quex_debug("* terminal 1476:   <skip>\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS(self.counter._column_number_at_end &= ~ ((size_t)0x3));
 __QUEX_IF_COUNT_COLUMNS(self.counter._column_number_at_end += 4);
@@ -7481,10 +7449,10 @@ __SKIP:
     QUEX_BUFFER_ASSERT_CONSISTENCY(&me->buffer);
 __QUEX_IF_COUNT_COLUMNS(reference_p = me->buffer._input_p);
     while( 1 + 1 == 2 ) {
-_1581:
+_1558:
         if( (*me->buffer._input_p) < 0xD ) {
             switch( (*me->buffer._input_p) ) {
-                case 0x0: QUEX_GOTO_RELOAD(_1583, 1581, 1584);
+                case 0x0: QUEX_GOTO_RELOAD(_1560, 1558, 1561);
                 case 0x1:
                 case 0x2:
                 case 0x3:
@@ -7523,7 +7491,7 @@ _1581:
         }
 
     __quex_assert_no_passage();
-_1583:
+_1560:
 
     __quex_debug1("__RELOAD_FORWARD");
     __quex_assert(*((me->buffer._input_p)) == QUEX_SETTING_BUFFER_LIMIT_CODE);
@@ -7546,8 +7514,8 @@ __QUEX_IF_COUNT_COLUMNS(reference_p = (me->buffer._input_p));
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1500:
-    __quex_debug("* terminal 1500:   \"#\"\n");
+TERMINAL_1477:
+    __quex_debug("* terminal 1477:   \"#\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -7556,10 +7524,10 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
         text_end = QUEX_NAME(Buffer_text_end)(&me->buffer);
     
     
-    _1586:
+    _1563:
     
         QUEX_BUFFER_ASSERT_CONSISTENCY(&me->buffer);
-        __quex_assert(QUEX_NAME(Buffer_content_size)(&me->buffer) >= Skipper1585L );
+        __quex_assert(QUEX_NAME(Buffer_content_size)(&me->buffer) >= Skipper1562L );
     
         /* NOTE: If _input_p == end of buffer, then it will drop out immediately out of the
             *       loop below and drop into the buffer reload procedure.                      */
@@ -7571,18 +7539,18 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
             *    (2) there was really the FCD in the character stream
             * This must be distinguished after the loop was exited. But, during the 'swallowing' we
             * are very fast, because we do not have to check for two different characters.        */
-        *text_end = Skipper1585[0]; /* Overwrite BufferLimitCode (BLC).  */
-    _1585_LOOP:
+        *text_end = Skipper1562[0]; /* Overwrite BufferLimitCode (BLC).  */
+    _1562_LOOP:
                 input = *(me->buffer._input_p);
     
-                if( input == Skipper1585[0] ) {
+                if( input == Skipper1562[0] ) {
     
-                        goto _1585_LOOP_EXIT;
+                        goto _1562_LOOP_EXIT;
                 }
     
         ++(me->buffer._input_p); /* Now, BLC cannot occur. See above. */
-        goto _1585_LOOP;
-    _1585_LOOP_EXIT:
+        goto _1562_LOOP;
+    _1562_LOOP_EXIT:
     
         *text_end = QUEX_SETTING_BUFFER_LIMIT_CODE; /* Reset BLC. */
     
@@ -7613,9 +7581,9 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
             *         (2.2) Start detection of tail of delimiter
             *
             */
-        if( QUEX_NAME(Buffer_distance_input_to_text_end)(&me->buffer) < (ptrdiff_t)Skipper1585L ) {
+        if( QUEX_NAME(Buffer_distance_input_to_text_end)(&me->buffer) < (ptrdiff_t)Skipper1562L ) {
                 /* (2.1) Reload required. */
-                goto _1587;
+                goto _1564;
         }
     
         /* (2.2) Test the remaining delimiter, but note, that the check must restart at '_input_p + 1'
@@ -7638,7 +7606,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
                 goto __REENTRY; /* End of range reached. */
         }
     
-    _1587:
+    _1564:
         QUEX_BUFFER_ASSERT_CONSISTENCY_LIGHT(&me->buffer);
         /* -- When loading new content it is checked that the beginning of the lexeme
             *    is not 'shifted' out of the buffer. In the case of skipping, we do not care about
@@ -7661,7 +7629,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
                 text_end = QUEX_NAME(Buffer_text_end)(&me->buffer);
     
                 QUEX_BUFFER_ASSERT_CONSISTENCY(&me->buffer);
-                goto _1586;
+                goto _1563;
         }
         /* Here, either the loading failed or it is not enough space to carry a closing delimiter */
         me->buffer._input_p = me->buffer._lexeme_start_p;
@@ -7672,25 +7640,25 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
                 self_send(TK_WARNING);
     
     
-#   line 7676 "lexer.cpp"
+#   line 7644 "lexer.cpp"
 #undef  Closer
     RETURN;
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1501:
-    __quex_debug("* terminal 1501:   \"/*\"\n");
+TERMINAL_1478:
+    __quex_debug("* terminal 1478:   \"/*\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-        Skipper1588_Opener_it = (QUEX_TYPE_CHARACTER*)Skipper1588_Opener;
-        Skipper1588_Closer_it = (QUEX_TYPE_CHARACTER*)Skipper1588_Closer;
+        Skipper1565_Opener_it = (QUEX_TYPE_CHARACTER*)Skipper1565_Opener;
+        Skipper1565_Closer_it = (QUEX_TYPE_CHARACTER*)Skipper1565_Closer;
         /* text_end                           = QUEX_NAME(Buffer_text_end)(&me->buffer); */
         __QUEX_IF_COUNT_COLUMNS(reference_p = QUEX_NAME(Buffer_tell_memory_adr)(&me->buffer));
     
     
-    _1589:
+    _1566:
     
         QUEX_BUFFER_ASSERT_CONSISTENCY(&me->buffer);
         __quex_assert(QUEX_NAME(Buffer_content_size)(&me->buffer) >= 2 );
@@ -7709,11 +7677,11 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
                 input = *(me->buffer._input_p);
     
                 if( input == QUEX_SETTING_BUFFER_LIMIT_CODE ) {
-                        goto _1590;
+                        goto _1567;
                 }
-                if( input == *Skipper1588_Closer_it ) {
-                        ++Skipper1588_Closer_it;
-                        if( Skipper1588_Closer_it == Skipper1588_CloserEnd ) {
+                if( input == *Skipper1565_Closer_it ) {
+                        ++Skipper1565_Closer_it;
+                        if( Skipper1565_Closer_it == Skipper1565_CloserEnd ) {
                             if( counter == 0 ) {
                                 /* NOTE: The initial state does not increment the input_p. When it detects that
                                     * it is located on a buffer border, it automatically triggers a reload. No
@@ -7726,25 +7694,25 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
                                 goto __REENTRY; /* End of range reached. */
                             }
                             --counter;
-                            Skipper1588_Opener_it = (QUEX_TYPE_CHARACTER*)Skipper1588_Opener;
-                            Skipper1588_Closer_it = (QUEX_TYPE_CHARACTER*)Skipper1588_Closer;
-                            goto CONTINUE_1588;
+                            Skipper1565_Opener_it = (QUEX_TYPE_CHARACTER*)Skipper1565_Opener;
+                            Skipper1565_Closer_it = (QUEX_TYPE_CHARACTER*)Skipper1565_Closer;
+                            goto CONTINUE_1565;
                         }
                 } else {
-                        Skipper1588_Closer_it = (QUEX_TYPE_CHARACTER*)Skipper1588_Closer;
+                        Skipper1565_Closer_it = (QUEX_TYPE_CHARACTER*)Skipper1565_Closer;
                 }
-                if( input == *Skipper1588_Opener_it ) {
-                        ++Skipper1588_Opener_it;
-                        if( Skipper1588_Opener_it == Skipper1588_OpenerEnd ) {
+                if( input == *Skipper1565_Opener_it ) {
+                        ++Skipper1565_Opener_it;
+                        if( Skipper1565_Opener_it == Skipper1565_OpenerEnd ) {
                             ++counter;
-                            Skipper1588_Opener_it = (QUEX_TYPE_CHARACTER*)Skipper1588_Opener;
-                            Skipper1588_Closer_it = (QUEX_TYPE_CHARACTER*)Skipper1588_Closer;
-                            goto CONTINUE_1588;
+                            Skipper1565_Opener_it = (QUEX_TYPE_CHARACTER*)Skipper1565_Opener;
+                            Skipper1565_Closer_it = (QUEX_TYPE_CHARACTER*)Skipper1565_Closer;
+                            goto CONTINUE_1565;
                         }
                 } else {
-                        Skipper1588_Opener_it = (QUEX_TYPE_CHARACTER*)Skipper1588_Opener;
+                        Skipper1565_Opener_it = (QUEX_TYPE_CHARACTER*)Skipper1565_Opener;
                 }
-    CONTINUE_1588:
+    CONTINUE_1565:
     
         __QUEX_IF_COUNT_IF( input == (QUEX_TYPE_CHARACTER)'\n' ) {
                 __QUEX_IF_COUNT_LINES_ADD((size_t)1);
@@ -7755,7 +7723,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
                 ++(me->buffer._input_p); /* Now, BLC cannot occur. See above. */
         }
     
-    _1590:
+    _1567:
         QUEX_BUFFER_ASSERT_CONSISTENCY_LIGHT(&me->buffer);
         /* -- When loading new content it is checked that the beginning of the lexeme
             *    is not 'shifted' out of the buffer. In the case of skipping, we do not care about
@@ -7778,7 +7746,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
                 __QUEX_IF_COUNT_COLUMNS(reference_p = QUEX_NAME(Buffer_tell_memory_adr)(&me->buffer));
     
                 QUEX_BUFFER_ASSERT_CONSISTENCY(&me->buffer);
-                goto _1589; /* End of range reached.             */
+                goto _1566; /* End of range reached.             */
         }
         /* Here, either the loading failed or it is not enough space to carry a closing delimiter */
         me->buffer._input_p = me->buffer._lexeme_start_p;
@@ -7789,15 +7757,15 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
                 self_send(TK_WARNING);
     
     
-#   line 7793 "lexer.cpp"
+#   line 7761 "lexer.cpp"
 #undef  Closer
     RETURN;
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1502:
-    __quex_debug("* terminal 1502:   \"//\"\n");
+TERMINAL_1479:
+    __quex_debug("* terminal 1479:   \"//\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -7806,10 +7774,10 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
         text_end = QUEX_NAME(Buffer_text_end)(&me->buffer);
     
     
-    _1592:
+    _1569:
     
         QUEX_BUFFER_ASSERT_CONSISTENCY(&me->buffer);
-        __quex_assert(QUEX_NAME(Buffer_content_size)(&me->buffer) >= Skipper1591L );
+        __quex_assert(QUEX_NAME(Buffer_content_size)(&me->buffer) >= Skipper1568L );
     
         /* NOTE: If _input_p == end of buffer, then it will drop out immediately out of the
             *       loop below and drop into the buffer reload procedure.                      */
@@ -7821,18 +7789,18 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
             *    (2) there was really the FCD in the character stream
             * This must be distinguished after the loop was exited. But, during the 'swallowing' we
             * are very fast, because we do not have to check for two different characters.        */
-        *text_end = Skipper1591[0]; /* Overwrite BufferLimitCode (BLC).  */
-    _1591_LOOP:
+        *text_end = Skipper1568[0]; /* Overwrite BufferLimitCode (BLC).  */
+    _1568_LOOP:
                 input = *(me->buffer._input_p);
     
-                if( input == Skipper1591[0] ) {
+                if( input == Skipper1568[0] ) {
     
-                        goto _1591_LOOP_EXIT;
+                        goto _1568_LOOP_EXIT;
                 }
     
         ++(me->buffer._input_p); /* Now, BLC cannot occur. See above. */
-        goto _1591_LOOP;
-    _1591_LOOP_EXIT:
+        goto _1568_LOOP;
+    _1568_LOOP_EXIT:
     
         *text_end = QUEX_SETTING_BUFFER_LIMIT_CODE; /* Reset BLC. */
     
@@ -7863,9 +7831,9 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
             *         (2.2) Start detection of tail of delimiter
             *
             */
-        if( QUEX_NAME(Buffer_distance_input_to_text_end)(&me->buffer) < (ptrdiff_t)Skipper1591L ) {
+        if( QUEX_NAME(Buffer_distance_input_to_text_end)(&me->buffer) < (ptrdiff_t)Skipper1568L ) {
                 /* (2.1) Reload required. */
-                goto _1593;
+                goto _1570;
         }
     
         /* (2.2) Test the remaining delimiter, but note, that the check must restart at '_input_p + 1'
@@ -7888,7 +7856,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
                 goto __REENTRY; /* End of range reached. */
         }
     
-    _1593:
+    _1570:
         QUEX_BUFFER_ASSERT_CONSISTENCY_LIGHT(&me->buffer);
         /* -- When loading new content it is checked that the beginning of the lexeme
             *    is not 'shifted' out of the buffer. In the case of skipping, we do not care about
@@ -7911,7 +7879,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
                 text_end = QUEX_NAME(Buffer_text_end)(&me->buffer);
     
                 QUEX_BUFFER_ASSERT_CONSISTENCY(&me->buffer);
-                goto _1592;
+                goto _1569;
         }
         /* Here, either the loading failed or it is not enough space to carry a closing delimiter */
         me->buffer._input_p = me->buffer._lexeme_start_p;
@@ -7922,15 +7890,15 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
                 self_send(TK_WARNING);
     
     
-#   line 7926 "lexer.cpp"
+#   line 7894 "lexer.cpp"
 #undef  Closer
     RETURN;
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1503:
-    __quex_debug("* terminal 1503:   \"\\n\"\n");
+TERMINAL_1480:
+    __quex_debug("* terminal 1480:   \"\\n\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_LINES_ADD(1);
 __QUEX_IF_COUNT_COLUMNS_SET(1);
@@ -7939,13 +7907,13 @@ __QUEX_IF_COUNT_COLUMNS_SET(1);
     self_send(TK_NL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 7943 "lexer.cpp"
+#   line 7911 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1504:
-    __quex_debug("* terminal 1504:   \";\"\n");
+TERMINAL_1481:
+    __quex_debug("* terminal 1481:   \";\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -7953,39 +7921,39 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_SCOLON);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 7957 "lexer.cpp"
+#   line 7925 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1505:
-    __quex_debug("* terminal 1505:   \"\\\"\"\n");
+TERMINAL_1482:
+    __quex_debug("* terminal 1482:   \"\\\"\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
 #   line 85 "lexer.qx"
         self.string_delimiter='\"'; self << STRING;
     
-#   line 7970 "lexer.cpp"
+#   line 7938 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1506:
-    __quex_debug("* terminal 1506:   '\n");
+TERMINAL_1483:
+    __quex_debug("* terminal 1483:   '\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
 #   line 86 "lexer.qx"
         self.string_delimiter='\''; self << STRING;
     
-#   line 7983 "lexer.cpp"
+#   line 7951 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1507:
-    __quex_debug("* terminal 1507:   \\C{def}\n");
+TERMINAL_1484:
+    __quex_debug("* terminal 1484:   \\C{def}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
@@ -7993,13 +7961,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(3);
     self_send(TK_DEF);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 7997 "lexer.cpp"
+#   line 7965 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1508:
-    __quex_debug("* terminal 1508:   \\C{do}\n");
+TERMINAL_1485:
+    __quex_debug("* terminal 1485:   \\C{do}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8007,13 +7975,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_DO);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8011 "lexer.cpp"
+#   line 7979 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1509:
-    __quex_debug("* terminal 1509:   \\C{end}\n");
+TERMINAL_1486:
+    __quex_debug("* terminal 1486:   \\C{end}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
@@ -8021,13 +7989,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(3);
     self_send(TK_END);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8025 "lexer.cpp"
+#   line 7993 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1510:
-    __quex_debug("* terminal 1510:   \\C{if}\n");
+TERMINAL_1487:
+    __quex_debug("* terminal 1487:   \\C{if}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8035,13 +8003,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_IF);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8039 "lexer.cpp"
+#   line 8007 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1511:
-    __quex_debug("* terminal 1511:   \\C{then}\n");
+TERMINAL_1488:
+    __quex_debug("* terminal 1488:   \\C{then}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
@@ -8049,13 +8017,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(4);
     self_send(TK_THEN);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8053 "lexer.cpp"
+#   line 8021 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1512:
-    __quex_debug("* terminal 1512:   \\C{else}\n");
+TERMINAL_1489:
+    __quex_debug("* terminal 1489:   \\C{else}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
@@ -8063,27 +8031,27 @@ __QUEX_IF_COUNT_COLUMNS_ADD(4);
     self_send(TK_ELSE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8067 "lexer.cpp"
+#   line 8035 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1513:
-    __quex_debug("* terminal 1513:   \\C{elseif}\n");
+TERMINAL_1490:
+    __quex_debug("* terminal 1490:   \\C{elif}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
-__QUEX_IF_COUNT_COLUMNS_ADD(6);
+__QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
 #   line 96 "lexer.qx"
     self_send(TK_ELSEIF);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8081 "lexer.cpp"
+#   line 8049 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1514:
-    __quex_debug("* terminal 1514:   \\C{while}\n");
+TERMINAL_1491:
+    __quex_debug("* terminal 1491:   \\C{while}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
@@ -8091,13 +8059,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(5);
     self_send(TK_WHILE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8095 "lexer.cpp"
+#   line 8063 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1515:
-    __quex_debug("* terminal 1515:   \\C{for}\n");
+TERMINAL_1492:
+    __quex_debug("* terminal 1492:   \\C{for}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
@@ -8105,13 +8073,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(3);
     self_send(TK_FOR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8109 "lexer.cpp"
+#   line 8077 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1516:
-    __quex_debug("* terminal 1516:   \\C{in}\n");
+TERMINAL_1493:
+    __quex_debug("* terminal 1493:   \\C{in}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8119,13 +8087,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_IN);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8123 "lexer.cpp"
+#   line 8091 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1517:
-    __quex_debug("* terminal 1517:   \\C{repeat}\n");
+TERMINAL_1494:
+    __quex_debug("* terminal 1494:   \\C{repeat}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(6);
     {
@@ -8133,13 +8101,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(6);
     self_send(TK_REPEAT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8137 "lexer.cpp"
+#   line 8105 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1518:
-    __quex_debug("* terminal 1518:   \\C{until}\n");
+TERMINAL_1495:
+    __quex_debug("* terminal 1495:   \\C{until}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
@@ -8147,13 +8115,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(5);
     self_send(TK_UNTIL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8151 "lexer.cpp"
+#   line 8119 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1519:
-    __quex_debug("* terminal 1519:   \\C{return}\n");
+TERMINAL_1496:
+    __quex_debug("* terminal 1496:   \\C{return}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(6);
     {
@@ -8161,13 +8129,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(6);
     self_send(TK_RETURN);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8165 "lexer.cpp"
+#   line 8133 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1520:
-    __quex_debug("* terminal 1520:   \\C{break}\n");
+TERMINAL_1497:
+    __quex_debug("* terminal 1497:   \\C{break}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
@@ -8175,13 +8143,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(5);
     self_send(TK_BREAK);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8179 "lexer.cpp"
+#   line 8147 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1521:
-    __quex_debug("* terminal 1521:   \\C{next}\n");
+TERMINAL_1498:
+    __quex_debug("* terminal 1498:   \\C{next}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
@@ -8189,13 +8157,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(4);
     self_send(TK_NEXT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8193 "lexer.cpp"
+#   line 8161 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1522:
-    __quex_debug("* terminal 1522:   \\C{local}\n");
+TERMINAL_1499:
+    __quex_debug("* terminal 1499:   \\C{local}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
@@ -8203,13 +8171,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(5);
     self_send(TK_LOCAL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8207 "lexer.cpp"
+#   line 8175 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1523:
-    __quex_debug("* terminal 1523:   \\C{global}\n");
+TERMINAL_1500:
+    __quex_debug("* terminal 1500:   \\C{global}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(6);
     {
@@ -8217,13 +8185,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(6);
     self_send(TK_GLOBAL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8221 "lexer.cpp"
+#   line 8189 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1524:
-    __quex_debug("* terminal 1524:   \\C{nil}\n");
+TERMINAL_1501:
+    __quex_debug("* terminal 1501:   \\C{nil}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
@@ -8231,13 +8199,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(3);
     self_send(TK_NIL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8235 "lexer.cpp"
+#   line 8203 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1525:
-    __quex_debug("* terminal 1525:   \\C{true}\n");
+TERMINAL_1502:
+    __quex_debug("* terminal 1502:   \\C{true}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
@@ -8245,13 +8213,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(4);
     self_send(TK_TRUE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8249 "lexer.cpp"
+#   line 8217 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1526:
-    __quex_debug("* terminal 1526:   \\C{false}\n");
+TERMINAL_1503:
+    __quex_debug("* terminal 1503:   \\C{false}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
@@ -8259,13 +8227,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(5);
     self_send(TK_FALSE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8263 "lexer.cpp"
+#   line 8231 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1527:
-    __quex_debug("* terminal 1527:   \\C{or}\n");
+TERMINAL_1504:
+    __quex_debug("* terminal 1504:   \\C{or}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8273,13 +8241,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_OR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8277 "lexer.cpp"
+#   line 8245 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1528:
-    __quex_debug("* terminal 1528:   \\C{and}\n");
+TERMINAL_1505:
+    __quex_debug("* terminal 1505:   \\C{and}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
@@ -8287,13 +8255,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(3);
     self_send(TK_AND);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8291 "lexer.cpp"
+#   line 8259 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1529:
-    __quex_debug("* terminal 1529:   \\C{not}\n");
+TERMINAL_1506:
+    __quex_debug("* terminal 1506:   \\C{not}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
@@ -8301,13 +8269,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(3);
     self_send(TK_NOT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8305 "lexer.cpp"
+#   line 8273 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1530:
-    __quex_debug("* terminal 1530:   <\n");
+TERMINAL_1507:
+    __quex_debug("* terminal 1507:   <\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8315,13 +8283,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_L);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8319 "lexer.cpp"
+#   line 8287 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1531:
-    __quex_debug("* terminal 1531:   >\n");
+TERMINAL_1508:
+    __quex_debug("* terminal 1508:   >\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8329,13 +8297,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_G);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8333 "lexer.cpp"
+#   line 8301 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1532:
-    __quex_debug("* terminal 1532:   <=\n");
+TERMINAL_1509:
+    __quex_debug("* terminal 1509:   <=\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8343,13 +8311,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_LEQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8347 "lexer.cpp"
+#   line 8315 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1533:
-    __quex_debug("* terminal 1533:   >=\n");
+TERMINAL_1510:
+    __quex_debug("* terminal 1510:   >=\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8357,13 +8325,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_GEQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8361 "lexer.cpp"
+#   line 8329 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1534:
-    __quex_debug("* terminal 1534:   !=\n");
+TERMINAL_1511:
+    __quex_debug("* terminal 1511:   !=\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8371,13 +8339,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_NEQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8375 "lexer.cpp"
+#   line 8343 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1535:
-    __quex_debug("* terminal 1535:   <>\n");
+TERMINAL_1512:
+    __quex_debug("* terminal 1512:   <>\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8385,13 +8353,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_NEQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8389 "lexer.cpp"
+#   line 8357 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1536:
-    __quex_debug("* terminal 1536:   ==\n");
+TERMINAL_1513:
+    __quex_debug("* terminal 1513:   ==\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8399,13 +8367,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_EQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8403 "lexer.cpp"
+#   line 8371 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1537:
-    __quex_debug("* terminal 1537:   \"..\"\n");
+TERMINAL_1514:
+    __quex_debug("* terminal 1514:   \"..\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
@@ -8413,13 +8381,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
     self_send(TK_RANGEOP);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8417 "lexer.cpp"
+#   line 8385 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1538:
-    __quex_debug("* terminal 1538:   \"+\"\n");
+TERMINAL_1515:
+    __quex_debug("* terminal 1515:   \"+\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8427,13 +8395,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_PLUS);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8431 "lexer.cpp"
+#   line 8399 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1539:
-    __quex_debug("* terminal 1539:   \"-\"\n");
+TERMINAL_1516:
+    __quex_debug("* terminal 1516:   \"-\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8441,13 +8409,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_MINUS);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8445 "lexer.cpp"
+#   line 8413 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1540:
-    __quex_debug("* terminal 1540:   \"*\"\n");
+TERMINAL_1517:
+    __quex_debug("* terminal 1517:   \"*\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8455,13 +8423,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_MUL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8459 "lexer.cpp"
+#   line 8427 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1541:
-    __quex_debug("* terminal 1541:   \"/\"\n");
+TERMINAL_1518:
+    __quex_debug("* terminal 1518:   \"/\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8469,13 +8437,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_DIV);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8473 "lexer.cpp"
+#   line 8441 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1542:
-    __quex_debug("* terminal 1542:   \"%\"\n");
+TERMINAL_1519:
+    __quex_debug("* terminal 1519:   \"%\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8483,13 +8451,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_MOD);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8487 "lexer.cpp"
+#   line 8455 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1543:
-    __quex_debug("* terminal 1543:   \"|\"\n");
+TERMINAL_1520:
+    __quex_debug("* terminal 1520:   \"|\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8497,13 +8465,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_PIPE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8501 "lexer.cpp"
+#   line 8469 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1544:
-    __quex_debug("* terminal 1544:   \"^\"\n");
+TERMINAL_1521:
+    __quex_debug("* terminal 1521:   \"^\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8511,13 +8479,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_EXP);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8515 "lexer.cpp"
+#   line 8483 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1545:
-    __quex_debug("* terminal 1545:   \"=\"\n");
+TERMINAL_1522:
+    __quex_debug("* terminal 1522:   \"=\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8525,13 +8493,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_ASSIG);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8529 "lexer.cpp"
+#   line 8497 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1546:
-    __quex_debug("* terminal 1546:   \":\"\n");
+TERMINAL_1523:
+    __quex_debug("* terminal 1523:   \":\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8539,13 +8507,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(0x00003A);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8543 "lexer.cpp"
+#   line 8511 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1547:
-    __quex_debug("* terminal 1547:   \",\"\n");
+TERMINAL_1524:
+    __quex_debug("* terminal 1524:   \",\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8553,13 +8521,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_COMMA);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8557 "lexer.cpp"
+#   line 8525 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1548:
-    __quex_debug("* terminal 1548:   \".\"\n");
+TERMINAL_1525:
+    __quex_debug("* terminal 1525:   \".\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8567,13 +8535,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_DOT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8571 "lexer.cpp"
+#   line 8539 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1549:
-    __quex_debug("* terminal 1549:   \"[\"\n");
+TERMINAL_1526:
+    __quex_debug("* terminal 1526:   \"[\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8581,13 +8549,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(0x00005B);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8585 "lexer.cpp"
+#   line 8553 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1550:
-    __quex_debug("* terminal 1550:   \"]\"\n");
+TERMINAL_1527:
+    __quex_debug("* terminal 1527:   \"]\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8595,13 +8563,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(0x00005D);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8599 "lexer.cpp"
+#   line 8567 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1551:
-    __quex_debug("* terminal 1551:   \"{\"\n");
+TERMINAL_1528:
+    __quex_debug("* terminal 1528:   \"{\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8609,13 +8577,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(0x00007B);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8613 "lexer.cpp"
+#   line 8581 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1552:
-    __quex_debug("* terminal 1552:   \"}\"\n");
+TERMINAL_1529:
+    __quex_debug("* terminal 1529:   \"}\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8623,13 +8591,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(0x00007D);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8627 "lexer.cpp"
+#   line 8595 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1553:
-    __quex_debug("* terminal 1553:   \"(\"\n");
+TERMINAL_1530:
+    __quex_debug("* terminal 1530:   \"(\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8637,13 +8605,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_PL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8641 "lexer.cpp"
+#   line 8609 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1554:
-    __quex_debug("* terminal 1554:   \")\"\n");
+TERMINAL_1531:
+    __quex_debug("* terminal 1531:   \")\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -8651,13 +8619,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
     self_send(TK_PR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8655 "lexer.cpp"
+#   line 8623 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1555:
-    __quex_debug("* terminal 1555:   0[0-7]*\n");
+TERMINAL_1532:
+    __quex_debug("* terminal 1532:   0[0-7]*\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
@@ -8667,13 +8635,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     self_send(TK_INT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8671 "lexer.cpp"
+#   line 8639 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1556:
-    __quex_debug("* terminal 1556:   [1-9][0-9]*\n");
+TERMINAL_1533:
+    __quex_debug("* terminal 1533:   [1-9][0-9]*\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
@@ -8683,13 +8651,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     self_send(TK_INT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8687 "lexer.cpp"
+#   line 8655 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1557:
-    __quex_debug("* terminal 1557:   0x[:xdigit:]+\n");
+TERMINAL_1534:
+    __quex_debug("* terminal 1534:   0[xX][:xdigit:]+\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
@@ -8699,13 +8667,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     self_send(TK_INT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8703 "lexer.cpp"
+#   line 8671 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1558:
-    __quex_debug("* terminal 1558:   [0-9]*\\.?[0-9]+([eE][\\-+]?[0-9]+)?\n");
+TERMINAL_1535:
+    __quex_debug("* terminal 1535:   [0-9]*\\.?[0-9]+([eE][\\-+]?[0-9]+)?\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
@@ -8715,13 +8683,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     self_send(TK_REAL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8719 "lexer.cpp"
+#   line 8687 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1559:
-    __quex_debug("* terminal 1559:   \\C{nan}\n");
+TERMINAL_1536:
+    __quex_debug("* terminal 1536:   \\C{nan}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
@@ -8730,13 +8698,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(3);
     self_send(TK_REAL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8734 "lexer.cpp"
+#   line 8702 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1560:
-    __quex_debug("* terminal 1560:   \\C{inf}\n");
+TERMINAL_1537:
+    __quex_debug("* terminal 1537:   \\C{inf}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
@@ -8749,13 +8717,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(3);
         self_send(TK_REAL);
     
     
-#   line 8753 "lexer.cpp"
+#   line 8721 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1561:
-    __quex_debug("* terminal 1561:   {ualpha}{ualnum}*\n");
+TERMINAL_1538:
+    __quex_debug("* terminal 1538:   {ualpha}{ualnum}*\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     {
@@ -8764,13 +8732,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     self_send(TK_IDENT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
-#   line 8768 "lexer.cpp"
+#   line 8736 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
 
-_2229: /* TERMINAL: FAILURE */
+_2200: /* TERMINAL: FAILURE */
     if(QUEX_NAME(Buffer_is_end_of_file)(&me->buffer)) {
         /* Init state is going to detect 'input == buffer limit code', and
          * enter the reload procedure, which will decide about 'end of stream'. */
@@ -8797,20 +8765,20 @@ _2229: /* TERMINAL: FAILURE */
         throw ParseError(ss.str());
     
     
-#   line 8801 "lexer.cpp"
+#   line 8769 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION_2;
 
 
 /* TERMINAL: END_OF_STREAM */
-_1584:
+_1561:
 __QUEX_IF_COUNT_SHIFT_VALUES();
     {
 #   line 81 "lexer.qx"
     self_send(TK_EOS);
     
-#   line 8814 "lexer.cpp"
+#   line 8782 "lexer.cpp"
 
     }
     /* End of Stream causes a return from the lexical analyzer, so that no
@@ -8900,12 +8868,39 @@ __RELOAD_FORWARD:
     __quex_assert_no_passage();
 __STATE_ROUTER:
     switch( target_state_index ) {
-        case 1581: { goto _1581; }
-        case 1583: { goto _1583; }
-        case 1584: { goto _1584; }
-        case 1586: { goto _1586; }
-        case 1589: { goto _1589; }
-        case 1592: { goto _1592; }
+        case 1558: { goto _1558; }
+        case 1560: { goto _1560; }
+        case 1561: { goto _1561; }
+        case 1563: { goto _1563; }
+        case 1566: { goto _1566; }
+        case 1569: { goto _1569; }
+        case 2062: { goto _2062; }
+        case 2063: { goto _2063; }
+        case 2064: { goto _2064; }
+        case 2065: { goto _2065; }
+        case 2066: { goto _2066; }
+        case 2067: { goto _2067; }
+        case 2068: { goto _2068; }
+        case 2069: { goto _2069; }
+        case 2070: { goto _2070; }
+        case 2071: { goto _2071; }
+        case 2072: { goto _2072; }
+        case 2073: { goto _2073; }
+        case 2074: { goto _2074; }
+        case 2075: { goto _2075; }
+        case 2076: { goto _2076; }
+        case 2077: { goto _2077; }
+        case 2078: { goto _2078; }
+        case 2079: { goto _2079; }
+        case 2080: { goto _2080; }
+        case 2081: { goto _2081; }
+        case 2082: { goto _2082; }
+        case 2083: { goto _2083; }
+        case 2084: { goto _2084; }
+        case 2085: { goto _2085; }
+        case 2086: { goto _2086; }
+        case 2087: { goto _2087; }
+        case 2088: { goto _2088; }
         case 2089: { goto _2089; }
         case 2090: { goto _2090; }
         case 2091: { goto _2091; }
@@ -9013,11 +9008,8 @@ __STATE_ROUTER:
         case 2193: { goto _2193; }
         case 2194: { goto _2194; }
         case 2195: { goto _2195; }
-        case 2196: { goto _2196; }
         case 2197: { goto _2197; }
         case 2198: { goto _2198; }
-        case 2199: { goto _2199; }
-        case 2200: { goto _2200; }
         case 2201: { goto _2201; }
         case 2202: { goto _2202; }
         case 2203: { goto _2203; }
@@ -9042,8 +9034,11 @@ __STATE_ROUTER:
         case 2222: { goto _2222; }
         case 2223: { goto _2223; }
         case 2224: { goto _2224; }
+        case 2225: { goto _2225; }
         case 2226: { goto _2226; }
         case 2227: { goto _2227; }
+        case 2228: { goto _2228; }
+        case 2229: { goto _2229; }
         case 2230: { goto _2230; }
         case 2231: { goto _2231; }
         case 2232: { goto _2232; }
@@ -9060,7 +9055,6 @@ __STATE_ROUTER:
         case 2243: { goto _2243; }
         case 2244: { goto _2244; }
         case 2245: { goto _2245; }
-        case 2246: { goto _2246; }
         case 2247: { goto _2247; }
         case 2248: { goto _2248; }
         case 2249: { goto _2249; }
@@ -9071,7 +9065,6 @@ __STATE_ROUTER:
         case 2254: { goto _2254; }
         case 2255: { goto _2255; }
         case 2256: { goto _2256; }
-        case 2257: { goto _2257; }
         case 2258: { goto _2258; }
         case 2259: { goto _2259; }
         case 2260: { goto _2260; }
@@ -9098,58 +9091,29 @@ __STATE_ROUTER:
         case 2281: { goto _2281; }
         case 2282: { goto _2282; }
         case 2283: { goto _2283; }
-        case 2284: { goto _2284; }
-        case 2285: { goto _2285; }
-        case 2286: { goto _2286; }
         case 2287: { goto _2287; }
-        case 2288: { goto _2288; }
-        case 2289: { goto _2289; }
         case 2290: { goto _2290; }
-        case 2292: { goto _2292; }
-        case 2293: { goto _2293; }
-        case 2294: { goto _2294; }
-        case 2295: { goto _2295; }
         case 2296: { goto _2296; }
-        case 2297: { goto _2297; }
         case 2298: { goto _2298; }
-        case 2299: { goto _2299; }
-        case 2300: { goto _2300; }
         case 2301: { goto _2301; }
-        case 2302: { goto _2302; }
         case 2303: { goto _2303; }
-        case 2304: { goto _2304; }
         case 2305: { goto _2305; }
         case 2306: { goto _2306; }
-        case 2307: { goto _2307; }
-        case 2308: { goto _2308; }
         case 2309: { goto _2309; }
-        case 2311: { goto _2311; }
-        case 2312: { goto _2312; }
+        case 2310: { goto _2310; }
         case 2313: { goto _2313; }
+        case 2314: { goto _2314; }
         case 2316: { goto _2316; }
+        case 2317: { goto _2317; }
+        case 2319: { goto _2319; }
         case 2320: { goto _2320; }
-        case 2321: { goto _2321; }
+        case 2323: { goto _2323; }
+        case 2324: { goto _2324; }
+        case 2326: { goto _2326; }
+        case 2327: { goto _2327; }
+        case 2328: { goto _2328; }
         case 2329: { goto _2329; }
-        case 2331: { goto _2331; }
         case 2332: { goto _2332; }
-        case 2333: { goto _2333; }
-        case 2335: { goto _2335; }
-        case 2336: { goto _2336; }
-        case 2337: { goto _2337; }
-        case 2339: { goto _2339; }
-        case 2340: { goto _2340; }
-        case 2341: { goto _2341; }
-        case 2342: { goto _2342; }
-        case 2344: { goto _2344; }
-        case 2346: { goto _2346; }
-        case 2347: { goto _2347; }
-        case 2349: { goto _2349; }
-        case 2354: { goto _2354; }
-        case 2355: { goto _2355; }
-        case 2356: { goto _2356; }
-        case 2358: { goto _2358; }
-        case 2361: { goto _2361; }
-        case 2363: { goto _2363; }
 
         default:
             __QUEX_STD_fprintf(stderr, "State router: index = %i\n", (int)target_state_index);
@@ -9243,13 +9207,13 @@ QUEX_NAME(STRING_analyzer_function)(QUEX_TYPE_ANALYZER* me)
 __REENTRY:
     me->buffer._lexeme_start_p = me->buffer._input_p;
     QUEX_LEXEME_TERMINATING_ZERO_UNDO(&me->buffer);
-_2542: /* INIT_STATE_TRANSITION_BLOCK */
+_2511: /* INIT_STATE_TRANSITION_BLOCK */
     input = *(me->buffer._input_p);
     __quex_debug("Init State\n");
-    __quex_debug_state(2510);
+    __quex_debug_state(2479);
     if( input < 0x23 ) {
         switch( input ) {
-            case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2510, 1584);
+            case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2479, 1561);
             case 0x2: 
             case 0x3: 
             case 0x4: 
@@ -9281,670 +9245,670 @@ _2542: /* INIT_STATE_TRANSITION_BLOCK */
             case 0x1E: 
             case 0x1F: 
             case 0x20: 
-            case 0x21: goto _2513;
-            case 0x22: goto _2514;
+            case 0x21: goto _2483;
+            case 0x22: goto _2480;
 
         }
     } else {
         if( input < 0x27 ) {
-            goto _2513;
+            goto _2483;
         } else if( input == 0x27 ) {
-            goto _2512;
+            goto _2481;
         } else if( input < 0x5C ) {
-            goto _2513;
+            goto _2483;
         } else if( input == 0x5C ) {
-            goto _2511;
+            goto _2482;
         } else {
-            goto _2513;
+            goto _2483;
         }
     }
-    __quex_debug_drop_out(2510);
+    __quex_debug_drop_out(2479);
 
-goto _2229; /* TERMINAL_FAILURE */
+goto _2200; /* TERMINAL_FAILURE */
 
-_2510:
+_2479:
 
 
     ++(me->buffer._input_p);
-    goto _2542;
+    goto _2511;
 
 
     __quex_assert_no_passage();
-_2544: /* (2516 from 2514) */
+_2513: /* (2507 from 2481) */
     position[0] = me->buffer._input_p; __quex_debug("position[0] = input_p;\n");
 
-_2516: /* (2516 from 2516) */
+_2507: /* (2507 from 2507) */
 
     ++(me->buffer._input_p);
     input = *(me->buffer._input_p);
-    __quex_debug_state(2516);
+    __quex_debug_state(2507);
     switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2516, 2545);
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2507, 2514);
         case 0x9: 
         case 0xA: 
         case 0xD: 
-        case 0x20: goto _2516;
-        case 0x22: goto _2515;
+        case 0x20: goto _2507;
+        case 0x27: goto _2508;
+
+    }
+_2514:
+    __quex_debug_drop_out(2507);
+__quex_assert(position[0] != 0x0);
+me->buffer._input_p = position[0];
+
+goto TERMINAL_1542;
+
+    __quex_assert_no_passage();
+_2515: /* (2509 from 2480) */
+    position[0] = me->buffer._input_p; __quex_debug("position[0] = input_p;\n");
+
+_2509: /* (2509 from 2509) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2509);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2509, 2516);
+        case 0x9: 
+        case 0xA: 
+        case 0xD: 
+        case 0x20: goto _2509;
+        case 0x22: goto _2510;
+
+    }
+_2516:
+    __quex_debug_drop_out(2509);
+__quex_assert(position[0] != 0x0);
+me->buffer._input_p = position[0];
+
+goto TERMINAL_1541;
+
+    __quex_assert_no_passage();
+_2483: /* (2483 from 2483) (2483 from 2479) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2483);
+    if( input < 0x23 ) {
+        switch( input ) {
+            case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2483, 2517);
+            case 0x2: 
+            case 0x3: 
+            case 0x4: 
+            case 0x5: 
+            case 0x6: 
+            case 0x7: 
+            case 0x8: 
+            case 0x9: 
+            case 0xA: 
+            case 0xB: 
+            case 0xC: 
+            case 0xD: 
+            case 0xE: 
+            case 0xF: 
+            case 0x10: 
+            case 0x11: 
+            case 0x12: 
+            case 0x13: 
+            case 0x14: 
+            case 0x15: 
+            case 0x16: 
+            case 0x17: 
+            case 0x18: 
+            case 0x19: 
+            case 0x1A: 
+            case 0x1B: 
+            case 0x1C: 
+            case 0x1D: 
+            case 0x1E: 
+            case 0x1F: 
+            case 0x20: 
+            case 0x21: goto _2483;
+
+        }
+    } else {
+        if( input < 0x27 ) {
+            goto _2483;
+        } else if( input == 0x27 ) {
+
+        } else if( input < 0x5C ) {
+            goto _2483;
+        } else if( input == 0x5C ) {
+
+        } else {
+            goto _2483;
+        }
+    }
+_2517:
+    __quex_debug_drop_out(2483);
+goto TERMINAL_1543;
+
+    __quex_assert_no_passage();
+_2499: /* (2499 from 2485) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2499);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2499, 2518);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: goto _2500;
+
+    }
+_2518:
+    __quex_debug_drop_out(2499);
+goto TERMINAL_1553;
+
+    __quex_assert_no_passage();
+_2500: /* (2500 from 2499) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2500);
+    __quex_debug_drop_out(2500);
+goto TERMINAL_1553;
+
+    __quex_assert_no_passage();
+_2501: /* (2501 from 2484) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2501);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2501, 2520);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: goto _2502;
+
+    }
+_2520:
+    __quex_debug_drop_out(2501);
+goto TERMINAL_1554;
+
+    __quex_assert_no_passage();
+_2502: /* (2502 from 2501) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2502);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2502, 2521);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: goto _2503;
+
+    }
+_2521:
+    __quex_debug_drop_out(2502);
+goto TERMINAL_1554;
+
+    __quex_assert_no_passage();
+_2503: /* (2503 from 2502) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2503);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2503, 2522);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: goto _2504;
+
+    }
+_2522:
+    __quex_debug_drop_out(2503);
+goto TERMINAL_1554;
+
+    __quex_assert_no_passage();
+_2504: /* (2504 from 2503) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2504);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2504, 2523);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: goto _2505;
+
+    }
+_2523:
+    __quex_debug_drop_out(2504);
+goto TERMINAL_1554;
+
+    __quex_assert_no_passage();
+_2505: /* (2505 from 2504) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2505);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2505, 2524);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: goto _2506;
+
+    }
+_2524:
+    __quex_debug_drop_out(2505);
+goto TERMINAL_1554;
+
+    __quex_assert_no_passage();
+_2506: /* (2506 from 2505) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2506);
+    __quex_debug_drop_out(2506);
+goto TERMINAL_1554;
+
+    __quex_assert_no_passage();
+_2508: /* (2508 from 2507) (2508 from 2481) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2508);
+    __quex_debug_drop_out(2508);
+goto TERMINAL_1540;
+
+    __quex_assert_no_passage();
+_2510: /* (2510 from 2509) (2510 from 2480) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2510);
+    __quex_debug_drop_out(2510);
+goto TERMINAL_1539;
+
+    __quex_assert_no_passage();
+_2484: /* (2484 from 2482) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2484);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2484, 2528);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: goto _2501;
+
+    }
+_2528:
+    __quex_debug_drop_out(2484);
+
+goto _2200; /* TERMINAL_FAILURE */
+
+    __quex_assert_no_passage();
+_2485: /* (2485 from 2482) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2485);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2485, 2529);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: 
+        case 0x38: 
+        case 0x39: 
+        case 0x41: 
+        case 0x42: 
+        case 0x43: 
+        case 0x44: 
+        case 0x45: 
+        case 0x46: 
+        case 0x61: 
+        case 0x62: 
+        case 0x63: 
+        case 0x64: 
+        case 0x65: 
+        case 0x66: goto _2499;
+
+    }
+_2529:
+    __quex_debug_drop_out(2485);
+
+goto _2200; /* TERMINAL_FAILURE */
+
+    __quex_assert_no_passage();
+_2486: /* (2486 from 2482) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2486);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2486, 2530);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: goto _2497;
+
+    }
+_2530:
+    __quex_debug_drop_out(2486);
+goto TERMINAL_1552;
+
+    __quex_assert_no_passage();
+_2487: /* (2487 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2487);
+    __quex_debug_drop_out(2487);
+goto TERMINAL_1545;
+
+    __quex_assert_no_passage();
+_2488: /* (2488 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2488);
+    __quex_debug_drop_out(2488);
+goto TERMINAL_1547;
+
+    __quex_assert_no_passage();
+_2489: /* (2489 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2489);
+    __quex_debug_drop_out(2489);
+goto TERMINAL_1544;
+
+    __quex_assert_no_passage();
+_2490: /* (2490 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2490);
+    __quex_debug_drop_out(2490);
+goto TERMINAL_1555;
+
+    __quex_assert_no_passage();
+_2491: /* (2491 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2491);
+    __quex_debug_drop_out(2491);
+goto TERMINAL_1546;
+
+    __quex_assert_no_passage();
+_2492: /* (2492 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2492);
+    __quex_debug_drop_out(2492);
+goto TERMINAL_1548;
+
+    __quex_assert_no_passage();
+_2493: /* (2493 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2493);
+    __quex_debug_drop_out(2493);
+goto TERMINAL_1550;
+
+    __quex_assert_no_passage();
+_2494: /* (2494 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2494);
+    __quex_debug_drop_out(2494);
+goto TERMINAL_1556;
+
+    __quex_assert_no_passage();
+_2495: /* (2495 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2495);
+    __quex_debug_drop_out(2495);
+goto TERMINAL_1549;
+
+    __quex_assert_no_passage();
+_2496: /* (2496 from 2482) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2496);
+    __quex_debug_drop_out(2496);
+goto TERMINAL_1551;
+
+    __quex_assert_no_passage();
+_2497: /* (2497 from 2486) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2497);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2497, 2541);
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: goto _2498;
+
+    }
+_2541:
+    __quex_debug_drop_out(2497);
+goto TERMINAL_1552;
+
+    __quex_assert_no_passage();
+_2498: /* (2498 from 2497) */
+
+    ++(me->buffer._input_p);
+    __quex_debug_state(2498);
+    __quex_debug_drop_out(2498);
+goto TERMINAL_1552;
+
+    __quex_assert_no_passage();
+_2480: /* (2480 from 2479) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2480);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2480, 2543);
+        case 0x9: 
+        case 0xA: 
+        case 0xD: 
+        case 0x20: goto _2515;
+        case 0x22: goto _2510;
+
+    }
+_2543:
+    __quex_debug_drop_out(2480);
+goto TERMINAL_1541;
+
+    __quex_assert_no_passage();
+_2481: /* (2481 from 2479) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2481);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2481, 2544);
+        case 0x9: 
+        case 0xA: 
+        case 0xD: 
+        case 0x20: goto _2513;
+        case 0x27: goto _2508;
+
+    }
+_2544:
+    __quex_debug_drop_out(2481);
+goto TERMINAL_1542;
+
+    __quex_assert_no_passage();
+_2482: /* (2482 from 2479) */
+
+    ++(me->buffer._input_p);
+    input = *(me->buffer._input_p);
+    __quex_debug_state(2482);
+    switch( input ) {
+        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2482, 2545);
+        case 0x22: goto _2494;
+        case 0x27: goto _2490;
+        case 0x30: 
+        case 0x31: 
+        case 0x32: 
+        case 0x33: 
+        case 0x34: 
+        case 0x35: 
+        case 0x36: 
+        case 0x37: goto _2486;
+        case 0x5C: goto _2496;
+        case 0x61: goto _2491;
+        case 0x62: goto _2488;
+        case 0x66: goto _2492;
+        case 0x6E: goto _2489;
+        case 0x72: goto _2495;
+        case 0x74: goto _2487;
+        case 0x75: goto _2484;
+        case 0x76: goto _2493;
+        case 0x78: goto _2485;
 
     }
 _2545:
-    __quex_debug_drop_out(2516);
-__quex_assert(position[0] != 0x0);
-me->buffer._input_p = position[0];
+    __quex_debug_drop_out(2482);
 
-goto TERMINAL_1564;
-
-    __quex_assert_no_passage();
-_2546: /* (2518 from 2512) */
-    position[0] = me->buffer._input_p; __quex_debug("position[0] = input_p;\n");
-
-_2518: /* (2518 from 2518) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2518);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2518, 2547);
-        case 0x9: 
-        case 0xA: 
-        case 0xD: 
-        case 0x20: goto _2518;
-        case 0x27: goto _2517;
-
-    }
-_2547:
-    __quex_debug_drop_out(2518);
-__quex_assert(position[0] != 0x0);
-me->buffer._input_p = position[0];
-
-goto TERMINAL_1565;
-
-    __quex_assert_no_passage();
-_2513: /* (2513 from 2513) (2513 from 2510) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2513);
-    if( input < 0x23 ) {
-        switch( input ) {
-            case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2513, 2548);
-            case 0x2: 
-            case 0x3: 
-            case 0x4: 
-            case 0x5: 
-            case 0x6: 
-            case 0x7: 
-            case 0x8: 
-            case 0x9: 
-            case 0xA: 
-            case 0xB: 
-            case 0xC: 
-            case 0xD: 
-            case 0xE: 
-            case 0xF: 
-            case 0x10: 
-            case 0x11: 
-            case 0x12: 
-            case 0x13: 
-            case 0x14: 
-            case 0x15: 
-            case 0x16: 
-            case 0x17: 
-            case 0x18: 
-            case 0x19: 
-            case 0x1A: 
-            case 0x1B: 
-            case 0x1C: 
-            case 0x1D: 
-            case 0x1E: 
-            case 0x1F: 
-            case 0x20: 
-            case 0x21: goto _2513;
-
-        }
-    } else {
-        if( input < 0x27 ) {
-            goto _2513;
-        } else if( input == 0x27 ) {
-
-        } else if( input < 0x5C ) {
-            goto _2513;
-        } else if( input == 0x5C ) {
-
-        } else {
-            goto _2513;
-        }
-    }
-_2548:
-    __quex_debug_drop_out(2513);
-goto TERMINAL_1566;
-
-    __quex_assert_no_passage();
-_2534: /* (2534 from 2520) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2534);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2534, 2549);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: goto _2535;
-
-    }
-_2549:
-    __quex_debug_drop_out(2534);
-goto TERMINAL_1576;
-
-    __quex_assert_no_passage();
-_2535: /* (2535 from 2534) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2535);
-    __quex_debug_drop_out(2535);
-goto TERMINAL_1576;
-
-    __quex_assert_no_passage();
-_2536: /* (2536 from 2519) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2536);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2536, 2551);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: goto _2537;
-
-    }
-_2551:
-    __quex_debug_drop_out(2536);
-goto TERMINAL_1577;
-
-    __quex_assert_no_passage();
-_2537: /* (2537 from 2536) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2537);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2537, 2552);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: goto _2538;
-
-    }
-_2552:
-    __quex_debug_drop_out(2537);
-goto TERMINAL_1577;
-
-    __quex_assert_no_passage();
-_2538: /* (2538 from 2537) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2538);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2538, 2553);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: goto _2539;
-
-    }
-_2553:
-    __quex_debug_drop_out(2538);
-goto TERMINAL_1577;
-
-    __quex_assert_no_passage();
-_2539: /* (2539 from 2538) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2539);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2539, 2554);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: goto _2540;
-
-    }
-_2554:
-    __quex_debug_drop_out(2539);
-goto TERMINAL_1577;
-
-    __quex_assert_no_passage();
-_2540: /* (2540 from 2539) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2540);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2540, 2555);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: goto _2541;
-
-    }
-_2555:
-    __quex_debug_drop_out(2540);
-goto TERMINAL_1577;
-
-    __quex_assert_no_passage();
-_2541: /* (2541 from 2540) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2541);
-    __quex_debug_drop_out(2541);
-goto TERMINAL_1577;
-
-    __quex_assert_no_passage();
-_2515: /* (2515 from 2516) (2515 from 2514) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2515);
-    __quex_debug_drop_out(2515);
-goto TERMINAL_1562;
-
-    __quex_assert_no_passage();
-_2517: /* (2517 from 2518) (2517 from 2512) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2517);
-    __quex_debug_drop_out(2517);
-goto TERMINAL_1563;
-
-    __quex_assert_no_passage();
-_2519: /* (2519 from 2511) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2519);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2519, 2559);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: goto _2536;
-
-    }
-_2559:
-    __quex_debug_drop_out(2519);
-
-goto _2229; /* TERMINAL_FAILURE */
-
-    __quex_assert_no_passage();
-_2520: /* (2520 from 2511) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2520);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2520, 2560);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: 
-        case 0x38: 
-        case 0x39: 
-        case 0x41: 
-        case 0x42: 
-        case 0x43: 
-        case 0x44: 
-        case 0x45: 
-        case 0x46: 
-        case 0x61: 
-        case 0x62: 
-        case 0x63: 
-        case 0x64: 
-        case 0x65: 
-        case 0x66: goto _2534;
-
-    }
-_2560:
-    __quex_debug_drop_out(2520);
-
-goto _2229; /* TERMINAL_FAILURE */
-
-    __quex_assert_no_passage();
-_2521: /* (2521 from 2511) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2521);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2521, 2561);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: goto _2532;
-
-    }
-_2561:
-    __quex_debug_drop_out(2521);
-goto TERMINAL_1575;
-
-    __quex_assert_no_passage();
-_2522: /* (2522 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2522);
-    __quex_debug_drop_out(2522);
-goto TERMINAL_1568;
-
-    __quex_assert_no_passage();
-_2523: /* (2523 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2523);
-    __quex_debug_drop_out(2523);
-goto TERMINAL_1567;
-
-    __quex_assert_no_passage();
-_2524: /* (2524 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2524);
-    __quex_debug_drop_out(2524);
-goto TERMINAL_1578;
-
-    __quex_assert_no_passage();
-_2525: /* (2525 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2525);
-    __quex_debug_drop_out(2525);
-goto TERMINAL_1569;
-
-    __quex_assert_no_passage();
-_2526: /* (2526 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2526);
-    __quex_debug_drop_out(2526);
-goto TERMINAL_1571;
-
-    __quex_assert_no_passage();
-_2527: /* (2527 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2527);
-    __quex_debug_drop_out(2527);
-goto TERMINAL_1573;
-
-    __quex_assert_no_passage();
-_2528: /* (2528 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2528);
-    __quex_debug_drop_out(2528);
-goto TERMINAL_1579;
-
-    __quex_assert_no_passage();
-_2529: /* (2529 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2529);
-    __quex_debug_drop_out(2529);
-goto TERMINAL_1570;
-
-    __quex_assert_no_passage();
-_2530: /* (2530 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2530);
-    __quex_debug_drop_out(2530);
-goto TERMINAL_1572;
-
-    __quex_assert_no_passage();
-_2531: /* (2531 from 2511) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2531);
-    __quex_debug_drop_out(2531);
-goto TERMINAL_1574;
-
-    __quex_assert_no_passage();
-_2532: /* (2532 from 2521) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2532);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2532, 2572);
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: goto _2533;
-
-    }
-_2572:
-    __quex_debug_drop_out(2532);
-goto TERMINAL_1575;
-
-    __quex_assert_no_passage();
-_2533: /* (2533 from 2532) */
-
-    ++(me->buffer._input_p);
-    __quex_debug_state(2533);
-    __quex_debug_drop_out(2533);
-goto TERMINAL_1575;
-
-    __quex_assert_no_passage();
-_2511: /* (2511 from 2510) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2511);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2511, 2574);
-        case 0x22: goto _2528;
-        case 0x27: goto _2524;
-        case 0x30: 
-        case 0x31: 
-        case 0x32: 
-        case 0x33: 
-        case 0x34: 
-        case 0x35: 
-        case 0x36: 
-        case 0x37: goto _2521;
-        case 0x5C: goto _2531;
-        case 0x61: goto _2525;
-        case 0x62: goto _2529;
-        case 0x66: goto _2526;
-        case 0x6E: goto _2523;
-        case 0x72: goto _2530;
-        case 0x74: goto _2522;
-        case 0x75: goto _2519;
-        case 0x76: goto _2527;
-        case 0x78: goto _2520;
-
-    }
-_2574:
-    __quex_debug_drop_out(2511);
-
-goto _2229; /* TERMINAL_FAILURE */
-
-    __quex_assert_no_passage();
-_2512: /* (2512 from 2510) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2512);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2512, 2575);
-        case 0x9: 
-        case 0xA: 
-        case 0xD: 
-        case 0x20: goto _2546;
-        case 0x27: goto _2517;
-
-    }
-_2575:
-    __quex_debug_drop_out(2512);
-goto TERMINAL_1565;
-
-    __quex_assert_no_passage();
-_2514: /* (2514 from 2510) */
-
-    ++(me->buffer._input_p);
-    input = *(me->buffer._input_p);
-    __quex_debug_state(2514);
-    switch( input ) {
-        case 0x0: QUEX_GOTO_RELOAD(__RELOAD_FORWARD, 2514, 2576);
-        case 0x9: 
-        case 0xA: 
-        case 0xD: 
-        case 0x20: goto _2544;
-        case 0x22: goto _2515;
-
-    }
-_2576:
-    __quex_debug_drop_out(2514);
-goto TERMINAL_1564;
+goto _2200; /* TERMINAL_FAILURE */
     /* (*) Terminal states _______________________________________________________
      *
      * States that implement actions of the 'winner patterns.                     */
@@ -9968,8 +9932,8 @@ goto TERMINAL_1564;
 
 #define LexemeNull      (&QUEX_LEXEME_NULL)
 
-TERMINAL_1562:
-    __quex_debug("* terminal 1562:   \\\"[:space:]*\\\"\n");
+TERMINAL_1539:
+    __quex_debug("* terminal 1539:   \\\"[:space:]*\\\"\n");
     __QUEX_COUNT_VOID(&self, LexemeBegin, LexemeEnd);
     {
 #   line 181 "lexer.qx"
@@ -9978,13 +9942,13 @@ TERMINAL_1562:
             self_accumulator_add(LexemeBegin, LexemeEnd);
     
     
-#   line 9982 "lexer.cpp"
+#   line 9946 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1563:
-    __quex_debug("* terminal 1563:   '[:space:]*'\n");
+TERMINAL_1540:
+    __quex_debug("* terminal 1540:   '[:space:]*'\n");
     __QUEX_COUNT_VOID(&self, LexemeBegin, LexemeEnd);
     {
 #   line 187 "lexer.qx"
@@ -9993,13 +9957,13 @@ TERMINAL_1563:
             self_accumulator_add(LexemeBegin, LexemeEnd);
     
     
-#   line 9997 "lexer.cpp"
+#   line 9961 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1564:
-    __quex_debug("* terminal 1564:   \\\"\n");
+TERMINAL_1541:
+    __quex_debug("* terminal 1541:   \\\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -10016,13 +9980,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
         }
     
     
-#   line 10020 "lexer.cpp"
+#   line 9984 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1565:
-    __quex_debug("* terminal 1565:   '\n");
+TERMINAL_1542:
+    __quex_debug("* terminal 1542:   '\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
@@ -10039,129 +10003,129 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
         }
     
     
-#   line 10043 "lexer.cpp"
+#   line 10007 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1566:
-    __quex_debug("* terminal 1566:   [^\\\\\\\"']+\n");
+TERMINAL_1543:
+    __quex_debug("* terminal 1543:   [^\\\\\\\"']+\n");
     __QUEX_COUNT_VOID(&self, LexemeBegin, LexemeEnd);
     {
 #   line 217 "lexer.qx"
         self_accumulator_add(LexemeBegin, LexemeEnd);
     
-#   line 10055 "lexer.cpp"
+#   line 10019 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1567:
-    __quex_debug("* terminal 1567:   \\\\n\n");
+TERMINAL_1544:
+    __quex_debug("* terminal 1544:   \\\\n\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 220 "lexer.qx"
         self_accumulator_add_character('\n');
     
-#   line 10068 "lexer.cpp"
+#   line 10032 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1568:
-    __quex_debug("* terminal 1568:   \\\\t\n");
+TERMINAL_1545:
+    __quex_debug("* terminal 1545:   \\\\t\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 221 "lexer.qx"
         self_accumulator_add_character('\t');
     
-#   line 10081 "lexer.cpp"
+#   line 10045 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1569:
-    __quex_debug("* terminal 1569:   \\\\a\n");
+TERMINAL_1546:
+    __quex_debug("* terminal 1546:   \\\\a\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 222 "lexer.qx"
         self_accumulator_add_character('\a');
     
-#   line 10094 "lexer.cpp"
+#   line 10058 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1570:
-    __quex_debug("* terminal 1570:   \\\\b\n");
+TERMINAL_1547:
+    __quex_debug("* terminal 1547:   \\\\b\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 223 "lexer.qx"
         self_accumulator_add_character('\b');
     
-#   line 10107 "lexer.cpp"
+#   line 10071 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1571:
-    __quex_debug("* terminal 1571:   \\\\f\n");
+TERMINAL_1548:
+    __quex_debug("* terminal 1548:   \\\\f\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 224 "lexer.qx"
         self_accumulator_add_character('\f');
     
-#   line 10120 "lexer.cpp"
+#   line 10084 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1572:
-    __quex_debug("* terminal 1572:   \\\\r\n");
+TERMINAL_1549:
+    __quex_debug("* terminal 1549:   \\\\r\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 225 "lexer.qx"
         self_accumulator_add_character('\r');
     
-#   line 10133 "lexer.cpp"
+#   line 10097 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1573:
-    __quex_debug("* terminal 1573:   \\\\v\n");
+TERMINAL_1550:
+    __quex_debug("* terminal 1550:   \\\\v\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 226 "lexer.qx"
         self_accumulator_add_character('\v');
     
-#   line 10146 "lexer.cpp"
+#   line 10110 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1574:
-    __quex_debug("* terminal 1574:   \\\\\\\\\n");
+TERMINAL_1551:
+    __quex_debug("* terminal 1551:   \\\\\\\\\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 227 "lexer.qx"
         self_accumulator_add_character('\\');
     
-#   line 10159 "lexer.cpp"
+#   line 10123 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1575:
-    __quex_debug("* terminal 1575:   \\\\[0-7]{1,3}\n");
+TERMINAL_1552:
+    __quex_debug("* terminal 1552:   \\\\[0-7]{1,3}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
@@ -10169,13 +10133,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
 #   line 229 "lexer.qx"
         self_accumulator_add_character((QUEX_TYPE_CHARACTER)stoi(Lexeme+1,8));
     
-#   line 10173 "lexer.cpp"
+#   line 10137 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1576:
-    __quex_debug("* terminal 1576:   \\\\x[:xdigit:]{1,2}\n");
+TERMINAL_1553:
+    __quex_debug("* terminal 1553:   \\\\x[:xdigit:]{1,2}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
@@ -10183,13 +10147,13 @@ __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
 #   line 230 "lexer.qx"
         self_accumulator_add_character((QUEX_TYPE_CHARACTER)stoi(Lexeme+2,16));
     
-#   line 10187 "lexer.cpp"
+#   line 10151 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1577:
-    __quex_debug("* terminal 1577:   \\\\u[:xdigit:]{1,6}\n");
+TERMINAL_1554:
+    __quex_debug("* terminal 1554:   \\\\u[:xdigit:]{1,6}\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
@@ -10236,39 +10200,39 @@ __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
         }
     
     
-#   line 10240 "lexer.cpp"
+#   line 10204 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1578:
-    __quex_debug("* terminal 1578:   \\\\'\n");
+TERMINAL_1555:
+    __quex_debug("* terminal 1555:   \\\\'\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 273 "lexer.qx"
         self_accumulator_add_character('\'');
     
-#   line 10253 "lexer.cpp"
+#   line 10217 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
-TERMINAL_1579:
-    __quex_debug("* terminal 1579:   \\\\\\\"\n");
+TERMINAL_1556:
+    __quex_debug("* terminal 1556:   \\\\\\\"\n");
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
 #   line 274 "lexer.qx"
         self_accumulator_add_character('\"');
     
-#   line 10266 "lexer.cpp"
+#   line 10230 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
 
 
-_2229: /* TERMINAL: FAILURE */
+_2200: /* TERMINAL: FAILURE */
     if(QUEX_NAME(Buffer_is_end_of_file)(&me->buffer)) {
         /* Init state is going to detect 'input == buffer limit code', and
          * enter the reload procedure, which will decide about 'end of stream'. */
@@ -10293,7 +10257,7 @@ QUEX_ERROR_EXIT("\n    Match failure in mode 'STRING'.\n"
 
 
 /* TERMINAL: END_OF_STREAM */
-_1584:
+_1561:
 __QUEX_IF_COUNT_SHIFT_VALUES();
     {
 #   line 176 "lexer.qx"
@@ -10301,7 +10265,7 @@ __QUEX_IF_COUNT_SHIFT_VALUES();
         throw ParseError("Syntax error: Unterminated string");
     
     
-#   line 10305 "lexer.cpp"
+#   line 10269 "lexer.cpp"
 
     }
     /* End of Stream causes a return from the lexical analyzer, so that no
@@ -10391,57 +10355,57 @@ __RELOAD_FORWARD:
     __quex_assert_no_passage();
 __STATE_ROUTER:
     switch( target_state_index ) {
-        case 1584: { goto _1584; }
+        case 1561: { goto _1561; }
+        case 2479: { goto _2479; }
+        case 2480: { goto _2480; }
+        case 2481: { goto _2481; }
+        case 2482: { goto _2482; }
+        case 2483: { goto _2483; }
+        case 2484: { goto _2484; }
+        case 2485: { goto _2485; }
+        case 2486: { goto _2486; }
+        case 2487: { goto _2487; }
+        case 2488: { goto _2488; }
+        case 2489: { goto _2489; }
+        case 2490: { goto _2490; }
+        case 2491: { goto _2491; }
+        case 2492: { goto _2492; }
+        case 2493: { goto _2493; }
+        case 2494: { goto _2494; }
+        case 2495: { goto _2495; }
+        case 2496: { goto _2496; }
+        case 2497: { goto _2497; }
+        case 2498: { goto _2498; }
+        case 2499: { goto _2499; }
+        case 2500: { goto _2500; }
+        case 2501: { goto _2501; }
+        case 2502: { goto _2502; }
+        case 2503: { goto _2503; }
+        case 2504: { goto _2504; }
+        case 2505: { goto _2505; }
+        case 2506: { goto _2506; }
+        case 2507: { goto _2507; }
+        case 2508: { goto _2508; }
+        case 2509: { goto _2509; }
         case 2510: { goto _2510; }
-        case 2511: { goto _2511; }
-        case 2512: { goto _2512; }
         case 2513: { goto _2513; }
         case 2514: { goto _2514; }
         case 2515: { goto _2515; }
         case 2516: { goto _2516; }
         case 2517: { goto _2517; }
         case 2518: { goto _2518; }
-        case 2519: { goto _2519; }
         case 2520: { goto _2520; }
         case 2521: { goto _2521; }
         case 2522: { goto _2522; }
         case 2523: { goto _2523; }
         case 2524: { goto _2524; }
-        case 2525: { goto _2525; }
-        case 2526: { goto _2526; }
-        case 2527: { goto _2527; }
         case 2528: { goto _2528; }
         case 2529: { goto _2529; }
         case 2530: { goto _2530; }
-        case 2531: { goto _2531; }
-        case 2532: { goto _2532; }
-        case 2533: { goto _2533; }
-        case 2534: { goto _2534; }
-        case 2535: { goto _2535; }
-        case 2536: { goto _2536; }
-        case 2537: { goto _2537; }
-        case 2538: { goto _2538; }
-        case 2539: { goto _2539; }
-        case 2540: { goto _2540; }
         case 2541: { goto _2541; }
+        case 2543: { goto _2543; }
         case 2544: { goto _2544; }
         case 2545: { goto _2545; }
-        case 2546: { goto _2546; }
-        case 2547: { goto _2547; }
-        case 2548: { goto _2548; }
-        case 2549: { goto _2549; }
-        case 2551: { goto _2551; }
-        case 2552: { goto _2552; }
-        case 2553: { goto _2553; }
-        case 2554: { goto _2554; }
-        case 2555: { goto _2555; }
-        case 2559: { goto _2559; }
-        case 2560: { goto _2560; }
-        case 2561: { goto _2561; }
-        case 2572: { goto _2572; }
-        case 2574: { goto _2574; }
-        case 2575: { goto _2575; }
-        case 2576: { goto _2576; }
 
         default:
             __QUEX_STD_fprintf(stderr, "State router: index = %i\n", (int)target_state_index);

@@ -28,10 +28,13 @@ namespace AYA
                 if(it->first->sweep())
                 {
                     memoryLimit += it->second;
+                    delete it->first;
                     entries.erase(it++);
                 }
                 else
+                {
                     ++it;
+                }
             }
         }
         else
@@ -39,9 +42,15 @@ namespace AYA
             for(auto it = entries.begin(); it != entries.end(); )
             {
                 if(it->first->sweep())
+                {
+                    delete it->first;
                     entries.erase(it++);
+                }
                 else
+                {
                     ++it;
+                }
+
             }
         }
     }

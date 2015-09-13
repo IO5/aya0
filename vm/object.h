@@ -52,7 +52,7 @@ namespace AYA
         /// Load member - Read Only (no copy)
         const Variant* getReadOnly(const IDENT_T& key);
         /// Store member
-        void set(const IDENT_T& key, const Variant& val);
+        void set(const IDENT_T& key, const Variant& val, GarbageCollector* gc);
 
     protected:
         /// Type definition
@@ -171,8 +171,13 @@ namespace AYA
     }
 
     /// Store member
-    inline void Object::set(const IDENT_T& key, const Variant& val)
+    inline void Object::set(const IDENT_T& key, const Variant& val, GarbageCollector* gc)
     {
+        if (instVar.find(key) == NULL)
+        {
+            gc->updateObj(this, sizeof(val));
+        }
+
         instVar.insert(key, val);
     }
 

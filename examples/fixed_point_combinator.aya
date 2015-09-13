@@ -15,7 +15,7 @@ puts(fix(factorial,5))
 fibonacci = def(f,x)
 	if x == 0 then 
 		return 1
-	elseif x == 1 then
+	elif x == 1 then
 		return 1
 	else
 		return f(x-1) + f(x-2)
