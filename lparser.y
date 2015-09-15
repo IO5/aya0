@@ -126,9 +126,10 @@ ident_list(IL) ::= ident_list(L) COMMA IDENT(I).
     IL->push_back(static_cast<IdentNode*>(I));
 }
 
-//stat(S)     ::= DEF func_ident func_body. { S; }
-stat(S)     ::= DEF IDENT(I) func_body(B). { S = new AssignNode(new VarNode(I), B); }
-stat        ::= LOCAL DEF IDENT func_body.
+stat(S)     ::= DEF func_ident(I) func_body(B). { S = new AssignNode(I, B); }
+stat(S)     ::= LOCAL DEF IDENT(I) func_body(B). { S = new DeclNode(I, B); }
+func_ident(FI)  ::= IDENT(I). { FI = new VarNode(I); }
+func_ident(FI)  ::= func_ident(F) DOT IDENT(I). { FI = new MemberAccessNode(F, I); }
 //func_ident  ::= IDENT member_list. //[':' IDENT]
 
 function(F)     ::= DEF func_body(B). { F = B; }
@@ -139,6 +140,7 @@ functioncall(C) ::= prefixexp(E) PL PR. { C = new CallNode(E, NULL); } // TODO
 functioncall(C) ::= prefixexp(E) PL exp_list(EL) PR. { C = new CallNode(E, EL); } // TODO
 
 prefixexp(E) ::= var(V). { E = V; }
+prefixexp(E) ::= STRING(A). { E = A; } // so I can do "abc".abc()
 prefixexp(E) ::= functioncall(C). { E = C; }
 prefixexp(E) ::= PL exp(A) PR. { E = A; }
 
@@ -152,7 +154,7 @@ exp(E)      ::= TRUE. { E = new BoolLitNode(true); }
 
 exp(E)      ::= INT(A). { E = A; }
 exp(E)      ::= REAL(A). { E = A; }
-exp(E)      ::= STRING(A). { E = A; }
+//exp(E)      ::= STRING(A). { E = A; }
 
 exp(E)      ::= PIPE exp(A) PIPE. { E = new UnOpNode<'|'>(A); }
 

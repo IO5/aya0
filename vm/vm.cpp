@@ -66,6 +66,34 @@ namespace AYA
                     break;
                 }
 
+                case Inst::LOADM:
+                {
+                    auto& str = getStr(constTable[inst.operand()]);
+                    Variant obj = evalStack.pop();
+                    if (!obj.isREF())
+                        throw RuntimeError("Type error");
+
+                    const Variant* v = obj.value.ref->get( str );
+                    if(v)
+                        evalStack.push( *v );
+                    else
+                        evalStack.push( NIL() );
+
+                    break;
+                }
+
+                case Inst::STOREM:
+                {
+                    auto& str = getStr(constTable[inst.operand()]);
+                    Variant& obj = evalStack.peek(2);
+                    if (!obj.isREF())
+                        throw RuntimeError("Type error");
+
+                    obj.value.ref->set( str, evalStack.peek(), &gc );
+                    evalStack.pop(2);
+                    break;
+                }
+
                 case Inst::JMP:
                     PC += inst.operand();
                     break;

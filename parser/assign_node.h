@@ -34,10 +34,9 @@ namespace AYA
 
         void gen(FunctionBuilder& target)
         {
-            expr->gen(target);
-
             if (variant == VAR_NODE)
             {
+                expr->gen(target);
                 STRING_T &ident = (static_cast<VarNode*>(var))->ident;
                 target.addInst(Inst::STORE, target.addConst(ident));
             }
@@ -45,6 +44,7 @@ namespace AYA
             {
                 MemberAccessNode* memb = static_cast<MemberAccessNode*>(var);
                 memb->expr->gen(target);
+                expr->gen(target);
                 target.addInst(Inst::STOREM, target.addConst(memb->ident));
             }
         }

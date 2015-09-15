@@ -43,10 +43,10 @@
 #define TK_DEF                             43
 #define TK_PL                              44
 #define TK_PR                              45
-#define TK_NIL                             46
-#define TK_FALSE                           47
-#define TK_TRUE                            48
-#define TK_INT                             49
-#define TK_REAL                            50
-#define TK_STRING                          51
+#define TK_STRING                          46
+#define TK_NIL                             47
+#define TK_FALSE                           48
+#define TK_TRUE                            49
+#define TK_INT                             50
+#define TK_REAL                            51
 #define TK_PIPE                            52

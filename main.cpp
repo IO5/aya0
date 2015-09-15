@@ -124,6 +124,7 @@ int main(int argc, char** argv)
     catch(ParseError err)
     {
         cerr << err.what() << endl;
+        return -1;
     }
 
     const FunctionPrototype* proto = par.generateCode();
