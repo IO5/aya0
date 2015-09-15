@@ -35,6 +35,7 @@
     #include "parser/logicalop_node.h"
     #include "parser/assign_node.h"
     #include "parser/var_node.h"
+    #include "parser/member_access.h"
     #include "parser/stat_node.h"
     #include "parser/block_node.h"
     #include "parser/loop_node.h"
@@ -76,8 +77,8 @@ stat(S)     ::= exp(E). { S = new StatNode(E); }
 stat(S)     ::= DO block(B) END. { S = B; B->createScope(); }
 
 //stat        ::= var_list ASSIG exp_list.
-stat(S)     ::= IDENT(I) ASSIG exp(E). { S = new AssignNode(I, E); }
-stat(S)     ::= GLOBAL IDENT(I) ASSIG exp(E). { S = new AssignNode(I, E); }
+stat(S)     ::= var(V) ASSIG exp(E). { S = new AssignNode(V, E); }
+stat(S)     ::= GLOBAL IDENT(I) ASSIG exp(E). { S = new AssignNode(new VarNode(I), E); }
 stat(S)     ::= GLOBAL IDENT. { S = NULL; }
 
 stat(S)     ::= LOCAL IDENT(I). { S = new DeclNode(I, NULL); }
@@ -126,7 +127,7 @@ ident_list(IL) ::= ident_list(L) COMMA IDENT(I).
 }
 
 //stat(S)     ::= DEF func_ident func_body. { S; }
-stat(S)     ::= DEF IDENT(I) func_body(B). { S = new AssignNode(I, B); }
+stat(S)     ::= DEF IDENT(I) func_body(B). { S = new AssignNode(new VarNode(I), B); }
 stat        ::= LOCAL DEF IDENT func_body.
 //func_ident  ::= IDENT member_list. //[':' IDENT]
 
@@ -189,6 +190,7 @@ exp(E)     ::= MINUS exp(A). [NOT] { E = new UnOpNode<'-'>(A); }
 //var_list ::= var_list COMMA var.
 
 var(V) ::= IDENT(I). { V = new VarNode(I); }
+var(V) ::= prefixexp(E) DOT IDENT(I). { V = new MemberAccessNode(E, I); }
 
 %type exp_list { NodeList<>* }
 exp_list(EL) ::= exp(E). { EL = new NodeList<>(); EL->push_back(E); }

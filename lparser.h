@@ -23,9 +23,9 @@
 #define TK_SCOLON                          23
 #define TK_DO                              24
 #define TK_END                             25
-#define TK_IDENT                           26
-#define TK_ASSIG                           27
-#define TK_GLOBAL                          28
+#define TK_ASSIG                           26
+#define TK_GLOBAL                          27
+#define TK_IDENT                           28
 #define TK_LOCAL                           29
 #define TK_WHILE                           30
 #define TK_REPEAT                          31

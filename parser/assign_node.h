@@ -3,23 +3,27 @@
 
 #include "../vm/function_prototype.h"
 #include "var_node.h"
+#include "member_access.h"
 
 namespace AYA
 {
     class AssignNode : public Node
     {
-        STRING_T ident;
         Node* expr;
+        Node* var;
+        enum { VAR_NODE, MEMBER_NODE } variant;
     public:
         AssignNode(Node* left, Node* right)
         {
             assert(left && right);
-            assert(dynamic_cast<IdentNode*>(left));
+            assert(dynamic_cast<VarNode*>(left) || dynamic_cast<MemberAccessNode*>(left));
 
-            ident = (static_cast<IdentNode*>(left))->ident;
+            if (dynamic_cast<VarNode*>(left))
+                variant = VAR_NODE;
+            else
+                variant = MEMBER_NODE;
 
-            delete left;
-
+            var = left;
             expr = right;
         }
 
@@ -31,7 +35,18 @@ namespace AYA
         void gen(FunctionBuilder& target)
         {
             expr->gen(target);
-            target.addInst(Inst::STORE, target.addConst(ident));
+
+            if (variant == VAR_NODE)
+            {
+                STRING_T &ident = (static_cast<VarNode*>(var))->ident;
+                target.addInst(Inst::STORE, target.addConst(ident));
+            }
+            else
+            {
+                MemberAccessNode* memb = static_cast<MemberAccessNode*>(var);
+                memb->expr->gen(target);
+                target.addInst(Inst::STOREM, target.addConst(memb->ident));
+            }
         }
     };
 }
