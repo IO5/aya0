@@ -153,6 +153,10 @@ namespace AYA
                     break;
                 }
 
+                case Inst::LISTC:
+                    createList(inst.operand());
+                    break;
+
                 case Inst::SENTER:
                     activeFunction->enterScope();
                     break;
@@ -449,5 +453,20 @@ namespace AYA
         }
         else
             throw RuntimeError("Unable to call, type mismatch.");
+    }
+
+    void VM::createList(uint8_t listLen)
+    {
+        std::vector<Variant> list(listLen);
+
+        int i = listLen;
+        for (auto& element : list)
+            element = evalStack.peek(i--);
+        evalStack.pop(listLen);
+
+        evalStack.push(
+                       REF(objectFactory.makeList(std::move(list)))
+                       );
+
     }
 }

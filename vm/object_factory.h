@@ -4,6 +4,7 @@
 #include "object.h"
 #include "closure.h"
 #include "string_object.h"
+#include "list_object.h"
 
 namespace AYA
 {
@@ -16,11 +17,11 @@ namespace AYA
         ObjectFactory(VM& _target);
         ~ObjectFactory();
 
-
         Object*         makeObject  (TypeObject* def = NULL);
         TypeObject*     makeType    (const STRING_T& name, TypeObject* parent = NULL, TypeObject* def = NULL);
         Closure*        makeClosure (const FunctionPrototype* proto, const pEnvironment& env, TypeObject* def = NULL);
         StringObject*   makeString  (const STRING_T& init = "", TypeObject* def = NULL);
+        ListObject*     makeList    (const std::vector<Variant>&& init, TypeObject* def = NULL);
 
         Object*         copy(const Object* original);
         int             getType(const Object*);
@@ -28,13 +29,14 @@ namespace AYA
 
     protected:
         void createDefaultDef();
-	
+
         GarbageCollector& target;
 
         TypeObject* OBJECT_DEF;
         TypeObject* TYPE_OBJECT_DEF;
         TypeObject* FUNCTION_OBJECT_DEF;
         TypeObject* STRING_OBJECT_DEF;
+        TypeObject* LIST_OBJECT_DEF;
     };
 }
 

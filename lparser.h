@@ -49,4 +49,8 @@
 #define TK_TRUE                            49
 #define TK_INT                             50
 #define TK_REAL                            51
-#define TK_PIPE                            52
+#define TK_SBL                             52
+#define TK_SBR                             53
+#define TK_CBL                             54
+#define TK_CBR                             55
+#define TK_PIPE                            56

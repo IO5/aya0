@@ -62,8 +62,6 @@ namespace AYA
         EvalStack evalStack;
         FunctionCall* activeFunction;
 
-
-
     private:
         bool halt;
 
@@ -78,7 +76,8 @@ namespace AYA
         void binOp(uint8_t f);
         void unOp(uint8_t f);
 
-        void add(Object& a, const Object& b);
+        void createList(uint8_t f);
+        //void add(Object& a, const Object& b);
     };
 
 }

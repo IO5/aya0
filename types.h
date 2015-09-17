@@ -46,6 +46,8 @@ namespace AYA
             TYPE    = 0141,
             FUNC    = 0142,
             STR     = 0143,
+            LIST    = 0144,
+            DICT    = 0145,
 
             // User-defined
             USR     = 0147,

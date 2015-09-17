@@ -1,9 +1,8 @@
 #ifndef ASSIGN_NODE_H_INCLUDED
 #define ASSIGN_NODE_H_INCLUDED
 
-#include "../vm/function_prototype.h"
 #include "var_node.h"
-#include "member_access.h"
+#include "member_access_node.h"
 
 namespace AYA
 {

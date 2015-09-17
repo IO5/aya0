@@ -138,10 +138,10 @@ mode MAIN :
     ","             => TK_COMMA;
     "."             => TK_DOT;
     //* Brackets
-    "["             => '[';
-    "]"             => ']';
-    "{"             => '{';
-    "}"             => '}';
+    "["             => TK_SBL;
+    "]"             => TK_SBR;
+    "{"             => TK_CBR;
+    "}"             => TK_CBL;
     "("             => TK_PL;
     ")"             => TK_PR;
 

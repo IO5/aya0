@@ -8546,7 +8546,7 @@ TERMINAL_1526:
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
 #   line 141 "lexer.qx"
-    self_send(0x00005B);
+    self_send(TK_SBL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
 #   line 8553 "lexer.cpp"
@@ -8560,7 +8560,7 @@ TERMINAL_1527:
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
 #   line 142 "lexer.qx"
-    self_send(0x00005D);
+    self_send(TK_SBR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
 #   line 8567 "lexer.cpp"
@@ -8574,7 +8574,7 @@ TERMINAL_1528:
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
 #   line 143 "lexer.qx"
-    self_send(0x00007B);
+    self_send(TK_CBR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
 #   line 8581 "lexer.cpp"
@@ -8588,7 +8588,7 @@ TERMINAL_1529:
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
 #   line 144 "lexer.qx"
-    self_send(0x00007D);
+    self_send(TK_CBL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
 #   line 8595 "lexer.cpp"
@@ -10440,13 +10440,11 @@ QUEX_NAME_TOKEN(map_id_to_name)(const QUEX_TYPE_TOKEN_ID TokenID)
    static const char  nodent_string[]        = "<NODENT>";
 #  endif
    static const char  token_id_str_UCS_0x00003A[]   = "UCS_0x00003A";
-   static const char  token_id_str_UCS_0x00005B[]   = "UCS_0x00005B";
-   static const char  token_id_str_UCS_0x00005D[]   = "UCS_0x00005D";
-   static const char  token_id_str_UCS_0x00007B[]   = "UCS_0x00007B";
-   static const char  token_id_str_UCS_0x00007D[]   = "UCS_0x00007D";
    static const char  token_id_str_AND[]            = "AND";
    static const char  token_id_str_ASSIG[]          = "ASSIG";
    static const char  token_id_str_BREAK[]          = "BREAK";
+   static const char  token_id_str_CBL[]            = "CBL";
+   static const char  token_id_str_CBR[]            = "CBR";
    static const char  token_id_str_COMMA[]          = "COMMA";
    static const char  token_id_str_DEF[]            = "DEF";
    static const char  token_id_str_DIV[]            = "DIV";
@@ -10487,6 +10485,8 @@ QUEX_NAME_TOKEN(map_id_to_name)(const QUEX_TYPE_TOKEN_ID TokenID)
    static const char  token_id_str_REAL[]           = "REAL";
    static const char  token_id_str_REPEAT[]         = "REPEAT";
    static const char  token_id_str_RETURN[]         = "RETURN";
+   static const char  token_id_str_SBL[]            = "SBL";
+   static const char  token_id_str_SBR[]            = "SBR";
    static const char  token_id_str_SCOLON[]         = "SCOLON";
    static const char  token_id_str_STRING[]         = "STRING";
    static const char  token_id_str_THEN[]           = "THEN";
@@ -10512,13 +10512,11 @@ QUEX_NAME_TOKEN(map_id_to_name)(const QUEX_TYPE_TOKEN_ID TokenID)
    case TK_NODENT:         return nodent_string;
 #  endif
    case 0x00003A: return token_id_str_UCS_0x00003A;
-   case 0x00005B: return token_id_str_UCS_0x00005B;
-   case 0x00005D: return token_id_str_UCS_0x00005D;
-   case 0x00007B: return token_id_str_UCS_0x00007B;
-   case 0x00007D: return token_id_str_UCS_0x00007D;
    case TK_AND:            return token_id_str_AND;
    case TK_ASSIG:          return token_id_str_ASSIG;
    case TK_BREAK:          return token_id_str_BREAK;
+   case TK_CBL:            return token_id_str_CBL;
+   case TK_CBR:            return token_id_str_CBR;
    case TK_COMMA:          return token_id_str_COMMA;
    case TK_DEF:            return token_id_str_DEF;
    case TK_DIV:            return token_id_str_DIV;
@@ -10559,6 +10557,8 @@ QUEX_NAME_TOKEN(map_id_to_name)(const QUEX_TYPE_TOKEN_ID TokenID)
    case TK_REAL:           return token_id_str_REAL;
    case TK_REPEAT:         return token_id_str_REPEAT;
    case TK_RETURN:         return token_id_str_RETURN;
+   case TK_SBL:            return token_id_str_SBL;
+   case TK_SBR:            return token_id_str_SBR;
    case TK_SCOLON:         return token_id_str_SCOLON;
    case TK_STRING:         return token_id_str_STRING;
    case TK_THEN:           return token_id_str_THEN;

@@ -1,7 +1,6 @@
-#ifndef MEMBER_ACCESS_H_INCLUDED
-#define MEMBER_ACCESS_H_INCLUDED
+#ifndef MEMBER_ACCESS_NODE_H_INCLUDED
+#define MEMBER_ACCESS_NODE_H_INCLUDED
 
-#include "../vm/function_prototype.h"
 #include "node.h"
 
 namespace AYA
@@ -18,7 +17,7 @@ namespace AYA
         {
             assert(_expr);
             assert(dynamic_cast<IdentNode*>(_ident));
-            ident = (static_cast<IdentNode*>(_ident))->ident;
+            ident = std::move((static_cast<IdentNode*>(_ident))->ident);
 
             delete _ident;
         }
@@ -36,4 +35,4 @@ namespace AYA
     };
 }
 
-#endif // MEMBER_ACCESS_H_INCLUDED
+#endif // MEMBER_ACCESS_NODE_H_INCLUDED

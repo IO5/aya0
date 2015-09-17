@@ -17,6 +17,7 @@ namespace AYA
         delete TYPE_OBJECT_DEF;
         delete FUNCTION_OBJECT_DEF;
         delete STRING_OBJECT_DEF;
+        delete LIST_OBJECT_DEF;
     }
 
     void ObjectFactory::createDefaultDef()
@@ -32,6 +33,7 @@ namespace AYA
 
         FUNCTION_OBJECT_DEF     = new TypeObject(TYPE_OBJECT_DEF, "Function", OBJECT_DEF);
         STRING_OBJECT_DEF       = new TypeObject(TYPE_OBJECT_DEF, "String", OBJECT_DEF);
+        LIST_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, "List", OBJECT_DEF);
     }
 
     Object* ObjectFactory::makeObject(TypeObject* def)
@@ -64,6 +66,17 @@ namespace AYA
             def = STRING_OBJECT_DEF;
 
         return new(target) StringObject(def, init);
+    }
+
+    ListObject* ObjectFactory::makeList(const std::vector<Variant>&& init, TypeObject* def)
+    {
+        if(def == NULL)
+            def = LIST_OBJECT_DEF;
+
+        ListObject* p = new ListObject(def, std::move(init));
+        target.registerObj(p, sizeof(ListObject) + init.size());
+
+        return p;
     }
 
     Object* ObjectFactory::copy(const Object* original)

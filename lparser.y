@@ -35,7 +35,7 @@
     #include "parser/logicalop_node.h"
     #include "parser/assign_node.h"
     #include "parser/var_node.h"
-    #include "parser/member_access.h"
+    #include "parser/member_access_node.h"
     #include "parser/stat_node.h"
     #include "parser/block_node.h"
     #include "parser/loop_node.h"
@@ -44,6 +44,7 @@
     #include "parser/func_node.h"
     #include "parser/call_node.h"
     #include "parser/decl_node.h"
+    #include "parser/list_constr_node.h"
 
     #ifdef DEBUG
         #include <iostream>
@@ -69,7 +70,6 @@ block(B)    ::= stat_list(L). { B = new BlockNode(L);  }
 stat_list(SL) ::= stat(S). { SL = new NodeList<>(); if(S){ SL->push_back(S); }  }
 stat_list(SL) ::= stat_list(L) NL stat(S). { SL = L;  if(S){ SL->push_back(S); }  }
 stat_list(SL) ::= stat_list(L) SCOLON stat(S). { SL = L;  if(S){ SL->push_back(S); }  }
-
 
 //stat
 stat(S)     ::= .    { S = NULL; }
@@ -154,8 +154,14 @@ exp(E)      ::= TRUE. { E = new BoolLitNode(true); }
 
 exp(E)      ::= INT(A). { E = A; }
 exp(E)      ::= REAL(A). { E = A; }
-//exp(E)      ::= STRING(A). { E = A; }
+//exp(E)      ::= STRING(A). { E = A; } // moved to prefixexp
 
+//constructors
+exp(E)      ::= SBL SBR. { E = new ListConstrNode(NULL); }
+exp(E)      ::= SBL exp_list(L) SBR. { E = new ListConstrNode(L); }
+exp(E)      ::= CBL CBR. { E; }//TODO
+
+//operations
 exp(E)      ::= PIPE exp(A) PIPE. { E = new UnOpNode<'|'>(A); }
 
 exp(E)      ::= exp(A) OR exp(B).  { E = new OrNode(A, B); }
@@ -168,7 +174,7 @@ exp(E)      ::= exp(A) GEQ exp(B). { E = new BinOpNode<'>'+'='>(A, B); }
 exp(E)      ::= exp(A) NEQ exp(B). { E = new BinOpNode<'!'>(A, B); }
 exp(E)      ::= exp(A) EQ exp(B).  { E = new BinOpNode<'='>(A, B); }
 
-exp         ::= exp RANGEOP exp.
+exp         ::= exp RANGEOP exp. //TODO
 
 exp(E)      ::= exp(A) PLUS exp(B).     { E = new BinOpNode<'+'>(A, B); }
 exp(E)      ::= exp(A) MINUS exp(B).    { E = new BinOpNode<'-'>(A, B); }
@@ -182,12 +188,6 @@ exp(E)      ::= exp(A) EXP exp(B). { E = new BinOpNode<'^'>(A, B); }
 exp(E)     ::= NOT exp(A). { E = new UnOpNode<'!'>(A); }
 exp(E)     ::= MINUS exp(A). [NOT] { E = new UnOpNode<'-'>(A); }
 
-
-//member_list ::= .
-//member_list ::= member_list member.
-//member      ::= DOT IDENT.
-
-
 //var_list ::= var.
 //var_list ::= var_list COMMA var.
 
@@ -197,3 +197,4 @@ var(V) ::= prefixexp(E) DOT IDENT(I). { V = new MemberAccessNode(E, I); }
 %type exp_list { NodeList<>* }
 exp_list(EL) ::= exp(E). { EL = new NodeList<>(); EL->push_back(E); }
 exp_list(EL) ::= exp_list(L) COMMA exp(E). { EL = L; EL->push_back(E); }
+

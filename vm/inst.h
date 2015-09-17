@@ -32,7 +32,8 @@
     DO(LCONST) \
     /*CONSTRUCT LIST*/\
     DO(CLOSURE) \
-    DO(CLST) \
+    DO(LISTC) \
+    DO(DICTC) \
     DO(POP)
 
 #define STRINGIFY(x) #x,
