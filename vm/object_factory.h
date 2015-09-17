@@ -21,7 +21,7 @@ namespace AYA
         TypeObject*     makeType    (const STRING_T& name, TypeObject* parent = NULL, TypeObject* def = NULL);
         Closure*        makeClosure (const FunctionPrototype* proto, const pEnvironment& env, TypeObject* def = NULL);
         StringObject*   makeString  (const STRING_T& init = "", TypeObject* def = NULL);
-        ListObject*     makeList    (const std::vector<Variant>&& init, TypeObject* def = NULL);
+        ListObject*     makeList    (std::vector<Variant>&& init, TypeObject* def = NULL);
 
         Object*         copy(const Object* original);
         int             getType(const Object*);
@@ -37,6 +37,7 @@ namespace AYA
         TypeObject* FUNCTION_OBJECT_DEF;
         TypeObject* STRING_OBJECT_DEF;
         TypeObject* LIST_OBJECT_DEF;
+        TypeObject* DICT_OBJECT_DEF;
     };
 }
 

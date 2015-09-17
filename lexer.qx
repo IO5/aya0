@@ -140,8 +140,8 @@ mode MAIN :
     //* Brackets
     "["             => TK_SBL;
     "]"             => TK_SBR;
-    "{"             => TK_CBR;
-    "}"             => TK_CBL;
+    "{"             => TK_CBL;
+    "}"             => TK_CBR;
     "("             => TK_PL;
     ")"             => TK_PR;
 

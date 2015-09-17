@@ -37,7 +37,7 @@ namespace AYA
             switch(AYA_getArgType(state, i))
             {
                 case BType::NIL:
-                    io.write("NIL");
+                    io.write("nil");
                     break;
                 case BType::INT:
                 {

@@ -77,7 +77,8 @@ namespace AYA
         void unOp(uint8_t f);
 
         void createList(uint8_t f);
-        //void add(Object& a, const Object& b);
+        void loadCollection();
+        void storeCollection();
     };
 
 }

@@ -8574,7 +8574,7 @@ TERMINAL_1528:
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
 #   line 143 "lexer.qx"
-    self_send(TK_CBR);
+    self_send(TK_CBL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
 #   line 8581 "lexer.cpp"
@@ -8588,7 +8588,7 @@ TERMINAL_1529:
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
 #   line 144 "lexer.qx"
-    self_send(TK_CBL);
+    self_send(TK_CBR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
 #   line 8595 "lexer.cpp"

@@ -68,7 +68,7 @@ namespace AYA
         return new(target) StringObject(def, init);
     }
 
-    ListObject* ObjectFactory::makeList(const std::vector<Variant>&& init, TypeObject* def)
+    ListObject* ObjectFactory::makeList(std::vector<Variant>&& init, TypeObject* def)
     {
         if(def == NULL)
             def = LIST_OBJECT_DEF;
@@ -107,6 +107,14 @@ namespace AYA
         else if(def == STRING_OBJECT_DEF)
         {
             return BType::STR;
+        }
+        else if(def == LIST_OBJECT_DEF)
+        {
+            return BType::LIST;
+        }
+        else if(def == DICT_OBJECT_DEF)
+        {
+            return BType::DICT;
         }
         else
         {

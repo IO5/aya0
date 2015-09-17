@@ -7,8 +7,12 @@
     DO(NOP) \
     DO(LOAD) \
     DO(STORE) \
+    /*MEMBER ACCESS*/ \
     DO(LOADM) \
     DO(STOREM) \
+    /*COLLECTION ACCESS*/ \
+    DO(LOADC) \
+    DO(STOREC) \
     /*SCOPES*/\
     DO(SENTER) \
     DO(SLEAVE) \
@@ -30,7 +34,7 @@
     DO(LBOOL) \
     /*LOAD CONSTANT*/\
     DO(LCONST) \
-    /*CONSTRUCT LIST*/\
+    /*CONSTRUCT*/\
     DO(CLOSURE) \
     DO(LISTC) \
     DO(DICTC) \

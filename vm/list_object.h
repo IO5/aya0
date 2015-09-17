@@ -9,7 +9,7 @@ namespace AYA
     {
         friend class ObjectFactory;
     protected:
-        ListObject(TypeObject* definition, const std::vector<Variant>&& init)
+        ListObject(TypeObject* definition, std::vector<Variant>&& init)
         :
             Object(definition),
             content(std::move(init))
@@ -37,7 +37,7 @@ namespace AYA
             Object::mark();
         }
 
-        const std::vector<Variant> content;
+        std::vector<Variant> content;
     };
 }
 

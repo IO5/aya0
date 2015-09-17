@@ -71,7 +71,7 @@ namespace AYA
                     auto& str = getStr(constTable[inst.operand()]);
                     Variant obj = evalStack.pop();
                     if (!obj.isREF())
-                        throw RuntimeError("Type error");
+                        throw RuntimeError("Type error: not an object");
 
                     const Variant* v = obj.value.ref->get( str );
                     if(v)
@@ -87,12 +87,20 @@ namespace AYA
                     auto& str = getStr(constTable[inst.operand()]);
                     Variant& obj = evalStack.peek(2);
                     if (!obj.isREF())
-                        throw RuntimeError("Type error");
+                        throw RuntimeError("Type error: not an object");
 
                     obj.value.ref->set( str, evalStack.peek(), &gc );
                     evalStack.pop(2);
                     break;
                 }
+
+                case Inst::LOADC:
+                    loadCollection();
+                    break;
+
+                case Inst::STOREC:
+                    storeCollection();
+                    break;
 
                 case Inst::JMP:
                     PC += inst.operand();
@@ -468,5 +476,78 @@ namespace AYA
                        REF(objectFactory.makeList(std::move(list)))
                        );
 
+    }
+
+    void VM::loadCollection()
+    {
+        Variant index = evalStack.pop();
+        Variant collection = evalStack.pop();
+        if (collection.isREF())
+        {
+            if (getType(collection) == BType::LIST)
+            {
+                if (getType(index) != BType::INT)
+                    throw RuntimeError("Type error: list index must be an integer");
+
+                ListObject* list = static_cast<ListObject*>(collection.value.ref);
+                INT_T i = index.value.integer;
+                if (i < 0)
+                    i += list->content.size();
+                if (i < 0 || i >= (INT_T)list->content.size())
+                    throw RuntimeError("Index out of bounds");
+
+                evalStack.push(list->content[i]);
+            }
+            else if (getType(collection) == BType::DICT)
+            {
+                //TODO
+                abort();
+            }
+            else
+            {
+                throw RuntimeError("Type error: not a collection");
+            }
+        }
+        else
+        {
+            throw RuntimeError("Type error: not a collection");
+        }
+    }
+
+    void VM::storeCollection()
+    {
+        Variant value = evalStack.pop();
+        Variant index = evalStack.pop();
+        Variant collection = evalStack.pop();
+        if (collection.isREF())
+        {
+            if (getType(collection) == BType::LIST)
+            {
+                if (getType(index) != BType::INT)
+                    throw RuntimeError("Type error: list index must be an integer");
+
+                ListObject* list = static_cast<ListObject*>(collection.value.ref);
+                INT_T i = index.value.integer;
+                if (i < 0)
+                    i += list->content.size();
+                if (i < 0 || i >= (INT_T)list->content.size())
+                    throw RuntimeError("Index out of bounds");
+
+                list->content[i] = value;
+            }
+            else if (getType(collection) == BType::DICT)
+            {
+                //TODO
+                abort();
+            }
+            else
+            {
+                throw RuntimeError("Type error: not a collection");
+            }
+        }
+        else
+        {
+            throw RuntimeError("Type error: not a collection");
+        }
     }
 }

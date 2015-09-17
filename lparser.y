@@ -36,6 +36,7 @@
     #include "parser/assign_node.h"
     #include "parser/var_node.h"
     #include "parser/member_access_node.h"
+    #include "parser/index_access_node.h"
     #include "parser/stat_node.h"
     #include "parser/block_node.h"
     #include "parser/loop_node.h"
@@ -193,6 +194,7 @@ exp(E)     ::= MINUS exp(A). [NOT] { E = new UnOpNode<'-'>(A); }
 
 var(V) ::= IDENT(I). { V = new VarNode(I); }
 var(V) ::= prefixexp(E) DOT IDENT(I). { V = new MemberAccessNode(E, I); }
+var(V) ::= prefixexp(E) SBL exp(IDX) SBR. { V = new IndexAccessNode(E, IDX); }
 
 %type exp_list { NodeList<>* }
 exp_list(EL) ::= exp(E). { EL = new NodeList<>(); EL->push_back(E); }
