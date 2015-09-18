@@ -33,6 +33,8 @@ extern "C"
 
     int AYA_getRealArg(AYA::VM* state, size_t index, AYA::REAL_T* result);
 
+    int AYA_getStrArg(AYA::VM* state, size_t index, const char** result);
+
     void AYA_setErrorMsg(AYA::VM* state, const char* msg);
 
     void AYA_setNilResult(AYA::VM* state);
@@ -40,6 +42,8 @@ extern "C"
     void AYA_setIntResult(AYA::VM* state, AYA::INT_T result);
 
     void AYA_setRealResult(AYA::VM* state, AYA::REAL_T result);
+
+    void AYA_setStrResult(AYA::VM* state, const char* result);
 }
 
 

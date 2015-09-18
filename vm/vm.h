@@ -20,6 +20,7 @@ namespace AYA
         friend class FunctionBuilder;
 
         friend class Parser;
+        friend class BuiltIn;
     public:
         VM()
         :
@@ -39,10 +40,12 @@ namespace AYA
             {
                 //TODO TODO TODO
                 activeFunction = new FunctionCall(objectFactory.makeClosure(proto, globalEnv), NULL);
-                activeFunction->enter(evalStack, 0, 0);
+                activeFunction->enter(evalStack, 0, NIL());
             }
             else
+            {
                 throw RuntimeError("Unable to load function. Call stack is not empty.");
+            }
         }
 
         void mark();

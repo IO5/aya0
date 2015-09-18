@@ -69,7 +69,7 @@ namespace AYA
                 case Inst::LOADM:
                 {
                     auto& str = getStr(constTable[inst.operand()]);
-                    Variant obj = evalStack.pop();
+                    Variant& obj = evalStack.self = evalStack.pop();
                     if (!obj.isREF())
                         throw RuntimeError("Type error: not an object");
 
@@ -309,8 +309,8 @@ namespace AYA
             {
                 evalStack.push(*func);
 
-                // 1 argument, self-call
-                uint8_t operand = 1 | (1 << 7);
+                // 1 argument
+                uint8_t operand = 1;
                 call(operand);
             }
             else
@@ -413,8 +413,8 @@ namespace AYA
             {
                 evalStack.push(*func);
 
-                // 2 arguments, self-call
-                uint8_t operand = 2 | (1 << 7);
+                // 2 arguments
+                uint8_t operand = 2;
                 call(operand);
             }
             else
@@ -427,11 +427,9 @@ namespace AYA
 
     // Call
 
-    void VM::call(uint8_t operand)
+    void VM::call(uint8_t argCount)
     {
         Variant v = evalStack.pop();
-        uint8_t argCount = operand & ~(1 << 7);
-        uint8_t self = operand >> 7;
 
         if(v.isCFUNC())
         {
@@ -439,7 +437,7 @@ namespace AYA
             Bind cFunc = v.value.cfunc;
 
             int status;
-            auto& frame = evalStack.prepareCallFrame(argCount, self);
+            auto& frame = evalStack.prepareCallFrame(argCount, evalStack.self);
 
             status = cFunc(this);
 
@@ -455,12 +453,14 @@ namespace AYA
 
             FunctionCall* newCall = new FunctionCall(c, activeFunction);
 
-            newCall->enter(evalStack, argCount, self);
+            newCall->enter(evalStack, argCount, evalStack.self);
 
             activeFunction = newCall;
         }
         else
             throw RuntimeError("Unable to call, type mismatch.");
+
+        evalStack.self = NIL();
     }
 
     void VM::createList(uint8_t listLen)
@@ -475,7 +475,6 @@ namespace AYA
         evalStack.push(
                        REF(objectFactory.makeList(std::move(list)))
                        );
-
     }
 
     void VM::loadCollection()

@@ -1,6 +1,6 @@
 #include "object_factory.h"
-
 #include "vm.h"
+#include "built_in.h"
 
 namespace AYA
 {
@@ -34,6 +34,14 @@ namespace AYA
         FUNCTION_OBJECT_DEF     = new TypeObject(TYPE_OBJECT_DEF, "Function", OBJECT_DEF);
         STRING_OBJECT_DEF       = new TypeObject(TYPE_OBJECT_DEF, "String", OBJECT_DEF);
         LIST_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, "List", OBJECT_DEF);
+
+        STRING_OBJECT_DEF->setShared("+", BIND(BuiltIn::strConcat), NULL);
+        STRING_OBJECT_DEF->setShared("==", BIND(BuiltIn::strComp), NULL);
+        STRING_OBJECT_DEF->setShared("||", BIND(BuiltIn::strLen), NULL);
+
+        LIST_OBJECT_DEF->setShared("+", BIND(BuiltIn::listConcat), NULL);
+        LIST_OBJECT_DEF->setShared("==", BIND(BuiltIn::listComp), NULL);
+        LIST_OBJECT_DEF->setShared("||", BIND(BuiltIn::listLen), NULL);
     }
 
     Object* ObjectFactory::makeObject(TypeObject* def)
@@ -74,7 +82,7 @@ namespace AYA
             def = LIST_OBJECT_DEF;
 
         ListObject* p = new ListObject(def, std::move(init));
-        target.registerObj(p, sizeof(ListObject) + init.size());
+        target.registerObj(p, sizeof(ListObject) + init.capacity());
 
         return p;
     }

@@ -15,6 +15,7 @@
 #include "parser.h"
 
 #include "vm/vm.h"
+#include "vm/built_in.h"
 
 using namespace AYA;
 
@@ -103,8 +104,8 @@ int main(int argc, char** argv)
 
     VM vm;
 
-    vm.globalEnv->set("print", BIND(vm.io.print));
-    vm.globalEnv->set("puts", BIND(vm.io.puts));
+    vm.globalEnv->set("print", BIND(BuiltIn::print));
+    vm.globalEnv->set("puts", BIND(BuiltIn::puts));
 
     Parser par(vm);
     vm.gc.setMemoryLimit(400);
