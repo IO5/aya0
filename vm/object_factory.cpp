@@ -91,8 +91,11 @@ namespace AYA
 
     TypeObject* ObjectFactory::makeType(const STRING_T& name, TypeObject* parent, TypeObject* def)
     {
-        if(def == NULL)
+        if (def == NULL)
             def = TYPE_OBJECT_DEF;
+
+        if (parent == NULL)
+            parent = OBJECT_DEF;
 
         TypeObject* p = new TypeObject(def, parent);
         p->setShared("type", REF(p), &target);

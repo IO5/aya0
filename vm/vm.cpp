@@ -609,6 +609,7 @@ namespace AYA
     {
         Variant v = evalStack.peek();
         TypeObject* type = static_cast<TypeObject*>(v.value.ref);
+        const Variant* tmp = type->getShared("__new__");
         evalStack.push(*(type->getShared("__new__")));
         call(1); //returns new object
 

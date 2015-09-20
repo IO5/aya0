@@ -109,8 +109,8 @@ typedef union {
 #define LemonARG_PDECL , AYA::Node** currentNode 
 #define LemonARG_FETCH  AYA::Node** currentNode  = yypParser->currentNode 
 #define LemonARG_STORE yypParser->currentNode  = currentNode 
-#define YYNSTATE 164
-#define YYNRULE 76
+#define YYNSTATE 171
+#define YYNRULE 78
 #define YY_NO_ACTION      (YYNSTATE+YYNRULE+2)
 #define YY_ACCEPT_ACTION  (YYNSTATE+YYNRULE+1)
 #define YY_ERROR_ACTION   (YYNSTATE+YYNRULE)
@@ -181,112 +181,112 @@ static const YYMINORTYPE yyzerominor = { 0 };
 */
 #define YY_ACTTAB_COUNT (715)
 static const YYACTIONTYPE yy_action[] = {
- /*     0 */    24,  119,  104,  129,   25,  118,  120,  240,   31,   30,
- /*    10 */    29,   28,   27,    8,   26,  117,  103,  141,   84,   20,
- /*    20 */     6,   15,   97,   92,   17,   13,   11,   10,   16,  133,
- /*    30 */   132,   93,   40,  164,   45,   23,  154,  150,  149,  148,
- /*    40 */   147,  146,   12,   24,  111,  115,   38,   25,  161,   29,
- /*    50 */    28,   27,    9,   26,  114,  156,    8,   41,   41,  103,
- /*    60 */   141,   84,   20,    6,    1,   97,  144,   17,  129,  101,
- /*    70 */   165,   16,  133,  132,   93,   40,  162,   45,   48,  154,
- /*    80 */   150,  149,  148,  147,  146,   12,  100,  111,   92,   38,
- /*    90 */   125,   44,   42,   33,   34,   39,   37,   36,   35,   32,
- /*   100 */    31,   30,   29,   28,   27,   52,   26,  160,   44,   42,
+ /*     0 */    24,    9,  109,  119,   25,  124,  125,  249,   31,   30,
+ /*    10 */    29,   28,   27,    8,   26,  123,  108,  148,   88,   20,
+ /*    20 */     6,  163,  102,   41,   17,   13,   87,   86,   16,  140,
+ /*    30 */   139,   98,   40,  122,   45,   23,  161,  157,  156,  155,
+ /*    40 */   154,  153,   12,   24,  116,  171,   38,   25,  168,   29,
+ /*    50 */    28,   27,  120,   26,    3,   14,    8,   87,   86,  108,
+ /*    60 */   148,   88,   20,    6,    1,  102,  136,   17,   41,   11,
+ /*    70 */    10,   16,  140,  139,   98,   40,  151,   45,   15,  161,
+ /*    80 */   157,  156,  155,  154,  153,   12,   97,  116,  106,   38,
+ /*    90 */   167,   44,   42,   33,   34,   39,   37,   36,   35,   32,
+ /*   100 */    31,   30,   29,   28,   27,  105,   26,  130,   44,   42,
  /*   110 */    33,   34,   39,   37,   36,   35,   32,   31,   30,   29,
- /*   120 */    28,   27,  158,   26,  240,  240,  240,  240,   32,   31,
- /*   130 */    30,   29,   28,   27,  152,   26,   44,   42,   33,   34,
+ /*   120 */    28,   27,   53,   26,  249,  249,  249,  249,   32,   31,
+ /*   130 */    30,   29,   28,   27,  159,   26,   44,   42,   33,   34,
  /*   140 */    39,   37,   36,   35,   32,   31,   30,   29,   28,   27,
- /*   150 */    43,   26,   33,   34,   39,   37,   36,   35,   32,   31,
- /*   160 */    30,   29,   28,   27,  142,   26,   44,   42,   33,   34,
+ /*   150 */   172,   26,   33,   34,   39,   37,   36,   35,   32,   31,
+ /*   160 */    30,   29,   28,   27,  149,   26,   44,   42,   33,   34,
  /*   170 */    39,   37,   36,   35,   32,   31,   30,   29,   28,   27,
- /*   180 */   140,   26,    3,   14,   91,  143,   26,  102,   22,  139,
- /*   190 */    19,   44,   42,   33,   34,   39,   37,   36,   35,   32,
- /*   200 */    31,   30,   29,   28,   27,   21,   26,   52,   54,   50,
- /*   210 */   137,   96,   18,  136,    7,   46,   44,   42,   33,   34,
+ /*   180 */   169,   26,   48,  165,   95,  135,  150,   43,   26,  146,
+ /*   190 */   147,   44,   42,   33,   34,   39,   37,   36,   35,   32,
+ /*   200 */    31,   30,   29,   28,   27,   96,   26,   53,  107,   51,
+ /*   210 */    22,   21,   18,  144,    7,   56,   44,   42,   33,   34,
  /*   220 */    39,   37,   36,   35,   32,   31,   30,   29,   28,   27,
- /*   230 */   135,   26,   53,  123,  126,  122,  162,   52,  138,    5,
- /*   240 */    49,   44,   42,   33,   34,   39,   37,   36,   35,   32,
- /*   250 */    31,   30,   29,   28,   27,  242,   26,   87,   44,   42,
+ /*   230 */    19,   26,  101,  143,  142,   46,  128,  169,   55,    5,
+ /*   240 */    54,   44,   42,   33,   34,   39,   37,   36,   35,   32,
+ /*   250 */    31,   30,   29,   28,   27,  131,   26,  127,   44,   42,
  /*   260 */    33,   34,   39,   37,   36,   35,   32,   31,   30,   29,
- /*   270 */    28,   27,   94,   26,  242,  130,    4,   39,   37,   36,
- /*   280 */    35,   32,   31,   30,   29,   28,   27,  128,   26,  127,
- /*   290 */   124,  242,  131,    2,  242,   44,   42,   33,   34,   39,
+ /*   270 */    28,   27,   53,   26,   91,  251,    4,   39,   37,   36,
+ /*   280 */    35,   32,   31,   30,   29,   28,   27,  145,   26,   50,
+ /*   290 */    49,   99,  132,    2,  137,   44,   42,   33,   34,   39,
  /*   300 */    37,   36,   35,   32,   31,   30,   29,   28,   27,   24,
- /*   310 */    26,  242,  242,   25,   72,  155,  242,  242,  242,  242,
- /*   320 */    24,  151,  153,   83,   25,  242,  141,  241,  116,   88,
- /*   330 */   159,   71,  112,  242,  242,  242,  242,  141,  151,  153,
- /*   340 */    83,   40,  157,   55,  242,  154,  150,  149,  148,  147,
- /*   350 */   146,   12,   40,  111,   55,   38,  154,  150,  149,  148,
- /*   360 */   147,  146,   12,  145,  111,  242,   38,   42,   33,   34,
+ /*   310 */    26,  133,  134,   25,   74,  162,  138,  129,  251,  251,
+ /*   320 */    24,  158,  160,   85,   25,  251,  148,  250,  121,   92,
+ /*   330 */   166,   73,  117,  251,  251,  251,  251,  148,  158,  160,
+ /*   340 */    85,   40,  164,   57,  251,  161,  157,  156,  155,  154,
+ /*   350 */   153,   12,   40,  116,   57,   38,  161,  157,  156,  155,
+ /*   360 */   154,  153,   12,  152,  116,  251,   38,   42,   33,   34,
  /*   370 */    39,   37,   36,   35,   32,   31,   30,   29,   28,   27,
- /*   380 */    24,   26,  242,  242,   25,  242,  242,  242,   90,   88,
- /*   390 */   159,   71,  112,  242,   69,  155,  242,  141,  151,  153,
- /*   400 */    83,  151,  153,   83,   86,  242,  242,  242,  242,  242,
- /*   410 */   242,  242,   40,  242,   55,  242,  154,  150,  149,  148,
- /*   420 */   147,  146,   12,  242,  111,  242,   38,  113,   88,  159,
- /*   430 */    71,  112,   99,   88,  159,   71,  112,  151,  153,   83,
- /*   440 */   242,  242,  151,  153,   83,   98,   88,  159,   71,  112,
- /*   450 */    95,   88,  159,   71,  112,  151,  153,   83,   69,  155,
- /*   460 */   151,  153,   83,   70,  155,  151,  153,   83,   85,  242,
- /*   470 */   151,  153,   83,   51,   88,  159,   71,  112,  134,   88,
- /*   480 */   159,   71,  112,  151,  153,   83,  242,  242,  151,  153,
- /*   490 */    83,   47,   88,  159,   71,  112,   89,   88,  159,   71,
- /*   500 */   112,  151,  153,   83,  242,  242,  151,  153,   83,  163,
- /*   510 */    71,  112,  121,   71,  112,  242,  242,  151,  153,   83,
- /*   520 */   151,  153,   83,   73,  155,  242,   68,  155,  242,  242,
- /*   530 */   151,  153,   83,  151,  153,   83,   63,  155,  242,   74,
- /*   540 */   155,  242,  242,  151,  153,   83,  151,  153,   83,   62,
- /*   550 */   155,  242,   79,  155,  242,  242,  151,  153,   83,  151,
- /*   560 */   153,   83,   78,  155,  242,   77,  155,  242,  242,  151,
- /*   570 */   153,   83,  151,  153,   83,   76,  155,  242,   75,  155,
- /*   580 */   242,  242,  151,  153,   83,  151,  153,   83,   80,  155,
- /*   590 */   242,   82,  155,  242,  242,  151,  153,   83,  151,  153,
- /*   600 */    83,   81,  155,  242,  110,  155,  242,  242,  151,  153,
- /*   610 */    83,  151,  153,   83,  109,  155,  242,  108,  155,  242,
- /*   620 */   242,  151,  153,   83,  151,  153,   83,  107,  155,  242,
- /*   630 */   106,  155,  242,  242,  151,  153,   83,  151,  153,   83,
- /*   640 */   105,  155,  242,   61,  155,  242,  242,  151,  153,   83,
- /*   650 */   151,  153,   83,   67,  155,  242,   66,  155,  242,  242,
- /*   660 */   151,  153,   83,  151,  153,   83,   60,  155,  242,   65,
- /*   670 */   155,  242,  242,  151,  153,   83,  151,  153,   83,   59,
- /*   680 */   155,  242,   58,  155,  242,  242,  151,  153,   83,  151,
- /*   690 */   153,   83,   64,  155,  242,   57,  155,  242,  242,  151,
- /*   700 */   153,   83,  151,  153,   83,   56,  155,  242,  242,  242,
- /*   710 */   242,  242,  151,  153,   83,
+ /*   380 */    24,   26,  251,  251,   25,  251,  251,  251,   94,   92,
+ /*   390 */   166,   73,  117,  251,   71,  162,  251,  148,  158,  160,
+ /*   400 */    85,  158,  160,   85,   90,  251,  251,  251,  251,  251,
+ /*   410 */   251,  251,   40,  251,   57,  251,  161,  157,  156,  155,
+ /*   420 */   154,  153,   12,  251,  116,  251,   38,  118,   92,  166,
+ /*   430 */    73,  117,  104,   92,  166,   73,  117,  158,  160,   85,
+ /*   440 */   251,  251,  158,  160,   85,  103,   92,  166,   73,  117,
+ /*   450 */   100,   92,  166,   73,  117,  158,  160,   85,   71,  162,
+ /*   460 */   158,  160,   85,   72,  162,  158,  160,   85,   89,  251,
+ /*   470 */   158,  160,   85,   52,   92,  166,   73,  117,  141,   92,
+ /*   480 */   166,   73,  117,  158,  160,   85,  251,  251,  158,  160,
+ /*   490 */    85,   47,   92,  166,   73,  117,   93,   92,  166,   73,
+ /*   500 */   117,  158,  160,   85,  251,  251,  158,  160,   85,  170,
+ /*   510 */    73,  117,  126,   73,  117,  251,  251,  158,  160,   85,
+ /*   520 */   158,  160,   85,   75,  162,  251,   70,  162,  251,  251,
+ /*   530 */   158,  160,   85,  158,  160,   85,   65,  162,  251,   76,
+ /*   540 */   162,  251,  251,  158,  160,   85,  158,  160,   85,   64,
+ /*   550 */   162,  251,   81,  162,  251,  251,  158,  160,   85,  158,
+ /*   560 */   160,   85,   80,  162,  251,   79,  162,  251,  251,  158,
+ /*   570 */   160,   85,  158,  160,   85,   78,  162,  251,   77,  162,
+ /*   580 */   251,  251,  158,  160,   85,  158,  160,   85,   82,  162,
+ /*   590 */   251,   84,  162,  251,  251,  158,  160,   85,  158,  160,
+ /*   600 */    85,   83,  162,  251,  115,  162,  251,  251,  158,  160,
+ /*   610 */    85,  158,  160,   85,  114,  162,  251,  113,  162,  251,
+ /*   620 */   251,  158,  160,   85,  158,  160,   85,  112,  162,  251,
+ /*   630 */   111,  162,  251,  251,  158,  160,   85,  158,  160,   85,
+ /*   640 */   110,  162,  251,   63,  162,  251,  251,  158,  160,   85,
+ /*   650 */   158,  160,   85,   69,  162,  251,   68,  162,  251,  251,
+ /*   660 */   158,  160,   85,  158,  160,   85,   62,  162,  251,   67,
+ /*   670 */   162,  251,  251,  158,  160,   85,  158,  160,   85,   61,
+ /*   680 */   162,  251,   60,  162,  251,  251,  158,  160,   85,  158,
+ /*   690 */   160,   85,   66,  162,  251,   59,  162,  251,  251,  158,
+ /*   700 */   160,   85,  158,  160,   85,   58,  162,  251,  251,  251,
+ /*   710 */   251,  251,  158,  160,   85,
 };
 static const YYCODETYPE yy_lookahead[] = {
- /*     0 */    11,   18,   20,   25,   15,   19,   17,    9,   10,   11,
- /*    10 */    12,   13,   14,   24,   16,   20,   27,   28,   29,   30,
- /*    20 */    31,   43,   33,   45,   35,   43,   22,   23,   39,   40,
- /*    30 */    41,   42,   43,    0,   45,   53,   47,   48,   49,   50,
- /*    40 */    51,   52,   53,   11,   55,   21,   57,   15,   28,   12,
- /*    50 */    13,   14,   44,   16,   46,   44,   24,   46,   46,   27,
- /*    60 */    28,   29,   30,   31,   44,   33,   54,   35,   25,   28,
- /*    70 */     0,   39,   40,   41,   42,   43,   67,   45,   69,   47,
- /*    80 */    48,   49,   50,   51,   52,   53,   45,   55,   45,   57,
+ /*     0 */    11,   44,   20,   46,   15,   18,   17,    9,   10,   11,
+ /*    10 */    12,   13,   14,   24,   16,   19,   27,   28,   29,   30,
+ /*    20 */    31,   44,   33,   46,   35,   43,   22,   23,   39,   40,
+ /*    30 */    41,   42,   43,   20,   45,   53,   47,   48,   49,   50,
+ /*    40 */    51,   52,   53,   11,   55,    0,   57,   15,   28,   12,
+ /*    50 */    13,   14,   21,   16,   37,   38,   24,   22,   23,   27,
+ /*    60 */    28,   29,   30,   31,   44,   33,   25,   35,   46,   22,
+ /*    70 */    23,   39,   40,   41,   42,   43,   54,   45,   43,   47,
+ /*    80 */    48,   49,   50,   51,   52,   53,   45,   55,   28,   57,
  /*    90 */    28,    1,    2,    3,    4,    5,    6,    7,    8,    9,
- /*   100 */    10,   11,   12,   13,   14,   43,   16,   28,    1,    2,
+ /*   100 */    10,   11,   12,   13,   14,   45,   16,   28,    1,    2,
  /*   110 */     3,    4,    5,    6,    7,    8,    9,   10,   11,   12,
- /*   120 */    13,   14,   25,   16,    5,    6,    7,    8,    9,   10,
+ /*   120 */    13,   14,   43,   16,    5,    6,    7,    8,    9,   10,
  /*   130 */    11,   12,   13,   14,   44,   16,    1,    2,    3,    4,
  /*   140 */     5,    6,    7,    8,    9,   10,   11,   12,   13,   14,
- /*   150 */    26,   16,    3,    4,    5,    6,    7,    8,    9,   10,
+ /*   150 */     0,   16,    3,    4,    5,    6,    7,    8,    9,   10,
  /*   160 */    11,   12,   13,   14,   57,   16,    1,    2,    3,    4,
  /*   170 */     5,    6,    7,    8,    9,   10,   11,   12,   13,   14,
- /*   180 */    28,   16,   37,   38,   20,   56,   16,   28,   26,   54,
- /*   190 */    32,    1,    2,    3,    4,    5,    6,    7,    8,    9,
- /*   200 */    10,   11,   12,   13,   14,   26,   16,   43,   28,   44,
- /*   210 */    25,   28,   34,   25,   24,   28,    1,    2,    3,    4,
+ /*   180 */    67,   16,   69,   25,   20,   25,   56,   26,   16,   54,
+ /*   190 */    28,    1,    2,    3,    4,    5,    6,    7,    8,    9,
+ /*   200 */    10,   11,   12,   13,   14,   45,   16,   43,   28,   44,
+ /*   210 */    26,   26,   34,   25,   24,   28,    1,    2,    3,    4,
  /*   220 */     5,    6,    7,    8,    9,   10,   11,   12,   13,   14,
- /*   230 */    25,   16,   28,   25,   28,   25,   67,   43,   67,   24,
- /*   240 */    67,    1,    2,    3,    4,    5,    6,    7,    8,    9,
- /*   250 */    10,   11,   12,   13,   14,   74,   16,   68,    1,    2,
+ /*   230 */    32,   16,   28,   25,   25,   28,   25,   67,   28,   24,
+ /*   240 */    28,    1,    2,    3,    4,    5,    6,    7,    8,    9,
+ /*   250 */    10,   11,   12,   13,   14,   28,   16,   25,    1,    2,
  /*   260 */     3,    4,    5,    6,    7,    8,    9,   10,   11,   12,
- /*   270 */    13,   14,   65,   16,   74,   66,   36,    5,    6,    7,
- /*   280 */     8,    9,   10,   11,   12,   13,   14,   66,   16,   67,
- /*   290 */    65,   74,   66,   36,   74,    1,    2,    3,    4,    5,
+ /*   270 */    13,   14,   43,   16,   68,   74,   36,    5,    6,    7,
+ /*   280 */     8,    9,   10,   11,   12,   13,   14,   67,   16,   67,
+ /*   290 */    67,   65,   67,   36,   66,    1,    2,    3,    4,    5,
  /*   300 */     6,    7,    8,    9,   10,   11,   12,   13,   14,   11,
- /*   310 */    16,   74,   74,   15,   63,   64,   74,   74,   74,   74,
+ /*   310 */    16,   66,   66,   15,   63,   64,   66,   65,   74,   74,
  /*   320 */    11,   70,   71,   72,   15,   74,   28,   59,   60,   61,
  /*   330 */    62,   63,   64,   74,   74,   74,   74,   28,   70,   71,
  /*   340 */    72,   43,   44,   45,   74,   47,   48,   49,   50,   51,
@@ -328,27 +328,27 @@ static const YYCODETYPE yy_lookahead[] = {
  /*   700 */    71,   72,   70,   71,   72,   63,   64,   74,   74,   74,
  /*   710 */    74,   74,   70,   71,   72,
 };
-#define YY_SHIFT_USE_DFLT (-23)
-#define YY_SHIFT_COUNT (120)
-#define YY_SHIFT_MIN   (-22)
+#define YY_SHIFT_USE_DFLT (-44)
+#define YY_SHIFT_COUNT (125)
+#define YY_SHIFT_MIN   (-43)
 #define YY_SHIFT_MAX   (369)
 static const short yy_shift_ofst[] = {
  /*     0 */   -11,   32,   32,   32,   32,   32,   32,   32,   32,   32,
  /*    10 */    32,   32,  309,  298,  369,  369,  369,  369,  369,  369,
  /*    20 */   369,  369,  369,  369,  369,  369,  369,  369,  369,  369,
  /*    30 */   369,  369,  369,  369,  369,  369,  369,  369,  369,  369,
- /*    40 */   369,  369,  369,  369,  369,   62,  -22,  145,  164,   43,
- /*    50 */    43,  145,   20,  194,  194,  194,  257,  165,  240,  215,
- /*    60 */   190,  135,  107,   90,  294,  294,  294,  294,  294,  294,
- /*    70 */   294,  294,  365,  149,  119,  272,  272,  119,  119,  119,
- /*    80 */    -2,   37,   37,  -18,   41,   12,   11,    8,    4,  210,
- /*    90 */   208,  206,  204,  187,  205,  188,  178,  183,  158,  185,
- /*   100 */   180,  179,  162,  159,  152,  170,  170,  170,  170,  170,
- /*   110 */   170,  129,  124,   97,   79,   70,   24,   33,   -5,  -14,
- /*   120 */   -17,
+ /*    40 */   369,  369,  369,  369,  369,   79,   35,   17,  164,    4,
+ /*    50 */     4,    4,   17,   20,  229,  229,  229,  229,  257,  165,
+ /*    60 */   240,  215,  190,  135,  107,   90,  294,  294,  294,  294,
+ /*    70 */   294,  294,  294,  294,  365,  149,  119,  272,  272,  119,
+ /*    80 */   119,  119,   -2,   37,   37,  -18,  160,   41,   60,   22,
+ /*    90 */   -23,  -43,   47,  232,  211,  227,  212,  210,  207,  209,
+ /*   100 */   208,  178,  204,  198,  188,  187,  185,  184,  180,  162,
+ /*   110 */   172,  172,  172,  172,  172,  172,  130,  161,  158,   62,
+ /*   120 */   150,   31,   45,   13,   -4,  -13,
 };
 #define YY_REDUCE_USE_DFLT (-1)
-#define YY_REDUCE_COUNT (55)
+#define YY_REDUCE_COUNT (57)
 #define YY_REDUCE_MIN   (0)
 #define YY_REDUCE_MAX   (642)
 static const short yy_reduce_ofst[] = {
@@ -356,27 +356,28 @@ static const short yy_reduce_ofst[] = {
  /*    10 */   450,  447,  395,  331,  642,  632,  629,  619,  616,  606,
  /*    20 */   603,  593,  590,  580,  577,  567,  564,  554,  551,  541,
  /*    30 */   538,  528,  525,  515,  512,  502,  499,  489,  486,  476,
- /*    40 */   473,  463,  460,  400,  251,    9,  226,  225,  222,  221,
- /*    50 */   209,  207,  189,  173,  171,  169,
+ /*    40 */   473,  463,  460,  400,  251,  113,  250,  252,  225,  246,
+ /*    50 */   245,  228,  226,  206,  223,  222,  220,  170,
 };
 static const YYACTIONTYPE yy_default[] = {
- /*     0 */   170,  170,  170,  170,  170,  170,  170,  170,  170,  170,
- /*    10 */   170,  170,  240,  240,  240,  240,  240,  240,  240,  240,
- /*    20 */   240,  240,  240,  240,  240,  240,  240,  240,  240,  240,
- /*    30 */   240,  240,  240,  240,  240,  240,  240,  240,  240,  240,
- /*    40 */   240,  240,  240,  240,  240,  240,  240,  182,  240,  240,
- /*    50 */   240,  182,  240,  240,  240,  240,  240,  240,  240,  240,
- /*    60 */   240,  240,  240,  240,  185,  179,  177,  174,  239,  238,
- /*    70 */   173,  171,  218,  219,  220,  225,  224,  223,  222,  221,
- /*    80 */   226,  228,  227,  207,  240,  240,  240,  240,  166,  240,
- /*    90 */   240,  240,  240,  240,  240,  240,  240,  240,  240,  240,
- /*   100 */   240,  176,  175,  240,  240,  234,  233,  232,  231,  230,
- /*   110 */   229,  240,  203,  240,  240,  240,  240,  240,  240,  240,
- /*   120 */   240,  169,  199,  200,  184,  196,  197,  194,  191,  190,
- /*   130 */   189,  188,  187,  186,  183,  181,  180,  178,  195,  237,
- /*   140 */   236,  235,  217,  216,  215,  214,  213,  212,  211,  210,
- /*   150 */   209,  208,  206,  205,  204,  203,  202,  201,  172,  167,
- /*   160 */   193,  192,  198,  168,
+ /*     0 */   177,  177,  177,  177,  177,  177,  177,  177,  177,  177,
+ /*    10 */   177,  177,  249,  249,  249,  249,  249,  249,  249,  249,
+ /*    20 */   249,  249,  249,  249,  249,  249,  249,  249,  249,  249,
+ /*    30 */   249,  249,  249,  249,  249,  249,  249,  249,  249,  249,
+ /*    40 */   249,  249,  249,  249,  249,  249,  249,  189,  249,  249,
+ /*    50 */   249,  249,  189,  249,  249,  249,  249,  249,  249,  249,
+ /*    60 */   249,  249,  249,  249,  249,  249,  192,  186,  184,  181,
+ /*    70 */   248,  247,  180,  178,  227,  228,  229,  234,  233,  232,
+ /*    80 */   231,  230,  235,  237,  236,  216,  249,  249,  249,  249,
+ /*    90 */   249,  249,  173,  249,  249,  249,  249,  249,  249,  249,
+ /*   100 */   249,  249,  249,  249,  249,  249,  183,  182,  249,  249,
+ /*   110 */   243,  242,  241,  240,  239,  238,  249,  212,  249,  249,
+ /*   120 */   249,  249,  249,  249,  249,  249,  176,  208,  209,  191,
+ /*   130 */   205,  206,  203,  199,  200,  198,  197,  196,  195,  194,
+ /*   140 */   193,  190,  188,  187,  185,  204,  246,  245,  244,  226,
+ /*   150 */   225,  224,  223,  222,  221,  220,  219,  218,  217,  215,
+ /*   160 */   214,  213,  212,  211,  210,  179,  174,  202,  201,  207,
+ /*   170 */   175,
 };
 
 /* The next table maps tokens into fallback tokens.  If a construct
@@ -521,56 +522,58 @@ static const char *const yyRuleName[] = {
  /*  23 */ "stat ::= BREAK",
  /*  24 */ "stat ::= CLASS IDENT class_body",
  /*  25 */ "stat ::= CLASS IDENT PL exp PR class_body",
- /*  26 */ "class_body ::= END",
- /*  27 */ "class_body ::= DEF IDENT func_body class_body",
- /*  28 */ "ident_list ::= IDENT",
- /*  29 */ "ident_list ::= ident_list COMMA IDENT",
- /*  30 */ "stat ::= DEF func_ident func_body",
- /*  31 */ "stat ::= LOCAL DEF IDENT func_body",
- /*  32 */ "func_ident ::= IDENT",
- /*  33 */ "func_ident ::= func_ident DOT IDENT",
- /*  34 */ "function ::= DEF func_body",
- /*  35 */ "func_body ::= PL PR block END",
- /*  36 */ "func_body ::= PL ident_list PR block END",
- /*  37 */ "functioncall ::= prefixexp PL PR",
- /*  38 */ "functioncall ::= prefixexp PL exp_list PR",
- /*  39 */ "prefixexp ::= var",
- /*  40 */ "prefixexp ::= STRING",
- /*  41 */ "prefixexp ::= functioncall",
- /*  42 */ "prefixexp ::= PL exp PR",
- /*  43 */ "exp ::= prefixexp",
- /*  44 */ "exp ::= function",
- /*  45 */ "exp ::= NIL",
- /*  46 */ "exp ::= FALSE",
- /*  47 */ "exp ::= TRUE",
- /*  48 */ "exp ::= INT",
- /*  49 */ "exp ::= REAL",
- /*  50 */ "exp ::= SBL SBR",
- /*  51 */ "exp ::= SBL exp_list SBR",
- /*  52 */ "exp ::= CBL CBR",
- /*  53 */ "exp ::= PIPE exp PIPE",
- /*  54 */ "exp ::= exp OR exp",
- /*  55 */ "exp ::= exp AND exp",
- /*  56 */ "exp ::= exp L exp",
- /*  57 */ "exp ::= exp G exp",
- /*  58 */ "exp ::= exp LEQ exp",
- /*  59 */ "exp ::= exp GEQ exp",
- /*  60 */ "exp ::= exp NEQ exp",
- /*  61 */ "exp ::= exp EQ exp",
- /*  62 */ "exp ::= exp RANGEOP exp",
- /*  63 */ "exp ::= exp PLUS exp",
- /*  64 */ "exp ::= exp MINUS exp",
- /*  65 */ "exp ::= exp MUL exp",
- /*  66 */ "exp ::= exp DIV exp",
- /*  67 */ "exp ::= exp MOD exp",
- /*  68 */ "exp ::= exp EXP exp",
- /*  69 */ "exp ::= NOT exp",
- /*  70 */ "exp ::= MINUS exp",
- /*  71 */ "var ::= IDENT",
- /*  72 */ "var ::= prefixexp DOT IDENT",
- /*  73 */ "var ::= prefixexp SBL exp SBR",
- /*  74 */ "exp_list ::= exp",
- /*  75 */ "exp_list ::= exp_list COMMA exp",
+ /*  26 */ "class_body ::= NL END",
+ /*  27 */ "class_body ::= SCOLON END",
+ /*  28 */ "class_body ::= NL DEF IDENT func_body class_body",
+ /*  29 */ "class_body ::= SCOLON DEF IDENT func_body class_body",
+ /*  30 */ "ident_list ::= IDENT",
+ /*  31 */ "ident_list ::= ident_list COMMA IDENT",
+ /*  32 */ "stat ::= DEF func_ident func_body",
+ /*  33 */ "stat ::= LOCAL DEF IDENT func_body",
+ /*  34 */ "func_ident ::= IDENT",
+ /*  35 */ "func_ident ::= func_ident DOT IDENT",
+ /*  36 */ "function ::= DEF func_body",
+ /*  37 */ "func_body ::= PL PR block END",
+ /*  38 */ "func_body ::= PL ident_list PR block END",
+ /*  39 */ "functioncall ::= prefixexp PL PR",
+ /*  40 */ "functioncall ::= prefixexp PL exp_list PR",
+ /*  41 */ "prefixexp ::= var",
+ /*  42 */ "prefixexp ::= STRING",
+ /*  43 */ "prefixexp ::= functioncall",
+ /*  44 */ "prefixexp ::= PL exp PR",
+ /*  45 */ "exp ::= prefixexp",
+ /*  46 */ "exp ::= function",
+ /*  47 */ "exp ::= NIL",
+ /*  48 */ "exp ::= FALSE",
+ /*  49 */ "exp ::= TRUE",
+ /*  50 */ "exp ::= INT",
+ /*  51 */ "exp ::= REAL",
+ /*  52 */ "exp ::= SBL SBR",
+ /*  53 */ "exp ::= SBL exp_list SBR",
+ /*  54 */ "exp ::= CBL CBR",
+ /*  55 */ "exp ::= PIPE exp PIPE",
+ /*  56 */ "exp ::= exp OR exp",
+ /*  57 */ "exp ::= exp AND exp",
+ /*  58 */ "exp ::= exp L exp",
+ /*  59 */ "exp ::= exp G exp",
+ /*  60 */ "exp ::= exp LEQ exp",
+ /*  61 */ "exp ::= exp GEQ exp",
+ /*  62 */ "exp ::= exp NEQ exp",
+ /*  63 */ "exp ::= exp EQ exp",
+ /*  64 */ "exp ::= exp RANGEOP exp",
+ /*  65 */ "exp ::= exp PLUS exp",
+ /*  66 */ "exp ::= exp MINUS exp",
+ /*  67 */ "exp ::= exp MUL exp",
+ /*  68 */ "exp ::= exp DIV exp",
+ /*  69 */ "exp ::= exp MOD exp",
+ /*  70 */ "exp ::= exp EXP exp",
+ /*  71 */ "exp ::= NOT exp",
+ /*  72 */ "exp ::= MINUS exp",
+ /*  73 */ "var ::= IDENT",
+ /*  74 */ "var ::= prefixexp DOT IDENT",
+ /*  75 */ "var ::= prefixexp SBL exp SBR",
+ /*  76 */ "exp_list ::= exp",
+ /*  77 */ "exp_list ::= exp_list COMMA exp",
 };
 #endif /* NDEBUG */
 
@@ -910,8 +913,10 @@ static const struct {
   { 62, 1 },
   { 62, 3 },
   { 62, 6 },
-  { 66, 1 },
-  { 66, 4 },
+  { 66, 2 },
+  { 66, 2 },
+  { 66, 5 },
+  { 66, 5 },
   { 68, 1 },
   { 68, 3 },
   { 62, 3 },
@@ -1017,122 +1022,124 @@ static void yy_reduce(
       case 1: /* chunk ::= block EOS */
 #line 67 "lparser.y"
 { *currentNode = yygotominor.yy0 = yymsp[-1].minor.yy84; }
-#line 1021 "lparser.c"
+#line 1026 "lparser.c"
         break;
       case 2: /* block ::= stat_list */
 #line 71 "lparser.y"
 { yygotominor.yy84 = new BlockNode(yymsp[0].minor.yy143);  }
-#line 1026 "lparser.c"
+#line 1031 "lparser.c"
         break;
       case 3: /* stat_list ::= stat */
 #line 73 "lparser.y"
 { yygotominor.yy143 = new NodeList<>(); if(yymsp[0].minor.yy0){ yygotominor.yy143->push_back(yymsp[0].minor.yy0); }  }
-#line 1031 "lparser.c"
+#line 1036 "lparser.c"
         break;
       case 4: /* stat_list ::= stat_list NL stat */
       case 5: /* stat_list ::= stat_list SCOLON stat */ yytestcase(yyruleno==5);
 #line 74 "lparser.y"
 { yygotominor.yy143 = yymsp[-2].minor.yy143;  if(yymsp[0].minor.yy0){ yygotominor.yy143->push_back(yymsp[0].minor.yy0); }  }
-#line 1037 "lparser.c"
+#line 1042 "lparser.c"
         break;
       case 6: /* stat ::= */
       case 18: /* else ::= */ yytestcase(yyruleno==18);
 #line 78 "lparser.y"
 { yygotominor.yy0 = NULL; }
-#line 1043 "lparser.c"
+#line 1048 "lparser.c"
         break;
       case 7: /* stat ::= exp */
 #line 79 "lparser.y"
 { yygotominor.yy0 = new StatNode(yymsp[0].minor.yy0); }
-#line 1048 "lparser.c"
+#line 1053 "lparser.c"
         break;
       case 8: /* stat ::= DO block END */
 #line 80 "lparser.y"
 { yygotominor.yy0 = yymsp[-1].minor.yy84; yymsp[-1].minor.yy84->createScope(); }
-#line 1053 "lparser.c"
+#line 1058 "lparser.c"
         break;
       case 9: /* stat ::= var ASSIG exp */
 #line 83 "lparser.y"
 { yygotominor.yy0 = new AssignNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1058 "lparser.c"
+#line 1063 "lparser.c"
         break;
       case 10: /* stat ::= GLOBAL IDENT ASSIG exp */
 #line 84 "lparser.y"
 { yygotominor.yy0 = new AssignNode(new VarNode(yymsp[-2].minor.yy0), yymsp[0].minor.yy0); }
-#line 1063 "lparser.c"
+#line 1068 "lparser.c"
         break;
       case 11: /* stat ::= GLOBAL IDENT */
 #line 85 "lparser.y"
 { yygotominor.yy0 = new AssignNode(new VarNode(yymsp[0].minor.yy0), new NilLitNode()); }
-#line 1068 "lparser.c"
+#line 1073 "lparser.c"
         break;
       case 12: /* stat ::= LOCAL IDENT */
 #line 87 "lparser.y"
 { yygotominor.yy0 = new DeclNode(yymsp[0].minor.yy0, NULL); }
-#line 1073 "lparser.c"
+#line 1078 "lparser.c"
         break;
       case 13: /* stat ::= LOCAL IDENT ASSIG exp */
 #line 88 "lparser.y"
 { yygotominor.yy0 = new DeclNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1078 "lparser.c"
+#line 1083 "lparser.c"
         break;
       case 14: /* stat ::= WHILE exp DO block END */
 #line 97 "lparser.y"
 { yygotominor.yy0 = new WhileNode(yymsp[-3].minor.yy0, yymsp[-1].minor.yy84); }
-#line 1083 "lparser.c"
+#line 1088 "lparser.c"
         break;
       case 15: /* stat ::= REPEAT block UNTIL exp */
 #line 99 "lparser.y"
 { yygotominor.yy0 = new RepeatNode(yymsp[0].minor.yy0, yymsp[-2].minor.yy84); }
-#line 1088 "lparser.c"
+#line 1093 "lparser.c"
         break;
       case 16: /* stat ::= FOR IDENT IN exp DO block END */
 #line 101 "lparser.y"
 { yygotominor.yy0 = new ForNode(yymsp[-5].minor.yy0, yymsp[-3].minor.yy0, yymsp[-1].minor.yy84); }
-#line 1093 "lparser.c"
+#line 1098 "lparser.c"
         break;
       case 17: /* stat ::= IF exp THEN block else END */
 #line 103 "lparser.y"
 { yygotominor.yy0 = new IfNode(yymsp[-4].minor.yy0, yymsp[-2].minor.yy84, yymsp[-1].minor.yy0); }
-#line 1098 "lparser.c"
+#line 1103 "lparser.c"
         break;
       case 19: /* else ::= ELSE block */
 #line 105 "lparser.y"
 { yygotominor.yy0 = yymsp[0].minor.yy84; }
-#line 1103 "lparser.c"
+#line 1108 "lparser.c"
         break;
       case 20: /* else ::= ELSEIF exp THEN block else */
 #line 106 "lparser.y"
 { yygotominor.yy0 = new IfNode(yymsp[-3].minor.yy0, yymsp[-1].minor.yy84, yymsp[0].minor.yy0); }
-#line 1108 "lparser.c"
+#line 1113 "lparser.c"
         break;
       case 21: /* stat ::= RETURN exp */
 #line 109 "lparser.y"
 { yygotominor.yy0 = new ReturnNode(yymsp[0].minor.yy0); }
-#line 1113 "lparser.c"
+#line 1118 "lparser.c"
         break;
       case 24: /* stat ::= CLASS IDENT class_body */
 #line 115 "lparser.y"
 { yygotominor.yy0 = new ClassNode(yymsp[-1].minor.yy0, NULL, yymsp[0].minor.yy144); }
-#line 1118 "lparser.c"
+#line 1123 "lparser.c"
         break;
       case 25: /* stat ::= CLASS IDENT PL exp PR class_body */
 #line 116 "lparser.y"
 { yygotominor.yy0 = new ClassNode(yymsp[-4].minor.yy0, yymsp[-2].minor.yy0, yymsp[0].minor.yy144); }
-#line 1123 "lparser.c"
-        break;
-      case 26: /* class_body ::= END */
-#line 117 "lparser.y"
-{ yygotominor.yy144 = new std::vector<std::pair<Node*, Node*> >(); }
 #line 1128 "lparser.c"
         break;
-      case 27: /* class_body ::= DEF IDENT func_body class_body */
-#line 118 "lparser.y"
-{ yygotominor.yy144 = yymsp[0].minor.yy144; yymsp[0].minor.yy144->push_back(std::make_pair(yymsp[-2].minor.yy0, yymsp[-1].minor.yy0)); }
-#line 1133 "lparser.c"
+      case 26: /* class_body ::= NL END */
+      case 27: /* class_body ::= SCOLON END */ yytestcase(yyruleno==27);
+#line 117 "lparser.y"
+{ yygotominor.yy144 = new std::vector<std::pair<Node*, Node*> >(); }
+#line 1134 "lparser.c"
         break;
-      case 28: /* ident_list ::= IDENT */
-#line 124 "lparser.y"
+      case 28: /* class_body ::= NL DEF IDENT func_body class_body */
+      case 29: /* class_body ::= SCOLON DEF IDENT func_body class_body */ yytestcase(yyruleno==29);
+#line 119 "lparser.y"
+{ yygotominor.yy144 = yymsp[0].minor.yy144; yymsp[0].minor.yy144->push_back(std::make_pair(yymsp[-2].minor.yy0, yymsp[-1].minor.yy0)); }
+#line 1140 "lparser.c"
+        break;
+      case 30: /* ident_list ::= IDENT */
+#line 126 "lparser.y"
 {
     yygotominor.yy105 = new NodeList<IdentNode>();
 
@@ -1140,212 +1147,212 @@ static void yy_reduce(
     yygotominor.yy105->push_back(static_cast<IdentNode*>(yymsp[0].minor.yy0));
 
 }
-#line 1144 "lparser.c"
+#line 1151 "lparser.c"
         break;
-      case 29: /* ident_list ::= ident_list COMMA IDENT */
-#line 132 "lparser.y"
+      case 31: /* ident_list ::= ident_list COMMA IDENT */
+#line 134 "lparser.y"
 {
     yygotominor.yy105 = yymsp[-2].minor.yy105;
 
     assert(dynamic_cast<IdentNode*>(yymsp[0].minor.yy0));
     yygotominor.yy105->push_back(static_cast<IdentNode*>(yymsp[0].minor.yy0));
 }
-#line 1154 "lparser.c"
+#line 1161 "lparser.c"
         break;
-      case 30: /* stat ::= DEF func_ident func_body */
-#line 139 "lparser.y"
-{ yygotominor.yy0 = new AssignNode(yymsp[-1].minor.yy0, yymsp[0].minor.yy0); }
-#line 1159 "lparser.c"
-        break;
-      case 31: /* stat ::= LOCAL DEF IDENT func_body */
-#line 140 "lparser.y"
-{ yygotominor.yy0 = new DeclNode(yymsp[-1].minor.yy0, yymsp[0].minor.yy0); }
-#line 1164 "lparser.c"
-        break;
-      case 32: /* func_ident ::= IDENT */
-      case 71: /* var ::= IDENT */ yytestcase(yyruleno==71);
+      case 32: /* stat ::= DEF func_ident func_body */
 #line 141 "lparser.y"
-{ yygotominor.yy0 = new VarNode(yymsp[0].minor.yy0); }
-#line 1170 "lparser.c"
+{ yygotominor.yy0 = new AssignNode(yymsp[-1].minor.yy0, yymsp[0].minor.yy0); }
+#line 1166 "lparser.c"
         break;
-      case 33: /* func_ident ::= func_ident DOT IDENT */
-      case 72: /* var ::= prefixexp DOT IDENT */ yytestcase(yyruleno==72);
+      case 33: /* stat ::= LOCAL DEF IDENT func_body */
 #line 142 "lparser.y"
+{ yygotominor.yy0 = new DeclNode(yymsp[-1].minor.yy0, yymsp[0].minor.yy0); }
+#line 1171 "lparser.c"
+        break;
+      case 34: /* func_ident ::= IDENT */
+      case 73: /* var ::= IDENT */ yytestcase(yyruleno==73);
+#line 143 "lparser.y"
+{ yygotominor.yy0 = new VarNode(yymsp[0].minor.yy0); }
+#line 1177 "lparser.c"
+        break;
+      case 35: /* func_ident ::= func_ident DOT IDENT */
+      case 74: /* var ::= prefixexp DOT IDENT */ yytestcase(yyruleno==74);
+#line 144 "lparser.y"
 { yygotominor.yy0 = new MemberAccessNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1176 "lparser.c"
+#line 1183 "lparser.c"
         break;
-      case 34: /* function ::= DEF func_body */
-      case 39: /* prefixexp ::= var */ yytestcase(yyruleno==39);
-      case 40: /* prefixexp ::= STRING */ yytestcase(yyruleno==40);
-      case 41: /* prefixexp ::= functioncall */ yytestcase(yyruleno==41);
-      case 43: /* exp ::= prefixexp */ yytestcase(yyruleno==43);
-      case 44: /* exp ::= function */ yytestcase(yyruleno==44);
-      case 48: /* exp ::= INT */ yytestcase(yyruleno==48);
-      case 49: /* exp ::= REAL */ yytestcase(yyruleno==49);
-#line 145 "lparser.y"
-{ yygotominor.yy0 = yymsp[0].minor.yy0; }
-#line 1188 "lparser.c"
-        break;
-      case 35: /* func_body ::= PL PR block END */
-#line 146 "lparser.y"
-{ yygotominor.yy0 = new FuncNode(NULL, yymsp[-1].minor.yy84); }
-#line 1193 "lparser.c"
-        break;
-      case 36: /* func_body ::= PL ident_list PR block END */
+      case 36: /* function ::= DEF func_body */
+      case 41: /* prefixexp ::= var */ yytestcase(yyruleno==41);
+      case 42: /* prefixexp ::= STRING */ yytestcase(yyruleno==42);
+      case 43: /* prefixexp ::= functioncall */ yytestcase(yyruleno==43);
+      case 45: /* exp ::= prefixexp */ yytestcase(yyruleno==45);
+      case 46: /* exp ::= function */ yytestcase(yyruleno==46);
+      case 50: /* exp ::= INT */ yytestcase(yyruleno==50);
+      case 51: /* exp ::= REAL */ yytestcase(yyruleno==51);
 #line 147 "lparser.y"
-{ yygotominor.yy0 = new FuncNode(yymsp[-3].minor.yy105, yymsp[-1].minor.yy84); }
-#line 1198 "lparser.c"
+{ yygotominor.yy0 = yymsp[0].minor.yy0; }
+#line 1195 "lparser.c"
         break;
-      case 37: /* functioncall ::= prefixexp PL PR */
+      case 37: /* func_body ::= PL PR block END */
+#line 148 "lparser.y"
+{ yygotominor.yy0 = new FuncNode(NULL, yymsp[-1].minor.yy84); }
+#line 1200 "lparser.c"
+        break;
+      case 38: /* func_body ::= PL ident_list PR block END */
 #line 149 "lparser.y"
+{ yygotominor.yy0 = new FuncNode(yymsp[-3].minor.yy105, yymsp[-1].minor.yy84); }
+#line 1205 "lparser.c"
+        break;
+      case 39: /* functioncall ::= prefixexp PL PR */
+#line 151 "lparser.y"
 { yygotominor.yy0 = new CallNode(yymsp[-2].minor.yy0, NULL); }
-#line 1203 "lparser.c"
+#line 1210 "lparser.c"
         break;
-      case 38: /* functioncall ::= prefixexp PL exp_list PR */
-#line 150 "lparser.y"
+      case 40: /* functioncall ::= prefixexp PL exp_list PR */
+#line 152 "lparser.y"
 { yygotominor.yy0 = new CallNode(yymsp[-3].minor.yy0, yymsp[-1].minor.yy143); }
-#line 1208 "lparser.c"
+#line 1215 "lparser.c"
         break;
-      case 42: /* prefixexp ::= PL exp PR */
-#line 155 "lparser.y"
+      case 44: /* prefixexp ::= PL exp PR */
+#line 157 "lparser.y"
 { yygotominor.yy0 = yymsp[-1].minor.yy0; }
-#line 1213 "lparser.c"
+#line 1220 "lparser.c"
         break;
-      case 45: /* exp ::= NIL */
-#line 161 "lparser.y"
-{ yygotominor.yy0 = new NilLitNode(); }
-#line 1218 "lparser.c"
-        break;
-      case 46: /* exp ::= FALSE */
-#line 162 "lparser.y"
-{ yygotominor.yy0 = new BoolLitNode(false); }
-#line 1223 "lparser.c"
-        break;
-      case 47: /* exp ::= TRUE */
+      case 47: /* exp ::= NIL */
 #line 163 "lparser.y"
+{ yygotominor.yy0 = new NilLitNode(); }
+#line 1225 "lparser.c"
+        break;
+      case 48: /* exp ::= FALSE */
+#line 164 "lparser.y"
+{ yygotominor.yy0 = new BoolLitNode(false); }
+#line 1230 "lparser.c"
+        break;
+      case 49: /* exp ::= TRUE */
+#line 165 "lparser.y"
 { yygotominor.yy0 = new BoolLitNode(true); }
-#line 1228 "lparser.c"
+#line 1235 "lparser.c"
         break;
-      case 50: /* exp ::= SBL SBR */
-#line 170 "lparser.y"
-{ yygotominor.yy0 = new ListConstrNode(NULL); }
-#line 1233 "lparser.c"
-        break;
-      case 51: /* exp ::= SBL exp_list SBR */
-#line 171 "lparser.y"
-{ yygotominor.yy0 = new ListConstrNode(yymsp[-1].minor.yy143); }
-#line 1238 "lparser.c"
-        break;
-      case 52: /* exp ::= CBL CBR */
+      case 52: /* exp ::= SBL SBR */
 #line 172 "lparser.y"
+{ yygotominor.yy0 = new ListConstrNode(NULL); }
+#line 1240 "lparser.c"
+        break;
+      case 53: /* exp ::= SBL exp_list SBR */
+#line 173 "lparser.y"
+{ yygotominor.yy0 = new ListConstrNode(yymsp[-1].minor.yy143); }
+#line 1245 "lparser.c"
+        break;
+      case 54: /* exp ::= CBL CBR */
+#line 174 "lparser.y"
 { yygotominor.yy0; }
-#line 1243 "lparser.c"
+#line 1250 "lparser.c"
         break;
-      case 53: /* exp ::= PIPE exp PIPE */
-#line 175 "lparser.y"
-{ yygotominor.yy0 = new UnOpNode<'|'>(yymsp[-1].minor.yy0); }
-#line 1248 "lparser.c"
-        break;
-      case 54: /* exp ::= exp OR exp */
+      case 55: /* exp ::= PIPE exp PIPE */
 #line 177 "lparser.y"
+{ yygotominor.yy0 = new UnOpNode<'|'>(yymsp[-1].minor.yy0); }
+#line 1255 "lparser.c"
+        break;
+      case 56: /* exp ::= exp OR exp */
+#line 179 "lparser.y"
 { yygotominor.yy0 = new OrNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1253 "lparser.c"
+#line 1260 "lparser.c"
         break;
-      case 55: /* exp ::= exp AND exp */
-#line 178 "lparser.y"
-{ yygotominor.yy0 = new AndNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1258 "lparser.c"
-        break;
-      case 56: /* exp ::= exp L exp */
+      case 57: /* exp ::= exp AND exp */
 #line 180 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'<'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1263 "lparser.c"
+{ yygotominor.yy0 = new AndNode(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1265 "lparser.c"
         break;
-      case 57: /* exp ::= exp G exp */
-#line 181 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'>'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1268 "lparser.c"
-        break;
-      case 58: /* exp ::= exp LEQ exp */
+      case 58: /* exp ::= exp L exp */
 #line 182 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'<'+'='>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1273 "lparser.c"
+{ yygotominor.yy0 = new BinOpNode<'<'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1270 "lparser.c"
         break;
-      case 59: /* exp ::= exp GEQ exp */
+      case 59: /* exp ::= exp G exp */
 #line 183 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'>'+'='>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1278 "lparser.c"
+{ yygotominor.yy0 = new BinOpNode<'>'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1275 "lparser.c"
         break;
-      case 60: /* exp ::= exp NEQ exp */
+      case 60: /* exp ::= exp LEQ exp */
 #line 184 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'!'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1283 "lparser.c"
+{ yygotominor.yy0 = new BinOpNode<'<'+'='>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1280 "lparser.c"
         break;
-      case 61: /* exp ::= exp EQ exp */
+      case 61: /* exp ::= exp GEQ exp */
 #line 185 "lparser.y"
+{ yygotominor.yy0 = new BinOpNode<'>'+'='>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1285 "lparser.c"
+        break;
+      case 62: /* exp ::= exp NEQ exp */
+#line 186 "lparser.y"
+{ yygotominor.yy0 = new BinOpNode<'!'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1290 "lparser.c"
+        break;
+      case 63: /* exp ::= exp EQ exp */
+#line 187 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'='>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1288 "lparser.c"
+#line 1295 "lparser.c"
         break;
-      case 63: /* exp ::= exp PLUS exp */
-#line 189 "lparser.y"
+      case 65: /* exp ::= exp PLUS exp */
+#line 191 "lparser.y"
 { yygotominor.yy0 = new BinOpNode<'+'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1293 "lparser.c"
+#line 1300 "lparser.c"
         break;
-      case 64: /* exp ::= exp MINUS exp */
-#line 190 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'-'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1298 "lparser.c"
-        break;
-      case 65: /* exp ::= exp MUL exp */
+      case 66: /* exp ::= exp MINUS exp */
 #line 192 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'*'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1303 "lparser.c"
+{ yygotominor.yy0 = new BinOpNode<'-'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1305 "lparser.c"
         break;
-      case 66: /* exp ::= exp DIV exp */
-#line 193 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'/'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1308 "lparser.c"
-        break;
-      case 67: /* exp ::= exp MOD exp */
+      case 67: /* exp ::= exp MUL exp */
 #line 194 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'%'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1313 "lparser.c"
+{ yygotominor.yy0 = new BinOpNode<'*'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1310 "lparser.c"
         break;
-      case 68: /* exp ::= exp EXP exp */
+      case 68: /* exp ::= exp DIV exp */
+#line 195 "lparser.y"
+{ yygotominor.yy0 = new BinOpNode<'/'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1315 "lparser.c"
+        break;
+      case 69: /* exp ::= exp MOD exp */
 #line 196 "lparser.y"
-{ yygotominor.yy0 = new BinOpNode<'^'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
-#line 1318 "lparser.c"
+{ yygotominor.yy0 = new BinOpNode<'%'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1320 "lparser.c"
         break;
-      case 69: /* exp ::= NOT exp */
+      case 70: /* exp ::= exp EXP exp */
 #line 198 "lparser.y"
+{ yygotominor.yy0 = new BinOpNode<'^'>(yymsp[-2].minor.yy0, yymsp[0].minor.yy0); }
+#line 1325 "lparser.c"
+        break;
+      case 71: /* exp ::= NOT exp */
+#line 200 "lparser.y"
 { yygotominor.yy0 = new UnOpNode<'!'>(yymsp[0].minor.yy0); }
-#line 1323 "lparser.c"
+#line 1330 "lparser.c"
         break;
-      case 70: /* exp ::= MINUS exp */
-#line 199 "lparser.y"
+      case 72: /* exp ::= MINUS exp */
+#line 201 "lparser.y"
 { yygotominor.yy0 = new UnOpNode<'-'>(yymsp[0].minor.yy0); }
-#line 1328 "lparser.c"
+#line 1335 "lparser.c"
         break;
-      case 73: /* var ::= prefixexp SBL exp SBR */
-#line 206 "lparser.y"
+      case 75: /* var ::= prefixexp SBL exp SBR */
+#line 208 "lparser.y"
 { yygotominor.yy0 = new IndexAccessNode(yymsp[-3].minor.yy0, yymsp[-1].minor.yy0); }
-#line 1333 "lparser.c"
+#line 1340 "lparser.c"
         break;
-      case 74: /* exp_list ::= exp */
-#line 209 "lparser.y"
+      case 76: /* exp_list ::= exp */
+#line 211 "lparser.y"
 { yygotominor.yy143 = new NodeList<>(); yygotominor.yy143->push_back(yymsp[0].minor.yy0); }
-#line 1338 "lparser.c"
+#line 1345 "lparser.c"
         break;
-      case 75: /* exp_list ::= exp_list COMMA exp */
-#line 210 "lparser.y"
+      case 77: /* exp_list ::= exp_list COMMA exp */
+#line 212 "lparser.y"
 { yygotominor.yy143 = yymsp[-2].minor.yy143; yygotominor.yy143->push_back(yymsp[0].minor.yy0); }
-#line 1343 "lparser.c"
+#line 1350 "lparser.c"
         break;
       default:
       /* (0) chunk ::= TERMINATION UNINITIALIZED WARNING DOT */ yytestcase(yyruleno==0);
       /* (22) stat ::= NEXT */ yytestcase(yyruleno==22);
       /* (23) stat ::= BREAK */ yytestcase(yyruleno==23);
-      /* (62) exp ::= exp RANGEOP exp */ yytestcase(yyruleno==62);
+      /* (64) exp ::= exp RANGEOP exp */ yytestcase(yyruleno==64);
         break;
   };
   yygoto = yyRuleInfo[yyruleno].lhs;
@@ -1408,7 +1415,7 @@ static void yy_syntax_error(
 #line 60 "lparser.y"
 
     throw AYA::ParseError("syntax error");
-#line 1412 "lparser.c"
+#line 1419 "lparser.c"
   LemonARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
 
