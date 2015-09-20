@@ -68,6 +68,8 @@ namespace AYA
     private:
         bool halt;
 
+        void clearStack();
+
         // helpers
         int test(const Variant&);
         int getType(const Variant&);
@@ -75,6 +77,7 @@ namespace AYA
         const STRING_T& getStr(const Variant&);
 
         void call(uint8_t f);
+        void construct(uint8_t f);
 
         void binOp(uint8_t f);
         void unOp(uint8_t f);

@@ -20,6 +20,26 @@ namespace AYA
         delete LIST_OBJECT_DEF;
     }
 
+    int illegalConstr(VM* state)
+    {
+        AYA_setErrorMsg(state, "Cannot construct an object of this type this way");
+        return -1;
+    }
+
+    int ObjectFactory::objectConstr(VM* state)
+    {
+        AYA::Variant& arg = state->callFrame().frameBottom()[0];
+        if (!arg.isREF() || getBuildInType(arg.value.ref) != BType::TYPE)
+        {
+            AYA_setErrorMsg(state, "Invalid constructor argument");
+            return -1;
+        }
+        TypeObject* def = static_cast<TypeObject*>(arg.value.ref);
+
+        *(state->callFrame().frameBottom()) = REF(state->objectFactory.makeObject(def));
+        return 0;
+    }
+
     void ObjectFactory::createDefaultDef()
     {
         TYPE_OBJECT_DEF = new TypeObject(NULL, NULL);
@@ -34,16 +54,21 @@ namespace AYA
         FUNCTION_OBJECT_DEF     = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
         STRING_OBJECT_DEF       = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
         LIST_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
+        DICT_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
 
         #define _SET_SHARED_VARS(DEF, name) \
         (DEF)->setShared("type", REF(DEF), NULL); \
-        (DEF)->setShared("typename", REF(new StringObject(STRING_OBJECT_DEF, (name))), NULL);
+        (DEF)->setShared("typename", REF(new StringObject(STRING_OBJECT_DEF, (name))), NULL); \
+        (DEF)->setShared("__new__", BIND(illegalConstr), NULL);
 
         _SET_SHARED_VARS(OBJECT_DEF, "Object");
         _SET_SHARED_VARS(TYPE_OBJECT_DEF, "Type");
         _SET_SHARED_VARS(FUNCTION_OBJECT_DEF, "Function");
         _SET_SHARED_VARS(STRING_OBJECT_DEF, "String");
         _SET_SHARED_VARS(LIST_OBJECT_DEF, "List");
+        _SET_SHARED_VARS(LIST_OBJECT_DEF, "Dict");
+
+        OBJECT_DEF->setShared("__new__", BIND(objectConstr), NULL);
 
         STRING_OBJECT_DEF->setShared("+", BIND(BuiltIn::strConcat), NULL);
         STRING_OBJECT_DEF->setShared("==", BIND(BuiltIn::strComp), NULL);

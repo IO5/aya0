@@ -25,7 +25,7 @@ namespace AYA
 
         Object*         copy(const Object* original);
         int             getType(const Object*);
-        int             getBuildInType(const Object*);
+        static int      getBuildInType(const Object*);
 
     protected:
         friend class VM;
@@ -40,6 +40,8 @@ namespace AYA
         TypeObject* STRING_OBJECT_DEF   = NULL;
         TypeObject* LIST_OBJECT_DEF     = NULL;
         TypeObject* DICT_OBJECT_DEF     = NULL;
+
+        static int objectConstr(VM* state);
     };
 }
 

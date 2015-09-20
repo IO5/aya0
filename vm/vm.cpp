@@ -30,12 +30,14 @@ namespace AYA
     {
         gc.setMemoryLimit(GarbageCollector::NO_LIMIT);
 
-        globalEnv->set("object_type", REF(objectFactory.OBJECT_DEF));
-        globalEnv->set("type_type", REF(objectFactory.TYPE_OBJECT_DEF));
-        globalEnv->set("function_type", REF(objectFactory.FUNCTION_OBJECT_DEF));
-        globalEnv->set("string_type", REF(objectFactory.STRING_OBJECT_DEF));
-        globalEnv->set("list_type", REF(objectFactory.LIST_OBJECT_DEF));
-        //globalEnv->set("dict_type", REF(objectFactory.DICT_OBJECT_DEF));
+        Object* stdlib = objectFactory.makeObject();
+        globalEnv->set("std", REF(stdlib));
+        stdlib->set("object", REF(objectFactory.OBJECT_DEF), &gc);
+        stdlib->set("type", REF(objectFactory.TYPE_OBJECT_DEF), &gc);
+        stdlib->set("function", REF(objectFactory.FUNCTION_OBJECT_DEF), &gc);
+        stdlib->set("string", REF(objectFactory.STRING_OBJECT_DEF), &gc);
+        stdlib->set("list", REF(objectFactory.LIST_OBJECT_DEF), &gc);
+        //stdlib->set("dict_type", REF(objectFactory.DICT_OBJECT_DEF), &gc);
 
         globalEnv->set("print", BIND(BuiltIn::print));
         globalEnv->set("puts",  BIND(BuiltIn::puts));
@@ -49,6 +51,13 @@ namespace AYA
     void VM::setParserInput(std::istream* is)
     {
         parserInput = is;
+    }
+
+    void VM::clearStack()
+    {
+        evalStack.clear();
+        delete activeFunction;
+        activeFunction = NULL;
     }
 
     int VM::run()
@@ -90,19 +99,21 @@ namespace AYA
             _load(proto);
 
             _run();
-            evalStack.clear();
         }
         catch(ParseError err)
         {
             std::cerr << err.what() << std::endl;
+            clearStack();
             return -1;
         }
         catch(RuntimeError err)
         {
             std::cerr << err.what() << std::endl;
+            clearStack();
             return -1;
         }
 
+        clearStack();
         return 0;
     }
 
@@ -272,7 +283,10 @@ namespace AYA
                     break;
 
                 case Inst::CALL:
-                    call(inst.operand());
+                    if(getBuildInType(evalStack.peek()) == BType::TYPE)
+                        construct(inst.operand());
+                    else
+                        call(inst.operand());
                     break;
 
                 case Inst::RET:
@@ -562,9 +576,29 @@ namespace AYA
         }
     }
 
+    // Constructor hacky hack hack
+    void VM::construct(uint8_t argCount)
+    {
+        Variant v = evalStack.peek();
+        TypeObject* type = static_cast<TypeObject*>(v.value.ref);
+        evalStack.push(*(type->getShared("__new__")));
+        call(1); //returns new object
+
+        Variant& obj = evalStack.self = evalStack.peek();
+        if (!obj.isREF())
+            throw RuntimeError("Type error: not an object");
+
+        const Variant* init = obj.value.ref->get( "init" );
+        if(init)
+        {
+            evalStack.push( *init );
+            call(argCount);
+            // ignore init's result
+            evalStack.pop();
+        }
+    }
 
     // Call
-
     void VM::call(uint8_t argCount)
     {
         Variant v = evalStack.pop();
