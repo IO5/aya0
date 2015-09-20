@@ -11,6 +11,9 @@
 #include "closure.h"
 
 #include "../error.h"
+#include "parser.h"
+
+namespace quex { class lexer; };
 
 namespace AYA
 {
@@ -23,6 +26,7 @@ namespace AYA
         friend class BuiltIn;
     public:
         VM();
+        ~VM();
 
         void run();
         void interrupt();
@@ -57,6 +61,10 @@ namespace AYA
     protected:
         EvalStack evalStack;
         FunctionCall* activeFunction;
+        Parser* parser;
+        quex::lexer* qlex;
+
+        void _run();
 
     private:
         bool halt;

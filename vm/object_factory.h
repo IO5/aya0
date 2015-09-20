@@ -28,6 +28,8 @@ namespace AYA
         int             getBuildInType(const Object*);
 
     protected:
+        friend class VM;
+
         void createDefaultDef();
 
         GarbageCollector& target;

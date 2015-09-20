@@ -2,19 +2,81 @@
 #include "std_functions.h"
 #include "built_in.h"
 
+#include "lexer"
+#include "parser.h"
+
+#ifndef     ENCODING_NAME
+#    define ENCODING_NAME (0x0)
+#endif
+
+#include<iostream> //TODO change to io manager
+
 namespace AYA
 {
+    VM::~VM()
+    {
+        if(activeFunction)
+            delete activeFunction;
+        delete parser;
+        delete qlex;
+    }
+
     VM::VM() :
         gc(this),
         objectFactory(*this),
         globalEnv(new Environment(NULL)),
-        activeFunction(NULL)
+        activeFunction(NULL),
+        parser(new Parser(*this)),
+        qlex(new quex::lexer("test.aya", ENCODING_NAME))
     {
+        gc.setMemoryLimit(GarbageCollector::NO_LIMIT);
+
+        globalEnv->set("object_type", REF(objectFactory.OBJECT_DEF));
+        globalEnv->set("type_type", REF(objectFactory.TYPE_OBJECT_DEF));
+        globalEnv->set("function_type", REF(objectFactory.FUNCTION_OBJECT_DEF));
+        globalEnv->set("string_type", REF(objectFactory.STRING_OBJECT_DEF));
+        globalEnv->set("list_type", REF(objectFactory.LIST_OBJECT_DEF));
+        //globalEnv->set("dict_type", REF(objectFactory.DICT_OBJECT_DEF));
+
         globalEnv->set("print", BIND(BuiltIn::print));
         globalEnv->set("puts",  BIND(BuiltIn::puts));
     }
 
     void VM::run()
+    {
+        quex::Token* token_p = NULL;
+
+        try
+        {
+            do
+            {
+                // (*) get next token from the token stream
+                qlex->receive(&token_p);
+
+                //cerr<<token_p->type_id_name()<<'\n';
+                parser->parse(token_p);
+            }while( token_p->type_id() != TK_EOS );
+        }
+        catch(ParseError err)
+        {
+            std::cerr << err.what() << std::endl;
+            exit(-1);
+        }
+
+        const FunctionPrototype* proto = parser->generateCode();
+        load(proto);
+
+        try
+        {
+            _run();
+        }
+        catch(RuntimeError err)
+        {
+            std::cerr << err.what() << std::endl;
+        }
+    }
+
+    void VM::_run()
     {
         halt = false;
 

@@ -37,7 +37,8 @@ namespace AYA
         ~Parser()
         {
             LemonFree(pParser, free);
-            delete AST;
+            if (AST)
+                delete AST;
         }
 
         void parse(TOKEN_T* tkn)
@@ -82,6 +83,9 @@ namespace AYA
 
             builder.addInst(Inst::LNIL); // TODO see func_node.h
             builder.addInst(Inst::RET);
+
+            delete AST;
+            AST = NULL;
 
             return builder.getResult();
         }
