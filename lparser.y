@@ -47,6 +47,7 @@
     #include "parser/decl_node.h"
     #include "parser/list_constr_node.h"
     #include "parser/for_node.h"
+    #include "parser/class_node.h"
 
     #ifdef DEBUG
         #include <iostream>
@@ -81,7 +82,7 @@ stat(S)     ::= DO block(B) END. { S = B; B->createScope(); }
 //stat        ::= var_list ASSIG exp_list.
 stat(S)     ::= var(V) ASSIG exp(E). { S = new AssignNode(V, E); }
 stat(S)     ::= GLOBAL IDENT(I) ASSIG exp(E). { S = new AssignNode(new VarNode(I), E); }
-stat(S)     ::= GLOBAL IDENT. { S = NULL; }
+stat(S)     ::= GLOBAL IDENT(I). { S = new AssignNode(new VarNode(I), new NilLitNode()); }
 
 stat(S)     ::= LOCAL IDENT(I). { S = new DeclNode(I, NULL); }
 stat(S)     ::= LOCAL IDENT(I) ASSIG exp(E). { S = new DeclNode(I, E); }
@@ -109,6 +110,13 @@ stat(S)     ::= RETURN exp(E). { S = new ReturnNode(E); }
 
 stat        ::= NEXT.
 stat        ::= BREAK.
+
+%type class_body { std::vector<std::pair<Node*, Node*> >* }
+stat(S)         ::= CLASS IDENT(I) class_body(B). { S = new ClassNode(I, NULL, B); }
+stat(S)         ::= CLASS IDENT(I) PL exp(E) PR class_body(B). { S = new ClassNode(I, E, B); }
+class_body(CB)  ::= END . { CB = new std::vector<std::pair<Node*, Node*> >(); }
+class_body(CB)  ::= DEF IDENT(I) func_body(F) class_body(B) . { CB = B; B->push_back(std::make_pair(I, F)); }
+
 
 // func definition
 %type ident_list { NodeList<IdentNode>* }

@@ -39,6 +39,8 @@
     DO(CLOSURE) \
     DO(LISTC) \
     DO(DICTC) \
+    DO(TYPEC) \
+    DO(STORET) \
     /*FOR*/\
     DO(ITER)
 

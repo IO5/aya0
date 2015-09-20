@@ -104,11 +104,13 @@ namespace AYA
         {
             std::cerr << err.what() << std::endl;
             clearStack();
+            while( token.type_id() != TK_EOS )
+                (void)qlex->receive();
             return -1;
         }
         catch(RuntimeError err)
         {
-            std::cerr << err.what() << std::endl;
+            std::cerr << "Error: " << err.what() << std::endl;
             clearStack();
             return -1;
         }
@@ -168,7 +170,7 @@ namespace AYA
                     if(v)
                         evalStack.push( *v );
                     else
-                        evalStack.push( NIL() );
+                        throw RuntimeError("Variable \"" + str + "\" is undeclared");
 
                     break;
                 }
@@ -305,6 +307,32 @@ namespace AYA
                 case Inst::LISTC:
                     createList(inst.operand());
                     break;
+
+                // Type constructor
+                case Inst::TYPEC:
+                {
+                    auto& ident = getStr(constTable[inst.operand()]);
+                    Variant baseClass = evalStack.pop();
+                    TypeObject* type;
+                    if (baseClass == NIL())
+                        type = objectFactory.makeType(ident);
+                    else
+                        type = objectFactory.makeType(ident, static_cast<TypeObject*>(baseClass.value.ref));
+
+                    evalStack.push(REF(type));
+                    env->set( ident, REF(type) );
+
+                    break;
+                }
+                // Store member function definition in type
+                case Inst::STORET:
+                {
+                    auto& ident = getStr(constTable[inst.operand()]);
+                    Variant& v = evalStack.peek(2);
+                    TypeObject* type = static_cast<TypeObject*>(v.value.ref);
+                    type->setShared( ident, evalStack.pop(), &gc );
+                    break;
+                }
 
                 case Inst::SENTER:
                     activeFunction->enterScope();

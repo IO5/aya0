@@ -226,15 +226,12 @@ QUEX_NAME_TOKEN(take_text)(Token*              __this,
 
 #   line 38 "lexer.qx"
 
-        //if(Begin != LexemeNull)
-        {
-            self.text = std::string(Begin, End);
-        }
+        self.text = std::string(Begin, End);
 
         return false;
     
 
-#   line 238 "lexer-token"
+#   line 235 "lexer-token"
 
 #   undef analyzer
 #   undef self

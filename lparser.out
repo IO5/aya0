@@ -20,6 +20,8 @@ State 0:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -61,40 +63,41 @@ State 0:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                   TERMINATION shift  112
+                         MINUS shift  24
+                           NOT shift  25
+                   TERMINATION shift  120
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
+                           CBL shift  111
+                          PIPE shift  38
                          chunk accept
-                         block shift  108
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                         block shift  116
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 1:
@@ -117,6 +120,8 @@ State 1:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -159,38 +164,39 @@ State 1:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                         block shift  83
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                         block shift  89
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 2:
@@ -214,6 +220,8 @@ State 2:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -255,38 +263,39 @@ State 2:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                         block shift  45
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                         block shift  47
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 3:
@@ -310,6 +319,8 @@ State 3:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -351,38 +362,39 @@ State 3:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                         block shift  122
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                         block shift  134
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 4:
@@ -406,6 +418,8 @@ State 4:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -447,38 +461,39 @@ State 4:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                         block shift  47
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                         block shift  51
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 5:
@@ -502,6 +517,8 @@ State 5:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -543,38 +560,39 @@ State 5:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                         block shift  87
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                         block shift  95
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 6:
@@ -598,6 +616,8 @@ State 6:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -639,38 +659,39 @@ State 6:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                         block shift  90
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                         block shift  98
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 7:
@@ -694,6 +715,8 @@ State 7:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -735,38 +758,39 @@ State 7:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                         block shift  91
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                         block shift  99
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 8:
@@ -790,6 +814,8 @@ State 8:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -831,38 +857,39 @@ State 8:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                         block shift  105
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                         block shift  113
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 9:
@@ -885,6 +912,8 @@ State 9:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -927,38 +956,39 @@ State 9:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                         block shift  84
-                     stat_list shift  82
-                          stat shift  147
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                         block shift  90
+                     stat_list shift  88
+                          stat shift  159
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 10:
@@ -978,6 +1008,8 @@ State 10:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -1019,36 +1051,37 @@ State 10:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                          stat shift  113
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                          stat shift  121
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 11:
@@ -1068,6 +1101,8 @@ State 11:
           stat ::= * RETURN exp
           stat ::= * NEXT
           stat ::= * BREAK
+          stat ::= * CLASS IDENT class_body
+          stat ::= * CLASS IDENT PL exp PR class_body
           stat ::= * DEF func_ident func_body
           stat ::= * LOCAL DEF IDENT func_body
           function ::= * DEF func_body
@@ -1109,36 +1144,37 @@ State 11:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
+                         MINUS shift  24
+                           NOT shift  25
                             DO shift  8
-                        GLOBAL shift  95
-                         IDENT shift  129
-                         LOCAL shift  78
-                         WHILE shift  19
+                        GLOBAL shift  103
+                         IDENT shift  141
+                         LOCAL shift  84
+                         WHILE shift  20
                         REPEAT shift  6
-                           FOR shift  89
-                            IF shift  16
-                        RETURN shift  15
-                          NEXT shift  121
-                         BREAK shift  120
-                           DEF shift  44
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                           FOR shift  97
+                            IF shift  17
+                        RETURN shift  16
+                          NEXT shift  133
+                         BREAK shift  132
+                         CLASS shift  93
+                            PL shift  40
+                           DEF shift  45
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                          stat shift  151
-                           exp shift  65
-                           var shift  104
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                          stat shift  163
+                           exp shift  71
+                           var shift  112
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
                      {default} reduce 6
 
 State 12:
@@ -1185,27 +1221,27 @@ State 12:
           exp_list ::= * exp
           exp_list ::= * exp_list COMMA exp
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           SBR shift  133
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  63
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
-                      exp_list shift  79
+                           SBR shift  145
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  69
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
+                      exp_list shift  85
 
 State 13:
           function ::= * DEF func_body
@@ -1251,27 +1287,27 @@ State 13:
           exp_list ::= * exp
           exp_list ::= * exp_list COMMA exp
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                            PR shift  145
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                            PR shift  157
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  63
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
-                      exp_list shift  80
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  69
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
+                      exp_list shift  86
 
 State 14:
           else ::= ELSEIF * exp THEN block else
@@ -1314,27 +1350,88 @@ State 14:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  51
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  56
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
 State 15:
+          stat ::= CLASS IDENT PL * exp PR class_body
+          function ::= * DEF func_body
+          functioncall ::= * prefixexp PL PR
+          functioncall ::= * prefixexp PL exp_list PR
+          prefixexp ::= * var
+          prefixexp ::= * STRING
+          prefixexp ::= * functioncall
+          prefixexp ::= * PL exp PR
+          exp ::= * prefixexp
+          exp ::= * function
+          exp ::= * NIL
+          exp ::= * FALSE
+          exp ::= * TRUE
+          exp ::= * INT
+          exp ::= * REAL
+          exp ::= * SBL SBR
+          exp ::= * SBL exp_list SBR
+          exp ::= * CBL CBR
+          exp ::= * PIPE exp PIPE
+          exp ::= * exp OR exp
+          exp ::= * exp AND exp
+          exp ::= * exp L exp
+          exp ::= * exp G exp
+          exp ::= * exp LEQ exp
+          exp ::= * exp GEQ exp
+          exp ::= * exp NEQ exp
+          exp ::= * exp EQ exp
+          exp ::= * exp RANGEOP exp
+          exp ::= * exp PLUS exp
+          exp ::= * exp MINUS exp
+          exp ::= * exp MUL exp
+          exp ::= * exp DIV exp
+          exp ::= * exp MOD exp
+          exp ::= * exp EXP exp
+          exp ::= * NOT exp
+          exp ::= * MINUS exp
+          var ::= * IDENT
+          var ::= * prefixexp DOT IDENT
+          var ::= * prefixexp SBL exp SBR
+
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
+                           SBL shift  12
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  57
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
+
+State 16:
           stat ::= RETURN * exp
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1375,27 +1472,27 @@ State 15:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  58
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  64
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 16:
+State 17:
           stat ::= IF * exp THEN block else END
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1436,27 +1533,27 @@ State 16:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  52
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  58
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 17:
+State 18:
           stat ::= FOR IDENT IN * exp DO block END
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1497,27 +1594,27 @@ State 17:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  53
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  59
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 18:
+State 19:
           stat ::= REPEAT block UNTIL * exp
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1558,27 +1655,27 @@ State 18:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  59
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  65
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 19:
+State 20:
           stat ::= WHILE * exp DO block END
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1619,27 +1716,27 @@ State 19:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  54
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  60
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 20:
+State 21:
           stat ::= LOCAL IDENT ASSIG * exp
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1680,27 +1777,27 @@ State 20:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  60
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  66
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 21:
+State 22:
           stat ::= GLOBAL IDENT ASSIG * exp
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1741,27 +1838,27 @@ State 21:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  61
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  67
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 22:
+State 23:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -1802,27 +1899,27 @@ State 22:
           var ::= * prefixexp SBL exp SBR
           var ::= prefixexp SBL * exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  55
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  61
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 23:
+State 24:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -1863,27 +1960,27 @@ State 23:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  97
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  105
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 24:
+State 25:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -1924,27 +2021,27 @@ State 24:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  98
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  106
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 25:
+State 26:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -1985,27 +2082,27 @@ State 25:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  99
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  107
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 26:
+State 27:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2046,27 +2143,27 @@ State 26:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  100
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  108
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 27:
+State 28:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2107,27 +2204,27 @@ State 27:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  101
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  109
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 28:
+State 29:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2168,27 +2265,27 @@ State 28:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  102
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  110
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 29:
+State 30:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2229,27 +2326,27 @@ State 29:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  75
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  81
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 30:
+State 31:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2290,27 +2387,27 @@ State 30:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  76
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  82
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 31:
+State 32:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2351,27 +2448,27 @@ State 31:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  74
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  80
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 32:
+State 33:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2412,27 +2509,27 @@ State 32:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  69
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  75
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 33:
+State 34:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2473,27 +2570,27 @@ State 33:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  70
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  76
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 34:
+State 35:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2534,27 +2631,27 @@ State 34:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  71
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  77
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 35:
+State 36:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2595,27 +2692,27 @@ State 35:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  72
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  78
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 36:
+State 37:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2656,27 +2753,27 @@ State 36:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  73
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  79
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 37:
+State 38:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2717,27 +2814,27 @@ State 37:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  56
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  62
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 38:
+State 39:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2778,27 +2875,27 @@ State 38:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  68
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  74
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 39:
+State 40:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2839,27 +2936,27 @@ State 39:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  57
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  63
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 40:
+State 41:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2900,27 +2997,27 @@ State 40:
           var ::= * prefixexp SBL exp SBR
           exp_list ::= exp_list COMMA * exp
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  62
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  68
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 41:
+State 42:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -2961,27 +3058,27 @@ State 41:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  67
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  73
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 42:
+State 43:
           stat ::= var ASSIG * exp
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -3022,27 +3119,27 @@ State 42:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  64
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  70
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 43:
+State 44:
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
           functioncall ::= * prefixexp PL exp_list PR
@@ -3083,27 +3180,27 @@ State 43:
           var ::= * prefixexp DOT IDENT
           var ::= * prefixexp SBL exp SBR
 
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  50
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
+                         MINUS shift  24
+                           NOT shift  25
+                         IDENT shift  141
+                            PL shift  40
+                           DEF shift  55
+                        STRING shift  154
+                           NIL shift  150
+                         FALSE shift  149
+                          TRUE shift  148
+                           INT shift  147
+                          REAL shift  146
                            SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  66
-                           var shift  143
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
+                           CBL shift  111
+                          PIPE shift  38
+                           exp shift  72
+                           var shift  155
+                      function shift  151
+                  functioncall shift  153
+                     prefixexp shift  83
 
-State 44:
+State 45:
           stat ::= DEF * func_ident func_body
           func_ident ::= * IDENT
           func_ident ::= * func_ident DOT IDENT
@@ -3111,12 +3208,23 @@ State 44:
           func_body ::= * PL PR block END
           func_body ::= * PL ident_list PR block END
 
-                         IDENT shift  117
-                            PL shift  48
-                    func_ident shift  46
-                     func_body shift  150
+                         IDENT shift  125
+                            PL shift  52
+                     func_body shift  162
+                    func_ident shift  48
 
-State 45:
+State 46:
+          stat ::= CLASS IDENT * class_body
+          stat ::= CLASS IDENT * PL exp PR class_body
+          class_body ::= * END
+          class_body ::= * DEF IDENT func_body class_body
+
+                           END shift  129
+                            PL shift  15
+                           DEF shift  92
+                    class_body shift  131
+
+State 47:
      (18) else ::= *
           else ::= * ELSE block
           else ::= * ELSEIF exp THEN block else
@@ -3124,20 +3232,38 @@ State 45:
 
                           ELSE shift  3
                         ELSEIF shift  14
-                          else shift  116
+                          else shift  124
                      {default} reduce 18
 
-State 46:
+State 48:
           stat ::= DEF func_ident * func_body
           func_ident ::= func_ident * DOT IDENT
           func_body ::= * PL PR block END
           func_body ::= * PL ident_list PR block END
 
-                           DOT shift  85
-                            PL shift  48
-                     func_body shift  119
+                           DOT shift  91
+                            PL shift  52
+                     func_body shift  127
 
-State 47:
+State 49:
+          class_body ::= * END
+          class_body ::= * DEF IDENT func_body class_body
+          class_body ::= DEF IDENT func_body * class_body
+
+                           END shift  129
+                           DEF shift  92
+                    class_body shift  128
+
+State 50:
+          stat ::= CLASS IDENT PL exp PR * class_body
+          class_body ::= * END
+          class_body ::= * DEF IDENT func_body class_body
+
+                           END shift  129
+                           DEF shift  92
+                    class_body shift  130
+
+State 51:
           stat ::= IF exp THEN block * else END
      (18) else ::= *
           else ::= * ELSE block
@@ -3145,36 +3271,44 @@ State 47:
 
                           ELSE shift  3
                         ELSEIF shift  14
-                          else shift  86
+                          else shift  94
                      {default} reduce 18
 
-State 48:
+State 52:
           ident_list ::= * IDENT
           ident_list ::= * ident_list COMMA IDENT
           func_body ::= PL * PR block END
           func_body ::= PL * ident_list PR block END
 
-                         IDENT shift  149
+                         IDENT shift  161
                             PR shift  1
-                    ident_list shift  81
+                    ident_list shift  87
 
-State 49:
+State 53:
+          class_body ::= DEF IDENT * func_body class_body
+          func_body ::= * PL PR block END
+          func_body ::= * PL ident_list PR block END
+
+                            PL shift  52
+                     func_body shift  49
+
+State 54:
           stat ::= LOCAL DEF IDENT * func_body
           func_body ::= * PL PR block END
           func_body ::= * PL ident_list PR block END
 
-                            PL shift  48
-                     func_body shift  126
+                            PL shift  52
+                     func_body shift  138
 
-State 50:
+State 55:
           function ::= DEF * func_body
           func_body ::= * PL PR block END
           func_body ::= * PL ident_list PR block END
 
-                            PL shift  48
-                     func_body shift  150
+                            PL shift  52
+                     func_body shift  162
 
-State 51:
+State 56:
           else ::= ELSEIF exp * THEN block else
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3192,24 +3326,59 @@ State 51:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                           THEN shift  2
 
-State 52:
+State 57:
+          stat ::= CLASS IDENT PL exp * PR class_body
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                            PR shift  50
+
+State 58:
           stat ::= IF exp * THEN block else END
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3227,24 +3396,24 @@ State 52:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                           THEN shift  4
 
-State 53:
+State 59:
           stat ::= FOR IDENT IN exp * DO block END
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3262,24 +3431,24 @@ State 53:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                             DO shift  5
 
-State 54:
+State 60:
           stat ::= WHILE exp * DO block END
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3297,24 +3466,24 @@ State 54:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                             DO shift  7
 
-State 55:
+State 61:
           exp ::= exp * OR exp
           exp ::= exp * AND exp
           exp ::= exp * L exp
@@ -3332,24 +3501,24 @@ State 55:
           exp ::= exp * EXP exp
           var ::= prefixexp SBL exp * SBR
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                           SBR shift  127
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                           SBR shift  139
 
-State 56:
+State 62:
           exp ::= PIPE exp * PIPE
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3367,24 +3536,24 @@ State 56:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                          PIPE shift  130
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                          PIPE shift  142
 
-State 57:
+State 63:
           prefixexp ::= PL exp * PR
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3402,24 +3571,24 @@ State 57:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                            PR shift  140
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                            PR shift  152
 
-State 58:
+State 64:
      (21) stat ::= RETURN exp *
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3437,24 +3606,24 @@ State 58:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                      {default} reduce 21
 
-State 59:
+State 65:
      (15) stat ::= REPEAT block UNTIL exp *
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3472,24 +3641,24 @@ State 59:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                      {default} reduce 15
 
-State 60:
+State 66:
      (13) stat ::= LOCAL IDENT ASSIG exp *
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3507,24 +3676,24 @@ State 60:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                      {default} reduce 13
 
-State 61:
+State 67:
      (10) stat ::= GLOBAL IDENT ASSIG exp *
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3542,24 +3711,24 @@ State 61:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                      {default} reduce 10
 
-State 62:
+State 68:
           exp ::= exp * OR exp
           exp ::= exp * AND exp
           exp ::= exp * L exp
@@ -3575,26 +3744,26 @@ State 62:
           exp ::= exp * DIV exp
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
-     (71) exp_list ::= exp_list COMMA exp *
+     (75) exp_list ::= exp_list COMMA exp *
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 71
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 75
 
-State 63:
+State 69:
           exp ::= exp * OR exp
           exp ::= exp * AND exp
           exp ::= exp * L exp
@@ -3610,26 +3779,26 @@ State 63:
           exp ::= exp * DIV exp
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
-     (70) exp_list ::= exp *
+     (74) exp_list ::= exp *
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 70
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 74
 
-State 64:
+State 70:
       (9) stat ::= var ASSIG exp *
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3647,24 +3816,24 @@ State 64:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                      {default} reduce 9
 
-State 65:
+State 71:
       (7) stat ::= exp *
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3682,221 +3851,30 @@ State 65:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                            OR shift  43
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                            OR shift  44
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                      {default} reduce 7
-
-State 66:
-          exp ::= exp * OR exp
-     (50) exp ::= exp OR exp *
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-
-                           AND shift  41
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 50
-
-State 67:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-     (51) exp ::= exp AND exp *
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-
-                            EQ shift  32
-                           NEQ shift  33
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 51
-
-State 68:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-     (52) exp ::= exp L exp *
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-
-                             L error
-                             G error
-                           LEQ error
-                           GEQ error
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 52
-
-State 69:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-     (57) exp ::= exp EQ exp *
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 57
-
-State 70:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-     (56) exp ::= exp NEQ exp *
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-
-                             L shift  38
-                             G shift  36
-                           LEQ shift  35
-                           GEQ shift  34
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 56
-
-State 71:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-     (55) exp ::= exp GEQ exp *
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-
-                             L error
-                             G error
-                           LEQ error
-                           GEQ error
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 55
 
 State 72:
           exp ::= exp * OR exp
+     (54) exp ::= exp OR exp *
           exp ::= exp * AND exp
           exp ::= exp * L exp
           exp ::= exp * G exp
           exp ::= exp * LEQ exp
-     (54) exp ::= exp LEQ exp *
           exp ::= exp * GEQ exp
           exp ::= exp * NEQ exp
           exp ::= exp * EQ exp
@@ -3908,25 +3886,61 @@ State 72:
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                             L error
-                             G error
-                           LEQ error
-                           GEQ error
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
+                           AND shift  42
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
                      {default} reduce 54
 
 State 73:
           exp ::= exp * OR exp
           exp ::= exp * AND exp
+     (55) exp ::= exp AND exp *
           exp ::= exp * L exp
           exp ::= exp * G exp
-     (53) exp ::= exp G exp *
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                            EQ shift  33
+                           NEQ shift  34
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 55
+
+State 74:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+     (56) exp ::= exp L exp *
+          exp ::= exp * G exp
           exp ::= exp * LEQ exp
           exp ::= exp * GEQ exp
           exp ::= exp * NEQ exp
@@ -3943,41 +3957,14 @@ State 73:
                              G error
                            LEQ error
                            GEQ error
-                       RANGEOP shift  31
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 53
-
-State 74:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-     (58) exp ::= exp RANGEOP exp *
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-
-                       RANGEOP error
-                          PLUS shift  30
-                         MINUS shift  29
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 58
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 56
 
 State 75:
           exp ::= exp * OR exp
@@ -3988,20 +3975,27 @@ State 75:
           exp ::= exp * GEQ exp
           exp ::= exp * NEQ exp
           exp ::= exp * EQ exp
+     (61) exp ::= exp EQ exp *
           exp ::= exp * RANGEOP exp
           exp ::= exp * PLUS exp
           exp ::= exp * MINUS exp
-     (60) exp ::= exp MINUS exp *
           exp ::= exp * MUL exp
           exp ::= exp * DIV exp
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 60
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 61
 
 State 76:
           exp ::= exp * OR exp
@@ -4011,64 +4005,239 @@ State 76:
           exp ::= exp * LEQ exp
           exp ::= exp * GEQ exp
           exp ::= exp * NEQ exp
+     (60) exp ::= exp NEQ exp *
           exp ::= exp * EQ exp
           exp ::= exp * RANGEOP exp
           exp ::= exp * PLUS exp
-     (59) exp ::= exp PLUS exp *
           exp ::= exp * MINUS exp
           exp ::= exp * MUL exp
           exp ::= exp * DIV exp
           exp ::= exp * MOD exp
           exp ::= exp * EXP exp
 
-                           MUL shift  28
-                           DIV shift  27
-                           MOD shift  26
-                           EXP shift  25
-                     {default} reduce 59
+                             L shift  39
+                             G shift  37
+                           LEQ shift  36
+                           GEQ shift  35
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 60
 
 State 77:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+     (59) exp ::= exp GEQ exp *
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                             L error
+                             G error
+                           LEQ error
+                           GEQ error
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 59
+
+State 78:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+     (58) exp ::= exp LEQ exp *
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                             L error
+                             G error
+                           LEQ error
+                           GEQ error
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 58
+
+State 79:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+     (57) exp ::= exp G exp *
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                             L error
+                             G error
+                           LEQ error
+                           GEQ error
+                       RANGEOP shift  32
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 57
+
+State 80:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+     (62) exp ::= exp RANGEOP exp *
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                       RANGEOP error
+                          PLUS shift  31
+                         MINUS shift  30
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 62
+
+State 81:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+     (64) exp ::= exp MINUS exp *
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 64
+
+State 82:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+     (63) exp ::= exp PLUS exp *
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                           MUL shift  29
+                           DIV shift  28
+                           MOD shift  27
+                           EXP shift  26
+                     {default} reduce 63
+
+State 83:
           functioncall ::= prefixexp * PL PR
           functioncall ::= prefixexp * PL exp_list PR
-     (39) exp ::= prefixexp *
+     (43) exp ::= prefixexp *
           var ::= prefixexp * DOT IDENT
           var ::= prefixexp * SBL exp SBR
 
-                           DOT shift  96
+                           DOT shift  104
                             PL shift  13
-                           SBL shift  22
-                     {default} reduce 39
+                           SBL shift  23
+                     {default} reduce 43
 
-State 78:
+State 84:
           stat ::= LOCAL * IDENT
           stat ::= LOCAL * IDENT ASSIG exp
           stat ::= LOCAL * DEF IDENT func_body
 
-                         IDENT shift  93
-                           DEF shift  92
+                         IDENT shift  101
+                           DEF shift  100
 
-State 79:
+State 85:
           exp ::= SBL exp_list * SBR
           exp_list ::= exp_list * COMMA exp
 
-                         COMMA shift  40
-                           SBR shift  132
+                         COMMA shift  41
+                           SBR shift  144
 
-State 80:
+State 86:
           functioncall ::= prefixexp PL exp_list * PR
           exp_list ::= exp_list * COMMA exp
 
-                         COMMA shift  40
-                            PR shift  144
+                            PR shift  156
+                         COMMA shift  41
 
-State 81:
+State 87:
           ident_list ::= ident_list * COMMA IDENT
           func_body ::= PL ident_list * PR block END
 
-                         COMMA shift  106
                             PR shift  9
+                         COMMA shift  114
 
-State 82:
+State 88:
       (2) block ::= stat_list *
           stat_list ::= stat_list * NL stat
           stat_list ::= stat_list * SCOLON stat
@@ -4077,450 +4246,481 @@ State 82:
                         SCOLON shift  10
                      {default} reduce 2
 
-State 83:
+State 89:
           func_body ::= PL PR block * END
 
-                           END shift  114
+                           END shift  122
 
-State 84:
+State 90:
           func_body ::= PL ident_list PR block * END
-
-                           END shift  115
-
-State 85:
-          func_ident ::= func_ident DOT * IDENT
-
-                         IDENT shift  118
-
-State 86:
-          stat ::= IF exp THEN block else * END
 
                            END shift  123
 
-State 87:
-          stat ::= FOR IDENT IN exp DO block * END
-
-                           END shift  124
-
-State 88:
-          stat ::= FOR IDENT * IN exp DO block END
-
-                            IN shift  17
-
-State 89:
-          stat ::= FOR * IDENT IN exp DO block END
-
-                         IDENT shift  88
-
-State 90:
-          stat ::= REPEAT block * UNTIL exp
-
-                         UNTIL shift  18
-
 State 91:
-          stat ::= WHILE exp DO block * END
+          func_ident ::= func_ident DOT * IDENT
 
-                           END shift  125
+                         IDENT shift  126
 
 State 92:
-          stat ::= LOCAL DEF * IDENT func_body
+          class_body ::= DEF * IDENT func_body class_body
 
-                         IDENT shift  49
+                         IDENT shift  53
 
 State 93:
+          stat ::= CLASS * IDENT class_body
+          stat ::= CLASS * IDENT PL exp PR class_body
+
+                         IDENT shift  46
+
+State 94:
+          stat ::= IF exp THEN block else * END
+
+                           END shift  135
+
+State 95:
+          stat ::= FOR IDENT IN exp DO block * END
+
+                           END shift  136
+
+State 96:
+          stat ::= FOR IDENT * IN exp DO block END
+
+                            IN shift  18
+
+State 97:
+          stat ::= FOR * IDENT IN exp DO block END
+
+                         IDENT shift  96
+
+State 98:
+          stat ::= REPEAT block * UNTIL exp
+
+                         UNTIL shift  19
+
+State 99:
+          stat ::= WHILE exp DO block * END
+
+                           END shift  137
+
+State 100:
+          stat ::= LOCAL DEF * IDENT func_body
+
+                         IDENT shift  54
+
+State 101:
      (12) stat ::= LOCAL IDENT *
           stat ::= LOCAL IDENT * ASSIG exp
 
-                         ASSIG shift  20
+                         ASSIG shift  21
                      {default} reduce 12
 
-State 94:
+State 102:
           stat ::= GLOBAL IDENT * ASSIG exp
      (11) stat ::= GLOBAL IDENT *
 
-                         ASSIG shift  21
+                         ASSIG shift  22
                      {default} reduce 11
 
-State 95:
+State 103:
           stat ::= GLOBAL * IDENT ASSIG exp
           stat ::= GLOBAL * IDENT
 
-                         IDENT shift  94
-
-State 96:
-          var ::= prefixexp DOT * IDENT
-
-                         IDENT shift  128
-
-State 97:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-     (66) exp ::= MINUS exp *
-
-                           EXP shift  25
-                     {default} reduce 66
-
-State 98:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-     (65) exp ::= NOT exp *
-
-                           EXP shift  25
-                     {default} reduce 65
-
-State 99:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-     (64) exp ::= exp EXP exp *
-
-                           EXP shift  25
-                     {default} reduce 64
-
-State 100:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-     (63) exp ::= exp MOD exp *
-          exp ::= exp * EXP exp
-
-                           EXP shift  25
-                     {default} reduce 63
-
-State 101:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-          exp ::= exp * DIV exp
-     (62) exp ::= exp DIV exp *
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-
-                           EXP shift  25
-                     {default} reduce 62
-
-State 102:
-          exp ::= exp * OR exp
-          exp ::= exp * AND exp
-          exp ::= exp * L exp
-          exp ::= exp * G exp
-          exp ::= exp * LEQ exp
-          exp ::= exp * GEQ exp
-          exp ::= exp * NEQ exp
-          exp ::= exp * EQ exp
-          exp ::= exp * RANGEOP exp
-          exp ::= exp * PLUS exp
-          exp ::= exp * MINUS exp
-          exp ::= exp * MUL exp
-     (61) exp ::= exp MUL exp *
-          exp ::= exp * DIV exp
-          exp ::= exp * MOD exp
-          exp ::= exp * EXP exp
-
-                           EXP shift  25
-                     {default} reduce 61
-
-State 103:
-          exp ::= CBL * CBR
-
-                           CBR shift  131
+                         IDENT shift  102
 
 State 104:
-          stat ::= var * ASSIG exp
-     (35) prefixexp ::= var *
+          var ::= prefixexp DOT * IDENT
 
-                         ASSIG shift  42
-                     {default} reduce 35
+                         IDENT shift  140
 
 State 105:
-          stat ::= DO block * END
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+     (70) exp ::= MINUS exp *
 
-                           END shift  146
+                           EXP shift  26
+                     {default} reduce 70
 
 State 106:
-          ident_list ::= ident_list COMMA * IDENT
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+     (69) exp ::= NOT exp *
 
-                         IDENT shift  148
+                           EXP shift  26
+                     {default} reduce 69
 
 State 107:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+     (68) exp ::= exp EXP exp *
+
+                           EXP shift  26
+                     {default} reduce 68
+
+State 108:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+     (67) exp ::= exp MOD exp *
+          exp ::= exp * EXP exp
+
+                           EXP shift  26
+                     {default} reduce 67
+
+State 109:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+     (66) exp ::= exp DIV exp *
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                           EXP shift  26
+                     {default} reduce 66
+
+State 110:
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+     (65) exp ::= exp MUL exp *
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                           EXP shift  26
+                     {default} reduce 65
+
+State 111:
+          exp ::= CBL * CBR
+
+                           CBR shift  143
+
+State 112:
+          stat ::= var * ASSIG exp
+     (39) prefixexp ::= var *
+
+                         ASSIG shift  43
+                     {default} reduce 39
+
+State 113:
+          stat ::= DO block * END
+
+                           END shift  158
+
+State 114:
+          ident_list ::= ident_list COMMA * IDENT
+
+                         IDENT shift  160
+
+State 115:
       (1) chunk ::= block EOS *
 
                              $ reduce 1
 
-State 108:
+State 116:
           chunk ::= block * EOS
 
-                           EOS shift  107
+                           EOS shift  115
 
-State 109:
+State 117:
       (0) chunk ::= TERMINATION UNINITIALIZED WARNING DOT *
 
                              $ reduce 0
 
-State 110:
+State 118:
           chunk ::= TERMINATION UNINITIALIZED WARNING * DOT
 
-                           DOT shift  109
+                           DOT shift  117
 
-State 111:
+State 119:
           chunk ::= TERMINATION UNINITIALIZED * WARNING DOT
 
-                       WARNING shift  110
+                       WARNING shift  118
 
-State 112:
+State 120:
           chunk ::= TERMINATION * UNINITIALIZED WARNING DOT
 
-                 UNINITIALIZED shift  111
+                 UNINITIALIZED shift  119
 
-State 113:
+State 121:
       (5) stat_list ::= stat_list SCOLON stat *
 
                      {default} reduce 5
 
-State 114:
-     (31) func_body ::= PL PR block END *
+State 122:
+     (35) func_body ::= PL PR block END *
 
-                     {default} reduce 31
+                     {default} reduce 35
 
-State 115:
-     (32) func_body ::= PL ident_list PR block END *
+State 123:
+     (36) func_body ::= PL ident_list PR block END *
 
-                     {default} reduce 32
+                     {default} reduce 36
 
-State 116:
+State 124:
      (20) else ::= ELSEIF exp THEN block else *
 
                      {default} reduce 20
 
-State 117:
-     (28) func_ident ::= IDENT *
+State 125:
+     (32) func_ident ::= IDENT *
 
-                     {default} reduce 28
+                     {default} reduce 32
 
-State 118:
-     (29) func_ident ::= func_ident DOT IDENT *
+State 126:
+     (33) func_ident ::= func_ident DOT IDENT *
 
-                     {default} reduce 29
+                     {default} reduce 33
 
-State 119:
-     (26) stat ::= DEF func_ident func_body *
+State 127:
+     (30) stat ::= DEF func_ident func_body *
+
+                     {default} reduce 30
+
+State 128:
+     (27) class_body ::= DEF IDENT func_body class_body *
+
+                     {default} reduce 27
+
+State 129:
+     (26) class_body ::= END *
 
                      {default} reduce 26
 
-State 120:
+State 130:
+     (25) stat ::= CLASS IDENT PL exp PR class_body *
+
+                     {default} reduce 25
+
+State 131:
+     (24) stat ::= CLASS IDENT class_body *
+
+                     {default} reduce 24
+
+State 132:
      (23) stat ::= BREAK *
 
                      {default} reduce 23
 
-State 121:
+State 133:
      (22) stat ::= NEXT *
 
                      {default} reduce 22
 
-State 122:
+State 134:
      (19) else ::= ELSE block *
 
                      {default} reduce 19
 
-State 123:
+State 135:
      (17) stat ::= IF exp THEN block else END *
 
                      {default} reduce 17
 
-State 124:
+State 136:
      (16) stat ::= FOR IDENT IN exp DO block END *
 
                      {default} reduce 16
 
-State 125:
+State 137:
      (14) stat ::= WHILE exp DO block END *
 
                      {default} reduce 14
 
-State 126:
-     (27) stat ::= LOCAL DEF IDENT func_body *
+State 138:
+     (31) stat ::= LOCAL DEF IDENT func_body *
 
-                     {default} reduce 27
+                     {default} reduce 31
 
-State 127:
-     (69) var ::= prefixexp SBL exp SBR *
+State 139:
+     (73) var ::= prefixexp SBL exp SBR *
 
-                     {default} reduce 69
+                     {default} reduce 73
 
-State 128:
-     (68) var ::= prefixexp DOT IDENT *
+State 140:
+     (72) var ::= prefixexp DOT IDENT *
 
-                     {default} reduce 68
+                     {default} reduce 72
 
-State 129:
-     (67) var ::= IDENT *
+State 141:
+     (71) var ::= IDENT *
 
-                     {default} reduce 67
+                     {default} reduce 71
 
-State 130:
-     (49) exp ::= PIPE exp PIPE *
+State 142:
+     (53) exp ::= PIPE exp PIPE *
+
+                     {default} reduce 53
+
+State 143:
+     (52) exp ::= CBL CBR *
+
+                     {default} reduce 52
+
+State 144:
+     (51) exp ::= SBL exp_list SBR *
+
+                     {default} reduce 51
+
+State 145:
+     (50) exp ::= SBL SBR *
+
+                     {default} reduce 50
+
+State 146:
+     (49) exp ::= REAL *
 
                      {default} reduce 49
 
-State 131:
-     (48) exp ::= CBL CBR *
+State 147:
+     (48) exp ::= INT *
 
                      {default} reduce 48
 
-State 132:
-     (47) exp ::= SBL exp_list SBR *
+State 148:
+     (47) exp ::= TRUE *
 
                      {default} reduce 47
 
-State 133:
-     (46) exp ::= SBL SBR *
+State 149:
+     (46) exp ::= FALSE *
 
                      {default} reduce 46
 
-State 134:
-     (45) exp ::= REAL *
+State 150:
+     (45) exp ::= NIL *
 
                      {default} reduce 45
 
-State 135:
-     (44) exp ::= INT *
+State 151:
+     (44) exp ::= function *
 
                      {default} reduce 44
 
-State 136:
-     (43) exp ::= TRUE *
-
-                     {default} reduce 43
-
-State 137:
-     (42) exp ::= FALSE *
+State 152:
+     (42) prefixexp ::= PL exp PR *
 
                      {default} reduce 42
 
-State 138:
-     (41) exp ::= NIL *
+State 153:
+     (41) prefixexp ::= functioncall *
 
                      {default} reduce 41
 
-State 139:
-     (40) exp ::= function *
+State 154:
+     (40) prefixexp ::= STRING *
 
                      {default} reduce 40
 
-State 140:
-     (38) prefixexp ::= PL exp PR *
+State 155:
+     (39) prefixexp ::= var *
+
+                     {default} reduce 39
+
+State 156:
+     (38) functioncall ::= prefixexp PL exp_list PR *
 
                      {default} reduce 38
 
-State 141:
-     (37) prefixexp ::= functioncall *
+State 157:
+     (37) functioncall ::= prefixexp PL PR *
 
                      {default} reduce 37
 
-State 142:
-     (36) prefixexp ::= STRING *
-
-                     {default} reduce 36
-
-State 143:
-     (35) prefixexp ::= var *
-
-                     {default} reduce 35
-
-State 144:
-     (34) functioncall ::= prefixexp PL exp_list PR *
-
-                     {default} reduce 34
-
-State 145:
-     (33) functioncall ::= prefixexp PL PR *
-
-                     {default} reduce 33
-
-State 146:
+State 158:
       (8) stat ::= DO block END *
 
                      {default} reduce 8
 
-State 147:
+State 159:
       (3) stat_list ::= stat *
 
                      {default} reduce 3
 
-State 148:
-     (25) ident_list ::= ident_list COMMA IDENT *
+State 160:
+     (29) ident_list ::= ident_list COMMA IDENT *
 
-                     {default} reduce 25
+                     {default} reduce 29
 
-State 149:
-     (24) ident_list ::= IDENT *
+State 161:
+     (28) ident_list ::= IDENT *
 
-                     {default} reduce 24
+                     {default} reduce 28
 
-State 150:
-     (30) function ::= DEF func_body *
+State 162:
+     (34) function ::= DEF func_body *
 
-                     {default} reduce 30
+                     {default} reduce 34
 
-State 151:
+State 163:
       (4) stat_list ::= stat_list NL stat *
 
                      {default} reduce 4
@@ -4569,33 +4769,35 @@ Symbols:
    39: RETURN
    40: NEXT
    41: BREAK
-   42: COMMA
-   43: DEF
-   44: PL
-   45: PR
-   46: STRING
-   47: NIL
-   48: FALSE
-   49: TRUE
-   50: INT
-   51: REAL
-   52: SBL
-   53: SBR
-   54: CBL
-   55: CBR
-   56: PIPE
-   57: error:
-   58: chunk: MINUS NOT TERMINATION EOS NL SCOLON DO GLOBAL IDENT LOCAL WHILE REPEAT FOR IF RETURN NEXT BREAK DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
-   59: block: <lambda> MINUS NOT NL SCOLON DO GLOBAL IDENT LOCAL WHILE REPEAT FOR IF RETURN NEXT BREAK DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
-   60: stat_list: <lambda> MINUS NOT NL SCOLON DO GLOBAL IDENT LOCAL WHILE REPEAT FOR IF RETURN NEXT BREAK DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
-   61: stat: <lambda> MINUS NOT DO GLOBAL IDENT LOCAL WHILE REPEAT FOR IF RETURN NEXT BREAK DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
-   62: exp: MINUS NOT IDENT DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
-   63: var: IDENT PL STRING
-   64: else: <lambda> ELSE ELSEIF
-   65: ident_list: IDENT
-   66: func_ident: IDENT
+   42: CLASS
+   43: PL
+   44: PR
+   45: DEF
+   46: COMMA
+   47: STRING
+   48: NIL
+   49: FALSE
+   50: TRUE
+   51: INT
+   52: REAL
+   53: SBL
+   54: SBR
+   55: CBL
+   56: CBR
+   57: PIPE
+   58: error:
+   59: chunk: MINUS NOT TERMINATION EOS NL SCOLON DO GLOBAL IDENT LOCAL WHILE REPEAT FOR IF RETURN NEXT BREAK CLASS PL DEF STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
+   60: block: <lambda> MINUS NOT NL SCOLON DO GLOBAL IDENT LOCAL WHILE REPEAT FOR IF RETURN NEXT BREAK CLASS PL DEF STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
+   61: stat_list: <lambda> MINUS NOT NL SCOLON DO GLOBAL IDENT LOCAL WHILE REPEAT FOR IF RETURN NEXT BREAK CLASS PL DEF STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
+   62: stat: <lambda> MINUS NOT DO GLOBAL IDENT LOCAL WHILE REPEAT FOR IF RETURN NEXT BREAK CLASS PL DEF STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
+   63: exp: MINUS NOT IDENT PL DEF STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
+   64: var: IDENT PL STRING
+   65: else: <lambda> ELSE ELSEIF
+   66: class_body: END DEF
    67: func_body: PL
-   68: function: DEF
-   69: functioncall: IDENT PL STRING
-   70: prefixexp: IDENT PL STRING
-   71: exp_list: MINUS NOT IDENT DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
+   68: ident_list: IDENT
+   69: func_ident: IDENT
+   70: function: DEF
+   71: functioncall: IDENT PL STRING
+   72: prefixexp: IDENT PL STRING
+   73: exp_list: MINUS NOT IDENT PL DEF STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
