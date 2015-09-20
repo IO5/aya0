@@ -61,6 +61,8 @@ mode MAIN :
 {
     on_failure
     {
+        self_send(TK_EOS);
+
         std::ostringstream ss;
         ss << "Syntax error: Unexpected symbol: \"" <<
                 std::string(LexemeBegin, LexemeEnd) <<
@@ -174,6 +176,8 @@ mode STRING
 
     <<EOF>>
     {
+        self_send(TK_EOS);
+        self << MAIN;
         throw ParseError("Syntax error: Unterminated string");
     }
 

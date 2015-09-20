@@ -7634,7 +7634,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
         /* Here, either the loading failed or it is not enough space to carry a closing delimiter */
         me->buffer._input_p = me->buffer._lexeme_start_p;
 #define Closer "\n"
-#   line 74 "lexer.qx"
+#   line 76 "lexer.qx"
     
                 self_write_token_p()->text = "Warning: Unterminated comment";
                 self_send(TK_WARNING);
@@ -7751,7 +7751,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
         /* Here, either the loading failed or it is not enough space to carry a closing delimiter */
         me->buffer._input_p = me->buffer._lexeme_start_p;
 #define Closer "*/"
-#   line 74 "lexer.qx"
+#   line 76 "lexer.qx"
     
                 self_write_token_p()->text = "Warning: Unterminated comment";
                 self_send(TK_WARNING);
@@ -7884,7 +7884,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(2);
         /* Here, either the loading failed or it is not enough space to carry a closing delimiter */
         me->buffer._input_p = me->buffer._lexeme_start_p;
 #define Closer "\n"
-#   line 74 "lexer.qx"
+#   line 76 "lexer.qx"
     
                 self_write_token_p()->text = "Warning: Unterminated comment";
                 self_send(TK_WARNING);
@@ -7903,7 +7903,7 @@ TERMINAL_1480:
 __QUEX_IF_COUNT_LINES_ADD(1);
 __QUEX_IF_COUNT_COLUMNS_SET(1);
     {
-#   line 79 "lexer.qx"
+#   line 81 "lexer.qx"
     self_send(TK_NL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -7917,7 +7917,7 @@ TERMINAL_1481:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 80 "lexer.qx"
+#   line 82 "lexer.qx"
     self_send(TK_SCOLON);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -7931,7 +7931,7 @@ TERMINAL_1482:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 85 "lexer.qx"
+#   line 87 "lexer.qx"
         self.string_delimiter='\"'; self << STRING;
     
 #   line 7938 "lexer.cpp"
@@ -7944,7 +7944,7 @@ TERMINAL_1483:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 86 "lexer.qx"
+#   line 88 "lexer.qx"
         self.string_delimiter='\''; self << STRING;
     
 #   line 7951 "lexer.cpp"
@@ -7957,7 +7957,7 @@ TERMINAL_1484:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
-#   line 89 "lexer.qx"
+#   line 91 "lexer.qx"
     self_send(TK_DEF);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -7971,7 +7971,7 @@ TERMINAL_1485:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 90 "lexer.qx"
+#   line 92 "lexer.qx"
     self_send(TK_DO);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -7985,7 +7985,7 @@ TERMINAL_1486:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
-#   line 91 "lexer.qx"
+#   line 93 "lexer.qx"
     self_send(TK_END);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -7999,7 +7999,7 @@ TERMINAL_1487:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 93 "lexer.qx"
+#   line 95 "lexer.qx"
     self_send(TK_IF);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8013,7 +8013,7 @@ TERMINAL_1488:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
-#   line 94 "lexer.qx"
+#   line 96 "lexer.qx"
     self_send(TK_THEN);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8027,7 +8027,7 @@ TERMINAL_1489:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
-#   line 95 "lexer.qx"
+#   line 97 "lexer.qx"
     self_send(TK_ELSE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8041,7 +8041,7 @@ TERMINAL_1490:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
-#   line 96 "lexer.qx"
+#   line 98 "lexer.qx"
     self_send(TK_ELSEIF);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8055,7 +8055,7 @@ TERMINAL_1491:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
-#   line 97 "lexer.qx"
+#   line 99 "lexer.qx"
     self_send(TK_WHILE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8069,7 +8069,7 @@ TERMINAL_1492:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
-#   line 98 "lexer.qx"
+#   line 100 "lexer.qx"
     self_send(TK_FOR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8083,7 +8083,7 @@ TERMINAL_1493:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 99 "lexer.qx"
+#   line 101 "lexer.qx"
     self_send(TK_IN);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8097,7 +8097,7 @@ TERMINAL_1494:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(6);
     {
-#   line 100 "lexer.qx"
+#   line 102 "lexer.qx"
     self_send(TK_REPEAT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8111,7 +8111,7 @@ TERMINAL_1495:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
-#   line 101 "lexer.qx"
+#   line 103 "lexer.qx"
     self_send(TK_UNTIL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8125,7 +8125,7 @@ TERMINAL_1496:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(6);
     {
-#   line 103 "lexer.qx"
+#   line 105 "lexer.qx"
     self_send(TK_RETURN);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8139,7 +8139,7 @@ TERMINAL_1497:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
-#   line 104 "lexer.qx"
+#   line 106 "lexer.qx"
     self_send(TK_BREAK);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8153,7 +8153,7 @@ TERMINAL_1498:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
-#   line 105 "lexer.qx"
+#   line 107 "lexer.qx"
     self_send(TK_NEXT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8167,7 +8167,7 @@ TERMINAL_1499:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
-#   line 107 "lexer.qx"
+#   line 109 "lexer.qx"
     self_send(TK_LOCAL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8181,7 +8181,7 @@ TERMINAL_1500:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(6);
     {
-#   line 108 "lexer.qx"
+#   line 110 "lexer.qx"
     self_send(TK_GLOBAL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8195,7 +8195,7 @@ TERMINAL_1501:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
-#   line 110 "lexer.qx"
+#   line 112 "lexer.qx"
     self_send(TK_NIL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8209,7 +8209,7 @@ TERMINAL_1502:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(4);
     {
-#   line 111 "lexer.qx"
+#   line 113 "lexer.qx"
     self_send(TK_TRUE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8223,7 +8223,7 @@ TERMINAL_1503:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(5);
     {
-#   line 112 "lexer.qx"
+#   line 114 "lexer.qx"
     self_send(TK_FALSE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8237,7 +8237,7 @@ TERMINAL_1504:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 115 "lexer.qx"
+#   line 117 "lexer.qx"
     self_send(TK_OR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8251,7 +8251,7 @@ TERMINAL_1505:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
-#   line 116 "lexer.qx"
+#   line 118 "lexer.qx"
     self_send(TK_AND);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8265,7 +8265,7 @@ TERMINAL_1506:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
-#   line 117 "lexer.qx"
+#   line 119 "lexer.qx"
     self_send(TK_NOT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8279,7 +8279,7 @@ TERMINAL_1507:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 118 "lexer.qx"
+#   line 120 "lexer.qx"
     self_send(TK_L);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8293,7 +8293,7 @@ TERMINAL_1508:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 119 "lexer.qx"
+#   line 121 "lexer.qx"
     self_send(TK_G);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8307,7 +8307,7 @@ TERMINAL_1509:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 120 "lexer.qx"
+#   line 122 "lexer.qx"
     self_send(TK_LEQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8321,7 +8321,7 @@ TERMINAL_1510:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 121 "lexer.qx"
+#   line 123 "lexer.qx"
     self_send(TK_GEQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8335,7 +8335,7 @@ TERMINAL_1511:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 122 "lexer.qx"
+#   line 124 "lexer.qx"
     self_send(TK_NEQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8349,7 +8349,7 @@ TERMINAL_1512:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 123 "lexer.qx"
+#   line 125 "lexer.qx"
     self_send(TK_NEQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8363,7 +8363,7 @@ TERMINAL_1513:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 124 "lexer.qx"
+#   line 126 "lexer.qx"
     self_send(TK_EQ);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8377,7 +8377,7 @@ TERMINAL_1514:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 126 "lexer.qx"
+#   line 128 "lexer.qx"
     self_send(TK_RANGEOP);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8391,7 +8391,7 @@ TERMINAL_1515:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 127 "lexer.qx"
+#   line 129 "lexer.qx"
     self_send(TK_PLUS);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8405,7 +8405,7 @@ TERMINAL_1516:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 128 "lexer.qx"
+#   line 130 "lexer.qx"
     self_send(TK_MINUS);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8419,7 +8419,7 @@ TERMINAL_1517:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 129 "lexer.qx"
+#   line 131 "lexer.qx"
     self_send(TK_MUL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8433,7 +8433,7 @@ TERMINAL_1518:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 130 "lexer.qx"
+#   line 132 "lexer.qx"
     self_send(TK_DIV);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8447,7 +8447,7 @@ TERMINAL_1519:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 131 "lexer.qx"
+#   line 133 "lexer.qx"
     self_send(TK_MOD);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8461,7 +8461,7 @@ TERMINAL_1520:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 132 "lexer.qx"
+#   line 134 "lexer.qx"
     self_send(TK_PIPE);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8475,7 +8475,7 @@ TERMINAL_1521:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 133 "lexer.qx"
+#   line 135 "lexer.qx"
     self_send(TK_EXP);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8489,7 +8489,7 @@ TERMINAL_1522:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 134 "lexer.qx"
+#   line 136 "lexer.qx"
     self_send(TK_ASSIG);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8503,7 +8503,7 @@ TERMINAL_1523:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 137 "lexer.qx"
+#   line 139 "lexer.qx"
     self_send(0x00003A);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8517,7 +8517,7 @@ TERMINAL_1524:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 138 "lexer.qx"
+#   line 140 "lexer.qx"
     self_send(TK_COMMA);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8531,7 +8531,7 @@ TERMINAL_1525:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 139 "lexer.qx"
+#   line 141 "lexer.qx"
     self_send(TK_DOT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8545,7 +8545,7 @@ TERMINAL_1526:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 141 "lexer.qx"
+#   line 143 "lexer.qx"
     self_send(TK_SBL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8559,7 +8559,7 @@ TERMINAL_1527:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 142 "lexer.qx"
+#   line 144 "lexer.qx"
     self_send(TK_SBR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8573,7 +8573,7 @@ TERMINAL_1528:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 143 "lexer.qx"
+#   line 145 "lexer.qx"
     self_send(TK_CBL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8587,7 +8587,7 @@ TERMINAL_1529:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 144 "lexer.qx"
+#   line 146 "lexer.qx"
     self_send(TK_CBR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8601,7 +8601,7 @@ TERMINAL_1530:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 145 "lexer.qx"
+#   line 147 "lexer.qx"
     self_send(TK_PL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8615,7 +8615,7 @@ TERMINAL_1531:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 146 "lexer.qx"
+#   line 148 "lexer.qx"
     self_send(TK_PR);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
     
@@ -8630,7 +8630,7 @@ TERMINAL_1532:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 150 "lexer.qx"
+#   line 152 "lexer.qx"
     self_write_token_p()->content.integer = stoi(Lexeme,8);
     self_send(TK_INT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
@@ -8646,7 +8646,7 @@ TERMINAL_1533:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 151 "lexer.qx"
+#   line 153 "lexer.qx"
     self_write_token_p()->content.integer = stoi(Lexeme,10);
     self_send(TK_INT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
@@ -8662,7 +8662,7 @@ TERMINAL_1534:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 152 "lexer.qx"
+#   line 154 "lexer.qx"
     self_write_token_p()->content.integer = stoi(Lexeme,16);
     self_send(TK_INT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
@@ -8678,7 +8678,7 @@ TERMINAL_1535:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 154 "lexer.qx"
+#   line 156 "lexer.qx"
     self_write_token_p()->content.real = atof((char*)(Lexeme));
     self_send(TK_REAL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
@@ -8693,7 +8693,7 @@ TERMINAL_1536:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
-#   line 155 "lexer.qx"
+#   line 157 "lexer.qx"
     self_write_token_p()->content.real = NAN;
     self_send(TK_REAL);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
@@ -8708,7 +8708,7 @@ TERMINAL_1537:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(3);
     {
-#   line 157 "lexer.qx"
+#   line 159 "lexer.qx"
     
     //        if(*LexemeBegin == '-')
     //            self_write_token_p()->content.real = -INFINITY;
@@ -8727,7 +8727,7 @@ TERMINAL_1538:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     {
-#   line 165 "lexer.qx"
+#   line 167 "lexer.qx"
     QUEX_NAME_TOKEN(take_text)(self_write_token_p(), &self, self.buffer._lexeme_start_p, self.buffer._input_p);
     self_send(TK_IDENT);
     QUEX_SETTING_AFTER_SEND_CONTINUE_OR_RETURN();
@@ -8755,6 +8755,8 @@ _2200: /* TERMINAL: FAILURE */
     {
 #   line 63 "lexer.qx"
     
+        self_send(TK_EOS);
+    
         std::ostringstream ss;
         ss << "Syntax error: Unexpected symbol: \"" <<
             std::string(LexemeBegin, LexemeEnd) <<
@@ -8765,7 +8767,7 @@ _2200: /* TERMINAL: FAILURE */
         throw ParseError(ss.str());
     
     
-#   line 8769 "lexer.cpp"
+#   line 8771 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION_2;
@@ -8775,10 +8777,10 @@ _2200: /* TERMINAL: FAILURE */
 _1561:
 __QUEX_IF_COUNT_SHIFT_VALUES();
     {
-#   line 81 "lexer.qx"
+#   line 83 "lexer.qx"
     self_send(TK_EOS);
     
-#   line 8782 "lexer.cpp"
+#   line 8784 "lexer.cpp"
 
     }
     /* End of Stream causes a return from the lexical analyzer, so that no
@@ -9936,13 +9938,13 @@ TERMINAL_1539:
     __quex_debug("* terminal 1539:   \\\"[:space:]*\\\"\n");
     __QUEX_COUNT_VOID(&self, LexemeBegin, LexemeEnd);
     {
-#   line 181 "lexer.qx"
+#   line 185 "lexer.qx"
     
         if(self.string_delimiter != '\"')
             self_accumulator_add(LexemeBegin, LexemeEnd);
     
     
-#   line 9946 "lexer.cpp"
+#   line 9948 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -9951,13 +9953,13 @@ TERMINAL_1540:
     __quex_debug("* terminal 1540:   '[:space:]*'\n");
     __QUEX_COUNT_VOID(&self, LexemeBegin, LexemeEnd);
     {
-#   line 187 "lexer.qx"
+#   line 191 "lexer.qx"
     
         if(self.string_delimiter != '\'')
             self_accumulator_add(LexemeBegin, LexemeEnd);
     
     
-#   line 9961 "lexer.cpp"
+#   line 9963 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -9967,7 +9969,7 @@ TERMINAL_1541:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 193 "lexer.qx"
+#   line 197 "lexer.qx"
     
         if(self.string_delimiter == '\"')
         {
@@ -9980,7 +9982,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
         }
     
     
-#   line 9984 "lexer.cpp"
+#   line 9986 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -9990,7 +9992,7 @@ TERMINAL_1542:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(1);
     {
-#   line 205 "lexer.qx"
+#   line 209 "lexer.qx"
     
         if(self.string_delimiter == '\'')
         {
@@ -10003,7 +10005,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(1);
         }
     
     
-#   line 10007 "lexer.cpp"
+#   line 10009 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10012,10 +10014,10 @@ TERMINAL_1543:
     __quex_debug("* terminal 1543:   [^\\\\\\\"']+\n");
     __QUEX_COUNT_VOID(&self, LexemeBegin, LexemeEnd);
     {
-#   line 217 "lexer.qx"
+#   line 221 "lexer.qx"
         self_accumulator_add(LexemeBegin, LexemeEnd);
     
-#   line 10019 "lexer.cpp"
+#   line 10021 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10025,10 +10027,10 @@ TERMINAL_1544:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 220 "lexer.qx"
+#   line 224 "lexer.qx"
         self_accumulator_add_character('\n');
     
-#   line 10032 "lexer.cpp"
+#   line 10034 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10038,10 +10040,10 @@ TERMINAL_1545:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 221 "lexer.qx"
+#   line 225 "lexer.qx"
         self_accumulator_add_character('\t');
     
-#   line 10045 "lexer.cpp"
+#   line 10047 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10051,10 +10053,10 @@ TERMINAL_1546:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 222 "lexer.qx"
+#   line 226 "lexer.qx"
         self_accumulator_add_character('\a');
     
-#   line 10058 "lexer.cpp"
+#   line 10060 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10064,10 +10066,10 @@ TERMINAL_1547:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 223 "lexer.qx"
+#   line 227 "lexer.qx"
         self_accumulator_add_character('\b');
     
-#   line 10071 "lexer.cpp"
+#   line 10073 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10077,10 +10079,10 @@ TERMINAL_1548:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 224 "lexer.qx"
+#   line 228 "lexer.qx"
         self_accumulator_add_character('\f');
     
-#   line 10084 "lexer.cpp"
+#   line 10086 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10090,10 +10092,10 @@ TERMINAL_1549:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 225 "lexer.qx"
+#   line 229 "lexer.qx"
         self_accumulator_add_character('\r');
     
-#   line 10097 "lexer.cpp"
+#   line 10099 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10103,10 +10105,10 @@ TERMINAL_1550:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 226 "lexer.qx"
+#   line 230 "lexer.qx"
         self_accumulator_add_character('\v');
     
-#   line 10110 "lexer.cpp"
+#   line 10112 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10116,10 +10118,10 @@ TERMINAL_1551:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 227 "lexer.qx"
+#   line 231 "lexer.qx"
         self_accumulator_add_character('\\');
     
-#   line 10123 "lexer.cpp"
+#   line 10125 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10130,10 +10132,10 @@ TERMINAL_1552:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 229 "lexer.qx"
+#   line 233 "lexer.qx"
         self_accumulator_add_character((QUEX_TYPE_CHARACTER)stoi(Lexeme+1,8));
     
-#   line 10137 "lexer.cpp"
+#   line 10139 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10144,10 +10146,10 @@ TERMINAL_1553:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 230 "lexer.qx"
+#   line 234 "lexer.qx"
         self_accumulator_add_character((QUEX_TYPE_CHARACTER)stoi(Lexeme+2,16));
     
-#   line 10151 "lexer.cpp"
+#   line 10153 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10158,7 +10160,7 @@ TERMINAL_1554:
 __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
     QUEX_LEXEME_TERMINATING_ZERO_SET(&me->buffer);
     {
-#   line 232 "lexer.qx"
+#   line 236 "lexer.qx"
     
         static_assert (sizeof(QUEX_TYPE_CHARACTER) == 1, "QUEX_TYPE_CHARACTER incompatible with utf-8" );
     
@@ -10200,7 +10202,7 @@ __QUEX_IF_COUNT_COLUMNS_ADD(LexemeL);
         }
     
     
-#   line 10204 "lexer.cpp"
+#   line 10206 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10210,10 +10212,10 @@ TERMINAL_1555:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 273 "lexer.qx"
+#   line 277 "lexer.qx"
         self_accumulator_add_character('\'');
     
-#   line 10217 "lexer.cpp"
+#   line 10219 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10223,10 +10225,10 @@ TERMINAL_1556:
     __QUEX_IF_COUNT_SHIFT_VALUES();
 __QUEX_IF_COUNT_COLUMNS_ADD(2);
     {
-#   line 274 "lexer.qx"
+#   line 278 "lexer.qx"
         self_accumulator_add_character('\"');
     
-#   line 10230 "lexer.cpp"
+#   line 10232 "lexer.cpp"
 
     }
     goto __REENTRY_PREPARATION;
@@ -10260,12 +10262,14 @@ QUEX_ERROR_EXIT("\n    Match failure in mode 'STRING'.\n"
 _1561:
 __QUEX_IF_COUNT_SHIFT_VALUES();
     {
-#   line 176 "lexer.qx"
+#   line 178 "lexer.qx"
     
+        self_send(TK_EOS);
+        self << MAIN;
         throw ParseError("Syntax error: Unterminated string");
     
     
-#   line 10269 "lexer.cpp"
+#   line 10273 "lexer.cpp"
 
     }
     /* End of Stream causes a return from the lexical analyzer, so that no

@@ -21,31 +21,16 @@ namespace AYA
     {
         friend class IOManager;
         friend class FunctionBuilder;
-
-        friend class Parser;
+        friend class GarbageCollector;
         friend class BuiltIn;
     public:
         VM();
         ~VM();
 
-        void run();
+        int run();
+        void printResult();
+        void setParserInput(std::istream*);
         void interrupt();
-
-        void load(const FunctionPrototype* proto)
-        {
-            if(activeFunction == NULL)
-            {
-                //TODO TODO TODO
-                activeFunction = new FunctionCall(objectFactory.makeClosure(proto, globalEnv), NULL);
-                activeFunction->enter(evalStack, 0, NIL());
-            }
-            else
-            {
-                throw RuntimeError("Unable to load function. Call stack is not empty.");
-            }
-        }
-
-        void mark();
 
         EvalStack::CCallFrame& callFrame()
         {
@@ -61,10 +46,24 @@ namespace AYA
     protected:
         EvalStack evalStack;
         FunctionCall* activeFunction;
-        Parser* parser;
         quex::lexer* qlex;
+        std::istream* parserInput;
 
+        void mark();
         void _run();
+        void _load(const FunctionPrototype* proto)
+        {
+            if(activeFunction == NULL)
+            {
+                //TODO TODO TODO
+                activeFunction = new FunctionCall(objectFactory.makeClosure(proto, globalEnv), NULL);
+                activeFunction->enter(evalStack, 0, NIL());
+            }
+            else
+            {
+                throw RuntimeError("Unable to load function. Call stack is not empty.");
+            }
+        }
 
     private:
         bool halt;

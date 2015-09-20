@@ -19,21 +19,28 @@ namespace AYA
 
             Variant* args = state->evalStack.cCallFrame.frameBottom();
 
-            for(int i = 0; i < count; ++i)
+            if (count == 1 && state->getBuildInType(args[0]) == BType::STR)
             {
-                if(i)
+                io.write(state->getStr(args[0]));
+            }
+            else
+            {
+                for (int i = 0; i < count; ++i)
                 {
-                    if(sparator == ',')
+                    if (i)
                     {
-                        io.write(", ");
+                        if(sparator == ',')
+                        {
+                            io.write(", ");
+                        }
+                        else if(sparator == '\n')
+                        {
+                            io.write("\n");
+                        }
                     }
-                    else if(sparator == '\n')
-                    {
-                        io.write("\n");
-                    }
-                }
 
-                printValue(state, args[i]);
+                    printValue(state, args[i]);
+                }
             }
 
             // puts
@@ -41,6 +48,8 @@ namespace AYA
             {
                 io.write("\n");
             }
+
+            AYA_setNilResult(state);
 
             return 0;
         }

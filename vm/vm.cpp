@@ -15,9 +15,7 @@ namespace AYA
 {
     VM::~VM()
     {
-        if(activeFunction)
-            delete activeFunction;
-        delete parser;
+        delete activeFunction;
         delete qlex;
     }
 
@@ -26,8 +24,9 @@ namespace AYA
         objectFactory(*this),
         globalEnv(new Environment(NULL)),
         activeFunction(NULL),
-        parser(new Parser(*this)),
-        qlex(new quex::lexer("test.aya", ENCODING_NAME))
+        // NULL pointer = use raw memory
+        qlex( new quex::lexer((QUEX_TYPE_CHARACTER*)NULL, ENCODING_NAME)),
+        parserInput(NULL)
     {
         gc.setMemoryLimit(GarbageCollector::NO_LIMIT);
 
@@ -42,38 +41,69 @@ namespace AYA
         globalEnv->set("puts",  BIND(BuiltIn::puts));
     }
 
-    void VM::run()
+    void VM::printResult()
     {
-        quex::Token* token_p = NULL;
+        BuiltIn::printValue(this, evalStack.lastExpr);
+    }
+
+    void VM::setParserInput(std::istream* is)
+    {
+        parserInput = is;
+    }
+
+    int VM::run()
+    {
+        if (!parserInput)
+        {
+            return -1;
+        }
+
+        quex::Token token;
+        (void)qlex->token_p_switch(&token);
+
+        qlex->buffer_fill_region_prepare();
+
+        // Read a line from standard input
+        parserInput->getline((char*)qlex->buffer_fill_region_begin(),
+                    qlex->buffer_fill_region_size());
+
+        if( parserInput->gcount() == 0 ) {
+            return 0;
+        }
+
+        // Inform about number of read characters. Note, that getline
+        // writes a terminating zero, which has not to be part of the
+        // buffer content.
+        qlex->buffer_fill_region_finish(parserInput->gcount() - 1);
 
         try
         {
-            do
-            {
-                // (*) get next token from the token stream
-                qlex->receive(&token_p);
+            Parser parser(*this);
 
-                //cerr<<token_p->type_id_name()<<'\n';
-                parser->parse(token_p);
-            }while( token_p->type_id() != TK_EOS );
+            // Loop until the 'EOS' token arrives
+            do {
+                (void)qlex->receive();
+                parser.parse(&token);
+            } while( token.type_id() != TK_EOS );
+
+            const FunctionPrototype* proto = parser.generateCode();
+            _load(proto);
+
+            _run();
+            evalStack.clear();
         }
         catch(ParseError err)
         {
             std::cerr << err.what() << std::endl;
-            exit(-1);
-        }
-
-        const FunctionPrototype* proto = parser->generateCode();
-        load(proto);
-
-        try
-        {
-            _run();
+            return -1;
         }
         catch(RuntimeError err)
         {
             std::cerr << err.what() << std::endl;
+            return -1;
         }
+
+        return 0;
     }
 
     void VM::_run()
@@ -105,7 +135,7 @@ namespace AYA
                     break;
 
                 case Inst::POP:
-                    evalStack.pop();
+                    evalStack.lastExpr = evalStack.pop();
                     break;
 
                 case Inst::LNIL:

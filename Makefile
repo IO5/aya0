@@ -44,7 +44,14 @@ lparser.c: lparser.y
 	lemon -s lparser.y
 
 lexer: lexer.qx
-	python2 "C:\quex\quex-0.64.8\quex-exe.py" --token-id-offset 256 --no-include-stack --token-id-prefix TK_ --foreign-token-id-file lparser.h -i lexer.qx -o lexer
+	python2 "C:\quex\quex-0.64.8\quex-exe.py" \
+	--token-policy single --token-memory-management-by-user \
+	--token-id-offset 256 \
+	--no-include-stack \
+	--token-id-prefix TK_ \
+	--foreign-token-id-file lparser.h \
+	-i lexer.qx \
+	-o lexer
 
 -include $(OBJDIR)/dependencies
 

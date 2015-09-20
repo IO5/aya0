@@ -39,7 +39,7 @@ namespace AYA
                 io.write("<Function>");
                 break;
             case BType::STR:
-                io.write(state->getStr(val));
+                io.write("\"" + state->getStr(val) + "\"");
                 break;
             case BType::LIST:
             {

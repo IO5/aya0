@@ -34,12 +34,12 @@ namespace AYA
 
         GarbageCollector& target;
 
-        TypeObject* OBJECT_DEF;
-        TypeObject* TYPE_OBJECT_DEF;
-        TypeObject* FUNCTION_OBJECT_DEF;
-        TypeObject* STRING_OBJECT_DEF;
-        TypeObject* LIST_OBJECT_DEF;
-        TypeObject* DICT_OBJECT_DEF;
+        TypeObject* OBJECT_DEF          = NULL;
+        TypeObject* TYPE_OBJECT_DEF     = NULL;
+        TypeObject* FUNCTION_OBJECT_DEF = NULL;
+        TypeObject* STRING_OBJECT_DEF   = NULL;
+        TypeObject* LIST_OBJECT_DEF     = NULL;
+        TypeObject* DICT_OBJECT_DEF     = NULL;
     };
 }
 

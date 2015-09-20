@@ -15,6 +15,7 @@ namespace AYA
 
     public:
         Variant self = NIL();
+        Variant lastExpr;
 
         /// For communication between C functions and VM
         class CCallFrame
@@ -48,6 +49,12 @@ namespace AYA
             { _errorMsg = msg; }
 
         } cCallFrame;
+
+        /// Empty the stack
+        void clear()
+        {
+            c.clear();
+        }
 
         void push(const Variant& arg)
         {

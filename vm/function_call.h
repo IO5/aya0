@@ -20,10 +20,11 @@ namespace AYA
         void enter(EvalStack& evalStack, size_t argCount, Variant self)
         {
             enterScope();
-            // load arguments
+
+            evalStack.lastExpr = NIL();
 
             env->insertLocal("self", self);
-
+            // load arguments
             size_t i = 0;
             auto& args = closure->proto->arguments;
             while ( (i < argCount) && (i < args.size()) )

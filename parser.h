@@ -37,8 +37,7 @@ namespace AYA
         ~Parser()
         {
             LemonFree(pParser, free);
-            if (AST)
-                delete AST;
+            delete AST;
         }
 
         void parse(TOKEN_T* tkn)
