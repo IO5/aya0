@@ -21,6 +21,23 @@ namespace AYA
             case BType::REAL:
                 io.write(str(format("%1%") % val.value.real));
                 break;
+            case BType::OBJ:
+            {
+                Object* obj = val.value.ref;
+                const Variant* tname = obj->get("typename");
+                if (state->getBuildInType(*tname) == BType::STR)
+                    io.write("<" + state->getStr(*tname) + ">");
+                else
+                    io.write("<Object>");
+                break;
+            }
+            case BType::TYPE:
+                io.write("<Type>");
+                break;
+            case BType::CFUNC:
+            case BType::FUNC:
+                io.write("<Function>");
+                break;
             case BType::STR:
                 io.write(state->getStr(val));
                 break;
@@ -40,8 +57,11 @@ namespace AYA
                 io.write("]");
                 break;
             }
+            case BType::DICT:
+                assert(0);
+                break;
             default:
-                io.write("[Object]");
+                io.write("<Unknown>");
         }
     }
 
@@ -163,8 +183,10 @@ namespace AYA
                 break;
             }
             default:
-                state->gc.updateObj(list, sizeof(args[1]));
-                list->content.push_back(args[1]);
+                //state->gc.updateObj(list, sizeof(args[1]));
+                //list->content.push_back(args[1]);
+                AYA_setErrorMsg(state, "Cannot concatenate a list with a non-list");
+                return -1;
         }
 
         size_t newCapacity = list->content.capacity();

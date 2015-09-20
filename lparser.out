@@ -15,7 +15,7 @@ State 0:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           stat ::= * RETURN exp
           stat ::= * NEXT
@@ -67,12 +67,12 @@ State 0:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -88,7 +88,7 @@ State 0:
                           PIPE shift  37
                          chunk accept
                          block shift  108
-                     stat_list shift  84
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -112,7 +112,7 @@ State 1:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           stat ::= * RETURN exp
           stat ::= * NEXT
@@ -164,12 +164,12 @@ State 1:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -183,8 +183,8 @@ State 1:
                            SBL shift  12
                            CBL shift  103
                           PIPE shift  37
-                         block shift  85
-                     stat_list shift  84
+                         block shift  83
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -208,7 +208,7 @@ State 2:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           else ::= ELSEIF exp THEN * block else
           stat ::= * RETURN exp
@@ -260,12 +260,12 @@ State 2:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -280,7 +280,7 @@ State 2:
                            CBL shift  103
                           PIPE shift  37
                          block shift  45
-                     stat_list shift  84
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -304,7 +304,7 @@ State 3:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           else ::= ELSE * block
           stat ::= * RETURN exp
@@ -356,12 +356,12 @@ State 3:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -376,7 +376,7 @@ State 3:
                            CBL shift  103
                           PIPE shift  37
                          block shift  122
-                     stat_list shift  84
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -400,7 +400,7 @@ State 4:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           stat ::= IF exp THEN * block else END
           stat ::= * RETURN exp
@@ -452,12 +452,12 @@ State 4:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -472,7 +472,7 @@ State 4:
                            CBL shift  103
                           PIPE shift  37
                          block shift  47
-                     stat_list shift  84
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -496,8 +496,8 @@ State 5:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
-          stat ::= FOR ident_list IN exp_list DO * block END
+          stat ::= * FOR IDENT IN exp DO block END
+          stat ::= FOR IDENT IN exp DO * block END
           stat ::= * IF exp THEN block else END
           stat ::= * RETURN exp
           stat ::= * NEXT
@@ -548,12 +548,12 @@ State 5:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -567,8 +567,8 @@ State 5:
                            SBL shift  12
                            CBL shift  103
                           PIPE shift  37
-                         block shift  89
-                     stat_list shift  84
+                         block shift  87
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -593,7 +593,7 @@ State 6:
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
           stat ::= REPEAT * block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           stat ::= * RETURN exp
           stat ::= * NEXT
@@ -644,12 +644,12 @@ State 6:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -664,7 +664,7 @@ State 6:
                            CBL shift  103
                           PIPE shift  37
                          block shift  90
-                     stat_list shift  84
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -689,7 +689,7 @@ State 7:
           stat ::= * WHILE exp DO block END
           stat ::= WHILE exp DO * block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           stat ::= * RETURN exp
           stat ::= * NEXT
@@ -740,12 +740,12 @@ State 7:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -760,7 +760,7 @@ State 7:
                            CBL shift  103
                           PIPE shift  37
                          block shift  91
-                     stat_list shift  84
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -785,7 +785,7 @@ State 8:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           stat ::= * RETURN exp
           stat ::= * NEXT
@@ -836,12 +836,12 @@ State 8:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -856,7 +856,7 @@ State 8:
                            CBL shift  103
                           PIPE shift  37
                          block shift  105
-                     stat_list shift  84
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -880,7 +880,7 @@ State 9:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           stat ::= * RETURN exp
           stat ::= * NEXT
@@ -932,12 +932,12 @@ State 9:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -951,8 +951,8 @@ State 9:
                            SBL shift  12
                            CBL shift  103
                           PIPE shift  37
-                         block shift  86
-                     stat_list shift  84
+                         block shift  84
+                     stat_list shift  82
                           stat shift  147
                            exp shift  65
                            var shift  104
@@ -973,7 +973,7 @@ State 10:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           stat ::= * RETURN exp
           stat ::= * NEXT
@@ -1024,12 +1024,12 @@ State 10:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -1063,7 +1063,7 @@ State 11:
           stat ::= * LOCAL IDENT ASSIG exp
           stat ::= * WHILE exp DO block END
           stat ::= * REPEAT block UNTIL exp
-          stat ::= * FOR ident_list IN exp_list DO block END
+          stat ::= * FOR IDENT IN exp DO block END
           stat ::= * IF exp THEN block else END
           stat ::= * RETURN exp
           stat ::= * NEXT
@@ -1114,12 +1114,12 @@ State 11:
                             DO shift  8
                         GLOBAL shift  95
                          IDENT shift  129
-                         LOCAL shift  80
+                         LOCAL shift  78
                          WHILE shift  19
                         REPEAT shift  6
-                           FOR shift  49
-                            IF shift  17
-                        RETURN shift  16
+                           FOR shift  89
+                            IF shift  16
+                        RETURN shift  15
                           NEXT shift  121
                          BREAK shift  120
                            DEF shift  44
@@ -1188,7 +1188,7 @@ State 12:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1202,10 +1202,10 @@ State 12:
                           PIPE shift  37
                            exp shift  63
                            var shift  143
-                      exp_list shift  81
                       function shift  139
                   functioncall shift  141
                      prefixexp shift  77
+                      exp_list shift  79
 
 State 13:
           function ::= * DEF func_body
@@ -1254,7 +1254,7 @@ State 13:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                             PR shift  145
                         STRING shift  142
@@ -1268,76 +1268,12 @@ State 13:
                           PIPE shift  37
                            exp shift  63
                            var shift  143
-                      exp_list shift  82
                       function shift  139
                   functioncall shift  141
                      prefixexp shift  77
+                      exp_list shift  80
 
 State 14:
-          stat ::= FOR ident_list IN * exp_list DO block END
-          function ::= * DEF func_body
-          functioncall ::= * prefixexp PL PR
-          functioncall ::= * prefixexp PL exp_list PR
-          prefixexp ::= * var
-          prefixexp ::= * STRING
-          prefixexp ::= * functioncall
-          prefixexp ::= * PL exp PR
-          exp ::= * prefixexp
-          exp ::= * function
-          exp ::= * NIL
-          exp ::= * FALSE
-          exp ::= * TRUE
-          exp ::= * INT
-          exp ::= * REAL
-          exp ::= * SBL SBR
-          exp ::= * SBL exp_list SBR
-          exp ::= * CBL CBR
-          exp ::= * PIPE exp PIPE
-          exp ::= * exp OR exp
-          exp ::= * exp AND exp
-          exp ::= * exp L exp
-          exp ::= * exp G exp
-          exp ::= * exp LEQ exp
-          exp ::= * exp GEQ exp
-          exp ::= * exp NEQ exp
-          exp ::= * exp EQ exp
-          exp ::= * exp RANGEOP exp
-          exp ::= * exp PLUS exp
-          exp ::= * exp MINUS exp
-          exp ::= * exp MUL exp
-          exp ::= * exp DIV exp
-          exp ::= * exp MOD exp
-          exp ::= * exp EXP exp
-          exp ::= * NOT exp
-          exp ::= * MINUS exp
-          var ::= * IDENT
-          var ::= * prefixexp DOT IDENT
-          var ::= * prefixexp SBL exp SBR
-          exp_list ::= * exp
-          exp_list ::= * exp_list COMMA exp
-
-                         MINUS shift  23
-                           NOT shift  24
-                         IDENT shift  129
-                           DEF shift  51
-                            PL shift  39
-                        STRING shift  142
-                           NIL shift  138
-                         FALSE shift  137
-                          TRUE shift  136
-                           INT shift  135
-                          REAL shift  134
-                           SBL shift  12
-                           CBL shift  103
-                          PIPE shift  37
-                           exp shift  63
-                           var shift  143
-                      exp_list shift  78
-                      function shift  139
-                  functioncall shift  141
-                     prefixexp shift  77
-
-State 15:
           else ::= ELSEIF * exp THEN block else
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1381,7 +1317,7 @@ State 15:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1392,13 +1328,13 @@ State 15:
                            SBL shift  12
                            CBL shift  103
                           PIPE shift  37
-                           exp shift  52
+                           exp shift  51
                            var shift  143
                       function shift  139
                   functioncall shift  141
                      prefixexp shift  77
 
-State 16:
+State 15:
           stat ::= RETURN * exp
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1442,7 +1378,7 @@ State 16:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1459,7 +1395,7 @@ State 16:
                   functioncall shift  141
                      prefixexp shift  77
 
-State 17:
+State 16:
           stat ::= IF * exp THEN block else END
           function ::= * DEF func_body
           functioncall ::= * prefixexp PL PR
@@ -1503,7 +1439,68 @@ State 17:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
+                            PL shift  39
+                        STRING shift  142
+                           NIL shift  138
+                         FALSE shift  137
+                          TRUE shift  136
+                           INT shift  135
+                          REAL shift  134
+                           SBL shift  12
+                           CBL shift  103
+                          PIPE shift  37
+                           exp shift  52
+                           var shift  143
+                      function shift  139
+                  functioncall shift  141
+                     prefixexp shift  77
+
+State 17:
+          stat ::= FOR IDENT IN * exp DO block END
+          function ::= * DEF func_body
+          functioncall ::= * prefixexp PL PR
+          functioncall ::= * prefixexp PL exp_list PR
+          prefixexp ::= * var
+          prefixexp ::= * STRING
+          prefixexp ::= * functioncall
+          prefixexp ::= * PL exp PR
+          exp ::= * prefixexp
+          exp ::= * function
+          exp ::= * NIL
+          exp ::= * FALSE
+          exp ::= * TRUE
+          exp ::= * INT
+          exp ::= * REAL
+          exp ::= * SBL SBR
+          exp ::= * SBL exp_list SBR
+          exp ::= * CBL CBR
+          exp ::= * PIPE exp PIPE
+          exp ::= * exp OR exp
+          exp ::= * exp AND exp
+          exp ::= * exp L exp
+          exp ::= * exp G exp
+          exp ::= * exp LEQ exp
+          exp ::= * exp GEQ exp
+          exp ::= * exp NEQ exp
+          exp ::= * exp EQ exp
+          exp ::= * exp RANGEOP exp
+          exp ::= * exp PLUS exp
+          exp ::= * exp MINUS exp
+          exp ::= * exp MUL exp
+          exp ::= * exp DIV exp
+          exp ::= * exp MOD exp
+          exp ::= * exp EXP exp
+          exp ::= * NOT exp
+          exp ::= * MINUS exp
+          var ::= * IDENT
+          var ::= * prefixexp DOT IDENT
+          var ::= * prefixexp SBL exp SBR
+
+                         MINUS shift  23
+                           NOT shift  24
+                         IDENT shift  129
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1564,7 +1561,7 @@ State 18:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1625,7 +1622,7 @@ State 19:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1686,7 +1683,7 @@ State 20:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1747,7 +1744,7 @@ State 21:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1808,7 +1805,7 @@ State 22:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1869,7 +1866,7 @@ State 23:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1930,7 +1927,7 @@ State 24:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -1991,7 +1988,7 @@ State 25:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2052,7 +2049,7 @@ State 26:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2113,7 +2110,7 @@ State 27:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2174,7 +2171,7 @@ State 28:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2235,7 +2232,7 @@ State 29:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2296,7 +2293,7 @@ State 30:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2357,7 +2354,7 @@ State 31:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2418,7 +2415,7 @@ State 32:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2479,7 +2476,7 @@ State 33:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2540,7 +2537,7 @@ State 34:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2601,7 +2598,7 @@ State 35:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2662,7 +2659,7 @@ State 36:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2723,7 +2720,7 @@ State 37:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2784,7 +2781,7 @@ State 38:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2845,7 +2842,7 @@ State 39:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2906,7 +2903,7 @@ State 40:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -2967,7 +2964,7 @@ State 41:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -3028,7 +3025,7 @@ State 42:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -3089,7 +3086,7 @@ State 43:
                          MINUS shift  23
                            NOT shift  24
                          IDENT shift  129
-                           DEF shift  51
+                           DEF shift  50
                             PL shift  39
                         STRING shift  142
                            NIL shift  138
@@ -3126,7 +3123,7 @@ State 45:
           else ::= ELSEIF exp THEN block * else
 
                           ELSE shift  3
-                        ELSEIF shift  15
+                        ELSEIF shift  14
                           else shift  116
                      {default} reduce 18
 
@@ -3136,7 +3133,7 @@ State 46:
           func_body ::= * PL PR block END
           func_body ::= * PL ident_list PR block END
 
-                           DOT shift  87
+                           DOT shift  85
                             PL shift  48
                      func_body shift  119
 
@@ -3147,8 +3144,8 @@ State 47:
           else ::= * ELSEIF exp THEN block else
 
                           ELSE shift  3
-                        ELSEIF shift  15
-                          else shift  88
+                        ELSEIF shift  14
+                          else shift  86
                      {default} reduce 18
 
 State 48:
@@ -3159,17 +3156,9 @@ State 48:
 
                          IDENT shift  149
                             PR shift  1
-                    ident_list shift  83
+                    ident_list shift  81
 
 State 49:
-          stat ::= FOR * ident_list IN exp_list DO block END
-          ident_list ::= * IDENT
-          ident_list ::= * ident_list COMMA IDENT
-
-                         IDENT shift  149
-                    ident_list shift  79
-
-State 50:
           stat ::= LOCAL DEF IDENT * func_body
           func_body ::= * PL PR block END
           func_body ::= * PL ident_list PR block END
@@ -3177,7 +3166,7 @@ State 50:
                             PL shift  48
                      func_body shift  126
 
-State 51:
+State 50:
           function ::= DEF * func_body
           func_body ::= * PL PR block END
           func_body ::= * PL ident_list PR block END
@@ -3185,7 +3174,7 @@ State 51:
                             PL shift  48
                      func_body shift  150
 
-State 52:
+State 51:
           else ::= ELSEIF exp * THEN block else
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3220,7 +3209,7 @@ State 52:
                            EXP shift  25
                           THEN shift  2
 
-State 53:
+State 52:
           stat ::= IF exp * THEN block else END
           exp ::= exp * OR exp
           exp ::= exp * AND exp
@@ -3254,6 +3243,41 @@ State 53:
                            MOD shift  26
                            EXP shift  25
                           THEN shift  4
+
+State 53:
+          stat ::= FOR IDENT IN exp * DO block END
+          exp ::= exp * OR exp
+          exp ::= exp * AND exp
+          exp ::= exp * L exp
+          exp ::= exp * G exp
+          exp ::= exp * LEQ exp
+          exp ::= exp * GEQ exp
+          exp ::= exp * NEQ exp
+          exp ::= exp * EQ exp
+          exp ::= exp * RANGEOP exp
+          exp ::= exp * PLUS exp
+          exp ::= exp * MINUS exp
+          exp ::= exp * MUL exp
+          exp ::= exp * DIV exp
+          exp ::= exp * MOD exp
+          exp ::= exp * EXP exp
+
+                            OR shift  43
+                           AND shift  41
+                            EQ shift  32
+                           NEQ shift  33
+                             L shift  38
+                             G shift  36
+                           LEQ shift  35
+                           GEQ shift  34
+                       RANGEOP shift  31
+                          PLUS shift  30
+                         MINUS shift  29
+                           MUL shift  28
+                           DIV shift  27
+                           MOD shift  26
+                           EXP shift  25
+                            DO shift  5
 
 State 54:
           stat ::= WHILE exp * DO block END
@@ -4016,20 +4040,6 @@ State 77:
                      {default} reduce 39
 
 State 78:
-          stat ::= FOR ident_list IN exp_list * DO block END
-          exp_list ::= exp_list * COMMA exp
-
-                            DO shift  5
-                         COMMA shift  40
-
-State 79:
-          stat ::= FOR ident_list * IN exp_list DO block END
-          ident_list ::= ident_list * COMMA IDENT
-
-                            IN shift  14
-                         COMMA shift  106
-
-State 80:
           stat ::= LOCAL * IDENT
           stat ::= LOCAL * IDENT ASSIG exp
           stat ::= LOCAL * DEF IDENT func_body
@@ -4037,28 +4047,28 @@ State 80:
                          IDENT shift  93
                            DEF shift  92
 
-State 81:
+State 79:
           exp ::= SBL exp_list * SBR
           exp_list ::= exp_list * COMMA exp
 
                          COMMA shift  40
                            SBR shift  132
 
-State 82:
+State 80:
           functioncall ::= prefixexp PL exp_list * PR
           exp_list ::= exp_list * COMMA exp
 
                          COMMA shift  40
                             PR shift  144
 
-State 83:
+State 81:
           ident_list ::= ident_list * COMMA IDENT
           func_body ::= PL ident_list * PR block END
 
                          COMMA shift  106
                             PR shift  9
 
-State 84:
+State 82:
       (2) block ::= stat_list *
           stat_list ::= stat_list * NL stat
           stat_list ::= stat_list * SCOLON stat
@@ -4067,30 +4077,40 @@ State 84:
                         SCOLON shift  10
                      {default} reduce 2
 
-State 85:
+State 83:
           func_body ::= PL PR block * END
 
                            END shift  114
 
-State 86:
+State 84:
           func_body ::= PL ident_list PR block * END
 
                            END shift  115
 
-State 87:
+State 85:
           func_ident ::= func_ident DOT * IDENT
 
                          IDENT shift  118
 
-State 88:
+State 86:
           stat ::= IF exp THEN block else * END
 
                            END shift  123
 
-State 89:
-          stat ::= FOR ident_list IN exp_list DO block * END
+State 87:
+          stat ::= FOR IDENT IN exp DO block * END
 
                            END shift  124
+
+State 88:
+          stat ::= FOR IDENT * IN exp DO block END
+
+                            IN shift  17
+
+State 89:
+          stat ::= FOR * IDENT IN exp DO block END
+
+                         IDENT shift  88
 
 State 90:
           stat ::= REPEAT block * UNTIL exp
@@ -4105,7 +4125,7 @@ State 91:
 State 92:
           stat ::= LOCAL DEF * IDENT func_body
 
-                         IDENT shift  50
+                         IDENT shift  49
 
 State 93:
      (12) stat ::= LOCAL IDENT *
@@ -4366,7 +4386,7 @@ State 123:
                      {default} reduce 17
 
 State 124:
-     (16) stat ::= FOR ident_list IN exp_list DO block END *
+     (16) stat ::= FOR IDENT IN exp DO block END *
 
                      {default} reduce 16
 
@@ -4571,11 +4591,11 @@ Symbols:
    61: stat: <lambda> MINUS NOT DO GLOBAL IDENT LOCAL WHILE REPEAT FOR IF RETURN NEXT BREAK DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
    62: exp: MINUS NOT IDENT DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
    63: var: IDENT PL STRING
-   64: ident_list: IDENT
-   65: exp_list: MINUS NOT IDENT DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE
-   66: else: <lambda> ELSE ELSEIF
-   67: func_ident: IDENT
-   68: func_body: PL
-   69: function: DEF
-   70: functioncall: IDENT PL STRING
-   71: prefixexp: IDENT PL STRING
+   64: else: <lambda> ELSE ELSEIF
+   65: ident_list: IDENT
+   66: func_ident: IDENT
+   67: func_body: PL
+   68: function: DEF
+   69: functioncall: IDENT PL STRING
+   70: prefixexp: IDENT PL STRING
+   71: exp_list: MINUS NOT IDENT DEF PL STRING NIL FALSE TRUE INT REAL SBL CBL PIPE

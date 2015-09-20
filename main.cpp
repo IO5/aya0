@@ -15,7 +15,6 @@
 #include "parser.h"
 
 #include "vm/vm.h"
-#include "vm/built_in.h"
 
 using namespace AYA;
 
@@ -103,9 +102,6 @@ int main(int argc, char** argv)
     quex::lexer    qlex(argc == 1 ? "test.aya" : argv[1], ENCODING_NAME);
 
     VM vm;
-
-    vm.globalEnv->set("print", BIND(BuiltIn::print));
-    vm.globalEnv->set("puts", BIND(BuiltIn::puts));
 
     Parser par(vm);
     vm.gc.setMemoryLimit(400);

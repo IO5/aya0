@@ -107,6 +107,9 @@ namespace AYA
         bool empty()
         { return !impl || impl->empty(); }
 
+        size_t size()
+        { return impl ? impl->size() : 0; }
+
         Variant* find(const IDENT_T& key)
         { return impl ? impl->find(key) : NULL; }
 

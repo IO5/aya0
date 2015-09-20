@@ -20,6 +20,12 @@ namespace AYA
             assert(index);
         }
 
+        ~IndexAccessNode()
+        {
+            delete collection;
+            delete index;
+        }
+
         void gen(FunctionBuilder& target)
         {
             collection->gen(target);

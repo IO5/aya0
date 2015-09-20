@@ -22,14 +22,7 @@ namespace AYA
         friend class Parser;
         friend class BuiltIn;
     public:
-        VM()
-        :
-            gc(this),
-            objectFactory(*this),
-            globalEnv(new Environment(NULL)),
-            activeFunction(NULL)
-        {
-        }
+        VM();
 
         void run();
         void interrupt();

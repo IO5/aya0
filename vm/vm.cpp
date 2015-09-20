@@ -1,8 +1,19 @@
 #include "vm.h"
 #include "std_functions.h"
+#include "built_in.h"
 
 namespace AYA
 {
+    VM::VM() :
+        gc(this),
+        objectFactory(*this),
+        globalEnv(new Environment(NULL)),
+        activeFunction(NULL)
+    {
+        globalEnv->set("print", BIND(BuiltIn::print));
+        globalEnv->set("puts",  BIND(BuiltIn::puts));
+    }
+
     void VM::run()
     {
         halt = false;
@@ -117,6 +128,30 @@ namespace AYA
                         PC += inst.operand();
 
                     break;
+
+                case Inst::ITER:
+                {
+                    Variant& v1 = evalStack.peek(1);
+                    Variant& v2 = evalStack.peek(2);
+                    // no code allowing such situation should be generated
+                    assert (v1.isINT() && getBuildInType(v2) == BType::LIST);
+
+                    INT_T& it = v1.value.integer;
+                    auto& list = static_cast<ListObject*>(v2.value.ref)->content;
+
+                    // fetch next element
+                    if ((size_t)it < list.size()) {
+                        evalStack.push(list[it]);
+                        ++it;
+                    }
+                    // clean up
+                    else
+                    {
+                        evalStack.pop(2);
+                        PC += inst.operand();
+                    }
+                    break;
+                }
 
                 /// Lazy evaluated OR
                 case Inst::OR:
@@ -409,13 +444,24 @@ namespace AYA
 
             const Variant* func = obj->getReadOnly(s);
 
-            if(func)
+            if (func)
             {
                 evalStack.push(*func);
 
                 // 2 arguments
                 uint8_t operand = 2;
                 call(operand);
+            }
+            //compare references
+            else if (op == '!' || op == '=')
+            {
+                Variant v2 = evalStack.pop();
+                INT_T result = (v == v2);
+                if (op == '!')
+                    result = !result;
+
+                evalStack.pop();
+                evalStack.push(INT(result));
             }
             else
             {

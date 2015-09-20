@@ -22,18 +22,28 @@ namespace AYA
 
     void ObjectFactory::createDefaultDef()
     {
-        TYPE_OBJECT_DEF = new TypeObject(NULL, "Type", NULL);
+        TYPE_OBJECT_DEF = new TypeObject(NULL, NULL);
         // point to itself
         TYPE_OBJECT_DEF->def = TYPE_OBJECT_DEF;
 
-        OBJECT_DEF = new TypeObject(TYPE_OBJECT_DEF, "Object", NULL);
+        OBJECT_DEF = new TypeObject(TYPE_OBJECT_DEF, NULL);
 
         // point to parent (Object doesn't have one, it's on top of the hierarchy)
         TYPE_OBJECT_DEF->parent = OBJECT_DEF;
 
-        FUNCTION_OBJECT_DEF     = new TypeObject(TYPE_OBJECT_DEF, "Function", OBJECT_DEF);
-        STRING_OBJECT_DEF       = new TypeObject(TYPE_OBJECT_DEF, "String", OBJECT_DEF);
-        LIST_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, "List", OBJECT_DEF);
+        FUNCTION_OBJECT_DEF     = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
+        STRING_OBJECT_DEF       = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
+        LIST_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
+
+        #define _SET_SHARED_VARS(DEF, name) \
+        (DEF)->setShared("type", REF(DEF), NULL); \
+        (DEF)->setShared("typename", REF(new StringObject(STRING_OBJECT_DEF, (name))), NULL);
+
+        _SET_SHARED_VARS(OBJECT_DEF, "Object");
+        _SET_SHARED_VARS(TYPE_OBJECT_DEF, "Type");
+        _SET_SHARED_VARS(FUNCTION_OBJECT_DEF, "Function");
+        _SET_SHARED_VARS(STRING_OBJECT_DEF, "String");
+        _SET_SHARED_VARS(LIST_OBJECT_DEF, "List");
 
         STRING_OBJECT_DEF->setShared("+", BIND(BuiltIn::strConcat), NULL);
         STRING_OBJECT_DEF->setShared("==", BIND(BuiltIn::strComp), NULL);
@@ -49,7 +59,9 @@ namespace AYA
         if(def == NULL)
             def = OBJECT_DEF;
 
-        return new(target) Object(def);
+        Object* p = new Object(def);
+        target.registerObj(p, sizeof(*p));
+        return p;
     }
 
     TypeObject* ObjectFactory::makeType(const STRING_T& name, TypeObject* parent, TypeObject* def)
@@ -57,7 +69,13 @@ namespace AYA
         if(def == NULL)
             def = TYPE_OBJECT_DEF;
 
-        return new(target) TypeObject(def, name, parent);
+        TypeObject* p = new TypeObject(def, parent);
+        p->setShared("type", REF(p), &target);
+        p->setShared("typename", REF(makeString(name)), &target);
+
+        target.registerObj(p, sizeof(*p) + p->shareVar.size());
+
+        return p;
     }
 
     Closure* ObjectFactory::makeClosure(const FunctionPrototype* proto, const pEnvironment& env, TypeObject* def)
@@ -73,7 +91,9 @@ namespace AYA
         if(def == NULL)
             def = STRING_OBJECT_DEF;
 
-        return new(target) StringObject(def, init);
+        StringObject* p = new StringObject(def, init);
+        target.registerObj(p, sizeof(*p) + init.size());
+        return p;
     }
 
     ListObject* ObjectFactory::makeList(std::vector<Variant>&& init, TypeObject* def)
@@ -82,7 +102,7 @@ namespace AYA
             def = LIST_OBJECT_DEF;
 
         ListObject* p = new ListObject(def, std::move(init));
-        target.registerObj(p, sizeof(ListObject) + init.capacity());
+        target.registerObj(p, sizeof(*p) + init.capacity());
 
         return p;
     }

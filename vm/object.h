@@ -61,6 +61,7 @@ namespace AYA
         class InstVar : public SymbolTable
         {
             friend class Object;
+            friend class ObjectFactory;
         } instVar;
     };
 
@@ -69,15 +70,12 @@ namespace AYA
     {
         friend class ObjectFactory;
     protected:
-        TypeObject(TypeObject* _def, const STRING_T& name, TypeObject* _parent)
+        TypeObject(TypeObject* _def, TypeObject* _parent)
         :
             Object(_def),
             parent(_parent),
             constructor(NULL)
-        {
-            //TODO
-            //instVar["name"] = name;
-        }
+        {}
 
         TypeObject(const TypeObject& o)
         :
@@ -120,6 +118,7 @@ namespace AYA
         class ShareVar : public SymbolTable
         {
             friend class TypeObject;
+            friend class ObjectFactory;
         } shareVar;
     };
 

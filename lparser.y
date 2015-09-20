@@ -46,6 +46,7 @@
     #include "parser/call_node.h"
     #include "parser/decl_node.h"
     #include "parser/list_constr_node.h"
+    #include "parser/for_node.h"
 
     #ifdef DEBUG
         #include <iostream>
@@ -96,7 +97,7 @@ stat(S)     ::= WHILE exp(C) DO block(B) END. { S = new WhileNode(C, B); }
 
 stat(S)     ::= REPEAT block(B) UNTIL exp(C). { S = new RepeatNode(C, B); }
 
-stat        ::= FOR ident_list IN exp_list DO block END.
+stat(S)     ::= FOR IDENT(I) IN exp(E) DO block(B) END. { S = new ForNode(I, E, B); }
 
 stat(S)     ::= IF exp(C) THEN block(B) else(E) END. { S = new IfNode(C, B, E); }
 else(S)     ::= . { S = NULL; }

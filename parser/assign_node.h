@@ -33,6 +33,7 @@ namespace AYA
         ~AssignNode()
         {
             delete expr;
+            delete var;
         }
 
         void gen(FunctionBuilder& target)

@@ -5,6 +5,7 @@
 
 #define OPCODES(DO) \
     DO(NOP) \
+    DO(POP) \
     DO(LOAD) \
     DO(STORE) \
     /*MEMBER ACCESS*/ \
@@ -38,7 +39,8 @@
     DO(CLOSURE) \
     DO(LISTC) \
     DO(DICTC) \
-    DO(POP)
+    /*FOR*/\
+    DO(ITER)
 
 #define STRINGIFY(x) #x,
 
