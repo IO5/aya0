@@ -12,7 +12,6 @@
 %left AND.
 %left EQ NEQ.
 %nonassoc L G LEQ GEQ.
-%nonassoc RANGEOP.
 %left PLUS MINUS.
 %left MUL DIV MOD.
 %right NOT.
@@ -194,8 +193,6 @@ exp(E)      ::= exp(A) LEQ exp(B). { E = new BinOpNode<'<'+'='>(A, B); }
 exp(E)      ::= exp(A) GEQ exp(B). { E = new BinOpNode<'>'+'='>(A, B); }
 exp(E)      ::= exp(A) NEQ exp(B). { E = new BinOpNode<'!'>(A, B); }
 exp(E)      ::= exp(A) EQ exp(B).  { E = new BinOpNode<'='>(A, B); }
-
-exp         ::= exp RANGEOP exp. //TODO
 
 exp(E)      ::= exp(A) PLUS exp(B).     { E = new BinOpNode<'+'>(A, B); }
 exp(E)      ::= exp(A) MINUS exp(B).    { E = new BinOpNode<'-'>(A, B); }

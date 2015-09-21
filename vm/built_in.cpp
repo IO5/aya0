@@ -2,6 +2,8 @@
 
 #include "boost/format.hpp"
 
+#include <algorithm>
+
 namespace AYA
 {
     using boost::format;
@@ -24,11 +26,10 @@ namespace AYA
             case BType::OBJ:
             {
                 Object* obj = val.value.ref;
-                const Variant* tname = obj->get("typename");
-                if (state->getBuildInType(*tname) == BType::STR)
-                    io.write("<" + state->getStr(*tname) + ">");
-                else
-                    io.write("<Object>");
+                const Variant* type = obj->get("type");
+                const Variant* tname = type->value.ref->get("name");
+                io.write("<" + state->getStr(*tname) + ">");
+
                 break;
             }
             case BType::TYPE:
@@ -231,6 +232,96 @@ namespace AYA
 
         auto& list = static_cast<ListObject*>(arg.value.ref)->content;
         AYA_setIntResult(state, list.size());
+
+        return 0;
+    }
+
+    int BuiltIn::range(VM* state)
+    {
+        int argCount = AYA_getArgCount(state);
+
+        INT_T step = 1;
+        if (argCount >= 3)
+        {
+            if (!AYA_getIntArg(state, 2, &step))
+            {
+                AYA_setErrorMsg(state, "Wrong step");
+                return -1;
+            }
+        }
+
+        INT_T start = 0, end;
+        if (argCount >= 2)
+        {
+            if (!AYA_getIntArg(state, 1, &end))
+            {
+                AYA_setErrorMsg(state, "Wrong end");
+                return -1;
+            }
+            if (!AYA_getIntArg(state, 0, &start))
+            {
+                AYA_setErrorMsg(state, "Wrong start");
+                return -1;
+            }
+            if ((step < 0 && end > start) || (step > 0 && end < start))
+            {
+                AYA_setErrorMsg(state, "Wrong arguments");
+                return -1;
+            }
+        }
+        else if (argCount == 1)
+        {
+            if (!AYA_getIntArg(state, 0, &end))
+            {
+                AYA_setErrorMsg(state, "Wrong end");
+                return -1;
+            }
+        }
+        else
+        {
+            AYA_setErrorMsg(state, "Not enough arguments");
+            return -1;
+        }
+
+        std::vector<Variant> range;
+        int sign = step < 0 ? -1 : 1;
+        for (INT_T i = start; i*sign < end*sign; i += step)
+        {
+            range.push_back(i);
+        }
+
+        Variant& res = state->evalStack.cCallFrame.frameBottom()[0];
+        ListObject* list = state->objectFactory.makeList(std::move(range));
+
+        res = REF(list);
+
+        return 0;
+    }
+
+    int BuiltIn::flattenDict(VM* state)
+    {
+        AYA_assertArgCount(state, 0);
+
+        Variant& self = state->evalStack.self;
+        Variant& res = *(state->evalStack.cCallFrame.frameBottom());
+
+        if (state->getBuildInType(self) != BType::DICT)
+        {
+            AYA_setErrorMsg(state, "not a dict");
+            return -1;
+        }
+
+        auto& dict = static_cast<DictObject*>(self.value.ref)->content;
+        std::vector<Variant> list;
+        for (auto& pair : dict)
+        {
+            Object* obj = state->objectFactory.makeObject();
+            obj->set("key", pair.first, &state->gc);
+            obj->set("val", pair.second, &state->gc);
+            list.push_back(REF(obj));
+        }
+
+        res = REF(state->objectFactory.makeList(std::move(list)));
 
         return 0;
     }

@@ -71,6 +71,9 @@ namespace AYA
         static int listComp(VM* state);
         static int listConcat(VM* state);
         static int listLen(VM* state);
+        static int range(VM* state);
+
+        static int flattenDict(VM* state);
     };
 }
 

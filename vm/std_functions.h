@@ -245,12 +245,6 @@ namespace AYA
         Variant& v = evalStack.peek();
         v.value.integer = !v.value.integer;
     }
-
-    // --------------- Object Methods ---------------
-//    int to_s(VM* state)
-//    {
-//
-//    }
 }
 
 #endif // STD_FUNCTIONS_H_INCLUDED

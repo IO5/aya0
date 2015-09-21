@@ -88,6 +88,28 @@ namespace AYA
 
             return builder.getResult();
         }
+
+        const FunctionPrototype* generateCode(const std::vector<IDENT_T>& args)
+        {
+            Lemon(pParser, 0, NULL, &AST);
+
+            assert(AST);
+
+            FunctionBuilder builder(target);
+
+            AST->gen(builder);
+
+            builder.addInst(Inst::LNIL); // TODO see func_node.h
+            builder.addInst(Inst::RET);
+
+            for (auto& arg : args)
+                builder.addArg(arg);
+
+            delete AST;
+            AST = NULL;
+
+            return builder.getResult();
+        }
     };
 
 }

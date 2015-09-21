@@ -125,7 +125,6 @@ mode MAIN :
     ==              => TK_EQ;
 
     ":"             => TK_COLON;
-    ".."            => TK_RANGEOP;
     "+"             => TK_PLUS;
     "-"             => TK_MINUS;
     "*"             => TK_MUL;

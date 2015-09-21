@@ -51,6 +51,7 @@ namespace AYA
 
         void mark();
         void _run();
+        const FunctionPrototype* _parse(const STRING_T& input, const std::vector<IDENT_T>& args = std::vector<IDENT_T>());
         void _load(const FunctionPrototype* proto)
         {
             if(activeFunction == NULL)

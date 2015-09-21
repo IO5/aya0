@@ -9,6 +9,7 @@
 #    define ENCODING_NAME (0x0)
 #endif
 
+#include<sstream>
 #include<iostream> //TODO change to io manager
 
 namespace AYA
@@ -30,17 +31,35 @@ namespace AYA
     {
         gc.setMemoryLimit(GarbageCollector::NO_LIMIT);
 
-        Object* stdlib = objectFactory.makeObject();
-        globalEnv->set("std", REF(stdlib));
-        stdlib->set("object", REF(objectFactory.OBJECT_DEF), &gc);
-        stdlib->set("type", REF(objectFactory.TYPE_OBJECT_DEF), &gc);
-        stdlib->set("function", REF(objectFactory.FUNCTION_OBJECT_DEF), &gc);
-        stdlib->set("string", REF(objectFactory.STRING_OBJECT_DEF), &gc);
-        stdlib->set("list", REF(objectFactory.LIST_OBJECT_DEF), &gc);
-        //stdlib->set("dict_type", REF(objectFactory.DICT_OBJECT_DEF), &gc);
+        Object* stdns = objectFactory.makeObject();
+        globalEnv->set("std", REF(stdns));
+        stdns->set("object", REF(objectFactory.OBJECT_DEF), &gc);
+        stdns->set("type", REF(objectFactory.TYPE_OBJECT_DEF), &gc);
+        stdns->set("function", REF(objectFactory.FUNCTION_OBJECT_DEF), &gc);
+        stdns->set("string", REF(objectFactory.STRING_OBJECT_DEF), &gc);
+        stdns->set("list", REF(objectFactory.LIST_OBJECT_DEF), &gc);
+        stdns->set("dict", REF(objectFactory.DICT_OBJECT_DEF), &gc);
+
+        auto* contains = _parse(
+            "for e in self do "
+            "if e == arg then return 1 end "
+            "end ; return 0 ",
+            std::vector<IDENT_T>({"arg"})
+            );
+        objectFactory.LIST_OBJECT_DEF->setShared("contains", REF(objectFactory.makeClosure(contains, globalEnv)), &gc);
 
         globalEnv->set("print", BIND(BuiltIn::print));
         globalEnv->set("puts",  BIND(BuiltIn::puts));
+        globalEnv->set("range", BIND(BuiltIn::range));
+
+        objectFactory.DICT_OBJECT_DEF->setShared("iter", BIND(BuiltIn::flattenDict), &gc);
+        contains = _parse(
+            "for e in self.iter() do "
+            "if e.key == arg then return 1 end "
+            "end ; return 0 ",
+            std::vector<IDENT_T>({"arg"})
+            );
+        objectFactory.DICT_OBJECT_DEF->setShared("contains", REF(objectFactory.makeClosure(contains, globalEnv)), &gc);
     }
 
     void VM::printResult()
@@ -117,6 +136,50 @@ namespace AYA
 
         clearStack();
         return 0;
+    }
+
+    const FunctionPrototype* VM::_parse(const STRING_T& input, const std::vector<IDENT_T>& args)
+    {
+        std::stringstream ins(input + "\n");
+
+        quex::Token token;
+        (void)qlex->token_p_switch(&token);
+
+        qlex->buffer_fill_region_prepare();
+
+        // Read a line from standard input
+        ins.read((char*)qlex->buffer_fill_region_begin(),
+                    qlex->buffer_fill_region_size());
+
+        if( ins.gcount() == 0 ) {
+            return NULL;
+        }
+
+        // Inform about number of read characters. Note, that getline
+        // writes a terminating zero, which has not to be part of the
+        // buffer content.
+        qlex->buffer_fill_region_finish(ins.gcount() - 1);
+
+        try
+        {
+            Parser parser(*this);
+
+            // Loop until the 'EOS' token arrives
+            do {
+                (void)qlex->receive();
+                parser.parse(&token);
+            } while( token.type_id() != TK_EOS );
+
+            return parser.generateCode(args);
+
+        }
+        catch(ParseError err)
+        {
+            while( token.type_id() != TK_EOS )
+                (void)qlex->receive();
+
+            throw err;
+        }
     }
 
     void VM::_run()
