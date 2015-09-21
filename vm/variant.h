@@ -5,8 +5,6 @@
 
 #include "../bind.h"
 
-#include <functional>
-
 namespace AYA
 {
     struct Object;

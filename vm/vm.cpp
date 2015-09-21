@@ -691,16 +691,23 @@ namespace AYA
 
     void VM::createDict(uint8_t dictSize)
     {
-//        std::vector<Variant> dict(dictSize);
-//
-//        int i = dictSize;
-//        for (auto& element : list)
-//            element = evalStack.peek(i--);
-//        evalStack.pop(dictSize);
-//
-//        evalStack.push(
-//                       REF(objectFactory.makeList(std::move(list)))
-//                       );
+        DictObject* dict = objectFactory.makeDict();
+
+        for (auto i = 0; i < dictSize; ++i)
+        {
+            Variant val = evalStack.pop();
+            Variant key = evalStack.pop();
+            if ( getType(key) != BType::INT
+                && getType(key) != BType::REAL
+                && getBuildInType(key) != BType::STR )
+            {
+                throw RuntimeError("Type error: dictionary key must be hashable");
+            }
+            dict->content[key] = val;
+        }
+
+        gc.updateObj(dict, sizeof(Variant)*dictSize*2);
+        evalStack.push(REF(dict));
     }
 
     void VM::loadCollection()
@@ -725,24 +732,18 @@ namespace AYA
             }
             else if (getType(collection) == BType::DICT)
             {
+                if ( getType(index) != BType::INT
+                    && getType(index) != BType::REAL
+                    && getBuildInType(index) != BType::STR )
+                {
+                    throw RuntimeError("Type error: dictionary key must be hashable");
+                }
 
-//                switch(tag)
-//                {
-//                    case BType::INT:
-//                    {
-//                        std::hash<INT_T> intHash;
-//                        return intHash(value.integer);
-//                    }
-//
-//                    case BType::REAL:
-//                    {
-//                        std::hash<REAL_T> realHash;
-//                        return realHash(value.real);
-//                    }
-//                    default:
-//                        return 0;
-//                }
-                abort();
+                Dict& dict = static_cast<DictObject*>(collection.value.ref)->content;
+                if (dict.find(index) == dict.end())
+                    throw RuntimeError("Key not found");
+
+                evalStack.push(dict[index]);
             }
             else
             {
@@ -778,8 +779,18 @@ namespace AYA
             }
             else if (getType(collection) == BType::DICT)
             {
-                //TODO
-                abort();
+                if ( getType(index) != BType::INT
+                    && getType(index) != BType::REAL
+                    && getBuildInType(index) != BType::STR )
+                {
+                    throw RuntimeError("Type error: dictionary key must be hashable");
+                }
+
+                Dict& dict = static_cast<DictObject*>(collection.value.ref)->content;
+                if (dict.find(index) == dict.end())
+                    gc.updateObj(collection.value.ref, sizeof(Variant)*2);
+
+                dict[index] = value;
             }
             else
             {

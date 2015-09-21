@@ -44,7 +44,7 @@ namespace AYA
             case BType::LIST:
             {
                 io.write("[");
-                auto list = static_cast<ListObject*>(val.value.ref)->content;
+                auto& list = static_cast<ListObject*>(val.value.ref)->content;
                 if (list.size() > 0)
                 {
                     printValue(state, list[0]);
@@ -58,8 +58,28 @@ namespace AYA
                 break;
             }
             case BType::DICT:
-                assert(0);
+            {
+                io.write("{");
+                Dict& dict = static_cast<DictObject*>(val.value.ref)->content;
+                Dict::iterator it = dict.begin();
+                if (it != dict.end())
+                {
+                    printValue(state, it->first);
+                    io.write(": ");
+                    printValue(state, it->second);
+                    ++it;
+                    while (it != dict.end())
+                    {
+                        io.write(", ");
+                        printValue(state, it->first);
+                        io.write(": ");
+                        printValue(state, it->second);
+                        ++it;
+                    }
+                }
+                io.write("}");
                 break;
+            }
             default:
                 io.write("<Unknown>");
         }

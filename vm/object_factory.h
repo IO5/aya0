@@ -23,7 +23,7 @@ namespace AYA
         Closure*        makeClosure (const FunctionPrototype* proto, const pEnvironment& env, TypeObject* def = NULL);
         StringObject*   makeString  (const STRING_T& init = "", TypeObject* def = NULL);
         ListObject*     makeList    (std::vector<Variant>&& init, TypeObject* def = NULL);
-        DictObject*     makeDict    (Dict&& init, TypeObject* def = NULL);
+        DictObject*     makeDict    (TypeObject* def = NULL);
 
         Object*         copy(const Object* original);
         int             getType(const Object*);

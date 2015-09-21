@@ -154,9 +154,16 @@ functioncall(C) ::= prefixexp(E) PL PR. { C = new CallNode(E, NULL); } // TODO
 functioncall(C) ::= prefixexp(E) PL exp_list(EL) PR. { C = new CallNode(E, EL); } // TODO
 
 prefixexp(E) ::= var(V). { E = V; }
-prefixexp(E) ::= STRING(A). { E = A; } // so I can do "abc".abc()
 prefixexp(E) ::= functioncall(C). { E = C; }
 prefixexp(E) ::= PL exp(A) PR. { E = A; }
+
+prefixexp(E) ::= STRING(A). { E = A; } // so I can do "abc".abc()
+
+//constructors
+prefixexp(E)      ::= SBL SBR. { E = new ListConstrNode(NULL); }
+prefixexp(E)      ::= SBL exp_list(L) SBR. { E = new ListConstrNode(L); }
+prefixexp(E)      ::= CBL CBR. { E = new DictConstrNode(NULL); }
+prefixexp(E)      ::= CBL dict_list(L) CBR. { E = new DictConstrNode(L); }
 
 exp(E)      ::= prefixexp(P). { E = P; }
 exp(E)      ::= function(F). { E = F; }
@@ -169,13 +176,6 @@ exp(E)      ::= TRUE. { E = new BoolLitNode(true); }
 exp(E)      ::= INT(A). { E = A; }
 exp(E)      ::= REAL(A). { E = A; }
 //exp(E)      ::= STRING(A). { E = A; } // moved to prefixexp
-
-//constructors
-exp(E)      ::= SBL SBR. { E = new ListConstrNode(NULL); }
-exp(E)      ::= SBL exp_list(L) SBR. { E = new ListConstrNode(L); }
-
-exp(E)      ::= CBL CBR. { E = new DictConstrNode(NULL); }
-exp(E)      ::= CBL dict_list(L) CBR. { E = new DictConstrNode(L); }
 
 %type dict_list { NodeDictList* }
 dict_list(DL) ::= exp(L) COLON exp(R). { DL = new NodeDictList(); DL->push_back(std::make_pair(L, R)); }

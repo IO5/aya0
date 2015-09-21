@@ -2,6 +2,8 @@
 #include "vm.h"
 #include "built_in.h"
 
+#include <functional>
+
 namespace AYA
 {
     ObjectFactory::ObjectFactory(VM& _target)
@@ -132,6 +134,64 @@ namespace AYA
 
         ListObject* p = new ListObject(def, std::move(init));
         target.registerObj(p, sizeof(*p) + init.capacity());
+
+        return p;
+    }
+
+    size_t ObjectFactory::dictHash(const Variant& v)
+    {
+        if (v.isINT())
+        {
+            std::hash<INT_T> intHash;
+            return intHash(v.value.integer);
+        }
+        else if (v.isREAL())
+        {
+            std::hash<REAL_T> realHash;
+            return realHash(v.value.real);
+        }
+        else if (v.isREF() && v.value.ref->getBuildInType() == BType::STR)
+        {
+            std::hash<STRING_T> strHash;
+            return strHash(static_cast<StringObject*>(v.value.ref)->content);
+        }
+        else
+        {
+            throw RuntimeError("Type error: Unable to hash an object");
+        }
+    }
+
+    bool ObjectFactory::dictComp(const Variant& a, const Variant& b)
+    {
+        if (a.tag != b.tag)
+            return false;
+
+        if (a.isINT() || a.isREAL())
+        {
+            return a == b;
+        }
+        else if (a.isREF()
+                 && a.value.ref->getBuildInType() == BType::STR
+                 && b.value.ref->getBuildInType() == BType::STR)
+        {
+            STRING_T str1 = static_cast<StringObject*>(a.value.ref)->content;
+            STRING_T str2 = static_cast<StringObject*>(b.value.ref)->content;
+            return str1 == str2;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    DictObject* ObjectFactory::makeDict(TypeObject* def)
+    {
+        if(def == NULL)
+            def = DICT_OBJECT_DEF;
+
+        Dict dict(5, dictHash, dictComp);
+        DictObject* p = new DictObject(def, std::move(dict));
+        target.registerObj(p, sizeof(*p));
 
         return p;
     }

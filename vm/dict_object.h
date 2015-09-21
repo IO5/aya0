@@ -6,13 +6,18 @@
 
 namespace AYA
 {
-    //typedef std::unordered_map<Variant, Variant> Dict;
-    typedef int Dict;
+    typedef std::unordered_map<
+        Variant,
+        Variant,
+        std::function<size_t(const Variant&)>,
+        std::function<bool(const Variant&, const Variant&)>
+        > Dict;
 
     class DictObject : public Object
     {
         friend class ObjectFactory;
     protected:
+        DictObject() = delete;
         DictObject(TypeObject* definition, Dict&& init)
         :
             Object(definition),
