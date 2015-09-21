@@ -54,4 +54,5 @@
 #define TK_SBR                             54
 #define TK_CBL                             55
 #define TK_CBR                             56
-#define TK_PIPE                            57
+#define TK_COLON                           57
+#define TK_PIPE                            58

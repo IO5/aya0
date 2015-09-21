@@ -22,11 +22,13 @@ namespace AYA
         auto it = std::find_if(constTable.begin(), constTable.end(), pred);
         if(it == constTable.end())
         {
-            constTable.push_back(target.objectFactory.makeString(str));
+            constTable.push_back(REF(target.objectFactory.makeString(str)));
             return constTable.size() - 1;
         }
         else
+        {
             return it - constTable.begin();
+        }
     }
 
     const FunctionPrototype* FunctionBuilder::getResult()

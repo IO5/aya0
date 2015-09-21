@@ -36,7 +36,10 @@ token_type
     }
     take_text
     {
-        self.text = std::string(Begin, End);
+        if (Begin != &LexemeNullObject)
+            self.text = std::string(Begin, End);
+        else
+            self.text = "";
 
         return false;
     }
@@ -121,6 +124,7 @@ mode MAIN :
     <>              => TK_NEQ;
     ==              => TK_EQ;
 
+    ":"             => TK_COLON;
     ".."            => TK_RANGEOP;
     "+"             => TK_PLUS;
     "-"             => TK_MINUS;

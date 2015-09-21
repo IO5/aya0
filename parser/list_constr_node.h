@@ -2,6 +2,7 @@
 #define LIST_CONSTR_NODE_H_INCLUDED
 
 #include "node.h"
+#include "../vm/function_prototype.h"
 
 namespace AYA
 {

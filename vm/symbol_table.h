@@ -91,6 +91,12 @@ namespace AYA
                     impl = new Impl<Hash>(static_cast<Impl<Hash>*>(o.impl));
             }
         }
+        SymbolTable(SymbolTable&& o)
+        {
+            impl = o.impl;
+            o.impl = NULL;
+        }
+
 
         ~SymbolTable()
         { delete impl; }

@@ -66,7 +66,7 @@ namespace AYA
         _SET_SHARED_VARS(FUNCTION_OBJECT_DEF, "Function");
         _SET_SHARED_VARS(STRING_OBJECT_DEF, "String");
         _SET_SHARED_VARS(LIST_OBJECT_DEF, "List");
-        _SET_SHARED_VARS(LIST_OBJECT_DEF, "Dict");
+        _SET_SHARED_VARS(DICT_OBJECT_DEF, "Dict");
 
         OBJECT_DEF->setShared("__new__", BIND(objectConstr), NULL);
 

@@ -8,7 +8,6 @@
 
 #include "../bind.h"
 
-
 #include <vector>
 
 namespace AYA

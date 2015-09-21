@@ -46,6 +46,7 @@
     #include "parser/call_node.h"
     #include "parser/decl_node.h"
     #include "parser/list_constr_node.h"
+    #include "parser/dict_constr_node.h"
     #include "parser/for_node.h"
     #include "parser/class_node.h"
 
@@ -171,7 +172,14 @@ exp(E)      ::= REAL(A). { E = A; }
 //constructors
 exp(E)      ::= SBL SBR. { E = new ListConstrNode(NULL); }
 exp(E)      ::= SBL exp_list(L) SBR. { E = new ListConstrNode(L); }
-exp(E)      ::= CBL CBR. { E; }//TODO
+
+exp(E)      ::= CBL CBR. { E = new DictConstrNode(NULL); }
+exp(E)      ::= CBL dict_list(L) CBR. { E = new DictConstrNode(L); }
+
+%type dict_list { NodeDictList* }
+dict_list(DL) ::= exp(L) COLON exp(R). { DL = new NodeDictList(); DL->push_back(std::make_pair(L, R)); }
+dict_list(DL) ::= dict_list(D) COMMA exp(L) COLON exp(R). { DL = D; DL->push_back(std::make_pair(L, R)); }
+
 
 //operations
 exp(E)      ::= PIPE exp(A) PIPE. { E = new UnOpNode<'|'>(A); }
@@ -210,4 +218,3 @@ var(V) ::= prefixexp(E) SBL exp(IDX) SBR. { V = new IndexAccessNode(E, IDX); }
 %type exp_list { NodeList<>* }
 exp_list(EL) ::= exp(E). { EL = new NodeList<>(); EL->push_back(E); }
 exp_list(EL) ::= exp_list(L) COMMA exp(E). { EL = L; EL->push_back(E); }
-

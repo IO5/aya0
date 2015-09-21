@@ -193,7 +193,7 @@ namespace AYA
                     if(v)
                         evalStack.push( *v );
                     else
-                        evalStack.push( NIL() );
+                        throw RuntimeError("Member variable \"" + str + "\" is undeclared");
 
                     break;
                 }
@@ -306,6 +306,10 @@ namespace AYA
 
                 case Inst::LISTC:
                     createList(inst.operand());
+                    break;
+
+                case Inst::DICTC:
+                    createDict(inst.operand());
                     break;
 
                 // Type constructor
@@ -609,7 +613,6 @@ namespace AYA
     {
         Variant v = evalStack.peek();
         TypeObject* type = static_cast<TypeObject*>(v.value.ref);
-        const Variant* tmp = type->getShared("__new__");
         evalStack.push(*(type->getShared("__new__")));
         call(1); //returns new object
 
@@ -678,6 +681,20 @@ namespace AYA
                        );
     }
 
+    void VM::createDict(uint8_t dictSize)
+    {
+//        std::vector<Variant> dict(dictSize);
+//
+//        int i = dictSize;
+//        for (auto& element : list)
+//            element = evalStack.peek(i--);
+//        evalStack.pop(dictSize);
+//
+//        evalStack.push(
+//                       REF(objectFactory.makeList(std::move(list)))
+//                       );
+    }
+
     void VM::loadCollection()
     {
         Variant index = evalStack.pop();
@@ -700,7 +717,23 @@ namespace AYA
             }
             else if (getType(collection) == BType::DICT)
             {
-                //TODO
+
+//                switch(tag)
+//                {
+//                    case BType::INT:
+//                    {
+//                        std::hash<INT_T> intHash;
+//                        return intHash(value.integer);
+//                    }
+//
+//                    case BType::REAL:
+//                    {
+//                        std::hash<REAL_T> realHash;
+//                        return realHash(value.real);
+//                    }
+//                    default:
+//                        return 0;
+//                }
                 abort();
             }
             else

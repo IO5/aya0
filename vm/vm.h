@@ -83,6 +83,7 @@ namespace AYA
         void unOp(uint8_t f);
 
         void createList(uint8_t f);
+        void createDict(uint8_t f);
         void loadCollection();
         void storeCollection();
     };
