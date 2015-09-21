@@ -119,7 +119,8 @@ class_body(CB)  ::= NL END . { CB = new std::vector<std::pair<Node*, Node*> >();
 class_body(CB)  ::= SCOLON END . { CB = new std::vector<std::pair<Node*, Node*> >(); }
 class_body(CB)  ::= NL DEF IDENT(I) func_body(F) class_body(B) . { CB = B; B->push_back(std::make_pair(I, F)); }
 class_body(CB)  ::= SCOLON DEF IDENT(I) func_body(F) class_body(B) . { CB = B; B->push_back(std::make_pair(I, F)); }
-
+class_body(CB)  ::= NL IDENT(I) ASSIG exp(E) class_body(B) . { CB = B; B->push_back(std::make_pair(I, E)); }
+class_body(CB)  ::= SCOLON IDENT(I) ASSIG exp(E) class_body(B) . { CB = B; B->push_back(std::make_pair(I, E)); }
 
 // func definition
 %type ident_list { NodeList<IdentNode>* }

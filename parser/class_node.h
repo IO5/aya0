@@ -10,7 +10,7 @@ namespace AYA
     {
         IDENT_T ident;
         Node* baseClass;
-        std::vector<std::pair<IDENT_T, FuncNode*> > defList;
+        std::vector<std::pair<IDENT_T, Node*> > defList;
     public:
         ClassNode(Node* _ident, Node* _baseClass, std::vector<std::pair<Node*, Node*> >* _defList)
         {
@@ -25,10 +25,10 @@ namespace AYA
                 assert(dynamic_cast<IdentNode*>(p.first));
                 IDENT_T funcIdent = (static_cast<IdentNode*>(p.first))->ident;
                 delete p.first;
-                assert(dynamic_cast<FuncNode*>(p.second));
-                FuncNode* funcDef = (static_cast<FuncNode*>(p.second));
+                assert(p.second);
+                Node* def = p.second;
 
-                defList.push_back(std::make_pair(funcIdent, funcDef));
+                defList.push_back(std::make_pair(funcIdent, def));
             }
 
             delete _defList;
@@ -53,7 +53,11 @@ namespace AYA
             for (auto& p : defList)
             {
                 // make closure
-                p.second->gen(target);
+                FuncNode* func = dynamic_cast<FuncNode*>(p.second);
+                if (func && p.first == "init")
+                    func->genInit(target);
+                else
+                    p.second->gen(target);
                 // store in type
                 target.addInst(Inst::STORET, target.addConst(p.first));
             }

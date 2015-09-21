@@ -24,6 +24,7 @@ end
 
 i = 0
 while i < 10 do
-	print(fix(fibonacci,i), "")
+	print(fix(fibonacci,i))
+	print(", ")
 	i = i + 1
 end

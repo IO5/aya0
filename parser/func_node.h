@@ -54,6 +54,28 @@ namespace AYA
 
             target.addInst(Inst::CLOSURE, target.addConst(result));
         }
+
+        void genInit(FunctionBuilder& target) //haaaaack
+        {
+            //subtarget
+            FunctionBuilder sub = target.getChild();
+
+            if(args)
+            {
+                for(IdentNode* arg : *args)
+                    sub.addArg(arg->ident);
+            }
+
+            // generate for subtarget
+            block->gen(sub);
+
+            // function must end with return
+            sub.addInst(Inst::RET);
+
+            Variant result(sub.getResult());
+
+            target.addInst(Inst::CLOSURE, target.addConst(result));
+        }
     };
 }
 

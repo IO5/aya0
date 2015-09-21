@@ -611,22 +611,27 @@ namespace AYA
     // Constructor hacky hack hack
     void VM::construct(uint8_t argCount)
     {
-        Variant v = evalStack.peek();
+        Variant &v = evalStack.peek();
         TypeObject* type = static_cast<TypeObject*>(v.value.ref);
         evalStack.push(*(type->getShared("__new__")));
         call(1); //returns new object
 
-        Variant& obj = evalStack.self = evalStack.peek();
+        Variant obj = evalStack.self = evalStack.peek();
         if (!obj.isREF())
             throw RuntimeError("Type error: not an object");
 
         const Variant* init = obj.value.ref->get( "init" );
         if(init)
         {
+            int initType = getBuildInType(*init);
+            if(initType != BType::CFUNC && initType != BType::FUNC)
+                throw RuntimeError("Invalid \"init\" function");
+
+            // take obj aside
+            evalStack.pop();
             evalStack.push( *init );
             call(argCount);
-            // ignore init's result
-            evalStack.pop();
+            evalStack.push( REF(obj) );
         }
     }
 
