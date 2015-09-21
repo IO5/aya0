@@ -57,8 +57,9 @@ namespace AYA
         DICT_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
 
         #define _SET_SHARED_VARS(DEF, name) \
+        (DEF)->set("type", REF(TYPE_OBJECT_DEF), NULL); \
         (DEF)->setShared("type", REF(DEF), NULL); \
-        (DEF)->setShared("typename", REF(new StringObject(STRING_OBJECT_DEF, (name))), NULL); \
+        (DEF)->set("name", REF(new StringObject(STRING_OBJECT_DEF, (name))), NULL); \
         (DEF)->setShared("__new__", BIND(illegalConstr), NULL);
 
         _SET_SHARED_VARS(OBJECT_DEF, "Object");
@@ -99,7 +100,7 @@ namespace AYA
 
         TypeObject* p = new TypeObject(def, parent);
         p->setShared("type", REF(p), &target);
-        p->setShared("typename", REF(makeString(name)), &target);
+        p->set("name", REF(makeString(name)), &target);
 
         target.registerObj(p, sizeof(*p) + p->shareVar.size());
 

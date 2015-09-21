@@ -205,6 +205,9 @@ namespace AYA
                     if (!obj.isREF())
                         throw RuntimeError("Type error: not an object");
 
+                    if (!gc.isRegistered(obj.value.ref) || str == "type" || str == "__new__")
+                        throw RuntimeError("Cannot modify an immutable object");
+
                     obj.value.ref->set( str, evalStack.peek(), &gc );
                     evalStack.pop(2);
                     break;

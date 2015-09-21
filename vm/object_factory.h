@@ -44,6 +44,8 @@ namespace AYA
         TypeObject* DICT_OBJECT_DEF     = NULL;
 
         static int objectConstr(VM* state);
+        static size_t dictHash(const Variant& v);
+        static bool dictComp(const Variant& a, const Variant& b);
     };
 }
 

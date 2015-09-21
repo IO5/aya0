@@ -91,6 +91,11 @@ namespace AYA
             return memoryLimit == NO_LIMIT || (memoryUsed + (uint64_t)size <= memoryLimit);
         }
 
+        bool isRegistered(ManagedMemory* p)
+        {
+            return (entries.find(p) != entries.end());
+        }
+
         void registerObj(ManagedMemory* p, size_t objSize)
         {
             if (memoryLimit != NO_LIMIT)
@@ -112,7 +117,7 @@ namespace AYA
             if (memoryLimit != NO_LIMIT)
             {
                 if (memoryUsed + sizeChange > memoryLimit)
-                    throw RuntimeError("Memory limit reached.");
+                    throw RuntimeError("Memory limit reached");
                 else
                     memoryUsed += sizeChange;
             }
