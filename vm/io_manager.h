@@ -13,11 +13,6 @@ namespace AYA
     {
     public:
         void write(const STRING_T& str);
-    //private:
-        template<char>
-        static int printValues(VM*);
-        static int print(VM* state);
-        static int puts(VM* state);
     };
 }
 

@@ -44,7 +44,7 @@ namespace AYA
         auto* contains = _parse(
             "for e in self do "
             "if e == arg then return 1 end "
-            "end ; return 0 ",
+            "end ; return 0",
             std::vector<IDENT_T>({"arg"})
             );
         objectFactory.LIST_OBJECT_DEF->setShared("contains", REF(objectFactory.makeClosure(contains, globalEnv)), &gc);
@@ -57,7 +57,7 @@ namespace AYA
         contains = _parse(
             "for e in self.iter() do "
             "if e.key == arg then return 1 end "
-            "end ; return 0 ",
+            "end ; return 0",
             std::vector<IDENT_T>({"arg"})
             );
         objectFactory.DICT_OBJECT_DEF->setShared("contains", REF(objectFactory.makeClosure(contains, globalEnv)), &gc);
@@ -67,6 +67,13 @@ namespace AYA
         objectFactory.FILE_OBJECT_DEF->setShared("write", BIND(BuiltIn::write), &gc);
         objectFactory.FILE_OBJECT_DEF->setShared("read", BIND(BuiltIn::read), &gc);
         objectFactory.FILE_OBJECT_DEF->setShared("read_line", BIND(BuiltIn::readLine), &gc);
+
+        globalEnv->set("load_file", BIND(BuiltIn::loadFile));
+        auto* runFile = _parse(
+            "load_file(filename)()",
+            std::vector<IDENT_T>({"filename"})
+            );
+        globalEnv->set("run_file", REF(objectFactory.makeClosure(runFile, globalEnv)));
 
         globalEnv->set("exit", BIND(BuiltIn::exit));
     }

@@ -83,6 +83,8 @@ namespace AYA
         static int readLine(VM* state);
         static int write(VM* state);
 
+        static int loadFile(VM* state);
+
         static int exit(VM* state)
         {
             ::exit(0);

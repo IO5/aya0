@@ -2,6 +2,8 @@
 
 #include "boost/format.hpp"
 
+#include <sstream>
+
 namespace AYA
 {
     using boost::format;
@@ -533,5 +535,48 @@ namespace AYA
         args[0] = NIL();
 
         return 0;
+    }
+
+    int BuiltIn::loadFile(VM* state)
+    {
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        if (state->getBuildInType(arg) != BType::STR)
+        {
+            AYA_setErrorMsg(state, "not a string");
+            return -1;
+        }
+
+        using namespace boost::filesystem;
+
+        path filename(state->getStr(arg));
+
+        if (exists(filename))
+        {
+            filename = canonical(filename);
+
+            if (state->files.isFileAccessible(filename))
+            {
+                std::ifstream file(filename.string());
+
+                if (!file.good())
+                {
+                    AYA_setErrorMsg(state, "failed to open the file");
+                    return -1;
+                }
+
+                std::stringstream buffer;
+                buffer << file.rdbuf();
+                buffer << '\n';
+                const FunctionPrototype* proto = state->_parse(buffer.str());
+
+                arg = REF(state->objectFactory.makeClosure(proto, state->globalEnv));
+
+                return 0;
+            }
+        }
+
+        AYA_setErrorMsg(state, "failed to open the file, path is not on the whitelist");
+        return -1;
     }
 }
