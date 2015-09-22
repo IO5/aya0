@@ -48,6 +48,7 @@ namespace AYA
             STR     = 0143,
             LIST    = 0144,
             DICT    = 0145,
+            FILE    = 0146,
 
             // User-defined
             USR     = 0147,

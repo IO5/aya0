@@ -6,6 +6,7 @@
 #include "string_object.h"
 #include "list_object.h"
 #include "dict_object.h"
+#include "file_object.h"
 
 namespace AYA
 {
@@ -24,6 +25,7 @@ namespace AYA
         StringObject*   makeString  (const STRING_T& init = "", TypeObject* def = NULL);
         ListObject*     makeList    (std::vector<Variant>&& init, TypeObject* def = NULL);
         DictObject*     makeDict    (TypeObject* def = NULL);
+        FileObject*     makeFile    (const STRING_T& filename, TypeObject* def = NULL);
 
         Object*         copy(const Object* original);
         int             getType(const Object*);
@@ -42,6 +44,7 @@ namespace AYA
         TypeObject* STRING_OBJECT_DEF   = NULL;
         TypeObject* LIST_OBJECT_DEF     = NULL;
         TypeObject* DICT_OBJECT_DEF     = NULL;
+        TypeObject* FILE_OBJECT_DEF     = NULL;
 
         static int objectConstr(VM* state);
         static size_t dictHash(const Variant& v);

@@ -39,6 +39,7 @@ namespace AYA
         stdns->set("string", REF(objectFactory.STRING_OBJECT_DEF), &gc);
         stdns->set("list", REF(objectFactory.LIST_OBJECT_DEF), &gc);
         stdns->set("dict", REF(objectFactory.DICT_OBJECT_DEF), &gc);
+        stdns->set("file", REF(objectFactory.FILE_OBJECT_DEF), &gc);
 
         auto* contains = _parse(
             "for e in self do "
@@ -60,6 +61,14 @@ namespace AYA
             std::vector<IDENT_T>({"arg"})
             );
         objectFactory.DICT_OBJECT_DEF->setShared("contains", REF(objectFactory.makeClosure(contains, globalEnv)), &gc);
+
+        globalEnv->set("open", BIND(BuiltIn::open));
+        objectFactory.FILE_OBJECT_DEF->setShared("close", BIND(BuiltIn::close), &gc);
+        objectFactory.FILE_OBJECT_DEF->setShared("write", BIND(BuiltIn::write), &gc);
+        objectFactory.FILE_OBJECT_DEF->setShared("read", BIND(BuiltIn::read), &gc);
+        objectFactory.FILE_OBJECT_DEF->setShared("read_line", BIND(BuiltIn::readLine), &gc);
+
+        globalEnv->set("exit", BIND(BuiltIn::exit));
     }
 
     void VM::printResult()

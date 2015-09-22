@@ -7,6 +7,7 @@
 #include "eval_stack.h"
 #include "object_factory.h"
 #include "io_manager.h"
+#include "file_manager.h"
 
 #include "closure.h"
 
@@ -39,6 +40,7 @@ namespace AYA
 
         GarbageCollector gc;
         IOManager io;
+        FileManager files;
 
     //protected:
         ObjectFactory objectFactory;

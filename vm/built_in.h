@@ -73,7 +73,20 @@ namespace AYA
         static int listLen(VM* state);
         static int range(VM* state);
 
+        static int dictComp(VM* state);
+        static int dictLen(VM* state);
         static int flattenDict(VM* state);
+
+        static int open(VM* state);
+        static int close(VM* state);
+        static int read(VM* state);
+        static int readLine(VM* state);
+        static int write(VM* state);
+
+        static int exit(VM* state)
+        {
+            ::exit(0);
+        }
     };
 }
 

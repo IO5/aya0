@@ -2,8 +2,6 @@
 
 #include "boost/format.hpp"
 
-#include <algorithm>
-
 namespace AYA
 {
     using boost::format;
@@ -23,18 +21,9 @@ namespace AYA
             case BType::REAL:
                 io.write(str(format("%1%") % val.value.real));
                 break;
-            case BType::OBJ:
-            {
-                Object* obj = val.value.ref;
-                const Variant* type = obj->get("type");
-                const Variant* tname = type->value.ref->get("name");
-                io.write("<" + state->getStr(*tname) + ">");
-
-                break;
-            }
-            case BType::TYPE:
-                io.write("<Type>");
-                break;
+//            case BType::TYPE:
+//                io.write("<Type>");
+//                break;
             case BType::CFUNC:
             case BType::FUNC:
                 io.write("<Function>");
@@ -82,13 +71,29 @@ namespace AYA
                 break;
             }
             default:
-                io.write("<Unknown>");
+            {
+                if (state->getBuildInType(val) & BType::REF)
+                {
+                    Object* obj = val.value.ref;
+                    const Variant* type = obj->get("type");
+                    const Variant* tname = type->value.ref->get("name");
+                    io.write("<" + state->getStr(*tname) + ">");
+                }
+                else
+                {
+                    io.write("<unknown>");
+                }
+            }
         }
     }
 
     int BuiltIn::strComp(VM* state)
     {
-        AYA_assertArgCount(state, 2);
+        if (!AYA_assertArgCount(state, 2))
+        {
+            AYA_setErrorMsg(state, "Wrong argument count");
+            return -1;
+        }
 
         Variant* args = state->evalStack.cCallFrame.frameBottom();
 
@@ -108,7 +113,11 @@ namespace AYA
 
     int BuiltIn::strConcat(VM* state)
     {
-        AYA_assertArgCount(state, 2);
+        if (!AYA_assertArgCount(state, 2))
+        {
+            AYA_setErrorMsg(state, "Wrong argument count");
+            return -1;
+        }
 
         Variant* args = state->evalStack.cCallFrame.frameBottom();
         if (state->getBuildInType(args[0]) != BType::STR)
@@ -145,7 +154,11 @@ namespace AYA
 
     int BuiltIn::strLen(VM* state)
     {
-        AYA_assertArgCount(state, 1);
+        if (!AYA_assertArgCount(state, 1))
+        {
+            AYA_setErrorMsg(state, "Wrong argument count");
+            return -1;
+        }
 
         Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
 
@@ -163,7 +176,11 @@ namespace AYA
 
     int BuiltIn::listComp(VM* state)
     {
-        AYA_assertArgCount(state, 2);
+        if (!AYA_assertArgCount(state, 2))
+        {
+            AYA_setErrorMsg(state, "Wrong argument count");
+            return -1;
+        }
 
         Variant* args = state->evalStack.cCallFrame.frameBottom();
 
@@ -183,7 +200,11 @@ namespace AYA
 
     int BuiltIn::listConcat(VM* state)
     {
-        AYA_assertArgCount(state, 2);
+        if (!AYA_assertArgCount(state, 2))
+        {
+            AYA_setErrorMsg(state, "Wrong argument count");
+            return -1;
+        }
 
         Variant* args = state->evalStack.cCallFrame.frameBottom();
         if (state->getBuildInType(args[0]) != BType::LIST)
@@ -220,7 +241,11 @@ namespace AYA
 
     int BuiltIn::listLen(VM* state)
     {
-        AYA_assertArgCount(state, 1);
+        if (!AYA_assertArgCount(state, 1))
+        {
+            AYA_setErrorMsg(state, "Wrong argument count");
+            return -1;
+        }
 
         Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
 
@@ -300,7 +325,11 @@ namespace AYA
 
     int BuiltIn::flattenDict(VM* state)
     {
-        AYA_assertArgCount(state, 0);
+//        if (!AYA_assertArgCount(state, 0))
+//        {
+//            AYA_setErrorMsg(state, "Wrong argument count");
+//            return -1;
+//        }
 
         Variant& self = state->evalStack.self;
         Variant& res = *(state->evalStack.cCallFrame.frameBottom());
@@ -322,6 +351,186 @@ namespace AYA
         }
 
         res = REF(state->objectFactory.makeList(std::move(list)));
+
+        return 0;
+    }
+
+    int BuiltIn::dictComp(VM* state)
+    {
+        if (!AYA_assertArgCount(state, 2))
+        {
+            AYA_setErrorMsg(state, "Wrong argument count");
+            return -1;
+        }
+
+        Variant* args = state->evalStack.cCallFrame.frameBottom();
+
+        if (state->getBuildInType(args[0]) != BType::DICT ||
+            state->getBuildInType(args[1]) != BType::DICT)
+        {
+            AYA_setIntResult(state, false);
+            return 0;
+        }
+
+        const auto &dct1 = static_cast<DictObject*>(args[0].value.ref)->content;
+        const auto &dct2 = static_cast<DictObject*>(args[1].value.ref)->content;
+        AYA_setIntResult(state, dct1 == dct2);
+
+        return 0;
+    }
+
+    int BuiltIn::dictLen(VM* state)
+    {
+        if (!AYA_assertArgCount(state, 1))
+        {
+            AYA_setErrorMsg(state, "Wrong argument count");
+            return -1;
+        }
+
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        if (state->getBuildInType(arg) != BType::DICT)
+        {
+            AYA_setErrorMsg(state, "not a dictionary");
+            return -1;
+        }
+
+        auto& dict = static_cast<DictObject*>(arg.value.ref)->content;
+        AYA_setIntResult(state, dict.size());
+
+        return 0;
+    }
+
+    int BuiltIn::open(VM* state)
+    {
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        if (state->getBuildInType(arg) != BType::STR)
+        {
+            AYA_setErrorMsg(state, "not a string");
+            return -1;
+        }
+
+        using namespace boost::filesystem;
+
+        path filename(state->getStr(arg));
+
+        if (exists(filename))
+        {
+            filename = canonical(filename);
+
+            if (state->files.isFileAccessible(filename))
+            {
+                arg = REF(state->objectFactory.makeFile(filename.string()));
+                return 0;
+            }
+        }
+
+        AYA_setErrorMsg(state, "failed to open the file, path is not on the whitelist");
+        return -1;
+    }
+
+    int BuiltIn::close(VM* state)
+    {
+        Variant& self = state->evalStack.self;
+        Variant& res = *(state->evalStack.cCallFrame.frameBottom());
+
+        if (state->getBuildInType(self) != BType::FILE)
+        {
+            AYA_setErrorMsg(state, "not a file");
+            return -1;
+        }
+
+        FileObject* file = static_cast<FileObject*>(self.value.ref);
+        file->close();
+
+        res = NIL();
+        return 0;
+    }
+
+    int BuiltIn::read(VM* state)
+    {
+        Variant& self = state->evalStack.self;
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        if (state->getBuildInType(self) != BType::FILE)
+        {
+            AYA_setErrorMsg(state, "not a file");
+            return -1;
+        }
+
+        FileObject* file = static_cast<FileObject*>(self.value.ref);
+
+        STRING_T res;
+        if (state->evalStack.cCallFrame.argCount() >= 1)
+        {
+            if(!arg.isINT())
+            {
+                AYA_setErrorMsg(state, "expected integer argument");
+                return -1;
+            }
+
+            res = file->read(arg.value.integer);
+        }
+        else
+        {
+            res = file->read();
+        }
+
+        arg = REF(state->objectFactory.makeString(res));
+
+        return 0;
+    }
+
+    int BuiltIn::readLine(VM* state)
+    {
+        Variant& self = state->evalStack.self;
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        if (state->getBuildInType(self) != BType::FILE)
+        {
+            AYA_setErrorMsg(state, "not a file");
+            return -1;
+        }
+
+        FileObject* file = static_cast<FileObject*>(self.value.ref);
+
+        STRING_T res = file->readLine();
+
+        arg = REF(state->objectFactory.makeString(res));
+
+        return 0;
+    }
+
+    int BuiltIn::write(VM* state)
+    {
+        Variant& self = state->evalStack.self;
+        Variant* args = state->evalStack.cCallFrame.frameBottom();
+        size_t argCount = state->evalStack.cCallFrame.argCount();
+
+        if (state->getBuildInType(self) != BType::FILE)
+        {
+            AYA_setErrorMsg(state, "not a file");
+            return -1;
+        }
+
+        FileObject* file = static_cast<FileObject*>(self.value.ref);
+
+        for (size_t i = 0; i < argCount; ++i)
+        {
+            if (state->getBuildInType(args[i]) != BType::STR)
+            {
+                AYA_setErrorMsg(state, "all arguments must be strings");
+                return -1;
+            }
+        }
+
+        for (size_t i = 0; i < argCount; ++i)
+        {
+            file->write(state->getStr(args[i]));
+        }
+
+        args[0] = NIL();
 
         return 0;
     }

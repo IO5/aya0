@@ -116,6 +116,8 @@ stat(S)         ::= CLASS IDENT(I) class_body(B). { S = new ClassNode(I, NULL, B
 stat(S)         ::= CLASS IDENT(I) PL exp(E) PR class_body(B). { S = new ClassNode(I, E, B); }
 class_body(CB)  ::= NL END . { CB = new std::vector<std::pair<Node*, Node*> >(); }
 class_body(CB)  ::= SCOLON END . { CB = new std::vector<std::pair<Node*, Node*> >(); }
+class_body(CB)  ::= NL class_body(B) . { CB = B; }
+class_body(CB)  ::= SCOLON class_body(B) . { CB = B; }
 class_body(CB)  ::= NL DEF IDENT(I) func_body(F) class_body(B) . { CB = B; B->push_back(std::make_pair(I, F)); }
 class_body(CB)  ::= SCOLON DEF IDENT(I) func_body(F) class_body(B) . { CB = B; B->push_back(std::make_pair(I, F)); }
 class_body(CB)  ::= NL IDENT(I) ASSIG exp(E) class_body(B) . { CB = B; B->push_back(std::make_pair(I, E)); }

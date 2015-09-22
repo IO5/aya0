@@ -17,7 +17,8 @@ namespace AYA
     class Object : public ManagedMemory
     {
         friend class ObjectFactory;
-    protected:
+    protected:;
+        Object() = delete;
         explicit Object(TypeObject* definition)
         :
             def(definition)

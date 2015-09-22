@@ -57,6 +57,7 @@ namespace AYA
         STRING_OBJECT_DEF       = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
         LIST_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
         DICT_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
+        FILE_OBJECT_DEF         = new TypeObject(TYPE_OBJECT_DEF, OBJECT_DEF);
 
         #define _SET_SHARED_VARS(DEF, name) \
         (DEF)->set("type", REF(TYPE_OBJECT_DEF), NULL); \
@@ -70,6 +71,7 @@ namespace AYA
         _SET_SHARED_VARS(STRING_OBJECT_DEF, "String");
         _SET_SHARED_VARS(LIST_OBJECT_DEF, "List");
         _SET_SHARED_VARS(DICT_OBJECT_DEF, "Dict");
+        _SET_SHARED_VARS(FILE_OBJECT_DEF, "File");
 
         OBJECT_DEF->setShared("__new__", BIND(objectConstr), NULL);
 
@@ -80,6 +82,9 @@ namespace AYA
         LIST_OBJECT_DEF->setShared("+", BIND(BuiltIn::listConcat), NULL);
         LIST_OBJECT_DEF->setShared("==", BIND(BuiltIn::listComp), NULL);
         LIST_OBJECT_DEF->setShared("||", BIND(BuiltIn::listLen), NULL);
+
+        DICT_OBJECT_DEF->setShared("==", BIND(BuiltIn::dictComp), NULL);
+        DICT_OBJECT_DEF->setShared("||", BIND(BuiltIn::dictLen), NULL);
     }
 
     Object* ObjectFactory::makeObject(TypeObject* def)
@@ -193,6 +198,16 @@ namespace AYA
         DictObject* p = new DictObject(def, std::move(dict));
         target.registerObj(p, sizeof(*p));
 
+        return p;
+    }
+
+    FileObject* ObjectFactory::makeFile(const STRING_T& filename, TypeObject* def)
+    {
+        if(def == NULL)
+            def = FILE_OBJECT_DEF;
+
+        FileObject* p = new FileObject(def, filename);
+        target.registerObj(p, sizeof(*p));
         return p;
     }
 
