@@ -77,11 +77,14 @@ namespace AYA
         static int dictLen(VM* state);
         static int flattenDict(VM* state);
 
-        static int open(VM* state);
-        static int close(VM* state);
         static int read(VM* state);
         static int readLine(VM* state);
-        static int write(VM* state);
+
+        static int fileOpen(VM* state);
+        static int fileClose(VM* state);
+        static int fileRead(VM* state);
+        static int fileReadLine(VM* state);
+        static int fileWrite(VM* state);
 
         static int loadFile(VM* state);
 

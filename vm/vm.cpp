@@ -31,6 +31,11 @@ namespace AYA
     {
         gc.setMemoryLimit(GarbageCollector::NO_LIMIT);
 
+        globalEnv->set("print", BIND(BuiltIn::print));
+        globalEnv->set("puts",  BIND(BuiltIn::puts));
+        globalEnv->set("scan", BIND(BuiltIn::read));
+        globalEnv->set("gets",  BIND(BuiltIn::readLine));
+
         Object* stdns = objectFactory.makeObject();
         globalEnv->set("std", REF(stdns));
         stdns->set("object", REF(objectFactory.OBJECT_DEF), &gc);
@@ -49,8 +54,6 @@ namespace AYA
             );
         objectFactory.LIST_OBJECT_DEF->setShared("contains", REF(objectFactory.makeClosure(contains, globalEnv)), &gc);
 
-        globalEnv->set("print", BIND(BuiltIn::print));
-        globalEnv->set("puts",  BIND(BuiltIn::puts));
         globalEnv->set("range", BIND(BuiltIn::range));
 
         objectFactory.DICT_OBJECT_DEF->setShared("iter", BIND(BuiltIn::flattenDict), &gc);
@@ -62,11 +65,11 @@ namespace AYA
             );
         objectFactory.DICT_OBJECT_DEF->setShared("contains", REF(objectFactory.makeClosure(contains, globalEnv)), &gc);
 
-        globalEnv->set("open", BIND(BuiltIn::open));
-        objectFactory.FILE_OBJECT_DEF->setShared("close", BIND(BuiltIn::close), &gc);
-        objectFactory.FILE_OBJECT_DEF->setShared("write", BIND(BuiltIn::write), &gc);
-        objectFactory.FILE_OBJECT_DEF->setShared("read", BIND(BuiltIn::read), &gc);
-        objectFactory.FILE_OBJECT_DEF->setShared("read_line", BIND(BuiltIn::readLine), &gc);
+        globalEnv->set("open", BIND(BuiltIn::fileOpen));
+        objectFactory.FILE_OBJECT_DEF->setShared("close", BIND(BuiltIn::fileClose), &gc);
+        objectFactory.FILE_OBJECT_DEF->setShared("write", BIND(BuiltIn::fileWrite), &gc);
+        objectFactory.FILE_OBJECT_DEF->setShared("read", BIND(BuiltIn::fileRead), &gc);
+        objectFactory.FILE_OBJECT_DEF->setShared("read_line", BIND(BuiltIn::fileReadLine), &gc);
 
         globalEnv->set("load_file", BIND(BuiltIn::loadFile));
         auto* runFile = _parse(
@@ -107,6 +110,7 @@ namespace AYA
 
         qlex->buffer_fill_region_prepare();
 
+        parserInput->sync();
         // Read a line from standard input
         parserInput->getline((char*)qlex->buffer_fill_region_begin(),
                     qlex->buffer_fill_region_size());

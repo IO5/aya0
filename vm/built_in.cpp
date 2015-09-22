@@ -403,7 +403,7 @@ namespace AYA
         return 0;
     }
 
-    int BuiltIn::open(VM* state)
+    int BuiltIn::fileOpen(VM* state)
     {
         Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
 
@@ -432,7 +432,7 @@ namespace AYA
         return -1;
     }
 
-    int BuiltIn::close(VM* state)
+    int BuiltIn::fileClose(VM* state)
     {
         Variant& self = state->evalStack.self;
         Variant& res = *(state->evalStack.cCallFrame.frameBottom());
@@ -450,7 +450,7 @@ namespace AYA
         return 0;
     }
 
-    int BuiltIn::read(VM* state)
+    int BuiltIn::fileRead(VM* state)
     {
         Variant& self = state->evalStack.self;
         Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
@@ -484,7 +484,7 @@ namespace AYA
         return 0;
     }
 
-    int BuiltIn::readLine(VM* state)
+    int BuiltIn::fileReadLine(VM* state)
     {
         Variant& self = state->evalStack.self;
         Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
@@ -504,7 +504,7 @@ namespace AYA
         return 0;
     }
 
-    int BuiltIn::write(VM* state)
+    int BuiltIn::fileWrite(VM* state)
     {
         Variant& self = state->evalStack.self;
         Variant* args = state->evalStack.cCallFrame.frameBottom();
@@ -578,5 +578,41 @@ namespace AYA
 
         AYA_setErrorMsg(state, "failed to open the file, path is not on the whitelist");
         return -1;
+    }
+
+    int BuiltIn::read(VM* state)
+    {
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        STRING_T res;
+        if (state->evalStack.cCallFrame.argCount() >= 1)
+        {
+            if(!arg.isINT())
+            {
+                AYA_setErrorMsg(state, "expected integer argument");
+                return -1;
+            }
+
+            res = state->io.read(arg.value.integer);
+        }
+        else
+        {
+            res = state->io.read();
+        }
+
+        arg = REF(state->objectFactory.makeString(res));
+
+        return 0;
+    }
+
+    int BuiltIn::readLine(VM* state)
+    {
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        STRING_T res = state->io.readLine();
+
+        arg = REF(state->objectFactory.makeString(res));
+
+        return 0;
     }
 }
