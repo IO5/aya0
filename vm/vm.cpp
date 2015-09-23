@@ -470,7 +470,7 @@ namespace AYA
 
     void VM::mark()
     {
-        //globalEnv->mark();
+        globalEnv->mark();
         if(activeFunction)
             activeFunction->mark();
     }

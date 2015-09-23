@@ -34,7 +34,12 @@ namespace AYA
     public:
         void mark() const
         {
-            Object::mark();
+            if(!marker)
+            {
+                Object::mark();
+                for (auto& v : content)
+                        v.mark();
+            }
         }
 
         std::vector<Variant> content;

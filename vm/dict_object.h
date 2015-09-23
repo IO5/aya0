@@ -43,7 +43,15 @@ namespace AYA
     public:
         void mark() const
         {
-            Object::mark();
+            if(!marker)
+            {
+                Object::mark();
+                for (auto& v : content)
+                {
+                    v.first.mark();
+                    v.second.mark();
+                }
+            }
         }
 
         Dict content;

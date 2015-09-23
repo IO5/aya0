@@ -22,6 +22,7 @@ int main(int argc, char** argv)
             vm.printResult();
             std::cout << std::endl;
         }
+        vm.gc.collect();
     }
 
     return 0;
