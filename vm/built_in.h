@@ -3,66 +3,98 @@
 
 #include "vm.h"
 
+#include "boost/format.hpp"
+
 namespace AYA
 {
     class BuiltIn
     {
     public:
-        static void printValue(VM* state, const Variant& val);
+        template<typename T>
+        static void printValue(VM* state, const Variant& val, T printFunc)
+        {
+            using boost::format;
+            using boost::io::group;
+
+            switch(state->getBuildInType(val))
+            {
+                case BType::NIL:
+                    printFunc("nil");
+                    break;
+                case BType::INT:
+                    printFunc(str(format("%1%") % val.value.integer));
+                    break;
+                case BType::REAL:
+                    printFunc(str(format("%1%") % val.value.real));
+                    break;
+                case BType::CFUNC:
+                case BType::FUNC:
+                    printFunc("<Function>");
+                    break;
+                case BType::STR:
+                    printFunc("\"" + state->getStr(val) + "\"");
+                    break;
+                case BType::LIST:
+                {
+                    printFunc("[");
+                    auto& list = static_cast<ListObject*>(val.value.ref)->content;
+                    if (list.size() > 0)
+                    {
+                        printValue(state, list[0], printFunc);
+                        for (size_t i = 1; i < list.size(); ++i)
+                        {
+                            printFunc(", ");
+                            printValue(state, list[i], printFunc);
+                        }
+                    }
+                    printFunc("]");
+                    break;
+                }
+                case BType::DICT:
+                {
+                    printFunc("{");
+                    Dict& dict = static_cast<DictObject*>(val.value.ref)->content;
+                    Dict::iterator it = dict.begin();
+                    if (it != dict.end())
+                    {
+                        printValue(state, it->first, printFunc);
+                        printFunc(": ");
+                        printValue(state, it->second, printFunc);
+                        ++it;
+                        while (it != dict.end())
+                        {
+                            printFunc(", ");
+                            printValue(state, it->first, printFunc);
+                            printFunc(": ");
+                            printValue(state, it->second, printFunc);
+                            ++it;
+                        }
+                    }
+                    printFunc("}");
+                    break;
+                }
+                default:
+                {
+                    if (state->getBuildInType(val) & BType::REF)
+                    {
+                        Object* obj = val.value.ref;
+                        const Variant* type = obj->get("type");
+                        const Variant* tname = type->value.ref->get("name");
+                        printFunc("<" + state->getStr(*tname) + ">");
+                    }
+                    else
+                    {
+                        printFunc("<unknown>");
+                    }
+                }
+            }
+        }
 
         //puts + print
         template<char sparator>
-        static int printValues(VM* state)
-        {
-            int count = AYA_getArgCount(state);
-            IOManager& io = state->io;
-
-            Variant* args = state->evalStack.cCallFrame.frameBottom();
-
-            if (count == 1 && state->getBuildInType(args[0]) == BType::STR)
-            {
-                io.write(state->getStr(args[0]));
-            }
-            else
-            {
-                for (int i = 0; i < count; ++i)
-                {
-                    if (i)
-                    {
-                        if(sparator == ',')
-                        {
-                            io.write(", ");
-                        }
-                        else if(sparator == '\n')
-                        {
-                            io.write("\n");
-                        }
-                    }
-
-                    printValue(state, args[i]);
-                }
-            }
-
-            // puts
-            if(sparator == '\n')
-            {
-                io.write("\n");
-            }
-
-            AYA_setNilResult(state);
-
-            return 0;
-        }
-
-        static int print(VM* state)
-        {
-            return printValues<','>(state);
-        }
-
-        static int puts(VM* state)
-        {
-            return printValues<'\n'>(state);
-        }
+        static int printValues(VM* state);
+        static int print(VM* state);
+        static int puts(VM* state);
 
         static int strComp(VM* state);
         static int strConcat(VM* state);
@@ -92,6 +124,11 @@ namespace AYA
         {
             ::exit(0);
         }
+
+        static int toInt(VM* state);
+        static int ceil(VM* state);
+        static int toReal(VM* state);
+        static int toString(VM* state);
     };
 }
 

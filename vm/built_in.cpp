@@ -1,92 +1,66 @@
 #include "built_in.h"
 
-#include "boost/format.hpp"
+#include <string>
 
-#include <sstream>
+#include <cmath>
+
 
 namespace AYA
 {
     using boost::format;
     using boost::io::group;
 
-    void BuiltIn::printValue(VM* state, const Variant& val)
+    template<char sparator>
+    int BuiltIn::printValues(VM* state)
     {
+        int count = AYA_getArgCount(state);
         IOManager& io = state->io;
-        switch(state->getBuildInType(val))
+
+        Variant* args = state->evalStack.cCallFrame.frameBottom();
+
+        if (count == 1 && state->getBuildInType(args[0]) == BType::STR)
         {
-            case BType::NIL:
-                io.write("nil");
-                break;
-            case BType::INT:
-                io.write(str(format("%1%") % val.value.integer));
-                break;
-            case BType::REAL:
-                io.write(str(format("%1%") % val.value.real));
-                break;
-//            case BType::TYPE:
-//                io.write("<Type>");
-//                break;
-            case BType::CFUNC:
-            case BType::FUNC:
-                io.write("<Function>");
-                break;
-            case BType::STR:
-                io.write("\"" + state->getStr(val) + "\"");
-                break;
-            case BType::LIST:
+            io.write(state->getStr(args[0]));
+        }
+        else
+        {
+            for (int i = 0; i < count; ++i)
             {
-                io.write("[");
-                auto& list = static_cast<ListObject*>(val.value.ref)->content;
-                if (list.size() > 0)
+                if (i)
                 {
-                    printValue(state, list[0]);
-                    for (size_t i = 1; i < list.size(); ++i)
+                    if(sparator == ',')
                     {
                         io.write(", ");
-                        printValue(state, list[i]);
                     }
-                }
-                io.write("]");
-                break;
-            }
-            case BType::DICT:
-            {
-                io.write("{");
-                Dict& dict = static_cast<DictObject*>(val.value.ref)->content;
-                Dict::iterator it = dict.begin();
-                if (it != dict.end())
-                {
-                    printValue(state, it->first);
-                    io.write(": ");
-                    printValue(state, it->second);
-                    ++it;
-                    while (it != dict.end())
+                    else if(sparator == '\n')
                     {
-                        io.write(", ");
-                        printValue(state, it->first);
-                        io.write(": ");
-                        printValue(state, it->second);
-                        ++it;
+                        io.write("\n");
                     }
                 }
-                io.write("}");
-                break;
-            }
-            default:
-            {
-                if (state->getBuildInType(val) & BType::REF)
-                {
-                    Object* obj = val.value.ref;
-                    const Variant* type = obj->get("type");
-                    const Variant* tname = type->value.ref->get("name");
-                    io.write("<" + state->getStr(*tname) + ">");
-                }
-                else
-                {
-                    io.write("<unknown>");
-                }
+
+                printValue(state, args[i], [&io](const STRING_T& str){io.write(str);});
             }
         }
+
+        // puts
+        if(sparator == '\n')
+        {
+            io.write("\n");
+        }
+
+        args[0] = NIL();
+
+        return 0;
+    }
+
+    int BuiltIn::print(VM* state)
+    {
+        return printValues<','>(state);
+    }
+
+    int BuiltIn::puts(VM* state)
+    {
+        return printValues<'\n'>(state);
     }
 
     int BuiltIn::strComp(VM* state)
@@ -610,6 +584,100 @@ namespace AYA
         Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
 
         STRING_T res = state->io.readLine();
+
+        arg = REF(state->objectFactory.makeString(res));
+
+        return 0;
+    }
+
+    int BuiltIn::toInt(VM* state)
+    {
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        switch(state->getBuildInType(arg))
+        {
+        case BType::INT:
+            return 0;
+        case BType::REAL:
+            arg.value.integer = arg.value.real;
+            arg.tag = BType::INT;
+            return 0;
+        case BType::STR:
+            {
+                INT_T res;
+                std::stringstream ss(state->getStr(arg));
+                ss >> res;
+                if (!ss.fail() && ss.eof())
+                {
+                    arg.tag = BType::INT;
+                    arg.value.integer = res;
+                    return 0;
+                }
+                // no break, go to default
+            }
+        default:
+            AYA_setErrorMsg(state, "conversion to integer failed");
+            return -1;
+        }
+    }
+    int BuiltIn::ceil(VM* state)
+    {
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        switch(state->getBuildInType(arg))
+        {
+        case BType::INT:
+            return 0;
+        case BType::REAL:
+            arg.value.integer = ::ceil(arg.value.real);
+            arg.tag = BType::INT;
+            return 0;
+        default:
+            AYA_setErrorMsg(state, "invalid argument");
+            return -1;
+        }
+    }
+
+    int BuiltIn::toReal(VM* state)
+    {
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        switch(state->getBuildInType(arg))
+        {
+        case BType::INT:
+            arg.value.real = arg.value.integer;
+            arg.tag = BType::REAL;
+            return 0;
+        case BType::REAL:
+            return 0;
+        case BType::STR:
+            {
+                REAL_T res;
+                std::stringstream ss(state->getStr(arg));
+                ss >> res;
+                if (!ss.fail() && ss.eof())
+                {
+                    arg.tag = BType::REAL;
+                    arg.value.real = res;
+                    return 0;
+                }
+                // no break, go to default
+            }
+        default:
+            AYA_setErrorMsg(state, "conversion to real failed");
+            return -1;
+        }
+    }
+
+    int BuiltIn::toString(VM* state)
+    {
+        Variant& arg = *(state->evalStack.cCallFrame.frameBottom());
+
+        STRING_T res;
+        auto conv = [&](const STRING_T& str) {
+            res += str;
+        };
+        printValue(state, arg, conv);
 
         arg = REF(state->objectFactory.makeString(res));
 

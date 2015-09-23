@@ -34,18 +34,24 @@ namespace AYA
 
         globalEnv->set("print", BIND(BuiltIn::print));
         globalEnv->set("puts",  BIND(BuiltIn::puts));
-        globalEnv->set("scan", BIND(BuiltIn::read));
-        globalEnv->set("gets",  BIND(BuiltIn::readLine));
+        globalEnv->set("read", BIND(BuiltIn::read));
+        globalEnv->set("read_line",  BIND(BuiltIn::readLine));
 
-        Object* stdns = objectFactory.makeObject();
-        globalEnv->set("std", REF(stdns));
-        stdns->set("object", REF(objectFactory.OBJECT_DEF), &gc);
-        stdns->set("type", REF(objectFactory.TYPE_OBJECT_DEF), &gc);
-        stdns->set("function", REF(objectFactory.FUNCTION_OBJECT_DEF), &gc);
-        stdns->set("string", REF(objectFactory.STRING_OBJECT_DEF), &gc);
-        stdns->set("list", REF(objectFactory.LIST_OBJECT_DEF), &gc);
-        stdns->set("dict", REF(objectFactory.DICT_OBJECT_DEF), &gc);
-        stdns->set("file", REF(objectFactory.FILE_OBJECT_DEF), &gc);
+        globalEnv->set("to_i", BIND(BuiltIn::toInt));
+        globalEnv->set("floor", BIND(BuiltIn::toInt));
+        globalEnv->set("ceil", BIND(BuiltIn::ceil));
+        globalEnv->set("to_r", BIND(BuiltIn::toReal));
+        globalEnv->set("to_s", BIND(BuiltIn::toString));
+
+        Object* types = objectFactory.makeObject();
+        globalEnv->set("type", REF(types));
+        types->set("object", REF(objectFactory.OBJECT_DEF), &gc);
+        types->set("type", REF(objectFactory.TYPE_OBJECT_DEF), &gc);
+        types->set("function", REF(objectFactory.FUNCTION_OBJECT_DEF), &gc);
+        types->set("string", REF(objectFactory.STRING_OBJECT_DEF), &gc);
+        types->set("list", REF(objectFactory.LIST_OBJECT_DEF), &gc);
+        types->set("dict", REF(objectFactory.DICT_OBJECT_DEF), &gc);
+        types->set("file", REF(objectFactory.FILE_OBJECT_DEF), &gc);
 
         auto* contains = parse(
             "for e in self do "
@@ -84,7 +90,7 @@ namespace AYA
 
     void VM::printResult()
     {
-        BuiltIn::printValue(this, evalStack.lastExpr);
+        BuiltIn::printValue(this, evalStack.lastExpr, [&](const STRING_T& str){io.write(str);});
     }
 
     void VM::setParserInput(std::istream* is)
