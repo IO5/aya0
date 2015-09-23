@@ -27,12 +27,14 @@ namespace AYA
         DictObject*     makeDict    (TypeObject* def = NULL);
         FileObject*     makeFile    (const STRING_T& filename, TypeObject* def = NULL);
 
-        Object*         copy(const Object* original);
+        //Object*         copy(const Object* original);
         int             getType(const Object*);
         static int      getBuildInType(const Object*);
 
     protected:
         friend class VM;
+
+        Object*         copy(const Object* original);
 
         void createDefaultDef();
 

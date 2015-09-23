@@ -568,7 +568,7 @@ namespace AYA
                 std::stringstream buffer;
                 buffer << file.rdbuf();
                 buffer << '\n';
-                const FunctionPrototype* proto = state->_parse(buffer.str());
+                const FunctionPrototype* proto = state->parse(buffer.str());
 
                 arg = REF(state->objectFactory.makeClosure(proto, state->globalEnv));
 

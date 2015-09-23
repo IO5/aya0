@@ -12,7 +12,11 @@
 #include "closure.h"
 
 #include "../error.h"
+#include "../bind.h"
+
 #include "parser.h"
+
+#include <atomic>
 
 namespace quex { class lexer; };
 
@@ -29,23 +33,29 @@ namespace AYA
         ~VM();
 
         int run();
+        const FunctionPrototype* parse(const STRING_T& input, const std::vector<IDENT_T>& args = std::vector<IDENT_T>());
         void printResult();
         void setParserInput(std::istream*);
-        void interrupt();
+        void interrupt() { halt.store(true); };
 
         EvalStack::CCallFrame& callFrame()
         {
             return evalStack.cCallFrame;
         }
 
+        void setIntVariable(const IDENT_T& var, INT_T val) { globalEnv->set(var, INT(val)); }
+        void setRealVariable(const IDENT_T& var, REAL_T val) { globalEnv->set(var, REAL(val)); }
+        void setStringVariable(const IDENT_T& var, STRING_T val) { globalEnv->set(var, objectFactory.makeString(val)); }
+        void setCFuncVariable(const IDENT_T& var, Bind val) { globalEnv->set(var, BIND(val)); }
+        void setFuncVariable(const IDENT_T& var, const FunctionPrototype* val) { globalEnv->set(var, objectFactory.makeClosure(val, globalEnv)); }
+
         GarbageCollector gc;
         IOManager io;
         FileManager files;
 
-    //protected:
         ObjectFactory objectFactory;
-        pEnvironment globalEnv;
     protected:
+        pEnvironment globalEnv;
         EvalStack evalStack;
         FunctionCall* activeFunction;
         quex::lexer* qlex;
@@ -53,7 +63,6 @@ namespace AYA
 
         void mark();
         void _run();
-        const FunctionPrototype* _parse(const STRING_T& input, const std::vector<IDENT_T>& args = std::vector<IDENT_T>());
         void _load(const FunctionPrototype* proto)
         {
             if(activeFunction == NULL)
@@ -69,7 +78,7 @@ namespace AYA
         }
 
     private:
-        bool halt;
+        std::atomic_bool halt;
 
         void clearStack();
 

@@ -72,6 +72,7 @@ namespace AYA
     {
         typedef std::unique_ptr<ManagedMemory> upManagedMemory;
         std::map<ManagedMemory*, size_t> entries;
+//        std::vector<IDENT_T> globalEnvVars;
 //        std::set<upManagedMemory> objects;
         VM& owner;
     public:
