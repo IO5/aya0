@@ -2,27 +2,27 @@
 
 SRC = $(wildcard *.cpp vm/*.cpp parser/*.cpp) lparser.c 
 
-ifeq ($(TARGET),)
+#ifeq ($(TARGET),)
 
-all: release
+#all: release
 
-release: obj/release/dependencies
-	make TARGET=release $(filter-out release,$(MAKECMDGOALS))
+#release: obj/release/dependencies
+	#make TARGET=release $(filter-out release,$(MAKECMDGOALS))
 
-debug: obj/debug/dependencies
-	make TARGET=debug $(filter-out debug,$(MAKECMDGOALS))
+#debug: obj/debug/dependencies
+	#make TARGET=debug $(filter-out debug,$(MAKECMDGOALS))
 
 
-obj/%/dependencies: $(SRC) $(wildcad *.h vm/*.h parser/*.h)
-	mkdir -p obj/$* bin/$*
-	$(foreach FILE,$(SRC), $(CXX) -MM -std=c++11 $(FILE) | \
-	sed "s%^.*:%obj/$*/$(basename $(FILE)).o:%" >> $@ ; )
-#	$(CXX) -MM -std=c++11 $(SRC) > $@
-#	sed -i 's/^[^ ]/obj\/$*\//' $@
+#obj/%/dependencies: $(SRC) $(wildcad *.h vm/*.h parser/*.h)
+	#mkdir -p obj/$* bin/$*
+	#$(foreach FILE,$(SRC), $(CXX) -MM -std=c++11 $(FILE) | \
+	#sed "s%^.*:%obj/$*/$(basename $(FILE)).o:%" >> $@ ; )
+##	$(CXX) -MM -std=c++11 $(SRC) > $@
+##	sed -i 's/^[^ ]/obj\/$*\//' $@
 
-else
+#else
 
-FLAGS = -std=c++11 -Wall -Wextra -Winline -DQUEX_OPTION_ASSERTS_DISABLED -IC:\quex\quex-0.64.8
+FLAGS = -std=c++11 -Wall -Wextra -Winline -DQUEX_OPTION_ASSERTS_DISABLED -I$(QUEX_PATH) -I/usr/include/boost
 
 ifeq ($(TARGET),release)
 	FLAGS += -O2
@@ -41,10 +41,13 @@ EXE = bin/$(TARGET)/aya
 all: $(EXE)
 
 lparser.c: lparser.y
-	lemon -s lparser.y
+	./lemon -s lparser.y
+
+$(OBJDIR)/lparser.o: lparser.c
+	$(CXX) $(FLAGS) -o $@ -c $<
 
 lexer: lexer.qx
-	python2 "C:\quex\quex-0.64.8\quex-exe.py" --token-id-offset 256 --no-include-stack --token-id-prefix TK_ --foreign-token-id-file lparser.h -i lexer.qx -o lexer
+	python2 /home/io/quex/quex-exe.py --token-id-offset 256 --no-include-stack --token-id-prefix TK_ --foreign-token-id-file lparser.h -i lexer.qx -o lexer
 
 -include $(OBJDIR)/dependencies
 
@@ -60,7 +63,7 @@ $(OBJDIR)/vm/%.o: vm/%.cpp
 $(OBJDIR)/parser/%.o: parser/%.cpp
 	$(CXX) $(FLAGS) -o $@ -c $<
 
-endif
+#endif
 
 rebuild: clean all
 
