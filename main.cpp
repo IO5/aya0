@@ -1,7 +1,6 @@
 #include <fstream>
+#include <sstream>
 #include <iostream>
-
-#include <cassert>
 
 #include "vm/vm.h"
 
@@ -10,6 +9,12 @@ using namespace AYA;
 int main(int argc, char** argv)
 {
     VM vm;
+
+    if (argc == 2)
+    {
+        return vm.runFile(argv[1]);
+    }
+
     vm.setParserInput(&std::cin);
     vm.files.addToWhitelist(boost::filesystem::current_path());
     while (true)

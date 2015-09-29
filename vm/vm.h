@@ -14,7 +14,7 @@
 #include "../error.h"
 #include "../bind.h"
 
-#include "parser.h"
+#include "../parser.h"
 
 #include <atomic>
 
@@ -34,6 +34,7 @@ namespace AYA
 
         int run();
         const FunctionPrototype* parse(const STRING_T& input, const std::vector<IDENT_T>& args = std::vector<IDENT_T>());
+        int runFile(const STRING_T& path);
         void printResult();
         void setParserInput(std::istream*);
         void interrupt() { halt.store(true); };
