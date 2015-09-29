@@ -2,8 +2,8 @@
 #include "std_functions.h"
 #include "built_in.h"
 
-#include "lexer"
-#include "parser.h"
+#include "../lexer"
+#include "../parser.h"
 
 #ifndef     ENCODING_NAME
 #    define ENCODING_NAME (0x0)
@@ -222,6 +222,43 @@ namespace AYA
 
             throw err;
         }
+    }
+
+
+    int VM::runFile(const STRING_T& path)
+    {
+        std::ifstream file(path);
+        if (!file.good()) 
+        {
+            io.writeErr(STRING_T("Failed to open \"") + path + "\"\n");
+            return -1;
+        }
+        std::stringstream buffer;
+        buffer << file.rdbuf();
+        buffer << '\n';
+
+        try
+        {
+            auto* proto = parse(buffer.str());
+            _load(proto);
+        }
+        catch(ParseError err)
+        {
+            io.writeErr(STRING_T("Error: ") + err.what() + '\n');
+            return -1;
+        }
+
+        try
+        {
+            _run();
+        }
+        catch(RuntimeError err)
+        {
+            io.writeErr(STRING_T("Error: ") + err.what() + '\n');
+            clearStack();
+            return -1;
+        }
+        return 0;
     }
 
     void VM::_run()
