@@ -1,3 +1,5 @@
+# operator punktu stałego - rekursja nie wprost
+
 def fix(f,x)
 	return f((def(a) return fix(f,a) end), x)
 end
@@ -11,6 +13,7 @@ factorial = def(f,x)
 end
 
 puts(fix(factorial,5))
+# wyjscie: 120
 
 fibonacci = def(f,x)
 	if x == 0 then 
@@ -29,3 +32,4 @@ while i < 10 do
 	i = i + 1
 end
 puts()
+# wyjscie: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55,

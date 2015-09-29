@@ -61,6 +61,11 @@ namespace AYA
             return _caller;
         }
 
+        int depth()
+        {
+            return _caller ? _caller->depth() + 1 : 0;
+        }
+
         const InstCode& code()
         {
             return closure->proto->code;

@@ -1,0 +1,30 @@
+# Klasy i dziedziczenie
+
+class A
+	name = "A"
+	def f()
+		puts(self.name + ".f()")
+	end
+end
+
+a = A()
+a.f()
+# wyjscie: A.f()
+
+class B(A)
+	name = "B"
+end
+
+b = B()
+b.f()
+# wyjscie: B.f()
+
+class C
+	def init(arg)
+		self.memb = arg
+	end
+end
+
+c = C(23)
+puts(c.memb)
+# wyjscie: 23

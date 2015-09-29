@@ -37,6 +37,7 @@ namespace AYA
         void printResult();
         void setParserInput(std::istream*);
         void interrupt() { halt.store(true); };
+        void clearStack();
 
         EvalStack::CCallFrame& callFrame()
         {
@@ -52,6 +53,8 @@ namespace AYA
         GarbageCollector gc;
         IOManager io;
         FileManager files;
+
+        int maxRecursionDepth = 100;
 
         ObjectFactory objectFactory;
     protected:
@@ -79,8 +82,6 @@ namespace AYA
 
     private:
         std::atomic_bool halt;
-
-        void clearStack();
 
         // helpers
         int test(const Variant&);

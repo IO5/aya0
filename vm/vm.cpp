@@ -220,7 +220,7 @@ namespace AYA
             while( token.type_id() != TK_EOS )
                 (void)qlex->receive();
 
-            throw err;
+            throw RuntimeError(err.what());
         }
     }
 
@@ -345,7 +345,9 @@ namespace AYA
                     Variant& v1 = evalStack.peek(1);
                     Variant& v2 = evalStack.peek(2);
                     // no code allowing such situation should be generated
-                    assert (v1.isINT() && getBuildInType(v2) == BType::LIST);
+                    assert (v1.isINT());
+                    if (getBuildInType(v2) != BType::LIST)
+                        throw RuntimeError("List expected");
 
                     INT_T& it = v1.value.integer;
                     auto& list = static_cast<ListObject*>(v2.value.ref)->content;
@@ -764,10 +766,12 @@ namespace AYA
         else if(v.isREF() && getBuildInType(v) == BType::FUNC)
         {
             // enter aya func
+            if (activeFunction->depth() >= maxRecursionDepth)
+                throw RuntimeError("Reached maximal recursion depth");
+
             Closure* c = static_cast<Closure*>(v.value.ref);
 
             FunctionCall* newCall = new FunctionCall(c, activeFunction);
-
             newCall->enter(evalStack, argCount, evalStack.self);
 
             activeFunction = newCall;

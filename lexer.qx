@@ -106,9 +106,8 @@ mode MAIN :
     next            => TK_NEXT;
     //* Scope Labels
     local           => TK_LOCAL;
-    global          => TK_GLOBAL;
     //* Constants
-    nil              => TK_NIL;
+    nil             => TK_NIL;
     true            => TK_TRUE;
     false           => TK_FALSE;
 

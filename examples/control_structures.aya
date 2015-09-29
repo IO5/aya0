@@ -1,0 +1,22 @@
+# Struktury kontrolne
+
+puts("please enter a number: ")
+a = to_i(read())
+
+# wygeneruj liste liczba calkowitych miedzy a i 0 wlacznie
+lst = []
+repeat
+	print(a)
+	print(", ")
+	lst = lst + [a]
+	a = a + i
+until a == 0
+puts()
+
+# suma
+sum = 0
+for elem in lst do
+	sum = sum + elem
+end
+print("sum of elements: ")
+puts(sum);

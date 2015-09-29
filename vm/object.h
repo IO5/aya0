@@ -73,8 +73,7 @@ namespace AYA
         TypeObject(TypeObject* _def, TypeObject* _parent)
         :
             Object(_def),
-            parent(_parent),
-            constructor(NULL)
+            parent(_parent)
         {}
 
         TypeObject(const TypeObject& o)
@@ -108,11 +107,8 @@ namespace AYA
         /// Store shared
         void setShared(const IDENT_T& key, const Variant& val, GarbageCollector* gc);
 
-        typedef Object* (*Constructor)(VM* target);
     protected:
         TypeObject* parent;
-
-        Constructor constructor;
 
         /// Read-only variables shared between instances of defined type
         class ShareVar : public SymbolTable

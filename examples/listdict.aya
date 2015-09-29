@@ -1,0 +1,18 @@
+# list, dict, range
+
+a = [1, 2, 3, 5, 23]
+b = ["h", "e", "l", "l", "o"]
+
+zip = []
+# operator | | zwraca ilosc elementow
+for i in range(|a|) do
+	local pair = [a[i], b[i]]
+	zip = zip + [pair]
+end
+puts(zip)
+# Wyjscie: [[1, "h"], [2, "e"], [3, "l"], [5, "l"], [23, "o"]]
+
+# kolekcje moga mieszac typy przechowywanych elementow
+dict = {1: "a", 2: "b", "c": nil, 2.3: []}
+puts(dict)
+# Wyjscie: {1: "a", 2: "b", "c": nil, 2.3: []}

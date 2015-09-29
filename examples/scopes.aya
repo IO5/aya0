@@ -1,0 +1,42 @@
+# Zasiegi
+
+a = 2
+do
+	local a = 3
+	puts(a)
+	# Wyjscie: 3
+end
+puts(a)
+# Wyjscie: 2
+do
+	a = 5
+end
+puts(a)
+# Wyjscie: 5
+
+i = 3
+while i > 0 do 
+  local j 
+  if j then
+    j = j + 1
+  else
+	j = 1
+  end
+
+  do
+    # deklaruje nowa zmienna k dla kazdej iteracji
+    local k 
+    if k then
+		k = k + 1
+	  else
+		k = 1
+	  end
+    i = i - 1
+    puts(to_s(i) + ", " + to_s(j) + ", " + to_s(k))
+  end
+end
+
+# Wyjscie: 
+# 1, 2
+# 1, 1
+# 1, 0

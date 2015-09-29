@@ -1,0 +1,13 @@
+# Problem Collatza/Ulama
+
+puts("please enter a number: ")
+a = to_i(read())
+
+while a <> 1 do
+	if a % 2 == 0 then
+		a = a / 2
+	else
+		a = 3*a + 1
+	end
+	puts(a)
+end

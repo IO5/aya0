@@ -1,0 +1,38 @@
+# funkcje
+
+def f(arg1, arg2)
+	print(arg1, arg2)
+	puts()
+end
+
+# brakujace argumenty zamieniane sa na nil
+f(1)
+# wyjscie: 1, nil
+# nadmiarowe argumenty sa ignorowane
+f(1,2,3)
+# wyjscie: 1, 2
+
+def map(lst, f)
+	local res = []
+	for elem in lst do
+		res = res + [f(elem)]
+	end
+	return res
+end
+
+lst = range(1, 6)
+puts(lst)
+# wyjscie: [1, 2, 3, 4, 5]
+# definicja funkcji w miejscu
+new_lst = map( lst, (def(arg) return 2*arg+1 end) )
+puts(new_lst)
+# wyjscie: [3, 5, 7, 9, 11]
+
+# definicja nowej metody
+class A end
+a = A()
+def a.f()
+	puts("hello")
+end
+a.f()
+# wyjscie: hello
