@@ -4,6 +4,9 @@
 #include "object.h"
 #include "closure.h"
 #include "string_object.h"
+#include "list_object.h"
+#include "dict_object.h"
+#include "file_object.h"
 
 namespace AYA
 {
@@ -16,25 +19,38 @@ namespace AYA
         ObjectFactory(VM& _target);
         ~ObjectFactory();
 
-
         Object*         makeObject  (TypeObject* def = NULL);
         TypeObject*     makeType    (const STRING_T& name, TypeObject* parent = NULL, TypeObject* def = NULL);
         Closure*        makeClosure (const FunctionPrototype* proto, const pEnvironment& env, TypeObject* def = NULL);
         StringObject*   makeString  (const STRING_T& init = "", TypeObject* def = NULL);
+        ListObject*     makeList    (std::vector<Variant>&& init, TypeObject* def = NULL);
+        DictObject*     makeDict    (TypeObject* def = NULL);
+        FileObject*     makeFile    (const STRING_T& filename, TypeObject* def = NULL);
 
-        Object*         copy(const Object* original);
+        //Object*         copy(const Object* original);
         int             getType(const Object*);
-        int             getBuildInType(const Object*);
+        static int      getBuildInType(const Object*);
 
     protected:
+        friend class VM;
+
+        Object*         copy(const Object* original);
+
         void createDefaultDef();
-	
+
         GarbageCollector& target;
 
-        TypeObject* OBJECT_DEF;
-        TypeObject* TYPE_OBJECT_DEF;
-        TypeObject* FUNCTION_OBJECT_DEF;
-        TypeObject* STRING_OBJECT_DEF;
+        TypeObject* OBJECT_DEF          = NULL;
+        TypeObject* TYPE_OBJECT_DEF     = NULL;
+        TypeObject* FUNCTION_OBJECT_DEF = NULL;
+        TypeObject* STRING_OBJECT_DEF   = NULL;
+        TypeObject* LIST_OBJECT_DEF     = NULL;
+        TypeObject* DICT_OBJECT_DEF     = NULL;
+        TypeObject* FILE_OBJECT_DEF     = NULL;
+
+        static int objectConstr(VM* state);
+        static size_t dictHash(const Variant& v);
+        static bool dictComp(const Variant& a, const Variant& b);
     };
 }
 

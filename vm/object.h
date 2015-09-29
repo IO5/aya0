@@ -8,7 +8,6 @@
 
 #include "../bind.h"
 
-
 #include <vector>
 
 namespace AYA
@@ -18,7 +17,8 @@ namespace AYA
     class Object : public ManagedMemory
     {
         friend class ObjectFactory;
-    protected:
+    protected:;
+        Object() = delete;
         explicit Object(TypeObject* definition)
         :
             def(definition)
@@ -52,7 +52,7 @@ namespace AYA
         /// Load member - Read Only (no copy)
         const Variant* getReadOnly(const IDENT_T& key);
         /// Store member
-        void set(const IDENT_T& key, const Variant& val);
+        void set(const IDENT_T& key, const Variant& val, GarbageCollector* gc);
 
     protected:
         /// Type definition
@@ -61,6 +61,7 @@ namespace AYA
         class InstVar : public SymbolTable
         {
             friend class Object;
+            friend class ObjectFactory;
         } instVar;
     };
 
@@ -69,15 +70,12 @@ namespace AYA
     {
         friend class ObjectFactory;
     protected:
-        TypeObject(TypeObject* _def, const STRING_T& name, TypeObject* _parent)
+        TypeObject(TypeObject* _def, TypeObject* _parent)
         :
             Object(_def),
             parent(_parent),
             constructor(NULL)
-        {
-            //TODO
-            //instVar["name"] = name;
-        }
+        {}
 
         TypeObject(const TypeObject& o)
         :
@@ -107,6 +105,8 @@ namespace AYA
 
         /// Load shared
         const Variant* getShared(const IDENT_T& key);
+        /// Store shared
+        void setShared(const IDENT_T& key, const Variant& val, GarbageCollector* gc);
 
         typedef Object* (*Constructor)(VM* target);
     protected:
@@ -118,6 +118,7 @@ namespace AYA
         class ShareVar : public SymbolTable
         {
             friend class TypeObject;
+            friend class ObjectFactory;
         } shareVar;
     };
 
@@ -171,8 +172,13 @@ namespace AYA
     }
 
     /// Store member
-    inline void Object::set(const IDENT_T& key, const Variant& val)
+    inline void Object::set(const IDENT_T& key, const Variant& val, GarbageCollector* gc)
     {
+        if (gc && instVar.find(key) == NULL)
+        {
+            gc->updateObj(this, sizeof(val));
+        }
+
         instVar.insert(key, val);
     }
 
@@ -193,6 +199,17 @@ namespace AYA
             return parent->getShared(key);
         else
             return NULL;
+    }
+
+    /// Store shared
+    inline void TypeObject::setShared(const IDENT_T& key, const Variant& val, GarbageCollector* gc)
+    {
+        if (gc && shareVar.find(key) == NULL)
+        {
+            gc->updateObj(this, sizeof(val));
+        }
+
+        shareVar.insert(key, val);
     }
 
     inline void Variant::mark() const

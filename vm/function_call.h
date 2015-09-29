@@ -17,18 +17,15 @@ namespace AYA
             env(c->env)
         {}
 
-        void enter(EvalStack& evalStack, size_t argCount, bool selfCall)
+        void enter(EvalStack& evalStack, size_t argCount, Variant self)
         {
             enterScope();
+
+            evalStack.lastExpr = NIL();
+
+            env->insertLocal("self", self);
             // load arguments
             size_t i = 0;
-
-            if(selfCall)
-            {
-                env->insertLocal("self", evalStack.peek(argCount));
-                ++i;
-            }
-
             auto& args = closure->proto->arguments;
             while ( (i < argCount) && (i < args.size()) )
             {

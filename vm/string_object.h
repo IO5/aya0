@@ -27,6 +27,7 @@ namespace AYA
             return new StringObject(*this);
         }
 
+
         int getBuildInType() const
         {
             return BType::STR;
@@ -35,6 +36,12 @@ namespace AYA
         void mark() const
         {
             Object::mark();
+        }
+
+        size_t hash() const
+        {
+            std::hash<STRING_T> strHash;
+            return strHash(content);
         }
 
         const STRING_T content;

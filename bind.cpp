@@ -1,6 +1,8 @@
 #include "bind.h"
 #include "vm/vm.h"
 
+#include "vm/string_object.h"
+
 extern "C"
 {
     int AYA_assertArgCount(AYA::VM* state, size_t argCount)
@@ -59,6 +61,21 @@ extern "C"
             return false;
     }
 
+    int AYA_getStrArg(AYA::VM* state, size_t index, const char** result)
+    {
+        AYA::Variant& arg = state->callFrame().frameBottom()[index];
+
+        if(arg.isREF() && state->objectFactory.getType(arg.value.ref) == AYA::BType::STR)
+        {
+            AYA::StringObject* str = static_cast<AYA::StringObject*>(arg.value.ref);
+            if(result)
+                *result = str->content.c_str();
+            return true;
+        }
+        else
+            return false;
+    }
+
     void AYA_setErrorMsg(AYA::VM* state, const char* msg)
     {
         state->callFrame().setErrorMsg(msg);
@@ -77,5 +94,11 @@ extern "C"
     void AYA_setRealResult(AYA::VM* state, AYA::REAL_T result)
     {
         *(state->callFrame().frameBottom()) = REAL(result);
+    }
+
+    void AYA_setStrResult(AYA::VM* state, const char* result)
+    {
+        auto str = state->objectFactory.makeString(AYA::STRING_T(result));
+        *(state->callFrame().frameBottom()) = REF(str);
     }
 }

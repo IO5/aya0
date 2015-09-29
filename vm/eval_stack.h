@@ -14,6 +14,9 @@ namespace AYA
         std::vector<Variant> c;
 
     public:
+        Variant self = NIL();
+        Variant lastExpr;
+
         /// For communication between C functions and VM
         class CCallFrame
         {
@@ -22,7 +25,7 @@ namespace AYA
             size_t      _argCount;
             Variant*    _frameTop;
             Variant*    _frameBottom;
-            int8_t      _selfCall;
+            Variant     _self;
             STRING_T    _errorMsg;
 
         public:
@@ -36,8 +39,8 @@ namespace AYA
             Variant* frameBottom()
             { return _frameBottom; }
 
-            int8_t isSelfCall()
-            { return _selfCall; }
+            Variant& self()
+            { return _self; }
 
             const char* errorMsg()
             { return _errorMsg.c_str(); }
@@ -46,6 +49,12 @@ namespace AYA
             { _errorMsg = msg; }
 
         } cCallFrame;
+
+        /// Empty the stack
+        void clear()
+        {
+            c.clear();
+        }
 
         void push(const Variant& arg)
         {
@@ -88,12 +97,12 @@ namespace AYA
             return *(c.end()-n);
         }
 
-        CCallFrame& prepareCallFrame(size_t argCount, int8_t selfCall)
+        CCallFrame& prepareCallFrame(size_t argCount, Variant self)
         {
             assert(argCount <= c.size());
 
             cCallFrame._argCount = argCount;
-            cCallFrame._selfCall = selfCall;
+            cCallFrame._self = self;
             cCallFrame._errorMsg.clear();
 
             if(argCount == 0)

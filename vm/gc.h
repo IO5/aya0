@@ -71,47 +71,73 @@ namespace AYA
     class GarbageCollector
     {
         typedef std::unique_ptr<ManagedMemory> upManagedMemory;
-        std::map<upManagedMemory, size_t> entries;
+        std::map<ManagedMemory*, size_t> entries;
+//        std::vector<IDENT_T> globalEnvVars;
 //        std::set<upManagedMemory> objects;
         VM& owner;
     public:
         GarbageCollector(VM* _owner)
         : owner(*_owner) {}
 
-        static const long NO_LIMIT = -1;
+        static const uint64_t NO_LIMIT = UINT64_MAX;
+        static const int KILOBYTE = 1024;
 
         /// DO NOT CALL collect() WHILE PARSING
         /// objects created during code generation are not reachable until they've been loaded into VM
         /// segfaults, satan, etc
         void collect();
 
-    	bool request(size_t size)
+        bool testIfItFits(size_t size)
         {
-            return (memoryLimit == NO_LIMIT || memoryLimit - (long)size >= 0);
+            return memoryLimit == NO_LIMIT || (memoryUsed + (uint64_t)size <= memoryLimit);
         }
 
-        void registerObj(ManagedMemory* p, size_t size)
+        bool isRegistered(ManagedMemory* p)
         {
-            if(memoryLimit != NO_LIMIT)
+            return (entries.find(p) != entries.end());
+        }
+
+        void registerObj(ManagedMemory* p, size_t objSize)
+        {
+            if (memoryLimit != NO_LIMIT)
             {
-                if(memoryLimit == 0)
+                if (memoryUsed + objSize > memoryLimit)
                     throw RuntimeError("Memory limit reached.");
                 else
-                    memoryLimit -= size;
+                    memoryUsed += objSize;
             }
 
             //objects.insert(std::move(upManagedMemory(p)));
             entries.insert(
-                       std::make_pair(upManagedMemory(p), size)
+                       std::make_pair(p, objSize)
                        );
         }
 
-        void setMemoryLimit(long limit)
+        void updateObj(ManagedMemory* p, size_t sizeChange)
         {
-            memoryLimit = limit;
+            if (memoryLimit != NO_LIMIT)
+            {
+                if (memoryUsed + sizeChange > memoryLimit)
+                    throw RuntimeError("Memory limit reached");
+                else
+                    memoryUsed += sizeChange;
+            }
+
+            entries[p] += sizeChange;
+        }
+
+        void setMemoryLimit(uint64_t newLimit /*in Kb*/)
+        {
+            collect();
+
+            memoryLimit = (newLimit == NO_LIMIT) ? NO_LIMIT : newLimit*KILOBYTE;
+
+            if (memoryUsed > memoryLimit)
+                throw RuntimeError("Memory limit reached.");
         }
     private:
-        long memoryLimit = NO_LIMIT;
+        uint64_t memoryUsed = 0;
+        uint64_t memoryLimit = NO_LIMIT;
     };
 
 }

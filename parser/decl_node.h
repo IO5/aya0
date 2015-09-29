@@ -17,7 +17,9 @@ namespace AYA
             ident = (static_cast<IdentNode*>(_ident))->ident;
 
             if (_expr)
-                assignment = new AssignNode(_ident, _expr);
+            {
+                assignment = new AssignNode(new VarNode(_ident), _expr);
+            }
             else
             {
                 assignment = NULL;

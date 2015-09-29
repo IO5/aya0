@@ -22,6 +22,8 @@ SRC = $(wildcard *.cpp vm/*.cpp parser/*.cpp) lparser.c
 
 #else
 
+QUEX_PATH = /home/io/quex/
+
 FLAGS = -std=c++11 -Wall -Wextra -Winline -DQUEX_OPTION_ASSERTS_DISABLED -I$(QUEX_PATH) -I/usr/include/boost
 
 ifeq ($(TARGET),release)
@@ -47,12 +49,19 @@ $(OBJDIR)/lparser.o: lparser.c
 	$(CXX) $(FLAGS) -o $@ -c $<
 
 lexer: lexer.qx
-	python2 /home/io/quex/quex-exe.py --token-id-offset 256 --no-include-stack --token-id-prefix TK_ --foreign-token-id-file lparser.h -i lexer.qx -o lexer
+	python2 /home/io/quex/quex-exe.py \
+	--token-policy single --token-memory-management-by-user \
+	--token-id-offset 256 \
+	--no-include-stack \
+	--token-id-prefix TK_ \
+	--foreign-token-id-file lparser.h \
+	-i lexer.qx \
+	-o lexer
 
 -include $(OBJDIR)/dependencies
 
 $(EXE): $(OBJ)
-	$(CXX) $(FLAGS) -o $@ $^
+	$(CXX) $(FLAGS) -lboost_system -lboost_filesystem  -o $@ $^
 
 $(OBJDIR)/%.o: %.cpp
 	$(CXX) $(FLAGS) -o $@ -c $<

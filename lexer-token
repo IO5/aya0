@@ -226,10 +226,10 @@ QUEX_NAME_TOKEN(take_text)(Token*              __this,
 
 #   line 38 "lexer.qx"
 
-        //if(Begin != LexemeNull)
-        {
+        if (Begin != &LexemeNullObject)
             self.text = std::string(Begin, End);
-        }
+        else
+            self.text = "";
 
         return false;
     

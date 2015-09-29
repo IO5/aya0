@@ -36,10 +36,10 @@ token_type
     }
     take_text
     {
-        //if(Begin != LexemeNull)
-        {
+        if (Begin != &LexemeNullObject)
             self.text = std::string(Begin, End);
-        }
+        else
+            self.text = "";
 
         return false;
     }
@@ -85,36 +85,37 @@ mode MAIN :
     "\""            { self.string_delimiter='\"'; self << STRING; }
     '               { self.string_delimiter='\''; self << STRING; }
 
-    ///----- Keywords -----
-    \C{def}         => TK_DEF;
-    \C{do}          => TK_DO;
-    \C{end}         => TK_END;
+    ///----- Keywords ----- TODO: case sensitive
+    def             => TK_DEF;
+    class           => TK_CLASS;
+    do              => TK_DO;
+    end             => TK_END;
     //* Control
-    \C{if}          => TK_IF;
-    \C{then}        => TK_THEN;
-    \C{else}        => TK_ELSE;
-    \C{elseif}      => TK_ELSEIF;
-    \C{while}       => TK_WHILE;
-    \C{for}         => TK_FOR;
-    \C{in}          => TK_IN;
-    \C{repeat}      => TK_REPEAT;
-    \C{until}       => TK_UNTIL;
+    if              => TK_IF;
+    then            => TK_THEN;
+    else            => TK_ELSE;
+    elif            => TK_ELSEIF;
+    while           => TK_WHILE;
+    for             => TK_FOR;
+    in              => TK_IN;
+    repeat          => TK_REPEAT;
+    until           => TK_UNTIL;
     //* Jump Statements
-    \C{return}      => TK_RETURN;
-    \C{break}       => TK_BREAK;
-    \C{next}        => TK_NEXT;
+    return          => TK_RETURN;
+    break           => TK_BREAK;
+    next            => TK_NEXT;
     //* Scope Labels
-    \C{local}       => TK_LOCAL;
-    \C{global}      => TK_GLOBAL;
+    local           => TK_LOCAL;
+    global          => TK_GLOBAL;
     //* Constants
-    \C{nil}         => TK_NIL;
-    \C{true}        => TK_TRUE;
-    \C{false}       => TK_FALSE;
+    nil              => TK_NIL;
+    true            => TK_TRUE;
+    false           => TK_FALSE;
 
     ///----- Operators -----
-    \C{or}          => TK_OR;
-    \C{and}         => TK_AND;
-    \C{not}         => TK_NOT;
+    or              => TK_OR;
+    and             => TK_AND;
+    not             => TK_NOT;
     <               => TK_L;
     >               => TK_G;
     <=              => TK_LEQ;
@@ -123,7 +124,7 @@ mode MAIN :
     <>              => TK_NEQ;
     ==              => TK_EQ;
 
-    ".."            => TK_RANGEOP;
+    ":"             => TK_COLON;
     "+"             => TK_PLUS;
     "-"             => TK_MINUS;
     "*"             => TK_MUL;
@@ -134,14 +135,13 @@ mode MAIN :
     "="             => TK_ASSIG;
 
     ///----- Other Symbols -----
-    ":"             => ':';
     ","             => TK_COMMA;
     "."             => TK_DOT;
     //* Brackets
-    "["             => '[';
-    "]"             => ']';
-    "{"             => '{';
-    "}"             => '}';
+    "["             => TK_SBL;
+    "]"             => TK_SBR;
+    "{"             => TK_CBL;
+    "}"             => TK_CBR;
     "("             => TK_PL;
     ")"             => TK_PR;
 
@@ -149,16 +149,13 @@ mode MAIN :
     //* Integers
     0[0-7]*           => TK_INT(integer=stoi(Lexeme,8));
     [1-9][0-9]*       => TK_INT(integer=stoi(Lexeme,10));
-    0x[:xdigit:]+     => TK_INT(integer=stoi(Lexeme,16));
+    0[xX][:xdigit:]+     => TK_INT(integer=stoi(Lexeme,16));
     //* Floating Point
     [0-9]*\.?[0-9]+([eE][\-+]?[0-9]+)?   => TK_REAL(real=atof((char*)(Lexeme)));
-    \C{nan}           => TK_REAL(real = NAN);
-    \C{inf}
+    nan           => TK_REAL(real = NAN);
+    inf
     {
-//        if(*LexemeBegin == '-')
-//            self_write_token_p()->content.real = -INFINITY;
-//        else
-            self_write_token_p()->content.real = INFINITY;
+        self_write_token_p()->content.real = INFINITY;
         self_send(TK_REAL);
     }
 
@@ -174,6 +171,7 @@ mode STRING
 
     <<EOF>>
     {
+        self << MAIN;
         throw ParseError("Syntax error: Unterminated string");
     }
 
@@ -191,7 +189,7 @@ mode STRING
 
     \"
     {
-        if(self.string_delimiter == '\"')
+        if (self.string_delimiter == '\"')
         {
             self_accumulator_flush(TK_STRING);
             self << MAIN;
@@ -203,7 +201,7 @@ mode STRING
     }
     '
     {
-        if(self.string_delimiter == '\'')
+        if (self.string_delimiter == '\'')
         {
             self_accumulator_flush(TK_STRING);
             self << MAIN;

@@ -91,6 +91,12 @@ namespace AYA
                     impl = new Impl<Hash>(static_cast<Impl<Hash>*>(o.impl));
             }
         }
+        SymbolTable(SymbolTable&& o)
+        {
+            impl = o.impl;
+            o.impl = NULL;
+        }
+
 
         ~SymbolTable()
         { delete impl; }
@@ -106,6 +112,9 @@ namespace AYA
 
         bool empty()
         { return !impl || impl->empty(); }
+
+        size_t size()
+        { return impl ? impl->size() : 0; }
 
         Variant* find(const IDENT_T& key)
         { return impl ? impl->find(key) : NULL; }
